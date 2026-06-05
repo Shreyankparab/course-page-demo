@@ -4120,6 +4120,49 @@
       padding-bottom: 8px;
     }
 
+    /* Tabs for Indian / International */
+    .admission-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 2px;
+    }
+
+    .admission-tab-btn {
+      padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      background: transparent;
+      color: var(--text-2);
+      border: none;
+      border-bottom: 3.5px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+      user-select: none;
+      margin-bottom: -2.5px;
+    }
+
+    .admission-tab-btn:hover {
+      color: var(--accent);
+    }
+
+    .admission-tab-btn.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .admission-tab-content {
+      display: none;
+    }
+
+    .admission-tab-content.active {
+      display: block;
+    }
+
     .admission-accordion {
       max-width: 800px;
       margin: 0 auto;
@@ -4459,6 +4502,7 @@
             <span class="tech-badge">Git</span>
           </div>
         </div>
+        </div>
       </div>
     </div>
   </section>
@@ -4536,6 +4580,7 @@
             </div>
             <p>Lifelong access to updated course modules, keeping your skills current with tech shifts.</p>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -4679,6 +4724,7 @@
                   href="#">Privacy Policy</a>.</span>
             </label> -->
           </form>
+        </div>
         </div>
       </div>
     </div>
@@ -4852,9 +4898,7 @@
             </a>
           </div>
         </div>
-
-
-
+        </div>
       </div>
     </div>
   </section> -->
@@ -5041,8 +5085,8 @@
             </div>
           </div>
         </div>
+        </div>
       </div>
-
     </div>
   </section>
 
@@ -5068,6 +5112,7 @@
           <h3>Google Associate Cloud Engineer</h3>
           <p>Demonstrate expertise in deploying applications and managing Google Cloud infrastructure — one of the most
             sought-after certifications in the industry.</p>
+        </div>
         </div>
       </div>
     </div>
@@ -5099,6 +5144,7 @@
             <p>Develop the skills to deploy apps, monitor operations, and manage enterprise solutions on one of the
               world's most innovative cloud infrastructures.</p>
           </div>
+        </div>
         </div>
       </div>
     </div>
@@ -5145,6 +5191,7 @@
               credential for modern infrastructure engineers and systems administrators in high-growth startups.</p>
           </div>
         </div>
+        </div>
       </div>
     </div>
   </section>
@@ -5170,8 +5217,13 @@
       </div>
 
       <div class="admission-accordion">
-        <h5>Indian Students</h5>
-        <div class="accordion">
+        <div class="admission-tabs">
+          <button class="admission-tab-btn active" data-admission-tab="indian">Indian Students</button>
+          <button class="admission-tab-btn" data-admission-tab="international">International Students</button>
+        </div>
+
+        <div id="indian-admission" class="admission-tab-content active">
+          <div class="accordion">
           <!-- Step 1 -->
           <div class="admission-item open">
             <div class="admission-header">
@@ -5248,9 +5300,10 @@
             </div>
           </div>
         </div>
+        </div>
 
-        <h5>International Students</h5>
-        <div class="accordion">
+        <div id="international-admission" class="admission-tab-content">
+          <div class="accordion">
           <!-- Step 1 -->
           <div class="admission-item">
             <div class="admission-header">
@@ -5371,7 +5424,7 @@
             </div>
           </div>
         </div>
-
+        </div>
       </div>
     </div>
   </section>
@@ -5469,7 +5522,7 @@
           <p class="pathway-desc">Launch your own startup with backing from our incubation centre, mentor network, and
             seed funding access. Over 30 student-founded ventures have been supported to date.</p>
         </div>
-
+        </div>
       </div>
     </div>
   </section> -->
@@ -5563,6 +5616,7 @@
           </table>
         </div>
         <div class="career-table-overlay" id="careerTableToggleBtn" onclick="toggleCareerTable()"><span>Load More</span>
+        </div>
         </div>
       </div>
     </div>
@@ -5692,7 +5746,7 @@
             </svg>
           </a>
         </div>
-
+        </div>
       </div>
     </div>
   </section>
@@ -5855,7 +5909,7 @@
             </svg>
           </a>
         </div>
-
+        </div>
       </div>
     </div>
   </section>
@@ -5983,7 +6037,7 @@
             </svg>
           </a>
         </div>
-
+        </div>
       </div>
     </div>
   </section>
@@ -6113,7 +6167,7 @@
             </svg>
           </a>
         </div>
-
+        </div>
       </div>
     </div>
   </section>
@@ -6226,7 +6280,7 @@
               priority in scholarship allocation and hostel assignment.</p>
           </div>
         </div>
-
+        </div>
       </div>
     </div>
   </section>
@@ -6506,6 +6560,22 @@
         const isOpen = item.classList.contains('open');
         item.classList.toggle('open', !isOpen);
         answer.classList.toggle('open', !isOpen);
+      });
+    });
+
+    /* ── Admission Tab Switcher ── */
+    document.querySelectorAll('[data-admission-tab]').forEach(tabBtn => {
+      tabBtn.addEventListener('click', () => {
+        const targetTab = tabBtn.dataset.admissionTab;
+        
+        // Update tab buttons active class
+        document.querySelectorAll('[data-admission-tab]').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.admissionTab === targetTab);
+        });
+        
+        // Update tab content active class
+        document.getElementById('indian-admission').classList.toggle('active', targetTab === 'indian');
+        document.getElementById('international-admission').classList.toggle('active', targetTab === 'international');
       });
     });
 
