@@ -168,7 +168,6 @@
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       color: rgb(15, 23, 42);
->>>>>>> Stashed changes:course_page_ui/index.html
       margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -240,231 +239,6 @@
 
     .label {
       font-size: var(--small-size);
-<<<<<<< Updated upstream:index.html
-=======
-      line-height: var(--small-line-height);:course_page_ui/index.html
-      font-weight: var(--font-weight-heading);
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 11px 22px;
-      border-radius: var(--r);
-      font-size: var(--btn-md-size);
-      font-weight: var(--font-weight-heading);
-      cursor: pointer;
-      transition: all .2s;
-      text-decoration: none;
-      border: none;
-      font-family: 'Poppins', sans-serif;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(21, 93, 252, .3);
-    }
-
-    .btn-ghost {
-      background: transparent;
-      color: var(--accent);
-      border: 1.5px solid var(--accent);
-    }
-
-    .btn-ghost:hover {
-      background: var(--accent-light);
-    }
-
-    .btn-white {
-      background: #fff;
-      color: var(--accent);
-      font-weight: var(--font-weight-heading);
-    }
-
-    .btn-white:hover {
-      background: var(--accent-light);
-      transform: translateY(-1px);
-    }
-
-    .btn-block {
-      width: 100%;
-      justify-content: center;
-      padding: 14px;
-      font-size: var(--btn-md-size);
-    }
-
-    /* ─── 1. NAV ─────────────────────────────────────────── */
-    .nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: #fff;
-      border-bottom: 1px solid var(--card-border);
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 40px;
-    }
-
-    .nav-logo {
-      font-size: var(--h4-size);
-      font-weight: var(--font-weight-heading);
-      color: var(--text-1);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .nav-logo span {
-      color: var(--accent);
-    }
-
-    .nav-dot {
-      width: 7px;
-      height: 7px;
-      background: var(--accent);
-      border-radius: 50%;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: var(--link-size);
-      font-weight: var(--font-weight-body);
-      color: var(--text-2);
-      text-decoration: none;
-      transition: color .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
-
-    /* ─── 2. HERO (Refactored to mirror TrippyBid layout) ── */
-    .hero-ref {
-      max-width: 1160px;
-      margin: 0 auto;
-      padding: 15px 0;
-      background: #ffffff;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .hero-text-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      gap: 40px;
-      margin-bottom: 20px;
-    }
-
-    .hero-text-left {
-      flex: 1.3;
-    }
-
-    .hero-text-left h1 {
-      font-size: var(--h1-size);
-      line-height: var(--h1-line-height);
-      font-weight: var(--font-weight-heading);
-      color: #0f172a;
->>>>>>> Stashed changes:course_page_ui/index.html
-    }
-
-    .hero-text-left h1 .accent-color {
-      color: #2563eb;
-      /* blue-600 */
-    }
-
-    .hero-text-right {
-      flex: 1;
-      max-width: 440px;
-    }
-
-    .hero-text-right p {
-      font-size: var(--body-size);
-      line-height: var(--body-line-height);
-      font-weight: var(--font-weight-body);
-      color: #475569;
-    }
-
-    .hero-banner-container {
-      position: relative;
-      width: 100%;
-      height: 380px;
-      border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
-      margin-bottom: 55px;
-      /* space for overlapping horizontal search bar */
-    }
-
-    .hero-banner-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 24px;
-      display: block;
-    }
-
-    /* Top Right Floating Badges */
-    .hero-floating-badges {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 5;
-    }
-
-    .floating-badge-item {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(12px);
-      border-radius: 10px;
-      padding: 8px 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-    }
-
-    .booked-badge {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .badge-check-icon {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-    }
-
-    .badge-content {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .badge-lbl {
-      font-size: var(--small-size);
-<<<<<<< Updated upstream:index.html
-=======
       line-height: var(--small-line-height);:course_page_ui/index.html
       color: #64748b;
       font-weight: 500;
@@ -722,7 +496,6 @@
 
     .overview-tag {
       font-size: var(--small-size);
->>>>>>> Stashed changes:course_page_ui/index.html
       margin-bottom: 24px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -889,9 +662,6 @@
     }
 
     .year-tag {
-<<<<<<< Updated upstream:index.html
-      font-size: var(--small-size);
-=======
       --small-size: 12px;
       --small-line-height: 18px;
       font-size: var(--small-size);
@@ -1065,7 +835,6 @@
 
     .campus-item-desc {
       font-size: var(--small-size);
->>>>>>> Stashed changes:course_page_ui/index.html
       font-size: var(--btn-sm-size);
       padding: 10px 20px;
     }
@@ -1750,7 +1519,6 @@
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       color: rgb(15, 23, 42);
->>>>>>> Stashed changes:course_page_ui/index.html
       margin-bottom: 16px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
