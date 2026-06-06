@@ -168,7 +168,6 @@
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       color: rgb(15, 23, 42);
-      padding-top: 40px;
       margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -199,11 +198,11 @@
       font-weight: var(--font-weight-heading);
     }
 
-    p {
+    /* p {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
       font-weight: var(--font-weight-body);
-    }
+    } */
 
     li {
       font-size: var(--li-size);
@@ -225,7 +224,10 @@
       font-family: 'Poppins', sans-serif;
       background: #fff;
       color: var(--text-1);
+      font-size: var(--body-size);
       line-height: var(--body-line-height);
+      display: flex;
+      flex-direction: column;
     }
 
     /* ─── UTILS ─────────────────────────────────────────── */
@@ -235,8 +237,7 @@
     }
 
     .sec {
-      padding: 0 20px;
-      margin-top: 14px;
+      padding: 49px 20px;
     }
 
     .label {
@@ -1179,7 +1180,7 @@
       display: flex;
       flex-direction: row;
       gap: 24px;
-      margin: 32px 0 0 0;
+      margin: 0;
       padding: 0;
       width: 100%;
       box-sizing: border-box;
@@ -1773,7 +1774,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-      margin-top: 48px;
+      margin-top: 0;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
@@ -1834,6 +1835,7 @@
 
     .cert-v3-pill {
       font-size: var(--small-size);
+      line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       color: var(--accent);
       text-transform: uppercase;
@@ -2683,7 +2685,7 @@
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       color: rgb(15, 23, 42);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
       font-weight: var(--font-weight-heading);
@@ -3608,10 +3610,12 @@
     }
 
     .student-work-card {
-      background: #ffffff;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      cursor: default;
+      transition: box-shadow .2s, border-color .2s, transform .2s;
     }
 
     /* ─── STUDENT WORK CARD V2 ─────────────────────────── */
@@ -3734,15 +3738,12 @@
 
     /* ─── STUDENT WORK CARD V3 (MINIMAL) ───────────────── */
     .student-work-card-v3 {
-      position: relative;
-      aspect-ratio: 3 / 4;
-      border-radius: 16px;
+      background: #fff;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-      border: 1px solid rgba(226, 232, 240, 0.8);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      background: #ffffff;
-      cursor: pointer;
+      border: 1px solid #F1F5F9;
+      cursor: default;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .student-work-card-v3:hover {
@@ -3844,7 +3845,7 @@
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.8);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
+      cursor: default;
     }
 
     .student-work-card-v4:hover {
@@ -3903,7 +3904,7 @@
       z-index: 3;
       display: flex;
       flex-direction: column;
-      pointer-events: none;
+      pointer-events: auto;
     }
 
     .work-category-v4 {
@@ -3920,7 +3921,7 @@
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
       color: #ffffff;
-      line-height: 1.35;
+      line-height: var(--body-line-height);
       margin: 0 0 4px 0;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
       transition: color 0.2s ease;
@@ -3933,6 +3934,7 @@
     .work-student-v4 {
       font-size: var(--small-size);
       font-weight: var(--font-weight-body);
+      line-height: var(--small-line-height);
       color: rgba(255, 255, 255, 0.8);
       margin: 0;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -3978,25 +3980,26 @@
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #ffffff;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .play-btn-circle:hover {
+      background: rgba(255, 255, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: scale(1.1);
     }
 
     .play-icon {
       margin-left: 3px;
-    }
-
-    .student-work-card:hover .play-btn-circle {
-      background: rgba(255, 255, 255, 0.5);
-      border-color: rgba(255, 255, 255, 0.6);
-      transform: scale(1.1);
     }
 
     .play-btn-circle-small {
@@ -4012,11 +4015,10 @@
       color: #ffffff;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
     }
 
-    .student-work-card-v2:hover .play-btn-circle-small,
-    .student-work-card-v3:hover .play-btn-circle-small,
-    .student-work-card-v4:hover .play-btn-circle-small {
+    .play-btn-circle-small:hover {
       background: rgba(255, 255, 255, 0.5);
       border-color: rgba(255, 255, 255, 0.6);
       transform: scale(1.1);
@@ -4155,7 +4157,7 @@
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 32px;
-      margin-top: 40px;
+      margin-top: 0;
     }
 
     .campus-v2-card {
@@ -4282,8 +4284,8 @@
     .hero-video-section {
       width: 100%;
       max-width: 100%;
-      height: calc(100vh - 64px);
-      padding: 0 10px 10px;
+      height: calc(100vh - 59px);
+      padding: 5px 10px 10px;
       box-sizing: border-box;
       background: #ffffff;
     }
@@ -4966,7 +4968,7 @@
       <!-- <div class="label">What You'll Learn</div> -->
       <h2>Academic <span style="color: var(--accent);">Curriculum</span></h2>
       <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);margin-bottom:44px;max-width:560px;">
+        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);margin-bottom:36px;max-width:560px;">
         A carefully structured
         8-semester program from fundamentals to cutting-edge specialisations.</p>
 
@@ -5213,7 +5215,7 @@
       <!-- <div class="label">Credentials</div> -->
       <h2>Industry <span style="color: var(--accent);">Certifications</span></h2>
       <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto 48px;">
+        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto 36px;">
         Earn industry-recognized
         professional credentials from global technology leaders to validate your expertise and stand out to top
         recruiters.</p>
@@ -5318,7 +5320,7 @@
   <section class="sec" id="campuses-v2" style="background: #f8fafc; border-top: 1px solid #E2E8F0;">
     <div class="container">
       <!-- Section Header -->
-      <div style="text-align: center; margin-bottom: 64px;">
+      <div style="text-align: center; margin-bottom: 36px;">
         <h2 style="text-align:center; margin-bottom: 14px;">Program <span style="color: var(--accent);">Available
             at</span></h2>
         <p
@@ -5341,7 +5343,7 @@
                 <path
                   d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
               </svg>
-              <span style="font-size: var(--small-size); line-height: var(--small-line-height);" ;>Gurugram</span>
+              <span style="font-size: var(--small-size); line-height: var(--small-line-height);">Gurugram</span>
             </div>
             <p class="campus-v2-desc">
               A leading private university known for strong programs in engineering, management, and law. Focuses on
@@ -5366,13 +5368,13 @@
             <img src="ajinkya.png" alt="Ajeenkya DY Patil University Pune" loading="lazy">
           </div>
           <div class="campus-v2-body">
-            <h4 class="campus-v2-title">Ajeenkya DY Patil University Pune</h4>
+            <h5 class="campus-v2-title">Ajeenkya DY Patil University Pune</h5>
             <div class="campus-v2-loc">
               <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
               </svg>
-              <span>Pune</span>
+              <span style="font-size: var(--small-size); line-height: var(--small-line-height);">Pune</span>
             </div>
             <p class="campus-v2-desc">
               An innovation-driven university focused on future-ready education and entrepreneurship. Offers modern
@@ -5398,7 +5400,7 @@
   <!-- PLACEMENT CAROUSEL -->
   <section class="sec" id="placements" style="background-color: #ffffff;">
     <div class="container">
-      <div style="text-align:left;margin-bottom:40px;">
+      <div style="text-align:left;margin-bottom:36px;">
         <h2>Student <span style="color:var(--accent)">Placements</span></h2>
         <p
           style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);">
@@ -5943,7 +5945,7 @@
 
 
   <!-- ── 7d. CAREER OPPORTUNITY (Table View) ────────────────── -->
-  <section class="sec" id="career-table-section" style="background: #ffffff; border-top: 1px solid #F1F5F9;">
+  <section class="sec" id="career-table-section" style="background: #ffffff;">
     <div class="container">
       <!-- <div class="label">Salary & Skill Mapping</div> -->
       <h2>Career <span style="color: var(--accent);">Pathways</span></h2>
@@ -6589,7 +6591,7 @@
     <div class="container" style="text-align:center;">
       <h2>Frequently Asked <span style="color: var(--accent);">Questions</span></h2>
       <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto 48px;">
+        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto 36px;">
         Everything you need to know
         before applying. Can't find the answer? Reach us anytime.</p>
 

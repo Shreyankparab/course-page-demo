@@ -168,7 +168,6 @@
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       color: rgb(15, 23, 42);
-      padding-top: 40px;
       margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -226,6 +225,8 @@
       background: #fff;
       color: var(--text-1);
       line-height: var(--body-line-height);
+      display: flex;
+      flex-direction: column;
     }
 
     /* ─── UTILS ─────────────────────────────────────────── */
@@ -235,8 +236,7 @@
     }
 
     .sec {
-      padding: 0 20px;
-      margin-top: 14px;
+      padding: 64px 20px;
     }
 
     .label {
@@ -1179,7 +1179,7 @@
       display: flex;
       flex-direction: row;
       gap: 24px;
-      margin: 32px 0 0 0;
+      margin: 0;
       padding: 0;
       width: 100%;
       box-sizing: border-box;
@@ -1776,7 +1776,7 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
-      margin-top: 48px;
+      margin-top: 0;
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
@@ -3612,10 +3612,12 @@
     }
 
     .student-work-card {
-      background: #ffffff;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      cursor: default;
+      transition: box-shadow .2s, border-color .2s, transform .2s;
     }
 
     /* ─── STUDENT WORK CARD V2 ─────────────────────────── */
@@ -3738,15 +3740,12 @@
 
     /* ─── STUDENT WORK CARD V3 (MINIMAL) ───────────────── */
     .student-work-card-v3 {
-      position: relative;
-      aspect-ratio: 3 / 4;
-      border-radius: 16px;
+      background: #fff;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
-      border: 1px solid rgba(226, 232, 240, 0.8);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      background: #ffffff;
-      cursor: pointer;
+      border: 1px solid #F1F5F9;
+      cursor: default;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .student-work-card-v3:hover {
@@ -3848,7 +3847,7 @@
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.8);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      cursor: pointer;
+      cursor: default;
     }
 
     .student-work-card-v4:hover {
@@ -3907,7 +3906,7 @@
       z-index: 3;
       display: flex;
       flex-direction: column;
-      pointer-events: none;
+      pointer-events: auto;
     }
 
     .work-category-v4 {
@@ -3924,7 +3923,7 @@
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
       color: #ffffff;
-      line-height: 1.35;
+      line-height: var(--body-line-height);
       margin: 0 0 4px 0;
       text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
       transition: color 0.2s ease;
@@ -3937,6 +3936,7 @@
     .work-student-v4 {
       font-size: var(--small-size);
       font-weight: var(--font-weight-body);
+      line-height: var(--small-line-height);
       color: rgba(255, 255, 255, 0.8);
       margin: 0;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
@@ -3982,25 +3982,26 @@
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.35);
+      background: rgba(255, 255, 255, 0.3);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.4);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #ffffff;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .play-btn-circle:hover {
+      background: rgba(255, 255, 255, 0.5);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: scale(1.1);
     }
 
     .play-icon {
       margin-left: 3px;
-    }
-
-    .student-work-card:hover .play-btn-circle {
-      background: rgba(255, 255, 255, 0.5);
-      border-color: rgba(255, 255, 255, 0.6);
-      transform: scale(1.1);
     }
 
     .play-btn-circle-small {
@@ -4016,11 +4017,10 @@
       color: #ffffff;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
     }
 
-    .student-work-card-v2:hover .play-btn-circle-small,
-    .student-work-card-v3:hover .play-btn-circle-small,
-    .student-work-card-v4:hover .play-btn-circle-small {
+    .play-btn-circle-small:hover {
       background: rgba(255, 255, 255, 0.5);
       border-color: rgba(255, 255, 255, 0.6);
       transform: scale(1.1);
@@ -4286,8 +4286,8 @@
     .hero-video-section {
       width: 100%;
       max-width: 100%;
-      height: calc(100vh - 64px);
-      padding: 0 10px 10px;
+      height: calc(100vh - 59px);
+      padding: 5px 10px 10px;
       box-sizing: border-box;
       background: #ffffff;
     }
@@ -4960,7 +4960,7 @@
   <!-- PLACEMENT CAROUSEL -->
   <section class="sec" id="placements" style="background-color: #ffffff;">
     <div class="container">
-      <div style="text-align:left;margin-bottom:40px;">
+      <div style="text-align:left;margin-bottom:36px;">
         <h2>Student <span style="color:var(--accent)">Placements</span></h2>
         <p
           style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);">
@@ -5131,80 +5131,81 @@
       </div>
     </div>
 
-  <!-- Hiring Partners -->
-  <div class="placement-partners-section">
-    <div style="text-align:center;margin-bottom:32px;">
-      <!-- <div class="label">Our Network</div> -->
-      <h2>Hiring <span style="color:var(--accent);">Partners</span></h2>
-    </div>
-
-    <div class="marquee-stack">
-      <!-- Row 1 — scrolls left -->
-      <div class="marquee-outer">
-        <div class="marquee-track left">
-          <span class="partner-chip">Google</span>
-          <span class="partner-chip">Microsoft</span>
-          <span class="partner-chip">TCS</span>
-          <span class="partner-chip">IBM</span>
-          <span class="partner-chip">Cognizant</span>
-          <span class="partner-chip">Cisco</span>
-          <span class="partner-chip">Wipro</span>
-          <span class="partner-chip">Capgemini</span>
-          <span class="partner-chip">Siemens</span>
-          <span class="partner-chip">Infosys</span>
-          <span class="partner-chip">Accenture</span>
-          <span class="partner-chip">Oracle</span>
-          <!-- duplicate for seamless loop -->
-          <span class="partner-chip">Google</span>
-          <span class="partner-chip">Microsoft</span>
-          <span class="partner-chip">TCS</span>
-          <span class="partner-chip">IBM</span>
-          <span class="partner-chip">Cognizant</span>
-          <span class="partner-chip">Cisco</span>
-          <span class="partner-chip">Wipro</span>
-          <span class="partner-chip">Capgemini</span>
-          <span class="partner-chip">Siemens</span>
-          <span class="partner-chip">Infosys</span>
-          <span class="partner-chip">Accenture</span>
-          <span class="partner-chip">Oracle</span>
-        </div>
+    <!-- Hiring Partners -->
+    <div class="placement-partners-section">
+      <div style="text-align:center;margin-bottom:32px;">
+        <!-- <div class="label">Our Network</div> -->
+        <h2>Hiring <span style="color:var(--accent);">Partners</span></h2>
       </div>
 
-      <!-- Row 2 — scrolls right -->
-      <div class="marquee-outer">
-        <div class="marquee-track right">
-          <span class="partner-chip">Amazon</span>
-          <span class="partner-chip">Meta</span>
-          <span class="partner-chip">Deloitte</span>
-          <span class="partner-chip">HCL</span>
-          <span class="partner-chip">Zensar</span>
-          <span class="partner-chip">Mphasis</span>
-          <span class="partner-chip">L&amp;T Tech</span>
-          <span class="partner-chip">Hexaware</span>
-          <span class="partner-chip">Mindtree</span>
-          <span class="partner-chip">Persistent</span>
-          <span class="partner-chip">Birlasoft</span>
-          <span class="partner-chip">Nagarro</span>
-          <!-- duplicate for seamless loop -->
-          <span class="partner-chip">Amazon</span>
-          <span class="partner-chip">Meta</span>
-          <span class="partner-chip">Deloitte</span>
-          <span class="partner-chip">HCL</span>
-          <span class="partner-chip">Zensar</span>
-          <span class="partner-chip">Mphasis</span>
-          <span class="partner-chip">L&amp;T Tech</span>
-          <span class="partner-chip">Hexaware</span>
-          <span class="partner-chip">Mindtree</span>
-          <span class="partner-chip">Persistent</span>
-          <span class="partner-chip">Birlasoft</span>
-          <span class="partner-chip">Nagarro</span>
+      <div class="marquee-stack">
+        <!-- Row 1 — scrolls left -->
+        <div class="marquee-outer">
+          <div class="marquee-track left">
+            <span class="partner-chip">Google</span>
+            <span class="partner-chip">Microsoft</span>
+            <span class="partner-chip">TCS</span>
+            <span class="partner-chip">IBM</span>
+            <span class="partner-chip">Cognizant</span>
+            <span class="partner-chip">Cisco</span>
+            <span class="partner-chip">Wipro</span>
+            <span class="partner-chip">Capgemini</span>
+            <span class="partner-chip">Siemens</span>
+            <span class="partner-chip">Infosys</span>
+            <span class="partner-chip">Accenture</span>
+            <span class="partner-chip">Oracle</span>
+            <!-- duplicate for seamless loop -->
+            <span class="partner-chip">Google</span>
+            <span class="partner-chip">Microsoft</span>
+            <span class="partner-chip">TCS</span>
+            <span class="partner-chip">IBM</span>
+            <span class="partner-chip">Cognizant</span>
+            <span class="partner-chip">Cisco</span>
+            <span class="partner-chip">Wipro</span>
+            <span class="partner-chip">Capgemini</span>
+            <span class="partner-chip">Siemens</span>
+            <span class="partner-chip">Infosys</span>
+            <span class="partner-chip">Accenture</span>
+            <span class="partner-chip">Oracle</span>
+          </div>
+        </div>
+
+        <!-- Row 2 — scrolls right -->
+        <div class="marquee-outer">
+          <div class="marquee-track right">
+            <span class="partner-chip">Amazon</span>
+            <span class="partner-chip">Meta</span>
+            <span class="partner-chip">Deloitte</span>
+            <span class="partner-chip">HCL</span>
+            <span class="partner-chip">Zensar</span>
+            <span class="partner-chip">Mphasis</span>
+            <span class="partner-chip">L&amp;T Tech</span>
+            <span class="partner-chip">Hexaware</span>
+            <span class="partner-chip">Mindtree</span>
+            <span class="partner-chip">Persistent</span>
+            <span class="partner-chip">Birlasoft</span>
+            <span class="partner-chip">Nagarro</span>
+            <!-- duplicate for seamless loop -->
+            <span class="partner-chip">Amazon</span>
+            <span class="partner-chip">Meta</span>
+            <span class="partner-chip">Deloitte</span>
+            <span class="partner-chip">HCL</span>
+            <span class="partner-chip">Zensar</span>
+            <span class="partner-chip">Mphasis</span>
+            <span class="partner-chip">L&amp;T Tech</span>
+            <span class="partner-chip">Hexaware</span>
+            <span class="partner-chip">Mindtree</span>
+            <span class="partner-chip">Persistent</span>
+            <span class="partner-chip">Birlasoft</span>
+            <span class="partner-chip">Nagarro</span>
+          </div>
         </div>
       </div>
+      <div style="text-align:center; margin-top: 40px; padding-bottom: 90px;">
+        <a href="#" class="btn btn-primary" style="font-size:var(--btn-md-size);padding:14px 40px;">View All
+          Placements</a>
+      </div>
     </div>
-    <div style="text-align:center; margin-top: 40px; padding-bottom: 90px;">
-      <a href="#" class="btn btn-primary" style="font-size:var(--btn-md-size);padding:14px 40px;">View All Placements</a>
-    </div>
-  </div>
 
   </section>
 
@@ -5279,7 +5280,7 @@
       <!-- <div class="label">What You'll Learn</div> -->
       <h2>Academic <span style="color: var(--accent);">Curriculum</span></h2>
       <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);margin-bottom:44px;max-width:560px;">
+        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);margin-bottom:36px;max-width:560px;">
         A carefully structured
         8-semester program from fundamentals to cutting-edge specialisations.</p>
 
@@ -5526,7 +5527,7 @@
       <!-- <div class="label">Credentials</div> -->
       <h2>Industry <span style="color: var(--accent);">Certifications</span></h2>
       <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto 48px;">
+        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto 36px;">
         Earn industry-recognized
         professional credentials from global technology leaders to validate your expertise and stand out to top
         recruiters.</p>
@@ -5906,7 +5907,7 @@
 
 
   <!-- ── 7d. CAREER OPPORTUNITY (Table View) ────────────────── -->
-  <section class="sec" id="career-table-section" style="background: #ffffff; border-top: 1px solid #F1F5F9;">
+  <section class="sec" id="career-table-section" style="background: #ffffff;">
     <div class="container">
       <!-- <div class="label">Salary & Skill Mapping</div> -->
       <h2>Career <span style="color: var(--accent);">Pathways</span></h2>
@@ -6552,7 +6553,7 @@
     <div class="container" style="text-align:center;">
       <h2>Frequently Asked <span style="color: var(--accent);">Questions</span></h2>
       <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto 48px;">
+        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto 36px;">
         Everything you need to know
         before applying. Can't find the answer? Reach us anytime.</p>
 

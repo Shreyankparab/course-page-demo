@@ -168,7 +168,6 @@
       font-family: 'Poppins', sans-serif;
       font-style: normal;
       color: rgb(15, 23, 42);
-      padding-top: 40px;
       margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -226,6 +225,8 @@
       background: #fff;
       color: var(--text-1);
       line-height: var(--body-line-height);
+      display: flex;
+      flex-direction: column;
     }
 
     /* ─── UTILS ─────────────────────────────────────────── */
@@ -235,8 +236,7 @@
     }
 
     .sec {
-      padding: 0 20px;
-      margin-top: 14px;
+      padding: 64px 20px;
     }
 
     .label {
@@ -4063,8 +4063,8 @@
     .hero-video-section {
       width: 100%;
       max-width: 100%;
-      height: calc(100vh - 64px);
-      padding: 0 10px 10px;
+      height: calc(100vh - 59px);
+      padding: 5px 10px 10px;
       box-sizing: border-box;
       background: #ffffff;
     }
@@ -4079,7 +4079,8 @@
       background: #ffffff;
     }
 
-    .hero-video-wrapper video {
+    .hero-video-wrapper video,
+    .hero-video-wrapper img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -4267,7 +4268,7 @@
     /* ─── CATEGORY FILTER SWITCHER ───────────────────────── */
     .filter-container {
       position: relative;
-      margin: 32px auto 48px;
+      margin: 0 auto 48px;
       max-width: 900px;
       text-align: center;
     }
@@ -4481,13 +4482,10 @@
     <a href="#about-the-program" class="btn btn-primary">Apply Now →</a>
   </nav>
 
-  <!-- ── 2b. HERO VIDEO DISPLAY (v2) ────────────────────────── -->
+  <!-- ── 2b. HERO IMAGE DISPLAY ────────────────────────── -->
   <section class="hero-video-section">
     <div class="hero-video-wrapper">
-      <video autoplay loop muted playsinline>
-        <source src="Student-work-Placeholder-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <img src="student-placements-banner-image.jpg" alt="Student Placements Banner">
     </div>
   </section>
 
@@ -4495,7 +4493,7 @@
   <section class="sec" id="student-work">
     <div class="container">
 
-      <div style="text-align:center;margin-bottom:40px;">
+      <div style="text-align:center;margin-bottom:36px;">
         <h2>Student <span style="color:var(--accent);">Work</span></h2>
         <p
           style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:780px;margin:0 auto;">
