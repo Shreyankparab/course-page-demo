@@ -234,7 +234,8 @@
     }
 
     .sec {
-      padding: 90px 20px;
+      padding: 0 20px;
+      margin-top: 14px;
     }
 
     .label {
@@ -1155,46 +1156,260 @@
       color: var(--text-2);
     }
 
-    /* ─── 5c. PLACEMENT HIGHLIGHTS ─────────────────────── */
-    .placement-stats-bar {
-      background: #fff;
-      border-radius: var(--r-lg);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
-      border: 1px solid rgba(241, 245, 249, .8);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    /* ─── 5c. PLACEMENT HIGHLIGHTS CAROUSEL ─────────────────── */
+    .placement-carousel-section {
+      background-color: #ffffff;
+      width: 100%;
       overflow: hidden;
-      margin-bottom: 64px;
+      user-select: none;
     }
 
-    .placement-stat-cell {
-      padding: 32px 16px;
-      text-align: center;
-      border-right: 1px solid #f1f5f9;
+    .placement-carousel-frame {
+      width: 100%;
+      overflow: hidden;
+      cursor: grab;
+    }
+
+    .placement-carousel-frame:active {
+      cursor: grabbing;
+    }
+
+    .placement-page-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      margin: 32px 0 0 0;
+      padding: 0;
+      width: 100%;
+      box-sizing: border-box;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .placement-page-grid .placement-card {
+      width: calc((100% - 72px) / 4) !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Placement Card Styling matching the React design */
+    .placement-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      /* padding: 24px 20px; */
+      transition: all 0.3s ease;
+      cursor: grab;
+      position: relative;
+      box-sizing: border-box;
     }
 
-    .placement-stat-cell:last-child {
-      border-right: none;
+    .placement-card:active {
+      cursor: grabbing;
     }
 
-    .placement-stat-label {
+    .placement-card:hover {
+      background: #fafbfd;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+
+    .placement-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      border-radius: 0;
+    }
+
+    .placement-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .placement-card:hover .placement-media img {
+      transform: scale(1.03);
+    }
+
+    .package-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      color: #ffffff;
+      font-weight: 600;
       font-size: var(--small-size);
       line-height: var(--small-line-height);
-      font-weight: var(--font-weight-heading);
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 8px;
+      padding: 4px 10px;
+      border-radius: var(--r);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(4px);
     }
 
-    .placement-stat-val {
-      font-size: var(--h2-size);
-      line-height: var(--h2-line-height);
+    .placement-info {
+      padding: 10px 20px;
+      padding-bottom: 0px;
+      margin-top: 0px;
+      flex-grow: 1;
+    }
+
+    .placement-name {
+      font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
       color: var(--text-1);
+      line-height: var(--body-line-height);
+    }
+
+    .placement-company {
+      font-size: var(--small-size);
+      font-weight: 500;
+      color: var(--text-2);
+      margin-top: 4px;
+      min-height: 32px;
+      line-height: var(--small-line-height);
+    }
+
+    .placement-footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      margin-top: 16px;
+      padding: 10px 20px;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .placement-footer-lbl {
+      font-size: var(--small-size);
+      font-weight: var(--font-weight-heading);
+      line-height: var(--small-line-height);
+      color: var(--text-3);
+      text-transform: uppercase;
+    }
+
+    .placement-logo-wrap {
+      height: 32px;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .placement-logo-wrap img {
+      max-height: 28px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      object-position: right;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .placement-card:hover .placement-logo-wrap img {
+      opacity: 1;
+    }
+
+    .placement-carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      background-color: #ffffff;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .placement-dots-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .placement-buttons-container {
+      display: flex;
+      gap: 8px;
+    }
+
+    .placement-carousel-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      color: #334155;
+      outline: none;
+    }
+
+    .placement-carousel-btn:hover {
+      background-color: #f8fafc;
+    }
+
+    .placement-carousel-btn:active {
+      background-color: #f1f5f9;
+    }
+
+    .dot-inactive {
+      height: 8px;
+      border-radius: 9999px;
+      display: block;
+      transition: all 0.3s;
+      width: 8px;
+      background-color: #e2e8f0;
+    }
+
+    .dot-active {
+      height: 8px;
+      border-radius: 9999px;
+      display: block;
+      transition: all 0.3s;
+      width: 24px;
+      background-color: #1e293b;
+    }
+
+    /* Mobile view - turns grid to dynamic slider/track */
+    @media (max-width: 768px) {
+      .placement-carousel-frame {
+        overflow: hidden;
+        cursor: grab;
+      }
+
+      .placement-carousel-frame:active {
+        cursor: grabbing;
+      }
+
+      .placement-page-grid {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: none;
+      }
+
+      .placement-page-grid.carousel-track-transition {
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .placement-page-grid .placement-card {
+        width: 100% !important;
+        flex-shrink: 0 !important;
+        border-right: none;
+        border-left: none;
+      }
+
+      .placement-carousel-controls {
+        padding: 16px 24px;
+      }
     }
 
     /* Marquee */
@@ -1284,9 +1499,6 @@
       color: var(--accent);
     }
 
-    .placement-partners-section {
-      margin-bottom: 48px;
-    }
 
     .marquee-stack {
       display: flex;
@@ -2091,6 +2303,7 @@
     footer {
       background: #0F172A;
       padding: 80px 40px;
+      margin-top: 14px;
     }
 
     .footer-inner {
@@ -2484,7 +2697,7 @@
     .v3-desc {
       font-size: var(--body-size);
       font-weight: var(--font-weight-body);
-      line-height: 1.625;
+      line-height: var(--body-line-height);
       color: #475569;
       margin-bottom: 28px;
     }
@@ -2795,9 +3008,6 @@
         display: none !important;
       }
 
-      .sec {
-        padding: 60px 20px;
-      }
 
       .about-quickfacts {
         grid-template-columns: 1fr 1fr;
@@ -2832,9 +3042,6 @@
         font-size: 24px;
       }
 
-      .placement-stats-bar {
-        grid-template-columns: 1fr 1fr;
-      }
 
       .footer-inner {
         grid-template-columns: 1fr;
@@ -3066,7 +3273,8 @@
     /* ─── 8c. COUNSELLOR CTA CARD V2 ──────────────────────── */
     .counsellor-cta-v2-section {
       background: #ffffff;
-      padding: 30px 20px 60px 20px;
+      /* padding: 30px 20px 60px 20px; */
+      margin-top: 14px;
     }
 
     .counsellor-cta-v2-card {
@@ -3097,7 +3305,7 @@
       font-size: var(--h3-size);
       line-height: var(--h3-line-height);
       color: #ffffff;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .counsellor-cta-v2-info p {
@@ -3306,6 +3514,10 @@
       .career-table td {
         border: none;
         padding: 6px 12px;
+      }
+
+      .career-table td:not(:last-child) {
+        border-right: none;
       }
 
       .career-table td.role-cell {
@@ -4430,11 +4642,12 @@
 
   <!-- ── 3. STICKY TAB BAR ──────────────────────────────────── -->
   <nav class="tab-bar" id="tab-bar" aria-label="Page sections">
-    <a class="tab active" data-sec="about-the-program" href="#about-the-program">About this Program</a>
+    <a class="tab active" data-sec="about-the-program" href="#about-the-program">About the Program</a>
     <a class="tab" data-sec="curriculum" href="#curriculum">Curriculum</a>
     <a class="tab" data-sec="certifications-v3" href="#certifications-v3">Certifications</a>
+    <!-- <a class="tab" data-sec="campuses-v2" href="#campuses-v2">Campuses</a> -->
+    <a class="tab" data-sec="placements" href="#placements">Placements</a>
     <a class="tab" data-sec="career-table-section" href="#career-table-section">Career Opportunity</a>
-    <a class="tab" data-sec="faq" href="#faq">FAQ</a>
   </nav>
 
 
@@ -4591,15 +4804,23 @@
   </section> -->
 
   <!-- ── 4c. ABOUT THE PROGRAM (Iteration 3) ──────────────── -->
-  <section class="sec" id="about-the-program" style="padding-top: 48px;">
+  <section class="sec" id="about-the-program">
     <div class="container overview-v3-grid">
       <!-- Left Column: Heading, Description & Milestones -->
       <div class="v3-left-col">
-        <h2 class="v3-title">About this <span style="color: var(--accent);">Program</span></h2>
-        <h5
+        <h2 class="v3-title">B.Tech <span style="color: var(--accent);">- CSE (AI & Data Engineering)</span></h2>
+        <!-- <h5
           style="color: #000000; font-size: var(--h4-size); line-height: var(--h4-line-height); font-weight: var(--font-weight-body); margin-top: 6px; margin-bottom: 8px; text-transform: uppercase; text-align: left;">
           <b>B.Tech - CSE (AI & Data Engineering)</b>
-        </h5>
+        </h5> -->
+        <p class="v3-desc">
+          This <b>Bachelor of Technology in Computer Science & Engineering (AI & Data Engineering)</b> as the program at
+          Seamedu
+          co-designed with industry giants has been created to provide high-end skills that will help you land your
+          dream job. This
+          course will help you to gain expertise in Machine Learning, Deep Learning, Big Data pipelines, Neural Network
+          structures, Cloud Infrastructure, and AI system deployments through live sessions and industry projects.
+        </p>
         <p class="v3-desc">
           This <b>Bachelor of Technology in Computer Science & Engineering (AI & Data Engineering)</b> as the program at
           Seamedu
@@ -4609,7 +4830,7 @@
           structures, Cloud Infrastructure, and AI system deployments through live sessions and industry projects.
         </p>
 
-        <div style="margin-bottom: 24px; text-align: left;">
+        <!-- <div style="margin-bottom: 24px; text-align: left;">
           <h3 class="v3-pillars-title"
             style="margin-bottom: 12px; font-size: var(--h5-size); line-height: var(--h5-line-height);">Program Outcomes
           </h3>
@@ -4643,7 +4864,7 @@
                 credentials valued by top-tier tech recruiters globally.</div>
             </li>
           </ul>
-        </div>
+        </div> -->
 
         <!-- <h3 class="v3-pillars-title">Program Outcomes</h3>
         <div class="v3-outcomes-grid">
@@ -4734,267 +4955,10 @@
             </label> -->
           </form>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
-
-
-  <!-- ── 5c. PLACEMENT HIGHLIGHTS ──────────────────────────── -->
-  <section class="sec" id="placements">
-    <div class="container">
-
-      <div style="text-align:center;margin-bottom:40px;">
-        <h2>Placement <span style="color:var(--accent);">Highlights</span></h2>
-        <p
-          style="color: var(--text-2); font-size: var(--body-size); max-width: 580px; margin: 0 auto; line-height: var(--body-line-height);">
-          Gain access to top recruiters,
-          real-world experience, and dedicated career support to kickstart your professional journey.</p>
-      </div>
-
-      <!-- Stats bar -->
-      <div class="placement-stats-bar">
-        <div class="placement-stat-cell">
-          <div class="placement-stat-label">Industry Experts</div>
-          <div class="placement-stat-val">1200+</div>
-        </div>
-        <div class="placement-stat-cell">
-          <div class="placement-stat-label">Students Placed</div>
-          <div class="placement-stat-val">2000+</div>
-        </div>
-        <div class="placement-stat-cell">
-          <div class="placement-stat-label">Highest Package</div>
-          <div class="placement-stat-val">30 LPA</div>
-        </div>
-        <div class="placement-stat-cell">
-          <div class="placement-stat-label">Placement Assistance</div>
-          <div class="placement-stat-val">100%</div>
-        </div>
-      </div>
-
-      <!-- Hiring Partners -->
-      <div class="placement-partners-section">
-        <div style="text-align:center;margin-bottom:32px;">
-          <!-- <div class="label">Our Network</div> -->
-          <h2>Hiring <span style="color:var(--accent);">Partners</span></h2>
-        </div>
-
-        <div class="marquee-stack">
-          <!-- Row 1 — scrolls left -->
-          <div class="marquee-outer">
-            <div class="marquee-track left">
-              <span class="partner-chip">Google</span>
-              <span class="partner-chip">Microsoft</span>
-              <span class="partner-chip">TCS</span>
-              <span class="partner-chip">IBM</span>
-              <span class="partner-chip">Cognizant</span>
-              <span class="partner-chip">Cisco</span>
-              <span class="partner-chip">Wipro</span>
-              <span class="partner-chip">Capgemini</span>
-              <span class="partner-chip">Siemens</span>
-              <span class="partner-chip">Infosys</span>
-              <span class="partner-chip">Accenture</span>
-              <span class="partner-chip">Oracle</span>
-              <!-- duplicate for seamless loop -->
-              <span class="partner-chip">Google</span>
-              <span class="partner-chip">Microsoft</span>
-              <span class="partner-chip">TCS</span>
-              <span class="partner-chip">IBM</span>
-              <span class="partner-chip">Cognizant</span>
-              <span class="partner-chip">Cisco</span>
-              <span class="partner-chip">Wipro</span>
-              <span class="partner-chip">Capgemini</span>
-              <span class="partner-chip">Siemens</span>
-              <span class="partner-chip">Infosys</span>
-              <span class="partner-chip">Accenture</span>
-              <span class="partner-chip">Oracle</span>
-            </div>
-          </div>
-
-          <!-- Row 2 — scrolls right -->
-          <div class="marquee-outer">
-            <div class="marquee-track right">
-              <span class="partner-chip">Amazon</span>
-              <span class="partner-chip">Meta</span>
-              <span class="partner-chip">Deloitte</span>
-              <span class="partner-chip">HCL</span>
-              <span class="partner-chip">Zensar</span>
-              <span class="partner-chip">Mphasis</span>
-              <span class="partner-chip">L&amp;T Tech</span>
-              <span class="partner-chip">Hexaware</span>
-              <span class="partner-chip">Mindtree</span>
-              <span class="partner-chip">Persistent</span>
-              <span class="partner-chip">Birlasoft</span>
-              <span class="partner-chip">Nagarro</span>
-              <!-- duplicate for seamless loop -->
-              <span class="partner-chip">Amazon</span>
-              <span class="partner-chip">Meta</span>
-              <span class="partner-chip">Deloitte</span>
-              <span class="partner-chip">HCL</span>
-              <span class="partner-chip">Zensar</span>
-              <span class="partner-chip">Mphasis</span>
-              <span class="partner-chip">L&amp;T Tech</span>
-              <span class="partner-chip">Hexaware</span>
-              <span class="partner-chip">Mindtree</span>
-              <span class="partner-chip">Persistent</span>
-              <span class="partner-chip">Birlasoft</span>
-              <span class="partner-chip">Nagarro</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align:center;">
-        <a href="#" class="btn btn-primary" style="font-size:var(--btn-md-size);padding:14px 40px;">View All
-          Placements</a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── 5b. CAMPUS ─────────────────────────────────────────── -->
-  <!-- <section class="sec sec-gray" id="campus">
-    <div class="container">
-      <div class="label" style="text-align:center;">Where You'll Study</div>
-      <h2 style="text-align:center;">Our Campuses</h2>
-      <p
-        style="color: var(--text-2); font-size: var(--body-size); margin-bottom: 44px; max-width: 640px; text-align: center; margin-left: auto; margin-right: auto; line-height: var(--body-line-height);">
-        Join our world-class learning centres in collaboration with leading universities across India.</p>
-
-      <div class="campus-cards-grid">
-
-        <div class="campus-item-card">
-          <img class="campus-item-img" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80"
-            alt="The NorthCap University Campus, Gurugram" loading="lazy"
-            onerror="this.style.background='linear-gradient(135deg,#dce7ff,#c7d7fe)'" />
-          <div class="campus-item-body">
-            <h4 class="campus-item-name">The NorthCap University</h4>
-            <div class="campus-item-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
-              </svg>
-              Gurugram
-            </div>
-            <div class="campus-item-desc">A leading private university known for strong programs in engineering,
-              management, and law. Focuses on innovation, research, and industry-aligned education.</div>
-            <a href="#" class="btn btn-primary btn-upper">Explore
-              <svg fill="currentColor" viewBox="0 0 448 512" height="10" width="10">
-                <path
-                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="campus-item-card">
-          <img class="campus-item-img" src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=800&q=80"
-            alt="Ajeenkya DY Patil University Pune" loading="lazy"
-            onerror="this.style.background='linear-gradient(135deg,#dce7ff,#c7d7fe)'" />
-          <div class="campus-item-body">
-            <h4 class="campus-item-name">Ajeenkya DY Patil University Pune</h4>
-            <div class="campus-item-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
-              </svg>
-              Pune
-            </div>
-            <div class="campus-item-desc">An innovation-driven university focused on future-ready education and
-              entrepreneurship. Offers modern infrastructure with strong industry integration.</div>
-            <a href="#" class="btn btn-primary btn-upper">Explore
-              <svg fill="currentColor" viewBox="0 0 448 512" height="10" width="10">
-                <path
-                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z" />
-              </svg>
-            </a>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- ── 5b2. CAMPUS V2 ──────────────────────────────────────── -->
-  <section class="sec" id="campuses-v2" style="background: #f8fafc; padding: 80px 20px; border-top: 1px solid #E2E8F0;">
-    <div class="container">
-      <!-- Section Header -->
-      <div style="text-align: center; margin-bottom: 64px;">
-        <h2 style="text-align:center; margin-bottom: 12px;">Our <span style="color: var(--accent);">Campuses</span></h2>
-        <p
-          style="color: #64748b; max-width: 640px; margin: 0 auto; font-size: var(--body-size); line-height: var(--body-line-height);">
-          Join our world-class learning centers in collaboration with leading universities across India.
-        </p>
-      </div>
-
-      <!-- Campus Grid -->
-      <div class="campus-v2-grid">
-        <!-- Campus 1 -->
-        <div class="campus-v2-card">
-          <div class="campus-v2-img-wrapper">
-            <img src="NorthCap.png" alt="The NorthCap University" loading="lazy">
-          </div>
-          <div class="campus-v2-body">
-            <h5 class="campus-v2-title">The NorthCap University</h5>
-            <div class="campus-v2-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
-              </svg>
-              <span style="font-size: var(--small-size); line-height: var(--small-line-height);" ;>Gurugram</span>
-            </div>
-            <p class="campus-v2-desc">
-              A leading private university known for strong programs in engineering, management, and law. Focuses on
-              innovation, research, and industry-aligned education.
-            </p>
-            <div style="margin-top: auto;">
-              <button class="campus-v2-btn">
-                Explore
-                <svg width="10" height="10" viewBox="0 0 448 512" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Campus 2 -->
-        <div class="campus-v2-card">
-          <div class="campus-v2-img-wrapper">
-            <img src="ajinkya.png" alt="Ajeenkya DY Patil University Pune" loading="lazy">
-          </div>
-          <div class="campus-v2-body">
-            <h4 class="campus-v2-title">Ajeenkya DY Patil University Pune</h4>
-            <div class="campus-v2-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
-              </svg>
-              <span>Pune</span>
-            </div>
-            <p class="campus-v2-desc">
-              An innovation-driven university focused on future-ready education and entrepreneurship. Offers modern
-              infrastructure with strong industry integration.
-            </p>
-            <div style="margin-top: auto;">
-              <button class="campus-v2-btn">
-                Explore
-                <svg width="10" height="10" viewBox="0 0 448 512" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── 5. CURRICULUM ──────────────────────────────────────── -->
   <section class="sec sec-gray" id="curriculum">
     <div class="container">
@@ -5175,8 +5139,8 @@
             </div>
           </div>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -5281,9 +5245,598 @@
               credential for modern infrastructure engineers and systems administrators in high-growth startups.</p>
           </div>
         </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ── 5b. CAMPUS ─────────────────────────────────────────── -->
+  <!-- <section class="sec sec-gray" id="campus">
+    <div class="container">
+      <div class="label" style="text-align:center;">Where You'll Study</div>
+      <h2 style="text-align:center;">Our Campuses</h2>
+      <p
+        style="color: var(--text-2); font-size: var(--body-size); margin-bottom: 44px; max-width: 640px; text-align: center; margin-left: auto; margin-right: auto; line-height: var(--body-line-height);">
+        Join our world-class learning centres in collaboration with leading universities across India.</p>
+
+      <div class="campus-cards-grid">
+
+        <div class="campus-item-card">
+          <img class="campus-item-img" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80"
+            alt="The NorthCap University Campus, Gurugram" loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#dce7ff,#c7d7fe)'" />
+          <div class="campus-item-body">
+            <h4 class="campus-item-name">The NorthCap University</h4>
+            <div class="campus-item-loc">
+              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+              </svg>
+              Gurugram
+            </div>
+            <div class="campus-item-desc">A leading private university known for strong programs in engineering,
+              management, and law. Focuses on innovation, research, and industry-aligned education.</div>
+            <a href="#" class="btn btn-primary btn-upper">Explore
+              <svg fill="currentColor" viewBox="0 0 448 512" height="10" width="10">
+                <path
+                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="campus-item-card">
+          <img class="campus-item-img" src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=800&q=80"
+            alt="Ajeenkya DY Patil University Pune" loading="lazy"
+            onerror="this.style.background='linear-gradient(135deg,#dce7ff,#c7d7fe)'" />
+          <div class="campus-item-body">
+            <h4 class="campus-item-name">Ajeenkya DY Patil University Pune</h4>
+            <div class="campus-item-loc">
+              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+              </svg>
+              Pune
+            </div>
+            <div class="campus-item-desc">An innovation-driven university focused on future-ready education and
+              entrepreneurship. Offers modern infrastructure with strong industry integration.</div>
+            <a href="#" class="btn btn-primary btn-upper">Explore
+              <svg fill="currentColor" viewBox="0 0 448 512" height="10" width="10">
+                <path
+                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z" />
+              </svg>
+            </a>
+          </div>
+        </div>
         </div>
       </div>
     </div>
+  </section> -->
+
+  <!-- ── 5b2. CAMPUS V2 ──────────────────────────────────────── -->
+  <section class="sec" id="campuses-v2" style="background: #f8fafc; padding: 80px 20px; border-top: 1px solid #E2E8F0;">
+    <div class="container">
+      <!-- Section Header -->
+      <div style="text-align: center; margin-bottom: 64px;">
+        <h2 style="text-align:center; margin-bottom: 14px;">Our <span style="color: var(--accent);">Campuses</span></h2>
+        <p
+          style="color: #64748b; max-width: 640px; margin: 0 auto; font-size: var(--body-size); line-height: var(--body-line-height);">
+          Join our world-class learning centers in collaboration with leading universities across India.
+        </p>
+      </div>
+
+      <!-- Campus Grid -->
+      <div class="campus-v2-grid">
+        <!-- Campus 1 -->
+        <div class="campus-v2-card">
+          <div class="campus-v2-img-wrapper">
+            <img src="NorthCap.png" alt="The NorthCap University" loading="lazy">
+          </div>
+          <div class="campus-v2-body">
+            <h5 class="campus-v2-title">The NorthCap University</h5>
+            <div class="campus-v2-loc">
+              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+              </svg>
+              <span style="font-size: var(--small-size); line-height: var(--small-line-height);" ;>Gurugram</span>
+            </div>
+            <p class="campus-v2-desc">
+              A leading private university known for strong programs in engineering, management, and law. Focuses on
+              innovation, research, and industry-aligned education.
+            </p>
+            <div style="margin-top: auto;">
+              <button class="campus-v2-btn">
+                Explore
+                <svg width="10" height="10" viewBox="0 0 448 512" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Campus 2 -->
+        <div class="campus-v2-card">
+          <div class="campus-v2-img-wrapper">
+            <img src="ajinkya.png" alt="Ajeenkya DY Patil University Pune" loading="lazy">
+          </div>
+          <div class="campus-v2-body">
+            <h4 class="campus-v2-title">Ajeenkya DY Patil University Pune</h4>
+            <div class="campus-v2-loc">
+              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+              </svg>
+              <span>Pune</span>
+            </div>
+            <p class="campus-v2-desc">
+              An innovation-driven university focused on future-ready education and entrepreneurship. Offers modern
+              infrastructure with strong industry integration.
+            </p>
+            <div style="margin-top: auto;">
+              <button class="campus-v2-btn">
+                Explore
+                <svg width="10" height="10" viewBox="0 0 448 512" fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- PLACEMENT CAROUSEL -->
+  <section class="sec" id="placements" style="background-color: #ffffff;">
+    <div class="container">
+      <div style="text-align:left;margin-bottom:40px;">
+        <h2>Student <span style="color:var(--accent)">Placements</span></h2>
+        <p
+          style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);">
+          From classroom learning
+          to real industry opportunities, Seamedu students are building careers with some of the biggest names in the
+          industry. See where our students are placed.</p>
+      </div>
+
+      <div id="placementCarouselFrame" class="placement-carousel-frame">
+        <div class="placement-page-grid" id="placementGrid">
+
+          <!-- Card 1 -->
+          <div class="placement-card" data-category="management">
+            <div class="placement-media">
+              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
+              <!-- <div class="package-badge">₹14.50 LPA</div> -->
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Harsh Gaur</h4>
+              <p class="placement-company">Jaro Education</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="jcb.png" alt="Jaro Education logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="placement-card" data-category="technology">
+            <div class="placement-media">
+              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Pavan Kulkarni</h4>
+              <p class="placement-company">IntervueVet Technologies Pvt Ltd</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="costco.png" alt="IntervueVet logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="placement-card" data-category="design">
+            <div class="placement-media">
+              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Om Giramkar</h4>
+              <p class="placement-company">Learning Routes</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="jcb.png" alt="Learning Routes logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="placement-card" data-category="media">
+            <div class="placement-media">
+              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Sanket Dhawale</h4>
+              <p class="placement-company">Edgewise Innovations Pvt Ltd</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="paytm.png" alt="Edgewise logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 (Duplicated Harsh Gaur) -->
+          <div class="placement-card" data-category="management">
+            <div class="placement-media">
+              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Harsh Gaur (Copy)</h4>
+              <p class="placement-company">Jaro Education</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="jcb.png" alt="Jaro Education logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 (Duplicated Pavan Kulkarni) -->
+          <div class="placement-card" data-category="technology">
+            <div class="placement-media">
+              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Pavan Kulkarni (Copy)</h4>
+              <p class="placement-company">IntervueVet Technologies Pvt Ltd</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="costco.png" alt="IntervueVet logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 (Duplicated Om Giramkar) -->
+          <div class="placement-card" data-category="design">
+            <div class="placement-media">
+              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Om Giramkar (Copy)</h4>
+              <p class="placement-company">Learning Routes</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="jcb.png" alt="Learning Routes logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8 (Duplicated Sanket Dhawale) -->
+          <div class="placement-card" data-category="media">
+            <div class="placement-media">
+              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Sanket Dhawale (Copy)</h4>
+              <p class="placement-company">Edgewise Innovations Pvt Ltd</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="paytm.png" alt="Edgewise logo">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="placement-carousel-controls">
+        <div id="placementDotsContainer" class="placement-dots-container"></div>
+        <div class="placement-buttons-container">
+          <button id="placementPrevBtn" aria-label="Previous slide" class="placement-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button id="placementNextBtn" aria-label="Next slide" class="placement-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!--
+  COMMENTED OUT PREVIOUS DYNAMIC CAROUSEL JS:
+  <script>
+   const placementDataset = [
+    {
+     name: "Harsh Gaur",
+     company: "Jaro Education",
+     package: "₹14.50 LPA",
+     image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800",
+     companyLogo: "/images/HighringPatners/cohesity.webp",
+    },
+    {
+     name: "Pavan Kulkarni",
+     company: "IntervueVet Technologies Pvt Ltd",
+     package: "₹7.5 LPA",
+     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800",
+     companyLogo: "/images/HighringPatners/cognizant.webp",
+    },
+    {
+     name: "Prathush P",
+     company: "Learning Routes",
+     package: "₹6.5 LPA",
+     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800",
+     companyLogo: "/images/HighringPatners/oceania.png",
+    },
+    {
+     name: "Sanket Dhawale",
+     company: "Edgewise Innovations Pvt Ltd",
+     package: "₹7.02 LPA",
+     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800",
+     companyLogo: "/images/HighringPatners/capgemini.webp",
+    }
+   ];
+   // initializePlacementCarouselDOM() ...
+  </script>
+  -->
+
+    <script>
+      const carouselFrame = document.getElementById("placementCarouselFrame");
+      const carouselTrack = document.getElementById("placementGrid");
+      const dotsContainer = document.getElementById("placementDotsContainer");
+      const btnPrev = document.getElementById("placementPrevBtn");
+      const btnNext = document.getElementById("placementNextBtn");
+
+      let currentTrackIndex = 0;
+      let isCarouselTransitioning = false;
+      let isCurrentlyDraggingGesture = false;
+      let gestureDragStartXCoordinate = 0;
+      const totalItems = 8;
+      let lastIsDesktop = window.innerWidth > 768;
+
+      function getMaxIndex() {
+        return window.innerWidth > 768 ? (totalItems - 4) : (totalItems - 1);
+      }
+
+      function initializePlacementCarouselDOM() {
+        const maxIndex = getMaxIndex();
+        const numDots = maxIndex + 1;
+
+        if (currentTrackIndex > maxIndex) {
+          currentTrackIndex = maxIndex;
+        }
+
+        dotsContainer.innerHTML = Array.from({ length: numDots })
+          .map(
+            (_, idx) =>
+              `<span id="placement-dot-${idx}" class="dot-inactive"></span>`,
+          )
+          .join("");
+
+        applyTrackPositionTransform(false);
+        refreshActiveDotHighlightIndicators();
+      }
+
+      function applyTrackPositionTransform(enableSmoothTransition) {
+        if (enableSmoothTransition) {
+          carouselTrack.style.transition = "transform 0.5s ease-in-out";
+        } else {
+          carouselTrack.style.transition = "none";
+        }
+
+        if (window.innerWidth > 768) {
+          // Desktop: 4 cards visible, calculate precise pixel shift based on current layout width
+          const frameWidth = carouselFrame.clientWidth;
+          const shiftPx = currentTrackIndex * (frameWidth + 24) / 4;
+          carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
+        } else {
+          // Mobile: 1 card visible, translate by 100% per card index
+          carouselTrack.style.transform = `translateX(-${currentTrackIndex * 100}%)`;
+        }
+      }
+
+      function refreshActiveDotHighlightIndicators() {
+        const maxIndex = getMaxIndex();
+        const numDots = maxIndex + 1;
+        for (let idx = 0; idx < numDots; idx++) {
+          const targetedDot = document.getElementById(`placement-dot-${idx}`);
+          if (targetedDot) {
+            if (idx === currentTrackIndex) {
+              targetedDot.className = "dot-active";
+            } else {
+              targetedDot.className = "dot-inactive";
+            }
+          }
+        }
+      }
+
+      function advanceCarouselNextSlide() {
+        if (isCarouselTransitioning) return;
+        isCarouselTransitioning = true;
+        const maxIndex = getMaxIndex();
+        if (currentTrackIndex >= maxIndex) {
+          currentTrackIndex = 0;
+        } else {
+          currentTrackIndex++;
+        }
+        applyTrackPositionTransform(true);
+        refreshActiveDotHighlightIndicators();
+        setTimeout(() => {
+          isCarouselTransitioning = false;
+        }, 500);
+      }
+
+      function regressCarouselPreviousSlide() {
+        if (isCarouselTransitioning) return;
+        isCarouselTransitioning = true;
+        const maxIndex = getMaxIndex();
+        if (currentTrackIndex <= 0) {
+          currentTrackIndex = maxIndex;
+        } else {
+          currentTrackIndex--;
+        }
+        applyTrackPositionTransform(true);
+        refreshActiveDotHighlightIndicators();
+        setTimeout(() => {
+          isCarouselTransitioning = false;
+        }, 500);
+      }
+
+      function processDragGestureStart(clientX) {
+        isCurrentlyDraggingGesture = true;
+        gestureDragStartXCoordinate = clientX;
+      }
+      function processDragGestureMove(clientX) {
+        if (!isCurrentlyDraggingGesture) return;
+        const netDeltaDifferenceX = clientX - gestureDragStartXCoordinate;
+        if (netDeltaDifferenceX > 50) {
+          regressCarouselPreviousSlide();
+          isCurrentlyDraggingGesture = false;
+        } else if (netDeltaDifferenceX < -50) {
+          advanceCarouselNextSlide();
+          isCurrentlyDraggingGesture = false;
+        }
+      }
+      function processDragGestureEnd() {
+        isCurrentlyDraggingGesture = false;
+      }
+
+      btnPrev.addEventListener("click", regressCarouselPreviousSlide);
+      btnNext.addEventListener("click", advanceCarouselNextSlide);
+
+      carouselFrame.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        processDragGestureStart(e.pageX);
+      });
+      carouselFrame.addEventListener("mousemove", (e) => {
+        e.preventDefault();
+        processDragGestureMove(e.pageX);
+      });
+      window.addEventListener("mouseup", processDragGestureEnd);
+      carouselFrame.addEventListener(
+        "touchstart",
+        (e) => processDragGestureStart(e.touches[0].clientX),
+        { passive: true },
+      );
+      carouselFrame.addEventListener(
+        "touchmove",
+        (e) => processDragGestureMove(e.touches[0].clientX),
+        { passive: true },
+      );
+      carouselFrame.addEventListener("touchend", processDragGestureEnd);
+
+      window.addEventListener("resize", () => {
+        const isDesktop = window.innerWidth > 768;
+        if (isDesktop !== lastIsDesktop) {
+          lastIsDesktop = isDesktop;
+          initializePlacementCarouselDOM();
+        } else {
+          applyTrackPositionTransform(false);
+        }
+      });
+
+      initializePlacementCarouselDOM();
+    </script>
+    <!-- Hiring Partners -->
+    <div class="placement-partners-section">
+      <div style="text-align:center;margin-bottom:32px;">
+        <!-- <div class="label">Our Network</div> -->
+        <h2>Hiring <span style="color:var(--accent);">Partners</span></h2>
+      </div>
+
+      <div class="marquee-stack">
+        <!-- Row 1 — scrolls left -->
+        <div class="marquee-outer">
+          <div class="marquee-track left">
+            <span class="partner-chip">Google</span>
+            <span class="partner-chip">Microsoft</span>
+            <span class="partner-chip">TCS</span>
+            <span class="partner-chip">IBM</span>
+            <span class="partner-chip">Cognizant</span>
+            <span class="partner-chip">Cisco</span>
+            <span class="partner-chip">Wipro</span>
+            <span class="partner-chip">Capgemini</span>
+            <span class="partner-chip">Siemens</span>
+            <span class="partner-chip">Infosys</span>
+            <span class="partner-chip">Accenture</span>
+            <span class="partner-chip">Oracle</span>
+            <!-- duplicate for seamless loop -->
+            <span class="partner-chip">Google</span>
+            <span class="partner-chip">Microsoft</span>
+            <span class="partner-chip">TCS</span>
+            <span class="partner-chip">IBM</span>
+            <span class="partner-chip">Cognizant</span>
+            <span class="partner-chip">Cisco</span>
+            <span class="partner-chip">Wipro</span>
+            <span class="partner-chip">Capgemini</span>
+            <span class="partner-chip">Siemens</span>
+            <span class="partner-chip">Infosys</span>
+            <span class="partner-chip">Accenture</span>
+            <span class="partner-chip">Oracle</span>
+          </div>
+        </div>
+
+        <!-- Row 2 — scrolls right -->
+        <div class="marquee-outer">
+          <div class="marquee-track right">
+            <span class="partner-chip">Amazon</span>
+            <span class="partner-chip">Meta</span>
+            <span class="partner-chip">Deloitte</span>
+            <span class="partner-chip">HCL</span>
+            <span class="partner-chip">Zensar</span>
+            <span class="partner-chip">Mphasis</span>
+            <span class="partner-chip">L&amp;T Tech</span>
+            <span class="partner-chip">Hexaware</span>
+            <span class="partner-chip">Mindtree</span>
+            <span class="partner-chip">Persistent</span>
+            <span class="partner-chip">Birlasoft</span>
+            <span class="partner-chip">Nagarro</span>
+            <!-- duplicate for seamless loop -->
+            <span class="partner-chip">Amazon</span>
+            <span class="partner-chip">Meta</span>
+            <span class="partner-chip">Deloitte</span>
+            <span class="partner-chip">HCL</span>
+            <span class="partner-chip">Zensar</span>
+            <span class="partner-chip">Mphasis</span>
+            <span class="partner-chip">L&amp;T Tech</span>
+            <span class="partner-chip">Hexaware</span>
+            <span class="partner-chip">Mindtree</span>
+            <span class="partner-chip">Persistent</span>
+            <span class="partner-chip">Birlasoft</span>
+            <span class="partner-chip">Nagarro</span>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center; margin-top: 40px;">
+        <a href="#" class="btn btn-primary" style="font-size:var(--btn-md-size);padding:14px 40px;">View All
+          Placements</a>
+      </div>
+    </div>
+
   </section>
 
   <!-- ── 7. CAREER OPPORTUNITY ───────────────────────────────
@@ -5474,8 +6027,8 @@
         </div>
         <div class="career-table-overlay" id="careerTableToggleBtn" onclick="toggleCareerTable()"><span>Load More</span>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -5603,8 +6156,8 @@
             </svg>
           </a>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -5766,8 +6319,8 @@
             </svg>
           </a>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -5894,8 +6447,8 @@
             </svg>
           </a>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -6024,8 +6577,8 @@
             </svg>
           </a>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -6137,8 +6690,8 @@
               priority in scholarship allocation and hostel assignment.</p>
           </div>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -6421,7 +6974,7 @@
     });
 
     /* ── Tab bar active on scroll ── */
-    const SECTIONS = ['about-the-program', 'curriculum', 'certifications-v3', 'career-table-section', 'faq'];
+    const SECTIONS = ['about-the-program', 'curriculum', 'certifications-v3', 'campuses-v2', 'placements', 'career-table-section', 'faq'];
     const TABS = document.querySelectorAll('.tab');
     const NAV_H = 64 + 49; // nav + tab bar
 
@@ -6483,3 +7036,6 @@
 </body>
 
 </html>
+<!-- 
+okay the [index.html](file;file:///c%3A/Users/shrey/OneDrive/Desktop/seamedu-stuff/seamedu-new/course-page-demo/index.html) is finalized 
+just do diff in [index.html](file;file:///c%3A/Users/shrey/OneDrive/Desktop/seamedu-stuff/seamedu-new/course-page-demo/index.html) and [campus-course-page.html](file;file:///c%3A/Users/shrey/OneDrive/Desktop/seamedu-stuff/seamedu-new/course-page-demo/campus-course-page.html) and replicate changes in there with similar sections and margine bottom 14 for heading removing padding for that section  -->

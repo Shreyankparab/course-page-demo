@@ -234,7 +234,8 @@
     }
 
     .sec {
-      padding: 90px 20px;
+      padding: 0 20px;
+      margin-top: 14px;
     }
 
     .label {
@@ -1156,45 +1157,259 @@
     }
 
     /* ─── 5c. PLACEMENT HIGHLIGHTS ─────────────────────── */
-    .placement-stats-bar {
-      background: #fff;
-      border-radius: var(--r-lg);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, .12);
-      border: 1px solid rgba(241, 245, 249, .8);
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+    .placement-carousel-section {
+      background-color: #ffffff;
+      width: 100%;
       overflow: hidden;
-      margin-bottom: 64px;
+      user-select: none;
     }
 
-    .placement-stat-cell {
-      padding: 32px 16px;
-      text-align: center;
-      border-right: 1px solid #f1f5f9;
+    .placement-carousel-frame {
+      width: 100%;
+      overflow: hidden;
+      cursor: grab;
+    }
+
+    .placement-carousel-frame:active {
+      cursor: grabbing;
+    }
+
+    .placement-page-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 24px;
+      margin: 32px 0 0 0;
+      padding: 0;
+      width: 100%;
+      box-sizing: border-box;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .placement-page-grid .placement-card {
+      width: calc((100% - 72px) / 4) !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Placement Card Styling matching the React design */
+    .placement-card {
+      background: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.05);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      /* padding: 24px 20px; */
+      transition: all 0.3s ease;
+      cursor: grab;
+      position: relative;
+      box-sizing: border-box;
     }
 
-    .placement-stat-cell:last-child {
-      border-right: none;
+    .placement-card:active {
+      cursor: grabbing;
     }
 
-    .placement-stat-label {
+    .placement-card:hover {
+      background: #fafbfd;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    }
+
+    .placement-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4/5;
+      background: rgba(0, 0, 0, 0.04);
+      overflow: hidden;
+      border-radius: 0;
+    }
+
+    .placement-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .placement-card:hover .placement-media img {
+      transform: scale(1.03);
+    }
+
+    .package-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      color: #ffffff;
+      font-weight: 600;
       font-size: var(--small-size);
       line-height: var(--small-line-height);
-      font-weight: var(--font-weight-heading);
-      text-transform: uppercase;
-      color: var(--text-3);
-      margin-bottom: 8px;
+      padding: 4px 10px;
+      border-radius: var(--r);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(4px);
     }
 
-    .placement-stat-val {
-      font-size: var(--h2-size);
-      line-height: var(--h2-line-height);
+    .placement-info {
+      padding: 10px 20px;
+      padding-bottom: 0px;
+      margin-top: 0px;
+      flex-grow: 1;
+    }
+
+    .placement-name {
+      font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
       color: var(--text-1);
+      line-height: var(--body-line-height);
+    }
+
+    .placement-company {
+      font-size: var(--small-size);
+      font-weight: 500;
+      color: var(--text-2);
+      margin-top: 4px;
+      min-height: 32px;
+      line-height: var(--small-line-height);
+    }
+
+    .placement-footer {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      margin-top: 16px;
+      padding: 10px 20px;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .placement-footer-lbl {
+      font-size: var(--small-size);
+      font-weight: var(--font-weight-heading);
+      line-height: var(--small-line-height);
+      color: var(--text-3);
+      text-transform: uppercase;
+    }
+
+    .placement-logo-wrap {
+      height: 32px;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .placement-logo-wrap img {
+      max-height: 28px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      object-position: right;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .placement-card:hover .placement-logo-wrap img {
+      opacity: 1;
+    }
+
+    .placement-carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      background-color: #ffffff;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .placement-dots-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .placement-buttons-container {
+      display: flex;
+      gap: 8px;
+    }
+
+    .placement-carousel-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      color: #334155;
+      outline: none;
+    }
+
+    .placement-carousel-btn:hover {
+      background-color: #f8fafc;
+    }
+
+    .placement-carousel-btn:active {
+      background-color: #f1f5f9;
+    }
+
+    .dot-inactive {
+      height: 8px;
+      border-radius: 9999px;
+      display: block;
+      transition: all 0.3s;
+      width: 8px;
+      background-color: #e2e8f0;
+    }
+
+    .dot-active {
+      height: 8px;
+      border-radius: 9999px;
+      display: block;
+      transition: all 0.3s;
+      width: 24px;
+      background-color: #1e293b;
+    }
+
+    /* Mobile view - turns grid to dynamic slider/track */
+    @media (max-width: 768px) {
+      .placement-carousel-frame {
+        overflow: hidden;
+        cursor: grab;
+      }
+
+      .placement-carousel-frame:active {
+        cursor: grabbing;
+      }
+
+      .placement-page-grid {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-width: none;
+      }
+
+      .placement-page-grid.carousel-track-transition {
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .placement-page-grid .placement-card {
+        width: 100% !important;
+        flex-shrink: 0 !important;
+        border-right: none;
+        border-left: none;
+      }
+
+      .placement-carousel-controls {
+        padding: 16px 24px;
+      }
     }
 
     /* Marquee */
@@ -2484,7 +2699,7 @@
     .v3-desc {
       font-size: var(--body-size);
       font-weight: var(--font-weight-body);
-      line-height: 1.625;
+      line-height: var(--body-line-height);
       color: #475569;
       margin-bottom: 28px;
     }
@@ -2795,9 +3010,7 @@
         display: none !important;
       }
 
-      .sec {
-        padding: 60px 20px;
-      }
+
 
       .about-quickfacts {
         grid-template-columns: 1fr 1fr;
@@ -3097,7 +3310,7 @@
       font-size: var(--h3-size);
       line-height: var(--h3-line-height);
       color: #ffffff;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .counsellor-cta-v2-info p {
@@ -3306,6 +3519,10 @@
       .career-table td {
         border: none;
         padding: 6px 12px;
+      }
+
+      .career-table td:not(:last-child) {
+        border-right: none;
       }
 
       .career-table td.role-cell {
@@ -4126,7 +4343,6 @@
       justify-content: center;
       gap: 32px;
       margin-bottom: 32px;
-      border-bottom: 1px solid var(--card-border);
       padding-bottom: 2px;
     }
 
@@ -4426,7 +4642,7 @@
 
   <!-- ── 3. STICKY TAB BAR ──────────────────────────────────── -->
   <nav class="tab-bar" id="tab-bar" aria-label="Page sections">
-    <a class="tab active" data-sec="about-the-program" href="#about-the-program">About this Program</a>
+    <a class="tab active" data-sec="about-the-program" href="#about-the-program">About the Program</a>
     <a class="tab" data-sec="curriculum" href="#curriculum">Curriculum</a>
     <a class="tab" data-sec="admission-process" href="#admission-process">Admission Process</a>
     <a class="tab" data-sec="career-table-section" href="#career-table-section">Career Opportunity</a>
@@ -4606,7 +4822,16 @@
           structures, Cloud Infrastructure, and AI system deployments through live sessions and industry projects.
         </p>
 
-        <div style="margin-bottom: 24px; text-align: left;">
+        <p class="v3-desc">
+          This <b>Bachelor of Technology in Computer Science & Engineering (AI & Data Engineering)</b> as the program at
+          Seamedu
+          co-designed with industry giants has been created to provide high-end skills that will help you land your
+          dream job. This
+          course will help you to gain expertise in Machine Learning, Deep Learning, Big Data pipelines, Neural Network
+          structures, Cloud Infrastructure, and AI system deployments through live sessions and industry projects.
+        </p>
+
+        <!-- <div style="margin-bottom: 24px; text-align: left;">
           <h3 class="v3-pillars-title" style="margin-bottom: 12px; font-size: 18px;">Program Outcomes</h3>
           <ul style="list-style-type: none; padding-left: 0; display: flex; flex-direction: column; gap: 12px;">
             <li
@@ -4634,7 +4859,7 @@
                 credentials valued by top-tier tech recruiters globally.</div>
             </li>
           </ul>
-        </div>
+        </div> -->
 
         <!-- <h3 class="v3-pillars-title">Program Outcomes</h3>
         <div class="v3-outcomes-grid">
@@ -4725,119 +4950,261 @@
             </label> -->
           </form>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
 
-  <!-- ── 5c. PLACEMENT HIGHLIGHTS ──────────────────────────── -->
-  <section class="sec" id="placements">
+  <!-- PLACEMENT CAROUSEL -->
+  <section class="sec" id="placements" style="background-color: #ffffff;">
     <div class="container">
-
-      <div style="text-align:center;margin-bottom:40px;">
-        <h2>Placement <span style="color:var(--accent);">Highlights</span></h2>
-        <p style="color:var(--text-2);font-size:15px;max-width:580px;margin:0 auto;">Gain access to top recruiters,
-          real-world experience, and dedicated career support to kickstart your professional journey.</p>
+      <div style="text-align:left;margin-bottom:40px;">
+        <h2>Student <span style="color:var(--accent)">Placements</span></h2>
+        <p
+          style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);">
+          From classroom learning
+          to real industry opportunities, Seamedu students are building careers with some of the biggest names in the
+          industry. See where our students are placed.</p>
       </div>
 
-      <!-- Stats bar -->
-      <div class="placement-stats-bar">
-        <div class="placement-stat-cell">
-          <div class="placement-stat-label">Industry Experts</div>
-          <div class="placement-stat-val">1200+</div>
-        </div>
-        <div class="placement-stat-cell">
-          <div class="placement-stat-label">Students Placed</div>
-          <div class="placement-stat-val">2000+</div>
-        </div>
-        <div class="placement-stat-cell">
-          <div class="placement-stat-label">Highest Package</div>
-          <div class="placement-stat-val">30 LPA</div>
-        </div>
-        <div class="placement-stat-cell">
-          <div class="placement-stat-label">Placement Assistance</div>
-          <div class="placement-stat-val">100%</div>
-        </div>
-      </div>
+      <div id="placementCarouselFrame" class="placement-carousel-frame">
+        <div class="placement-page-grid" id="placementGrid">
 
-      <!-- Hiring Partners -->
-      <div class="placement-partners-section">
-        <div style="text-align:center;margin-bottom:32px;">
-          <!-- <div class="label">Our Network</div> -->
-          <h2>Hiring <span style="color:var(--accent);">Partners</span></h2>
-        </div>
-
-        <div class="marquee-stack">
-          <!-- Row 1 — scrolls left -->
-          <div class="marquee-outer">
-            <div class="marquee-track left">
-              <span class="partner-chip">Google</span>
-              <span class="partner-chip">Microsoft</span>
-              <span class="partner-chip">TCS</span>
-              <span class="partner-chip">IBM</span>
-              <span class="partner-chip">Cognizant</span>
-              <span class="partner-chip">Cisco</span>
-              <span class="partner-chip">Wipro</span>
-              <span class="partner-chip">Capgemini</span>
-              <span class="partner-chip">Siemens</span>
-              <span class="partner-chip">Infosys</span>
-              <span class="partner-chip">Accenture</span>
-              <span class="partner-chip">Oracle</span>
-              <!-- duplicate for seamless loop -->
-              <span class="partner-chip">Google</span>
-              <span class="partner-chip">Microsoft</span>
-              <span class="partner-chip">TCS</span>
-              <span class="partner-chip">IBM</span>
-              <span class="partner-chip">Cognizant</span>
-              <span class="partner-chip">Cisco</span>
-              <span class="partner-chip">Wipro</span>
-              <span class="partner-chip">Capgemini</span>
-              <span class="partner-chip">Siemens</span>
-              <span class="partner-chip">Infosys</span>
-              <span class="partner-chip">Accenture</span>
-              <span class="partner-chip">Oracle</span>
+          <!-- Card 1 -->
+          <div class="placement-card" data-category="management">
+            <div class="placement-media">
+              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
+              <!-- <div class="package-badge">₹14.50 LPA</div> -->
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Harsh Gaur</h4>
+              <p class="placement-company">Jaro Education</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="jcb.png" alt="Jaro Education logo">
+              </div>
             </div>
           </div>
 
-          <!-- Row 2 — scrolls right -->
-          <div class="marquee-outer">
-            <div class="marquee-track right">
-              <span class="partner-chip">Amazon</span>
-              <span class="partner-chip">Meta</span>
-              <span class="partner-chip">Deloitte</span>
-              <span class="partner-chip">HCL</span>
-              <span class="partner-chip">Zensar</span>
-              <span class="partner-chip">Mphasis</span>
-              <span class="partner-chip">L&amp;T Tech</span>
-              <span class="partner-chip">Hexaware</span>
-              <span class="partner-chip">Mindtree</span>
-              <span class="partner-chip">Persistent</span>
-              <span class="partner-chip">Birlasoft</span>
-              <span class="partner-chip">Nagarro</span>
-              <!-- duplicate for seamless loop -->
-              <span class="partner-chip">Amazon</span>
-              <span class="partner-chip">Meta</span>
-              <span class="partner-chip">Deloitte</span>
-              <span class="partner-chip">HCL</span>
-              <span class="partner-chip">Zensar</span>
-              <span class="partner-chip">Mphasis</span>
-              <span class="partner-chip">L&amp;T Tech</span>
-              <span class="partner-chip">Hexaware</span>
-              <span class="partner-chip">Mindtree</span>
-              <span class="partner-chip">Persistent</span>
-              <span class="partner-chip">Birlasoft</span>
-              <span class="partner-chip">Nagarro</span>
+          <!-- Card 2 -->
+          <div class="placement-card" data-category="technology">
+            <div class="placement-media">
+              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Pavan Kulkarni</h4>
+              <p class="placement-company">IntervueVet Technologies Pvt Ltd</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="costco.png" alt="IntervueVet logo">
+              </div>
             </div>
           </div>
+
+          <!-- Card 3 -->
+          <div class="placement-card" data-category="design">
+            <div class="placement-media">
+              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Om Giramkar</h4>
+              <p class="placement-company">Learning Routes</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="jcb.png" alt="Learning Routes logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="placement-card" data-category="media">
+            <div class="placement-media">
+              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Sanket Dhawale</h4>
+              <p class="placement-company">Edgewise Innovations Pvt Ltd</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="paytm.png" alt="Edgewise logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 5 (Duplicated Harsh Gaur) -->
+          <div class="placement-card" data-category="management">
+            <div class="placement-media">
+              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Harsh Gaur (Copy)</h4>
+              <p class="placement-company">Jaro Education</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="jcb.png" alt="Jaro Education logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 6 (Duplicated Pavan Kulkarni) -->
+          <div class="placement-card" data-category="technology">
+            <div class="placement-media">
+              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Pavan Kulkarni (Copy)</h4>
+              <p class="placement-company">IntervueVet Technologies Pvt Ltd</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="costco.png" alt="IntervueVet logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 7 (Duplicated Om Giramkar) -->
+          <div class="placement-card" data-category="design">
+            <div class="placement-media">
+              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Om Giramkar (Copy)</h4>
+              <p class="placement-company">Learning Routes</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="jcb.png" alt="Learning Routes logo">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 8 (Duplicated Sanket Dhawale) -->
+          <div class="placement-card" data-category="media">
+            <div class="placement-media">
+              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
+            </div>
+            <div class="placement-info">
+              <h4 class="placement-name">Sanket Dhawale (Copy)</h4>
+              <p class="placement-company">Edgewise Innovations Pvt Ltd</p>
+            </div>
+            <div class="placement-footer">
+              <span class="placement-footer-lbl">Placed At</span>
+              <div class="placement-logo-wrap">
+                <img src="paytm.png" alt="Edgewise logo">
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <div style="text-align:center;">
-        <a href="#" class="btn btn-primary" style="font-size:15px;padding:14px 40px;">View All Placements</a>
+      <div class="placement-carousel-controls">
+        <div id="placementDotsContainer" class="placement-dots-container"></div>
+        <div class="placement-buttons-container">
+          <button id="placementPrevBtn" aria-label="Previous slide" class="placement-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button id="placementNextBtn" aria-label="Next slide" class="placement-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
       </div>
-
     </div>
+
+  <!-- Hiring Partners -->
+  <div class="placement-partners-section">
+    <div style="text-align:center;margin-bottom:32px;">
+      <!-- <div class="label">Our Network</div> -->
+      <h2>Hiring <span style="color:var(--accent);">Partners</span></h2>
+    </div>
+
+    <div class="marquee-stack">
+      <!-- Row 1 — scrolls left -->
+      <div class="marquee-outer">
+        <div class="marquee-track left">
+          <span class="partner-chip">Google</span>
+          <span class="partner-chip">Microsoft</span>
+          <span class="partner-chip">TCS</span>
+          <span class="partner-chip">IBM</span>
+          <span class="partner-chip">Cognizant</span>
+          <span class="partner-chip">Cisco</span>
+          <span class="partner-chip">Wipro</span>
+          <span class="partner-chip">Capgemini</span>
+          <span class="partner-chip">Siemens</span>
+          <span class="partner-chip">Infosys</span>
+          <span class="partner-chip">Accenture</span>
+          <span class="partner-chip">Oracle</span>
+          <!-- duplicate for seamless loop -->
+          <span class="partner-chip">Google</span>
+          <span class="partner-chip">Microsoft</span>
+          <span class="partner-chip">TCS</span>
+          <span class="partner-chip">IBM</span>
+          <span class="partner-chip">Cognizant</span>
+          <span class="partner-chip">Cisco</span>
+          <span class="partner-chip">Wipro</span>
+          <span class="partner-chip">Capgemini</span>
+          <span class="partner-chip">Siemens</span>
+          <span class="partner-chip">Infosys</span>
+          <span class="partner-chip">Accenture</span>
+          <span class="partner-chip">Oracle</span>
+        </div>
+      </div>
+
+      <!-- Row 2 — scrolls right -->
+      <div class="marquee-outer">
+        <div class="marquee-track right">
+          <span class="partner-chip">Amazon</span>
+          <span class="partner-chip">Meta</span>
+          <span class="partner-chip">Deloitte</span>
+          <span class="partner-chip">HCL</span>
+          <span class="partner-chip">Zensar</span>
+          <span class="partner-chip">Mphasis</span>
+          <span class="partner-chip">L&amp;T Tech</span>
+          <span class="partner-chip">Hexaware</span>
+          <span class="partner-chip">Mindtree</span>
+          <span class="partner-chip">Persistent</span>
+          <span class="partner-chip">Birlasoft</span>
+          <span class="partner-chip">Nagarro</span>
+          <!-- duplicate for seamless loop -->
+          <span class="partner-chip">Amazon</span>
+          <span class="partner-chip">Meta</span>
+          <span class="partner-chip">Deloitte</span>
+          <span class="partner-chip">HCL</span>
+          <span class="partner-chip">Zensar</span>
+          <span class="partner-chip">Mphasis</span>
+          <span class="partner-chip">L&amp;T Tech</span>
+          <span class="partner-chip">Hexaware</span>
+          <span class="partner-chip">Mindtree</span>
+          <span class="partner-chip">Persistent</span>
+          <span class="partner-chip">Birlasoft</span>
+          <span class="partner-chip">Nagarro</span>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top: 40px; padding-bottom: 90px;">
+      <a href="#" class="btn btn-primary" style="font-size:var(--btn-md-size);padding:14px 40px;">View All Placements</a>
+    </div>
+  </div>
+
   </section>
 
   <!-- ── 5b. CAMPUS ─────────────────────────────────────────── -->
@@ -5085,8 +5452,8 @@
             </div>
           </div>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -5191,8 +5558,8 @@
               credential for modern infrastructure engineers and systems administrators in high-growth startups.</p>
           </div>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -5207,14 +5574,14 @@
       </p>
 
       <!-- Admission Criteria -->
-      <div class="admission-summary-inline">
+      <!-- <div class="admission-summary-inline">
         <span class="criteria-item"><span class="criteria-label">Eligibility:</span> 10+2 (Any Stream)</span>
         <span class="criteria-divider">•</span>
         <span class="criteria-item"><span class="criteria-label">Campus:</span> Ambi, Pune / Gurugram</span>
         <span class="criteria-divider">•</span>
         <span class="criteria-item"><span class="criteria-label">Course Duration:</span> 3 Years / 4 Years (for
           Honours)</span>
-      </div>
+      </div> -->
 
       <div class="admission-accordion">
         <div class="admission-tabs">
@@ -5224,206 +5591,213 @@
 
         <div id="indian-admission" class="admission-tab-content active">
           <div class="accordion">
-          <!-- Step 1 -->
-          <div class="admission-item open">
-            <div class="admission-header">
-              <button class="admission-button" type="button">
-                Apply for Admission
-              </button>
-            </div>
-            <div class="admission-collapse">
-              <div class="admission-body">
-                <ul class="ul-list">
-                  <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on our
-                    Online Application Platform.</li>
-                  <li>Fill in all information correctly and accurately as required in the Online Application Platform.
-                  </li>
-                  <li>Upload the scanned copy of the following documents:</li>
-                  <ul>
-                    <li>Original 10th Mark sheet</li>
-                    <li>Original 12th or Equivalent Mark sheet</li>
-                    <li>1 photo Id proof</li>
-                    <li>1 Address proof</li>
-                    <li>1 passport sized photograph</li>
+            <!-- Step 1 -->
+            <div class="admission-item open">
+              <div class="admission-header">
+                <button class="admission-button" type="button">
+                  Apply for Admission
+                </button>
+              </div>
+              <div class="admission-collapse">
+                <div class="admission-body">
+                  <ul class="ul-list">
+                    <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on
+                      our
+                      Online Application Platform.</li>
+                    <li>Fill in all information correctly and accurately as required in the Online Application Platform.
+                    </li>
+                    <li>Upload the scanned copy of the following documents:</li>
+                    <ul>
+                      <li>Original 10th Mark sheet</li>
+                      <li>Original 12th or Equivalent Mark sheet</li>
+                      <li>1 photo Id proof</li>
+                      <li>1 Address proof</li>
+                      <li>1 passport sized photograph</li>
+                    </ul>
+                    <li>Make a payment of Rs. 500 (non-refundable) against STAC (Seamedu Technical Assessment and
+                      Counseling). After completing the above steps, you will receive a confirmation of your application
+                      being submitted using your registered email ID.</li>
                   </ul>
-                  <li>Make a payment of Rs. 500 (non-refundable) against STAC (Seamedu Technical Assessment and
-                    Counseling). After completing the above steps, you will receive a confirmation of your application
-                    being submitted using your registered email ID.</li>
-                </ul>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Step 2 -->
-          <div class="admission-item">
-            <div class="admission-header">
-              <button class="admission-button" type="button">
-                Confirmation of Selection
-              </button>
-            </div>
-            <div class="admission-collapse">
-              <div class="admission-body">
-                <p>Within 15 days of application of admission, you will be intimated on your selection (if selected)
-                  B.Des in Communication Design - Visual Communication by email on your registered email id. On receipt
-                  of the email, please complete the following:</p>
-                <ul class="ul-list">
-                  <li>Please sign in to the Seamedu Online Application Platform using your registered username and
-                    password.</li>
-                  <li>Please respond to any additional queries that arise.</li>
-                  <li>Make payment as described by the counselor.</li>
-                  <li>On receipt of the same, Provisional Admission letter will be issued for the course.</li>
-                </ul>
+            <!-- Step 2 -->
+            <div class="admission-item">
+              <div class="admission-header">
+                <button class="admission-button" type="button">
+                  Confirmation of Selection
+                </button>
+              </div>
+              <div class="admission-collapse">
+                <div class="admission-body">
+                  <p>Within 15 days of application of admission, you will be intimated on your selection (if selected)
+                    B.Des in Communication Design - Visual Communication by email on your registered email id. On
+                    receipt
+                    of the email, please complete the following:</p>
+                  <ul class="ul-list">
+                    <li>Please sign in to the Seamedu Online Application Platform using your registered username and
+                      password.</li>
+                    <li>Please respond to any additional queries that arise.</li>
+                    <li>Make payment as described by the counselor.</li>
+                    <li>On receipt of the same, Provisional Admission letter will be issued for the course.</li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Step 3 -->
-          <div class="admission-item">
-            <div class="admission-header">
-              <button class="admission-button" type="button">
-                Confirmation of Admission
-              </button>
-            </div>
-            <div class="admission-collapse">
-              <div class="admission-body">
-                <p>Submit the filled-in Final Admission form and copies of the following documents.</p>
-                <ul class="ul-list">
-                  <li>Two photo copies of 10th Mark sheet</li>
-                  <li>Two photo copies of 12th or Equivalent Mark sheet</li>
-                  <li>Two photo copies of photo Id proof</li>
-                  <li>Two photocopies of Address proof</li>
-                  <li>Six passport sized photographs with red background</li>
-                </ul>
-                <p><b>Note:</b> Please carry the Original documents for Verification. You’ll get all your original
-                  documents back.</p>
+            <!-- Step 3 -->
+            <div class="admission-item">
+              <div class="admission-header">
+                <button class="admission-button" type="button">
+                  Confirmation of Admission
+                </button>
+              </div>
+              <div class="admission-collapse">
+                <div class="admission-body">
+                  <p>Submit the filled-in Final Admission form and copies of the following documents.</p>
+                  <ul class="ul-list">
+                    <li>Two photo copies of 10th Mark sheet</li>
+                    <li>Two photo copies of 12th or Equivalent Mark sheet</li>
+                    <li>Two photo copies of photo Id proof</li>
+                    <li>Two photocopies of Address proof</li>
+                    <li>Six passport sized photographs with red background</li>
+                  </ul>
+                  <p><b>Note:</b> Please carry the Original documents for Verification. You’ll get all your original
+                    documents back.</p>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
 
         <div id="international-admission" class="admission-tab-content">
           <div class="accordion">
-          <!-- Step 1 -->
-          <div class="admission-item">
-            <div class="admission-header">
-              <button class="admission-button" type="button">
-                Apply for Admission
-              </button>
-            </div>
-            <div class="admission-collapse">
-              <div class="admission-body">
-                <ul class="ul-list">
-                  <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on our
-                    Online Application Platform.</li>
-                  <li>Fill in all information correctly and accurately as required in the Online Application Platform.
-                  </li>
-                  <li>Upload the scanned copy of the following documents:</li>
+            <!-- Step 1 -->
+            <div class="admission-item">
+              <div class="admission-header">
+                <button class="admission-button" type="button">
+                  Apply for Admission
+                </button>
+              </div>
+              <div class="admission-collapse">
+                <div class="admission-body">
                   <ul class="ul-list">
-                    <li>Valid Passport</li>
-                    <li>Marks transcripts of:</li>
+                    <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on
+                      our
+                      Online Application Platform.</li>
+                    <li>Fill in all information correctly and accurately as required in the Online Application Platform.
+                    </li>
+                    <li>Upload the scanned copy of the following documents:</li>
                     <ul class="ul-list">
-                      <li>High school</li>
-                      <li>Bachelor’s Degree (if applicable)</li>
-                      <li>Previous VISA to India if any</li>
+                      <li>Valid Passport</li>
+                      <li>Marks transcripts of:</li>
+                      <ul class="ul-list">
+                        <li>High school</li>
+                        <li>Bachelor’s Degree (if applicable)</li>
+                        <li>Previous VISA to India if any</li>
+                      </ul>
                     </ul>
+                    <li>Make a payment of $50 (non-refundable) against STAC (Seamedu Technical Assessment and
+                      Counseling).
+                      After completing the above steps, you will receive a confirmation of your application being
+                      submitted using your registered email ID.</li>
                   </ul>
-                  <li>Make a payment of $50 (non-refundable) against STAC (Seamedu Technical Assessment and Counseling).
-                    After completing the above steps, you will receive a confirmation of your application being
-                    submitted using your registered email ID.</li>
-                </ul>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Step 2 -->
-          <div class="admission-item">
-            <div class="admission-header">
-              <button class="admission-button" type="button">
-                Confirmation of Selection
-              </button>
-            </div>
-            <div class="admission-collapse">
-              <div class="admission-body">
-                <p>Within 15 days of your application, you will be intimated about your selection (if selected) B.Des in
-                  Communication Design - Visual Communication by email on your registered email ID. On receipt of the
-                  email, please complete the following process:</p>
-                <ul class="ul-list">
-                  <li>Please sign in to the Seamedu Online Application Platform using your registered username and
-                    password.</li>
-                  <li>Complete the set of steps as prompted</li>
-                  <li>Make a payment of $160 as processing and eligibility fees and $350 as admission confirmation fee
-                    [We adjust the admission confirmation fee against the total fees.] *Both fee amounts are
-                    non-refundable</li>
-                </ul>
+            <!-- Step 2 -->
+            <div class="admission-item">
+              <div class="admission-header">
+                <button class="admission-button" type="button">
+                  Confirmation of Selection
+                </button>
+              </div>
+              <div class="admission-collapse">
+                <div class="admission-body">
+                  <p>Within 15 days of your application, you will be intimated about your selection (if selected) B.Des
+                    in
+                    Communication Design - Visual Communication by email on your registered email ID. On receipt of the
+                    email, please complete the following process:</p>
+                  <ul class="ul-list">
+                    <li>Please sign in to the Seamedu Online Application Platform using your registered username and
+                      password.</li>
+                    <li>Complete the set of steps as prompted</li>
+                    <li>Make a payment of $160 as processing and eligibility fees and $350 as admission confirmation fee
+                      [We adjust the admission confirmation fee against the total fees.] *Both fee amounts are
+                      non-refundable</li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Step 3 -->
-          <div class="admission-item">
-            <div class="admission-header">
-              <button class="admission-button" type="button">
-                Documentation For Confirmed Admission
-              </button>
-            </div>
-            <div class="admission-collapse">
-              <div class="admission-body">
-                <p>On receipt of the Provisional Admission Letter, please complete the following process:</p>
-                <ul class="ul-list">
-                  <li>Have all Marks Transcripts attested by the Ministry of Higher Education in your country</li>
-                  <li>Apply for visa at the nearest Indian mission or Indian Embassy in your country (You must take an
-                    endorsed Student Visa)</li>
-                  <li>Email us a copy of the attested transcripts and the visa issued</li>
-                </ul>
+            <!-- Step 3 -->
+            <div class="admission-item">
+              <div class="admission-header">
+                <button class="admission-button" type="button">
+                  Documentation For Confirmed Admission
+                </button>
+              </div>
+              <div class="admission-collapse">
+                <div class="admission-body">
+                  <p>On receipt of the Provisional Admission Letter, please complete the following process:</p>
+                  <ul class="ul-list">
+                    <li>Have all Marks Transcripts attested by the Ministry of Higher Education in your country</li>
+                    <li>Apply for visa at the nearest Indian mission or Indian Embassy in your country (You must take an
+                      endorsed Student Visa)</li>
+                    <li>Email us a copy of the attested transcripts and the visa issued</li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Step 4 -->
-          <div class="admission-item">
-            <div class="admission-header">
-              <button class="admission-button" type="button">
-                Confirmation of Admission
-              </button>
-            </div>
-            <div class="admission-collapse">
-              <div class="admission-body">
-                <p>On arrival in India, you must report to the International Students’ Cell to take admission in person
-                </p>
-                <p>Fill in and submit the Final Admission Form along with copies of the following documents:</p>
-                <ul class="ul-list">
-                  <li>Endorsed Student Visa</li>
-                  <li>Medical Fitness Report / Yellow Fever Vaccination Card</li>
-                  <li>C-Form and House Agreement</li>
-                  <li>4 Photographs</li>
-                  <li>Complete Payment of Fee / Receipts</li>
-                </ul>
+            <!-- Step 4 -->
+            <div class="admission-item">
+              <div class="admission-header">
+                <button class="admission-button" type="button">
+                  Confirmation of Admission
+                </button>
+              </div>
+              <div class="admission-collapse">
+                <div class="admission-body">
+                  <p>On arrival in India, you must report to the International Students’ Cell to take admission in
+                    person
+                  </p>
+                  <p>Fill in and submit the Final Admission Form along with copies of the following documents:</p>
+                  <ul class="ul-list">
+                    <li>Endorsed Student Visa</li>
+                    <li>Medical Fitness Report / Yellow Fever Vaccination Card</li>
+                    <li>C-Form and House Agreement</li>
+                    <li>4 Photographs</li>
+                    <li>Complete Payment of Fee / Receipts</li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
 
-          <!-- Step 5 -->
-          <div class="admission-item">
-            <div class="admission-header">
-              <button class="admission-button" type="button">
-                Important Verification Notes
-              </button>
-            </div>
-            <div class="admission-collapse">
-              <div class="admission-body">
-                <p><b>Please carry all your original documents for verification.</b> You’ll get all your original
-                  documents back after post-verification. Additional important notes:</p>
-                <ul class="ul-list">
-                  <li>All foreign students must take the English Language Proficiency Test. Clearance of this test is a
-                    must for firm admission.</li>
-                  <li>You need to report to the FRO for registration. Students must register within 14 days of arrival
-                    in India or they may have to pay late fees.</li>
-                </ul>
+            <!-- Step 5 -->
+            <div class="admission-item">
+              <div class="admission-header">
+                <button class="admission-button" type="button">
+                  Important Verification Notes
+                </button>
+              </div>
+              <div class="admission-collapse">
+                <div class="admission-body">
+                  <p><b>Please carry all your original documents for verification.</b> You’ll get all your original
+                    documents back after post-verification. Additional important notes:</p>
+                  <ul class="ul-list">
+                    <li>All foreign students must take the English Language Proficiency Test. Clearance of this test is
+                      a
+                      must for firm admission.</li>
+                    <li>You need to report to the FRO for registration. Students must register within 14 days of arrival
+                      in India or they may have to pay late fees.</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         </div>
       </div>
     </div>
@@ -5617,8 +5991,8 @@
         </div>
         <div class="career-table-overlay" id="careerTableToggleBtn" onclick="toggleCareerTable()"><span>Load More</span>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -5746,8 +6120,8 @@
             </svg>
           </a>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -5909,8 +6283,8 @@
             </svg>
           </a>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -6037,8 +6411,8 @@
             </svg>
           </a>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -6167,8 +6541,8 @@
             </svg>
           </a>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -6280,8 +6654,8 @@
               priority in scholarship allocation and hostel assignment.</p>
           </div>
         </div>
-        </div>
       </div>
+    </div>
     </div>
   </section>
 
@@ -6567,12 +6941,12 @@
     document.querySelectorAll('[data-admission-tab]').forEach(tabBtn => {
       tabBtn.addEventListener('click', () => {
         const targetTab = tabBtn.dataset.admissionTab;
-        
+
         // Update tab buttons active class
         document.querySelectorAll('[data-admission-tab]').forEach(btn => {
           btn.classList.toggle('active', btn.dataset.admissionTab === targetTab);
         });
-        
+
         // Update tab content active class
         document.getElementById('indian-admission').classList.toggle('active', targetTab === 'indian');
         document.getElementById('international-admission').classList.toggle('active', targetTab === 'international');
@@ -6656,6 +7030,163 @@
         grid.scrollLeft += cardWidth;
       }
     }
+
+    /* ── Placements Carousel ── */
+    const carouselFrame = document.getElementById("placementCarouselFrame");
+    const carouselTrack = document.getElementById("placementGrid");
+    const dotsContainer = document.getElementById("placementDotsContainer");
+    const btnPrev = document.getElementById("placementPrevBtn");
+    const btnNext = document.getElementById("placementNextBtn");
+
+    let currentTrackIndex = 0;
+    let isCarouselTransitioning = false;
+    let isCurrentlyDraggingGesture = false;
+    let gestureDragStartXCoordinate = 0;
+    const totalItems = 8;
+    let lastIsDesktop = window.innerWidth > 768;
+
+    function getMaxIndex() {
+      return window.innerWidth > 768 ? (totalItems - 4) : (totalItems - 1);
+    }
+
+    function initializePlacementCarouselDOM() {
+      const maxIndex = getMaxIndex();
+      const numDots = maxIndex + 1;
+
+      if (currentTrackIndex > maxIndex) {
+        currentTrackIndex = maxIndex;
+      }
+
+      dotsContainer.innerHTML = Array.from({ length: numDots })
+        .map(
+          (_, idx) =>
+            `<span id="placement-dot-${idx}" class="dot-inactive"></span>`,
+        )
+        .join("");
+
+      applyTrackPositionTransform(false);
+      refreshActiveDotHighlightIndicators();
+    }
+
+    function applyTrackPositionTransform(enableSmoothTransition) {
+      if (enableSmoothTransition) {
+        carouselTrack.style.transition = "transform 0.5s ease-in-out";
+      } else {
+        carouselTrack.style.transition = "none";
+      }
+
+      if (window.innerWidth > 768) {
+        // Desktop: 4 cards visible, calculate precise pixel shift based on current layout width
+        const frameWidth = carouselFrame.clientWidth;
+        const shiftPx = currentTrackIndex * (frameWidth + 24) / 4;
+        carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
+      } else {
+        // Mobile: 1 card visible, translate by 100% per card index
+        carouselTrack.style.transform = `translateX(-${currentTrackIndex * 100}%)`;
+      }
+    }
+
+    function refreshActiveDotHighlightIndicators() {
+      const maxIndex = getMaxIndex();
+      const numDots = maxIndex + 1;
+      for (let idx = 0; idx < numDots; idx++) {
+        const targetedDot = document.getElementById(`placement-dot-${idx}`);
+        if (targetedDot) {
+          if (idx === currentTrackIndex) {
+            targetedDot.className = "dot-active";
+          } else {
+            targetedDot.className = "dot-inactive";
+          }
+        }
+      }
+    }
+
+    function advanceCarouselNextSlide() {
+      if (isCarouselTransitioning) return;
+      isCarouselTransitioning = true;
+      const maxIndex = getMaxIndex();
+      if (currentTrackIndex >= maxIndex) {
+        currentTrackIndex = 0;
+      } else {
+        currentTrackIndex++;
+      }
+      applyTrackPositionTransform(true);
+      refreshActiveDotHighlightIndicators();
+      setTimeout(() => {
+        isCarouselTransitioning = false;
+      }, 500);
+    }
+
+    function regressCarouselPreviousSlide() {
+      if (isCarouselTransitioning) return;
+      isCarouselTransitioning = true;
+      const maxIndex = getMaxIndex();
+      if (currentTrackIndex <= 0) {
+        currentTrackIndex = maxIndex;
+      } else {
+        currentTrackIndex--;
+      }
+      applyTrackPositionTransform(true);
+      refreshActiveDotHighlightIndicators();
+      setTimeout(() => {
+        isCarouselTransitioning = false;
+      }, 500);
+    }
+
+    function processDragGestureStart(clientX) {
+      isCurrentlyDraggingGesture = true;
+      gestureDragStartXCoordinate = clientX;
+    }
+    function processDragGestureMove(clientX) {
+      if (!isCurrentlyDraggingGesture) return;
+      const netDeltaDifferenceX = clientX - gestureDragStartXCoordinate;
+      if (netDeltaDifferenceX > 50) {
+        regressCarouselPreviousSlide();
+        isCurrentlyDraggingGesture = false;
+      } else if (netDeltaDifferenceX < -50) {
+        advanceCarouselNextSlide();
+        isCurrentlyDraggingGesture = false;
+      }
+    }
+    function processDragGestureEnd() {
+      isCurrentlyDraggingGesture = false;
+    }
+
+    btnPrev.addEventListener("click", regressCarouselPreviousSlide);
+    btnNext.addEventListener("click", advanceCarouselNextSlide);
+
+    carouselFrame.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      processDragGestureStart(e.pageX);
+    });
+    carouselFrame.addEventListener("mousemove", (e) => {
+      e.preventDefault();
+      processDragGestureMove(e.pageX);
+    });
+    window.addEventListener("mouseup", processDragGestureEnd);
+    carouselFrame.addEventListener(
+      "touchstart",
+      (e) => processDragGestureStart(e.touches[0].clientX),
+      { passive: true },
+    );
+    carouselFrame.addEventListener(
+      "touchmove",
+      (e) => processDragGestureMove(e.touches[0].clientX),
+      { passive: true },
+    );
+    carouselFrame.addEventListener("touchend", processDragGestureEnd);
+
+    window.addEventListener("resize", () => {
+      const isDesktop = window.innerWidth > 768;
+      if (isDesktop !== lastIsDesktop) {
+        lastIsDesktop = isDesktop;
+        initializePlacementCarouselDOM();
+      } else {
+        applyTrackPositionTransform(false);
+      }
+    });
+
+    initializePlacementCarouselDOM();
 
   </script>
 
