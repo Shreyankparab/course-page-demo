@@ -22,11 +22,13 @@
       --accent: #155DFC;
       --accent-dark: #0e4de0;
       --accent-light: #E5EEFF;
+      --accent-hover: #3B82F6;
       --card-bg: #F8FAFF;
       --card-border: #E5EEFF;
-      --text-1: #0F172A;
+      --text-1: #475569;
       --text-2: #475569;
       --text-3: #94A3B8;
+      --text-heading: #000000;
       --white: #FFFFFF;
       --r: 10px;
       --r-lg: 16px;
@@ -162,12 +164,13 @@
       font-size: var(--h1-size);
       line-height: var(--h1-line-height);
       font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
     }
 
     h2 {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
-      color: rgb(15, 23, 42);
+      color: var(--text-heading);
       margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -177,25 +180,29 @@
     h3 {
       font-size: var(--h3-size);
       line-height: var(--h3-line-height);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
     }
 
     h4 {
       font-size: var(--h4-size);
       line-height: var(--h4-line-height);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
     }
 
     h5 {
       font-size: var(--h5-size);
       line-height: var(--h5-line-height);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
     }
 
     h6 {
       font-size: var(--h6-size);
       line-height: var(--h6-line-height);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
     }
 
     /* p {
@@ -271,9 +278,9 @@
     }
 
     .btn-primary:hover {
-      background: var(--accent-dark);
+      background: var(--accent-hover);
       transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(21, 93, 252, .3);
+      box-shadow: 0 6px 16px rgba(59, 130, 246, .3);
     }
 
     .btn-ghost {
@@ -382,7 +389,7 @@
       font-size: var(--h1-size);
       line-height: var(--h1-line-height);
       font-weight: var(--font-weight-heading);
-      color: #0f172a;
+      color: var(--text-heading);
     }
 
     .hero-text-left h1 .accent-color {
@@ -407,7 +414,7 @@
       width: 100%;
       height: 380px;
       border-radius: 24px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
       margin-bottom: 55px;
       /* space for overlapping horizontal search bar */
     }
@@ -462,7 +469,7 @@
 
     .badge-lbl {
       font-size: var(--small-size);
-      color: #64748b;
+      color: var(--text-1);
       font-weight: 500;
       text-transform: uppercase;
     }
@@ -470,7 +477,7 @@
     .badge-val {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      color: #0f172a;
+      color: var(--text-heading);
       font-weight: var(--font-weight-heading);
     }
 
@@ -538,13 +545,13 @@
 
     .search-tab:hover {
       background: #ffffff;
-      color: #0f172a;
+      color: var(--text-heading);
     }
 
     .search-tab.active {
-      background: #0f172a;
+      background: var(--text-heading);
       color: #ffffff;
-      border-color: #0f172a;
+      border-color: var(--text-heading);
     }
 
     .search-card {
@@ -577,7 +584,7 @@
       font-size: var(--body-size);
       line-height: var(--body-line-height);
       font-weight: var(--font-weight-heading);
-      color: #0f172a;
+      color: var(--text-heading);
       padding: 2px 0;
       white-space: nowrap;
     }
@@ -623,7 +630,7 @@
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
-      color: #64748b;
+      color: var(--text-1);
     }
 
     .benefit-item svg {
@@ -683,8 +690,8 @@
     .tab {
       padding: 16px 30px;
       font-size: var(--link-size);
-      font-weight: var(--font-weight-heading);
-      color: var(--text-2);
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
       cursor: pointer;
       border-bottom: 2.5px solid transparent;
       white-space: nowrap;
@@ -771,14 +778,14 @@
       font-size: var(--h4-size);
       line-height: var(--h4-line-height);
       font-weight: var(--font-weight-heading);
-      color: #0f172a;
+      color: var(--text-heading);
       margin-bottom: 4px;
     }
 
     .spec-details p {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      color: #64748b;
+      color: var(--text-1);
     }
 
     .overview-tech-stack {
@@ -791,7 +798,7 @@
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
-      color: #64748b;
+      color: var(--text-1);
       text-transform: uppercase;
       margin-bottom: 12px;
     }
@@ -836,7 +843,7 @@
     .overview-right-col h2 {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
-      color: rgb(15, 23, 42);
+      color: var(--text-heading);
       margin-bottom: 24px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -867,7 +874,7 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: #0f172a;
+      background: var(--text-heading);
       color: #ffffff;
       padding: 12px 28px;
       border-radius: 100px;
@@ -887,7 +894,7 @@
       height: 24px;
       border-radius: 50%;
       background: #ffffff;
-      color: #0f172a;
+      color: var(--text-heading);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1008,6 +1015,37 @@
     }
 
     /* ─── 5. CURRICULUM ──────────────────────────────────── */
+    .curriculum-layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 60px;
+      align-items: flex-start;
+    }
+
+    .curriculum-left {
+      position: sticky;
+      top: 140px;
+    }
+
+    .curriculum-sub {
+      color: var(--text-2);
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      margin-top: 16px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 960px) {
+      .curriculum-layout {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+
+      .curriculum-left {
+        position: static;
+      }
+    }
+
     .acc-group {
       margin-bottom: 12px;
     }
@@ -1062,14 +1100,15 @@
     }
 
     .year-icon {
-      width: 26px;
-      height: 26px;
+      width: 28px;
+      height: 28px;
       border-radius: 50%;
       border: 1.5px solid var(--card-border);
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: var(--h5-size);
+      font-weight: 400;
       line-height: 1;
       color: var(--text-2);
       transition: transform .3s, background .2s, border-color .2s, color .2s;
@@ -1133,8 +1172,8 @@
       display: block;
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      font-weight: var(--font-weight-heading);
-      color: var(--text-1);
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
     }
 
     .sem-body {
@@ -1142,16 +1181,17 @@
     }
 
     .subject-tags {
+      margin: 0;
+      padding-left: 20px;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
     .stag {
-      /* background: var(--card-bg); */
-      /* border: 1px solid var(--card-border); */
-      border-radius: 6px;
-      padding: 8px 14px;
+      display: list-item;
+      list-style-type: disc;
+      padding: 6px 0px;
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-body);
@@ -1240,7 +1280,7 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(0, 0, 0, 0.9);
       color: #ffffff;
       font-weight: 600;
       font-size: var(--small-size);
@@ -1261,7 +1301,7 @@
     .placement-name {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: var(--text-1);
+      color: var(--text-heading);
       line-height: var(--body-line-height);
     }
 
@@ -1288,7 +1328,7 @@
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       line-height: var(--small-line-height);
-      color: var(--text-3);
+      color: var(--text-2);
       text-transform: uppercase;
     }
 
@@ -1735,14 +1775,14 @@
       font-size: var(--h4-size);
       line-height: var(--h4-line-height);
       font-weight: var(--font-weight-heading);
-      color: #0F172A;
+      color: var(--text-heading);
       margin-bottom: 12px;
     }
 
     .cert-v2-card p {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      color: #64748B;
+      color: var(--text-1);
       text-align: justify;
       hyphens: auto;
     }
@@ -1848,13 +1888,13 @@
       font-size: var(--h5-size);
       line-height: var(--h5-line-height);
       font-weight: var(--font-weight-heading);
-      color: #0F172A;
+      color: var(--text-heading);
     }
 
     .cert-v3-row p {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      color: #64748B;
+      color: var(--text-1);
     }
 
     @media (max-width: 768px) {
@@ -1904,7 +1944,7 @@
     .career-v2-card:hover {
       transform: translateY(-4px);
       border-color: var(--accent);
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
     }
 
     .career-v2-card h3 {
@@ -1912,7 +1952,7 @@
       /* Slightly smaller for density */
       line-height: var(--h5-line-height);
       font-weight: var(--font-weight-heading);
-      color: #0F172A;
+      color: var(--text-heading);
       margin-bottom: 8px;
       /* Reduced space */
     }
@@ -1921,7 +1961,7 @@
       font-size: var(--body-size);
       /* Slightly smaller for density */
       line-height: var(--body-line-height);
-      color: #64748B;
+      color: var(--text-1);
       margin-bottom: 20px;
       /* Reduced space */
       flex-grow: 1;
@@ -1952,7 +1992,7 @@
       line-height: var(--h5-line-height);
       /* Increased amount size */
       font-weight: var(--font-weight-heading);
-      color: #0F172A;
+      color: var(--text-heading);
     }
 
     .career-v2-salary-bar {
@@ -2044,7 +2084,7 @@
       font-size: var(--h6-size);
       /* Reduced font size */
       font-weight: var(--font-weight-heading);
-      color: #0F172A;
+      color: var(--text-heading);
       margin-bottom: 12px;
       text-transform: none;
     }
@@ -2053,7 +2093,7 @@
       font-size: var(--body-size);
       /* Reduced font size */
       line-height: var(--body-line-height);
-      color: #64748B;
+      color: var(--text-1);
       margin-bottom: 0;
       text-align: left;
       /* Changed from justified for smaller columns */
@@ -2140,14 +2180,14 @@
     .career-v4-salary {
       font-size: var(--h4-size);
       font-weight: var(--font-weight-heading);
-      color: #0F172A;
+      color: var(--text-heading);
       margin-bottom: 4px;
     }
 
     .career-v4-header h3 {
       font-size: var(--body-size);
       font-weight: var(--font-weight-body);
-      color: #64748B;
+      color: var(--text-1);
       margin-top: 4px;
     }
 
@@ -2165,7 +2205,7 @@
       margin-bottom: 0;
     }
 
-    @media (max-width: 850px) {
+    @media (max-width: 836px) {
       .career-v4-card {
         grid-template-columns: 1fr;
       }
@@ -2239,7 +2279,7 @@
 
     /* ─── 8. FAQ ─────────────────────────────────────────── */
     .faq-list {
-      max-width: 780px;
+      max-width: 1160px;
       margin: 0 auto;
     }
 
@@ -2260,7 +2300,8 @@
     .faq-q-text {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
     }
 
     .faq-icon {
@@ -2298,13 +2339,14 @@
     .faq-a p {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      color: var(--text-2);
+      color: var(--text-heading);
       padding-bottom: 20px;
+      font-weight: var(--font-weight-body);
     }
 
     /* ─── 9. FOOTER ──────────────────────────────────────── */
     footer {
-      background: #0F172A;
+      background: var(--text-heading);
       padding: 80px 40px;
       margin-top: 14px;
     }
@@ -2332,7 +2374,7 @@
     .f-tagline {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      color: #64748B;
+      color: var(--text-1);
       margin-bottom: 22px;
     }
 
@@ -2352,7 +2394,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
-      color: #64748B;
+      color: var(--text-1);
       margin-bottom: 16px;
     }
 
@@ -2376,7 +2418,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
-      color: #64748B;
+      color: var(--text-1);
       margin-bottom: 14px;
     }
 
@@ -2450,7 +2492,7 @@
     .contact-address {
       font-size: var(--small-size);
       line-height: var(--small-line-height);
-      color: #64748B;
+      color: var(--text-1);
       margin-bottom: 10px;
     }
 
@@ -2464,11 +2506,11 @@
 
     /* Left Column: Interactive Sandbox Console Mockup */
     .overview-v2-sandbox {
-      background: #0f172a;
+      background: var(--text-heading);
       /* Slate-900 */
       border-radius: 16px;
       padding: 24px;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       border: 1px solid #1e293b;
       font-family: 'Courier New', Courier, monospace;
       color: #94a3b8;
@@ -2509,7 +2551,7 @@
 
     .console-title {
       font-size: var(--small-size);
-      color: #64748b;
+      color: var(--text-1);
       margin-left: 10px;
       font-family: 'Poppins', sans-serif;
       text-transform: uppercase;
@@ -2530,7 +2572,7 @@
 
     /* pink-400 */
     .console-code span.comment {
-      color: #64748b;
+      color: var(--text-1);
     }
 
     /* slate-500 */
@@ -2627,12 +2669,12 @@
     .v2-feature-item h4 {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: #0f172a;
+      color: var(--text-heading);
     }
 
     .v2-feature-item p {
       font-size: var(--small-size);
-      color: #64748b;
+      color: var(--text-1);
       line-height: 1.6;
     }
 
@@ -2658,7 +2700,7 @@
       border-radius: 20px;
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: #64748b;
+      color: var(--text-1);
       cursor: pointer;
       transition: all 0.2s;
       font-family: 'Poppins', sans-serif;
@@ -2684,7 +2726,7 @@
     .v3-title {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
-      color: rgb(15, 23, 42);
+      color: var(--text-heading);
       margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -2761,14 +2803,14 @@
     .v3-outcome-item h4 {
       font-size: var(--h6-size);
       font-weight: var(--font-weight-heading);
-      color: #0f172a;
+      color: var(--text-heading);
       margin-top: 2px;
       line-height: 1.375;
     }
 
     .v3-outcome-item p {
       font-size: var(--small-size);
-      color: #64748b;
+      color: var(--text-1);
       line-height: 1.45;
     }
 
@@ -2791,13 +2833,13 @@
       border: 1px solid #e2e8f0;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
     }
 
     .v3-form-header {
       background: #ffffff;
       padding: 32px 32px 8px 32px;
-      color: #0f172a;
+      color: var(--text-heading);
       position: relative;
     }
 
@@ -2810,7 +2852,8 @@
 
     .v3-form-header p {
       font-size: var(--body-size);
-      color: #64748b;
+      font-weight: var(--font-weight-body);
+      color: var(--text-1);
     }
 
     .v3-form-body {
@@ -2830,8 +2873,8 @@
     .v3-input-group label {
       font-size: var(--small-size);
       line-height: var(--small-line-height);
-      font-weight: var(--font-weight-heading);
-      color: #64748b;
+      font-weight: var(--font-weight-body);
+      color: var(--text-1);
       text-transform: uppercase;
     }
 
@@ -2841,7 +2884,7 @@
       border: 1.5px solid #cbd5e1;
       font-size: var(--body-size);
       font-family: inherit;
-      color: #0f172a;
+      color: var(--text-heading);
       outline: none;
       transition: all 0.2s;
     }
@@ -2905,7 +2948,7 @@
 
     .v3-checkbox-label {
       font-size: var(--small-size);
-      color: #64748b;
+      color: var(--text-1);
       display: flex;
       align-items: flex-start;
       gap: 8px;
@@ -2977,7 +3020,7 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      color: #64748B;
+      color: var(--text-1);
       transition: background .2s, color .2s, border-color .2s;
     }
 
@@ -3188,7 +3231,7 @@
       font-weight: var(--font-weight-heading);
       font-size: var(--body-size);
       line-height: 1.2;
-      color: #0f172a;
+      color: var(--text-heading);
       text-transform: uppercase;
       margin-bottom: 0;
     }
@@ -3215,7 +3258,7 @@
       font-size: var(--btn-md-size);
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       padding: 8px 16px;
-      border-radius: 50px;
+      border-radius: 36px;
       border: 1px solid rgba(21, 93, 252, 0.12);
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(8px);
@@ -3350,18 +3393,14 @@
       font-size: var(--btn-md-size);
       text-decoration: none;
       padding: 12px 32px;
-      border-radius: 50px;
+      border-radius: 36px;
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
       transition: all 0.25s ease;
       text-align: center;
       white-space: nowrap;
     }
 
-    .counsellor-cta-v2-btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      background: #f8fafc;
-    }
+
 
     .counsellor-cta-v2-btn-secondary {
       display: inline-flex;
@@ -3375,10 +3414,7 @@
       gap: 6px;
     }
 
-    .counsellor-cta-v2-btn-secondary:hover {
-      opacity: 0.9;
-      transform: translateX(2px);
-    }
+
 
     @media (max-width: 868px) {
       .counsellor-cta-v2-card {
@@ -3386,6 +3422,7 @@
         padding: 36px 30px;
         gap: 24px;
         text-align: center;
+        margin: 0 16px;
       }
 
       .counsellor-cta-v2-info p {
@@ -3418,7 +3455,7 @@
       overflow-x: auto;
       border: 1px solid #cbd5e1;
       border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
       background: #ffffff;
       margin-top: 20px;
     }
@@ -3435,6 +3472,11 @@
     .career-table td {
       padding: 18px 24px;
       border-bottom: 1px solid #cbd5e1;
+    }
+
+    .career-table td {
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
     }
 
     .career-table th:not(:last-child),
@@ -3469,15 +3511,15 @@
     }
 
     .role-cell {
-      color: #0f172a;
-      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+      font-weight: var(--font-weight-body);
     }
 
     .salary-pill {
       display: inline-flex;
       align-items: center;
       padding: 6px 14px;
-      border-radius: 50px;
+      border-radius: 36px;
       background: rgba(34, 197, 94, 0.1);
       color: #16a34a;
       font-weight: var(--font-weight-heading);
@@ -3569,11 +3611,11 @@
         color: var(--accent);
         border: 1px solid var(--accent);
         padding: 8px 24px;
-        border-radius: 50px;
+        border-radius: 36px;
         font-size: var(--small-size);
         font-weight: var(--font-weight-heading);
         line-height: var(--small-line-height);
-        box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         transition: all 0.2s ease;
       }
 
@@ -3626,7 +3668,7 @@
       display: flex;
       flex-direction: column;
       aspect-ratio: 3 / 4;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.8);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
@@ -3634,7 +3676,7 @@
 
     .student-work-card-v2:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
       border-color: rgba(21, 93, 252, 0.2);
     }
 
@@ -3718,7 +3760,7 @@
     .work-title-v2 {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: #0f172a;
+      color: var(--text-heading);
       line-height: 1.35;
       margin: 10px 0;
       transition: color 0.2s ease;
@@ -3731,7 +3773,7 @@
     .work-student-v2 {
       font-size: var(--small-size);
       font-weight: var(--font-weight-body);
-      color: #64748b;
+      color: var(--text-1);
       margin-top: 4px;
       margin-bottom: 0;
     }
@@ -3748,7 +3790,7 @@
 
     .student-work-card-v3:hover {
       transform: translateY(-6px);
-      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
       border-color: rgba(21, 93, 252, 0.15);
     }
 
@@ -3794,7 +3836,7 @@
       border-radius: 12px;
       padding: 12px 14px;
       z-index: 2;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
       border: 1px solid rgba(226, 232, 240, 0.6);
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
@@ -3818,7 +3860,7 @@
     .work-title-v3 {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: #0f172a;
+      color: var(--text-heading);
       line-height: 1.35;
       margin: 0 0 2px 0;
       transition: color 0.2s ease;
@@ -3831,7 +3873,7 @@
     .work-student-v3 {
       font-size: var(--small-size);
       font-weight: var(--font-weight-body);
-      color: #64748b;
+      color: var(--text-1);
       margin: 0;
     }
 
@@ -3842,7 +3884,7 @@
       aspect-ratio: 3 / 4;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.8);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: default;
@@ -3850,7 +3892,7 @@
 
     .student-work-card-v4:hover {
       transform: translateY(-6px);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
       border-color: rgba(21, 93, 252, 0.2);
     }
 
@@ -3919,7 +3961,7 @@
 
     .work-title-v4 {
       font-size: var(--body-size);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
       color: #ffffff;
       line-height: var(--body-line-height);
       margin: 0 0 4px 0;
@@ -3947,7 +3989,7 @@
       border-radius: 16px;
       overflow: hidden;
       background: #f1f5f9;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
@@ -3972,7 +4014,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(15, 23, 42, 0.1);
+      background: rgba(0, 0, 0, 0.1);
       transition: background 0.3s ease;
     }
 
@@ -4040,7 +4082,7 @@
     .work-title {
       font-size: var(--h5-size);
       font-weight: var(--font-weight-heading);
-      color: #0f172a;
+      color: var(--text-heading);
       line-height: 1.3;
       margin-bottom: 6px;
       transition: color 0.2s ease;
@@ -4131,7 +4173,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: #0f172a;
+        color: var(--text-heading);
         cursor: pointer;
         transition: transform 0.1s;
         padding: 0;
@@ -4207,7 +4249,7 @@
     .campus-v2-title {
       font-size: var(--h5-size);
       font-weight: var(--font-weight-heading);
-      color: #0f172a;
+      color: var(--text-heading);
       margin-bottom: 8px;
       transition: color 0.2s ease;
     }
@@ -4220,7 +4262,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      color: #64748b;
+      color: var(--text-1);
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
@@ -4235,7 +4277,7 @@
     .campus-v2-desc {
       font-size: var(--body-size);
       font-weight: var(--font-weight-body);
-      color: #64748b;
+      color: var(--text-1);
       line-height: var(--body-line-height);
       margin-bottom: 24px;
       opacity: 0.85;
@@ -4284,7 +4326,7 @@
     .hero-video-section {
       width: 100%;
       max-width: 100%;
-      height: calc(100vh - 59px);
+      height: calc(100vh - 250px);
       padding: 5px 10px 10px;
       box-sizing: border-box;
       background: #ffffff;
@@ -4346,7 +4388,7 @@
 
     .admission-tab-btn {
       padding: 12px 32px;
-      border-radius: 50px;
+      border-radius: 36px;
       font-size: 16px;
       font-weight: 700;
       background: #f8fafc;
@@ -4395,7 +4437,7 @@
       margin-bottom: 16px;
       overflow: hidden;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
     }
 
     .admission-item.open {
@@ -4463,6 +4505,7 @@
       line-height: var(--body-line-height);
       color: var(--text-2);
       border-top: 1px solid var(--card-border);
+      font-weight: var(--font-weight-body);
     }
 
     .admission-body p {
@@ -4638,7 +4681,7 @@
     </div>
     <!-- <div style="display: flex; justify-content: center; margin-top: 24px;">
       <a href="#about-the-program" class="btn btn-primary"
-        style="padding: 14px 44px; border-radius: 50px; font-size: var(--body-size); text-transform: uppercase; font-weight: 700; background: var(--accent); color: #fff; line-height: var(--body-line-height);">Enquire
+        style="padding: 14px 44px; border-radius: 36px; font-size: var(--body-size); text-transform: uppercase; font-weight: 700; background: var(--accent); color: #fff; line-height: var(--body-line-height);">Enquire
         Now</a>
     </div> -->
   </section>
@@ -4731,7 +4774,7 @@
     <div class="container overview-v2-grid">
 
       <div class="overview-left-col">
-        <div class="overview-visual-wrapper" style="height: 450px; margin-bottom: 0;">
+        <div class="overview-visual-wrapper" style="height: 436px; margin-bottom: 0;">
           <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80"
             alt="Artificial Intelligence & Robotics Interface" class="overview-visual-img">
         </div>
@@ -4962,52 +5005,184 @@
     </div>
     </div>
   </section>
+
   <!-- ── 5. CURRICULUM ──────────────────────────────────────── -->
   <section class="sec sec-gray" id="curriculum">
     <div class="container">
-      <!-- <div class="label">What You'll Learn</div> -->
-      <h2>Academic <span style="color: var(--accent);">Curriculum</span></h2>
-      <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);margin-bottom:36px;max-width:560px;">
-        A carefully structured
-        8-semester program from fundamentals to cutting-edge specialisations.</p>
-
-      <!-- Year 1 -->
-      <div class="acc-group">
-        <div class="year-tag open" data-year>
-          <span class="year-tag-label"><span class="year-dot"></span>Year 1</span>
-          <span class="year-icon">+</span>
+      <div class="curriculum-layout">
+        <div class="curriculum-left">
+          <h2>Academic <span style="color: var(--accent);">Curriculum</span></h2>
+          <p class="curriculum-sub">
+            A carefully structured 8-semester program from fundamentals to cutting-edge specialisations.
+          </p>
         </div>
-        <div class="year-body open">
-          <div class="year-body-inner">
-            <div class="sem-pair">
-              <div class="sem-block">
-                <div class="sem-header">
-                  <span class="sem-title">Semester 1</span>
-                </div>
-                <div class="sem-body">
-                  <div class="subject-tags">
-                    <span class="stag">Introduction to Programming (C)</span>
-                    <span class="stag">Engineering Mathematics I</span>
-                    <span class="stag">Digital Logic &amp; Design</span>
-                    <span class="stag">Communication Skills</span>
-                    <span class="stag">Physics for Engineers</span>
-                    <span class="stag">Engineering Graphics</span>
+        <div class="curriculum-right">
+          <!-- Year 1 -->
+          <div class="acc-group">
+            <div class="year-tag open" data-year>
+              <span class="year-tag-label"><span class="year-dot"></span>Year 1</span>
+              <span class="year-icon">+</span>
+            </div>
+            <div class="year-body open">
+              <div class="year-body-inner">
+                <div class="sem-pair">
+                  <div class="sem-block">
+                    <div class="sem-header">
+                      <span class="sem-title">Semester 1</span>
+                    </div>
+                    <div class="sem-body">
+                      <ul class="subject-tags">
+                        <li class="stag">Introduction to Programming (C)</li>
+                        <li class="stag">Engineering Mathematics I</li>
+                        <li class="stag">Digital Logic &amp; Design</li>
+                        <li class="stag">Communication Skills</li>
+                        <li class="stag">Physics for Engineers</li>
+                        <li class="stag">Engineering Graphics</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="sem-block">
+                    <div class="sem-header">
+                      <span class="sem-title">Semester 2</span>
+                    </div>
+                    <div class="sem-body">
+                      <ul class="subject-tags">
+                        <li class="stag">Data Structures</li>
+                        <li class="stag">Engineering Mathematics II</li>
+                        <li class="stag">Computer Organisation</li>
+                        <li class="stag">Object-Oriented Programming (Java)</li>
+                        <li class="stag">Environmental Science</li>
+                        <li class="stag">Basic Electronics</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="sem-block">
-                <div class="sem-header">
-                  <span class="sem-title">Semester 2</span>
+            </div>
+          </div>
+
+          <!-- Year 2 -->
+          <div class="acc-group">
+            <div class="year-tag" data-year>
+              <span class="year-tag-label"><span class="year-dot"></span>Year 2</span>
+              <span class="year-icon">+</span>
+            </div>
+            <div class="year-body">
+              <div class="year-body-inner">
+                <div class="sem-pair">
+                  <div class="sem-block">
+                    <div class="sem-header">
+                      <span class="sem-title">Semester 3</span>
+                    </div>
+                    <div class="sem-body">
+                      <ul class="subject-tags">
+                        <li class="stag">Design &amp; Analysis of Algorithms</li>
+                        <li class="stag">Operating Systems</li>
+                        <li class="stag">Database Management Systems</li>
+                        <li class="stag">Discrete Mathematics</li>
+                        <li class="stag">Computer Networks</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="sem-block">
+                    <div class="sem-header">
+                      <span class="sem-title">Semester 4</span>
+                    </div>
+                    <div class="sem-body">
+                      <ul class="subject-tags">
+                        <li class="stag">Software Engineering</li>
+                        <li class="stag">Theory of Computation</li>
+                        <li class="stag">Web Technologies</li>
+                        <li class="stag">Probability &amp; Statistics</li>
+                        <li class="stag">Microprocessors &amp; Interfaces</li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-                <div class="sem-body">
-                  <div class="subject-tags">
-                    <span class="stag">Data Structures</span>
-                    <span class="stag">Engineering Mathematics II</span>
-                    <span class="stag">Computer Organisation</span>
-                    <span class="stag">Object-Oriented Programming (Java)</span>
-                    <span class="stag">Environmental Science</span>
-                    <span class="stag">Basic Electronics</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 3 -->
+          <div class="acc-group">
+            <div class="year-tag" data-year>
+              <span class="year-tag-label"><span class="year-dot"></span>Year 3</span>
+              <span class="year-icon">+</span>
+            </div>
+            <div class="year-body">
+              <div class="year-body-inner">
+                <div class="sem-pair">
+                  <div class="sem-block">
+                    <div class="sem-header">
+                      <span class="sem-title">Semester 5</span>
+                    </div>
+                    <div class="sem-body">
+                      <ul class="subject-tags">
+                        <li class="stag">Machine Learning</li>
+                        <li class="stag">Artificial Intelligence</li>
+                        <li class="stag">Cloud Computing</li>
+                        <li class="stag">Mobile App Development</li>
+                        <li class="stag">Information Security</li>
+                        <li class="stag">Elective I</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="sem-block">
+                    <div class="sem-header">
+                      <span class="sem-title">Semester 6</span>
+                    </div>
+                    <div class="sem-body">
+                      <ul class="subject-tags">
+                        <li class="stag">Deep Learning</li>
+                        <li class="stag">Distributed Systems</li>
+                        <li class="stag">DevOps &amp; CI/CD</li>
+                        <li class="stag">Compiler Design</li>
+                        <li class="stag">Industry Internship (6 weeks)</li>
+                        <li class="stag">Elective II</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Year 4 -->
+          <div class="acc-group">
+            <div class="year-tag" data-year>
+              <span class="year-tag-label"><span class="year-dot"></span>Year 4</span>
+              <span class="year-icon">+</span>
+            </div>
+            <div class="year-body">
+              <div class="year-body-inner">
+                <div class="sem-pair">
+                  <div class="sem-block">
+                    <div class="sem-header">
+                      <span class="sem-title">Semester 7</span>
+                    </div>
+                    <div class="sem-body">
+                      <ul class="subject-tags">
+                        <li class="stag">Capstone Project I</li>
+                        <li class="stag">Blockchain Technology</li>
+                        <li class="stag">AR/VR Development</li>
+                        <li class="stag">Technical Entrepreneurship</li>
+                        <li class="stag">Elective III</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="sem-block">
+                    <div class="sem-header">
+                      <span class="sem-title">Semester 8</span>
+                    </div>
+                    <div class="sem-body">
+                      <ul class="subject-tags">
+                        <li class="stag">Capstone Project II</li>
+                        <li class="stag">Research Paper Publication</li>
+                        <li class="stag">Campus-to-Corporate Training</li>
+                        <li class="stag">Industry Seminar</li>
+                        <li class="stag">Elective IV</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -5015,135 +5190,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Year 2 -->
-      <div class="acc-group">
-        <div class="year-tag" data-year>
-          <span class="year-tag-label"><span class="year-dot"></span>Year 2</span>
-          <span class="year-icon">+</span>
-        </div>
-        <div class="year-body">
-          <div class="year-body-inner">
-            <div class="sem-pair">
-              <div class="sem-block">
-                <div class="sem-header">
-                  <span class="sem-title">Semester 3</span>
-                </div>
-                <div class="sem-body">
-                  <div class="subject-tags">
-                    <span class="stag">Design &amp; Analysis of Algorithms</span>
-                    <span class="stag">Operating Systems</span>
-                    <span class="stag">Database Management Systems</span>
-                    <span class="stag">Discrete Mathematics</span>
-                    <span class="stag">Computer Networks</span>
-                  </div>
-                </div>
-              </div>
-              <div class="sem-block">
-                <div class="sem-header">
-                  <span class="sem-title">Semester 4</span>
-                </div>
-                <div class="sem-body">
-                  <div class="subject-tags">
-                    <span class="stag">Software Engineering</span>
-                    <span class="stag">Theory of Computation</span>
-                    <span class="stag">Web Technologies</span>
-                    <span class="stag">Probability &amp; Statistics</span>
-                    <span class="stag">Microprocessors &amp; Interfaces</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Year 3 -->
-      <div class="acc-group">
-        <div class="year-tag" data-year>
-          <span class="year-tag-label"><span class="year-dot"></span>Year 3</span>
-          <span class="year-icon">+</span>
-        </div>
-        <div class="year-body">
-          <div class="year-body-inner">
-            <div class="sem-pair">
-              <div class="sem-block">
-                <div class="sem-header">
-                  <span class="sem-title">Semester 5</span>
-                </div>
-                <div class="sem-body">
-                  <div class="subject-tags">
-                    <span class="stag">Machine Learning</span>
-                    <span class="stag">Artificial Intelligence</span>
-                    <span class="stag">Cloud Computing</span>
-                    <span class="stag">Mobile App Development</span>
-                    <span class="stag">Information Security</span>
-                    <span class="stag">Elective I</span>
-                  </div>
-                </div>
-              </div>
-              <div class="sem-block">
-                <div class="sem-header">
-                  <span class="sem-title">Semester 6</span>
-                </div>
-                <div class="sem-body">
-                  <div class="subject-tags">
-                    <span class="stag">Deep Learning</span>
-                    <span class="stag">Distributed Systems</span>
-                    <span class="stag">DevOps &amp; CI/CD</span>
-                    <span class="stag">Compiler Design</span>
-                    <span class="stag">Industry Internship (6 weeks)</span>
-                    <span class="stag">Elective II</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Year 4 -->
-      <div class="acc-group">
-        <div class="year-tag" data-year>
-          <span class="year-tag-label"><span class="year-dot"></span>Year 4</span>
-          <span class="year-icon">+</span>
-        </div>
-        <div class="year-body">
-          <div class="year-body-inner">
-            <div class="sem-pair">
-              <div class="sem-block">
-                <div class="sem-header">
-                  <span class="sem-title">Semester 7</span>
-                </div>
-                <div class="sem-body">
-                  <div class="subject-tags">
-                    <span class="stag">Capstone Project I</span>
-                    <span class="stag">Blockchain Technology</span>
-                    <span class="stag">AR/VR Development</span>
-                    <span class="stag">Technical Entrepreneurship</span>
-                    <span class="stag">Elective III</span>
-                  </div>
-                </div>
-              </div>
-              <div class="sem-block">
-                <div class="sem-header">
-                  <span class="sem-title">Semester 8</span>
-                </div>
-                <div class="sem-body">
-                  <div class="subject-tags">
-                    <span class="stag">Capstone Project II</span>
-                    <span class="stag">Research Paper Publication</span>
-                    <span class="stag">Campus-to-Corporate Training</span>
-                    <span class="stag">Industry Seminar</span>
-                    <span class="stag">Elective IV</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     </div>
   </section>
 
@@ -5215,7 +5261,7 @@
       <!-- <div class="label">Credentials</div> -->
       <h2>Industry <span style="color: var(--accent);">Certifications</span></h2>
       <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto 36px;">
+        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:536px;margin:0 auto 36px;font-weight: var(--font-weight-body);">
         Earn industry-recognized
         professional credentials from global technology leaders to validate your expertise and stand out to top
         recruiters.</p>
@@ -5228,9 +5274,10 @@
           <div class="cert-v3-content">
             <div class="cert-v3-top">
               <h3>AWS Certified Cloud Practitioner</h3>
-              <span class="cert-v3-pill">Included</span>
+
             </div>
-            <p>Validate foundational cloud knowledge and AWS services with the world's leading cloud provider. This
+            <p style="font-weight: var(--font-weight-body);">Validate foundational cloud knowledge and AWS services with
+              the world's leading cloud provider. This
               certification is a prerequisite for all advanced AWS roles and valued by 90% of Fortune 500 companies.</p>
           </div>
         </div>
@@ -5242,7 +5289,7 @@
           <div class="cert-v3-content">
             <div class="cert-v3-top">
               <h3>Google Associate Cloud Engineer</h3>
-              <span class="cert-v3-pill">Included</span>
+
             </div>
             <p>Demonstrate expertise in deploying applications and managing Google Cloud infrastructure. A core
               credential for modern infrastructure engineers and systems administrators in high-growth startups.</p>
@@ -5317,14 +5364,14 @@
   </section> -->
 
   <!-- ── 5b2. CAMPUS V2 ──────────────────────────────────────── -->
-  <section class="sec" id="campuses-v2" style="background: #f8fafc; border-top: 1px solid #E2E8F0;">
+  <section class="sec" id="campuses-v2" style="background: #f8fafc;">
     <div class="container">
       <!-- Section Header -->
       <div style="text-align: center; margin-bottom: 36px;">
         <h2 style="text-align:center; margin-bottom: 14px;">Program <span style="color: var(--accent);">Available
             at</span></h2>
         <p
-          style="color: #64748b; max-width: 640px; margin: 0 auto; font-size: var(--body-size); line-height: var(--body-line-height);">
+          style="color: var(--text-1); max-width: 640px; margin: 0 auto; font-size: var(--body-size); line-height: var(--body-line-height); font-weight: var(--font-weight-body);">
           Join our world-class learning centers in collaboration with leading universities across India.
         </p>
       </div>
@@ -5343,7 +5390,8 @@
                 <path
                   d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
               </svg>
-              <span style="font-size: var(--small-size); line-height: var(--small-line-height);">Gurugram</span>
+              <span
+                style="font-size: var(--small-size); line-height: var(--small-line-height); font-weight: var(--font-weight-body);">Gurugram</span>
             </div>
             <p class="campus-v2-desc">
               A leading private university known for strong programs in engineering, management, and law. Focuses on
@@ -5374,7 +5422,8 @@
                 <path
                   d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
               </svg>
-              <span style="font-size: var(--small-size); line-height: var(--small-line-height);">Pune</span>
+              <span
+                style="font-size: var(--small-size); line-height: var(--small-line-height); font-weight: var(--font-weight-body);">Pune</span>
             </div>
             <p class="campus-v2-desc">
               An innovation-driven university focused on future-ready education and entrepreneurship. Offers modern
@@ -5403,7 +5452,7 @@
       <div style="text-align:left;margin-bottom:36px;">
         <h2>Student <span style="color:var(--accent)">Placements</span></h2>
         <p
-          style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);">
+          style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);font-weight: var(--font-weight-body);">
           From classroom learning
           to real industry opportunities, Seamedu students are building careers with some of the biggest names in the
           industry. See where our students are placed.</p>
@@ -5950,7 +5999,7 @@
       <!-- <div class="label">Salary & Skill Mapping</div> -->
       <h2>Career <span style="color: var(--accent);">Pathways</span></h2>
       <p
-        style="color:var(--text-2);font-size:var(--body-size);margin-bottom:36px;max-width:640px;line-height:var(--body-line-height);">
+        style="color:var(--text-2);font-size:var(--body-size);margin-bottom:36px;max-width:640px;line-height:var(--body-line-height);font-weight: var(--font-weight-body);">
         A comprehensive
         breakdown of engineering roles, industry demand, entry-level salaries, and key technology requirements.</p>
 
@@ -6029,7 +6078,7 @@
             </tbody>
           </table>
         </div>
-        <div class="career-table-overlay" id="careerTableToggleBtn" onclick="toggleCareerTable()"><span>Load More</span>
+        <div class="career-table-overlay" id="careerTableToggleBtn" onclick="toggleCareerTable()"><span>View more</span>
         </div>
       </div>
     </div>
@@ -6457,7 +6506,7 @@
   </section>
 
   <!-- ── 7h. STUDENT WORK SHOWCASE V4 (OVERLAY GRADIENT MINIMAL) ────── -->
-  <section class="sec" id="student-work-4" style="background: #ffffff; border-top: 1px solid #F1F5F9;">
+  <section class="sec" id="student-work-4" style="background: #ffffff;">
     <div class="container">
       <div class="student-work-header-row">
         <h2>Creative work by <span style="color: var(--accent);">our students</span></h2>
@@ -6591,15 +6640,16 @@
     <div class="container" style="text-align:center;">
       <h2>Frequently Asked <span style="color: var(--accent);">Questions</span></h2>
       <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto 36px;">
+        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto 36px;font-weight: var(--font-weight-body);">
         Everything you need to know
         before applying. Can't find the answer? Reach us anytime.</p>
 
       <div class="faq-list" style="text-align:left;">
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">What is the duration of the B.Tech CSE program?</span><span
-              class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">What is the duration of the B.Tech CSE program?</h6><span class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>The B.Tech in Computer Science &amp; Engineering is a 4-year (8-semester) full-time undergraduate
               program. Students can opt for a fast-track option allowing completion in 3.5 years through summer
@@ -6608,8 +6658,9 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">What are the admission requirements?</span><span
-              class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">What are the admission requirements?</h6><span class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>Candidates must have completed 10+2 with Physics, Chemistry, and Mathematics with a minimum aggregate of
               60%. A valid JEE Main score is required for domestic students. International students may apply with
@@ -6618,8 +6669,9 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">Is a scholarship available for this program?</span><span
-              class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">Is a scholarship available for this program?</h6><span class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>Yes, merit-based scholarships covering up to 100% of tuition fees are available for top performers.
               Need-based financial aid is also offered. All students are eligible to apply for government scholarships
@@ -6628,8 +6680,9 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">What specialisations are available?</span><span
-              class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">What specialisations are available?</h6><span class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>Students can specialise in one of six tracks: Artificial Intelligence &amp; ML, Cybersecurity, Cloud
               Computing, Data Science, Software Systems, or IoT &amp; Embedded Systems. Specialisations begin from
@@ -6638,8 +6691,9 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">Are hostel facilities available on campus?</span><span
-              class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">Are hostel facilities available on campus?</h6><span class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>Yes, we have fully furnished separate hostels for male and female students with 24/7 Wi-Fi, dining,
               recreation rooms, and on-campus medical assistance. Allocation is first-come first-served, with priority
@@ -6648,8 +6702,9 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">What is the placement record for CSE graduates?</span><span
-              class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">What is the placement record for CSE graduates?</h6><span class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>Our placement rate stands at 98% with over 250 recruiting companies visiting campus annually. The highest
               package in 2023–24 was ₹62 LPA (domestic) and the average package was ₹24 LPA.</p>
@@ -6657,8 +6712,9 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">Can I pursue higher studies after graduation?</span><span
-              class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">Can I pursue higher studies after graduation?</h6><span class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>Absolutely. Many graduates go on to pursue M.Tech, MBA, or MS programs at MIT, Stanford, IITs, and IIMs.
               We have dedicated preparation programs for GRE, GMAT, and GATE exams.</p>
@@ -6666,8 +6722,10 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">Are the AWS and Google certifications genuinely
-              included?</span><span class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">Are the AWS and Google certifications genuinely included?</h6><span
+              class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>Yes — exam vouchers and preparatory training for both AWS Cloud Practitioner and Google Associate Cloud
               Engineer are fully included in your program fees. Training is conducted in Semesters 5 and 6 by certified
@@ -6676,8 +6734,9 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">Is the program recognised internationally?</span><span
-              class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">Is the program recognised internationally?</h6><span class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>Our B.Tech program is NAAC A++ accredited and NBA approved. We have academic partnerships with 40+
               universities worldwide including UC Berkeley, TU Munich, and NUS Singapore. Our degrees are recognised
@@ -6686,8 +6745,9 @@
         </div>
 
         <div class="faq-item">
-          <div class="faq-q"><span class="faq-q-text">How do I apply and what is the deadline?</span><span
-              class="faq-icon">+</span></div>
+          <div class="faq-q">
+            <h6 class="faq-q-text">How do I apply and what is the deadline?</h6><span class="faq-icon">+</span>
+          </div>
           <div class="faq-a">
             <p>Applications are submitted online through our portal — fill the form, upload documents, and schedule a
               counselling session. For the 2025–26 batch, the last date is 30 June 2025. Early applicants receive
@@ -6743,7 +6803,8 @@
     <div class="counsellor-cta-v2-card">
       <div class="counsellor-cta-v2-info">
         <h2>Talk to Our Career Counsellor</h2>
-        <p>Have questions about the program curriculum, eligibility criteria, or career prospects? Connect with our
+        <p style="font-size:var(--body-size);line-height:var(--body-line-height);font-weight: var(--font-weight-body);">
+          Have questions about the program curriculum, eligibility criteria, or career prospects? Connect with our
           expert advisors to map out your academic journey.</p>
       </div>
 
@@ -7016,7 +7077,7 @@
       } else {
         wrapper.classList.add('collapsed');
         outer.classList.remove('expanded');
-        span.textContent = 'Load More';
+        span.textContent = 'View more';
         const target = document.getElementById('career-table-section');
         if (target) {
           const top = target.getBoundingClientRect().top + window.scrollY - NAV_H - 12;

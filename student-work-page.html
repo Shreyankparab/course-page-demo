@@ -177,32 +177,32 @@
     h3 {
       font-size: var(--h3-size);
       line-height: var(--h3-line-height);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
     }
 
     h4 {
       font-size: var(--h4-size);
       line-height: var(--h4-line-height);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
     }
 
     h5 {
       font-size: var(--h5-size);
       line-height: var(--h5-line-height);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
     }
 
     h6 {
       font-size: var(--h6-size);
       line-height: var(--h6-line-height);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
     }
 
-    p {
+    /* p {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
       font-weight: var(--font-weight-body);
-    }
+    } */
 
     li {
       font-size: var(--li-size);
@@ -351,7 +351,7 @@
       font-size: var(--link-size);
       line-height: var(--link-line-height);
       font-weight: var(--font-weight-body);
-      color: var(--text-2);
+      color: var(--text-heading);
       text-decoration: none;
       transition: color .2s;
     }
@@ -467,7 +467,7 @@
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       color: #64748b;
-      font-weight: 500;
+      font-weight: var(--font-weight-body);
       text-transform: uppercase;
     }
 
@@ -1147,16 +1147,17 @@
     }
 
     .subject-tags {
+      margin: 0;
+      padding-left: 20px;
       display: flex;
       flex-direction: column;
       gap: 6px;
     }
 
     .stag {
-      /* background: var(--card-bg); */
-      /* border: 1px solid var(--card-border); */
-      border-radius: 6px;
-      padding: 8px 14px;
+      display: list-item;
+      list-style-type: disc;
+      padding: 6px 0px;
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-body);
@@ -2025,13 +2026,13 @@
 
     .pathway-desc {
       font-size: var(--small-size);
-      color: var(--text-2);
+      color: var(--text-heading);
       line-height: 1.7;
     }
 
     /* ─── 8. FAQ ─────────────────────────────────────────── */
     .faq-list {
-      max-width: 780px;
+      max-width: 1160px;
       margin: 0 auto;
     }
 
@@ -2051,7 +2052,8 @@
 
     .faq-q-text {
       font-size: var(--body-size);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
     }
 
     .faq-icon {
@@ -2067,6 +2069,7 @@
       transition: transform .3s, background .2s, border-color .2s, color .2s;
       flex-shrink: 0;
       line-height: 1;
+      font-weight: var(--font-weight-heading);
     }
 
     .faq-item.open .faq-icon {
@@ -2091,6 +2094,7 @@
       color: var(--text-2);
       line-height: 1.78;
       padding-bottom: 20px;
+      font-weight: var(--font-weight-body);
     }
 
     /* ─── 9. FOOTER ──────────────────────────────────────── */
@@ -2594,6 +2598,7 @@
     .v3-form-header p {
       font-size: var(--body-size);
       color: #64748b;
+      font-weight: var(--font-weight-body);
     }
 
     .v3-form-body {
@@ -2612,7 +2617,7 @@
 
     .v3-input-group label {
       font-size: var(--small-size);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
       color: #64748b;
       text-transform: uppercase;
     }
@@ -3142,11 +3147,7 @@
       white-space: nowrap;
     }
 
-    .counsellor-cta-v2-btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-      background: #f8fafc;
-    }
+
 
     .counsellor-cta-v2-btn-secondary {
       display: inline-flex;
@@ -3160,10 +3161,7 @@
       gap: 6px;
     }
 
-    .counsellor-cta-v2-btn-secondary:hover {
-      opacity: 0.9;
-      transform: translateX(2px);
-    }
+
 
     @media (max-width: 868px) {
       .counsellor-cta-v2-card {
@@ -3171,6 +3169,7 @@
         padding: 36px 30px;
         gap: 24px;
         text-align: center;
+        margin: 0 16px;
       }
 
       .counsellor-cta-v2-info p {
@@ -3222,6 +3221,11 @@
       border-bottom: 1px solid #cbd5e1;
     }
 
+    .career-table td {
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
+    }
+
     .career-table th:not(:last-child),
     .career-table td:not(:last-child) {
       border-right: 1px solid #cbd5e1;
@@ -3254,7 +3258,7 @@
 
     .role-cell {
       color: #0f172a;
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
     }
 
     .salary-pill {
@@ -3699,7 +3703,7 @@
 
     .work-title-v4 {
       font-size: var(--body-size);
-      font-weight: var(--font-weight-heading);
+      font-weight: var(--font-weight-body);
       color: #ffffff;
       line-height: 1.35;
       margin: 0 0 4px 0;
@@ -4063,8 +4067,8 @@
     .hero-video-section {
       width: 100%;
       max-width: 100%;
-      height: calc(100vh - 59px);
-      padding: 5px 10px 10px;
+      height: calc(100vh - 250px);
+      /* padding: 5px 0px 0px; */
       box-sizing: border-box;
       background: #ffffff;
     }
@@ -4073,7 +4077,7 @@
       position: relative;
       width: 100%;
       height: 100%;
-      border-radius: 24px;
+      border-radius: 0px;
       overflow: hidden;
       border: 1px solid #ffffff;
       background: #ffffff;
@@ -4170,7 +4174,7 @@
       content: '+';
       font-size: var(--h4-size);
       font-weight: 300;
-      color: var(--text-2);
+      color: var(--text-heading);
       transition: transform 0.3s ease;
       display: inline-block;
       line-height: 1;
@@ -4197,6 +4201,7 @@
       line-height: var(--body-line-height);
       color: var(--text-2);
       border-top: 1px solid var(--card-border);
+      font-weight: var(--font-weight-body);
     }
 
     .admission-body p {
@@ -4300,7 +4305,7 @@
 
     #selectedCategory {
       font-size: var(--small-size);
-      font-weight: 500;
+      font-weight: var(--font-weight-body);
       text-transform: uppercase;
       color: #0f172a;
       display: flex;
@@ -4363,7 +4368,7 @@
       padding: 14px 16px;
       border-radius: var(--r);
       font-size: var(--small-size);
-      font-weight: 500;
+      font-weight: var(--font-weight-body);
       text-transform: uppercase;
       border: none;
       background: transparent;
@@ -4380,7 +4385,7 @@
     .category-item.active {
       background: #eff6ff;
       color: #2563eb;
-      font-weight: 600;
+      font-weight: var(--font-weight-body);
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     }
 
@@ -4405,13 +4410,13 @@
     .pill-btn {
       padding: 10px 24px;
       border-radius: var(--r);
-      font-weight: 500;
+      font-weight: var(--font-weight-body);
       font-size: var(--body-size);
       line-height: var(--body-line-height);
       text-transform: uppercase;
       border: none;
       background: transparent;
-      color: #475569;
+      color: #0f172a;
       cursor: pointer;
       transition: all 0.3s ease;
       font-family: inherit;
@@ -4425,7 +4430,7 @@
     .pill-btn.active {
       background: #ffffff;
       color: #2563eb;
-      font-weight: 600;
+      font-weight: var(--font-weight-body);
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
       transform: scale(1.03);
     }
@@ -4496,7 +4501,7 @@
       <div style="text-align:center;margin-bottom:36px;">
         <h2>Student <span style="color:var(--accent);">Work</span></h2>
         <p
-          style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:780px;margin:0 auto;">
+          style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:780px;margin:0 auto;font-weight:var(--font-weight-body);">
           Learning by doing is at
           the heart
           of our approach. Our students build skills through hands-on projects across filmmaking, game design,
@@ -4904,7 +4909,8 @@
     <div class="counsellor-cta-v2-card">
       <div class="counsellor-cta-v2-info">
         <h2>Talk to Our Career Counsellor</h2>
-        <p>Have questions about the program curriculum, eligibility criteria, or career prospects? Connect with our
+        <p style="font-size:var(--body-size);line-height:var(--body-line-height);font-weight: var(--font-weight-body);">
+          Have questions about the program curriculum, eligibility criteria, or career prospects? Connect with our
           expert advisors to map out your academic journey.</p>
       </div>
 
