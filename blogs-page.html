@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seamedu - Sound Design in Filmmaking</title>
+  <meta name="description" content="Explore the art of sound design in filmmaking — from Foley to surround mixing. Learn how audio shapes cinematic storytelling." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --accent: #155DFC;
+      --accent-dark: #0e4de0;
+      --accent-light: #E5EEFF;
+      --accent-hover: #3B82F6;
+      --card-bg: #F8FAFF;
+      --card-border: #E5EEFF;
+      --text-heading: #000000;
+      --text-2: #475569;
+      --text-3: #94A3B8;
+      --white: #FFFFFF;
+      --r: 10px;
+      --r-lg: 16px;
+
+      /* Headings */
+      --font-weight-heading: 700;
+      /* Bold */
+      --font-weight-body: 500;
+      /* Medium */
+
+      --h1-size: 40px;
+      --h1-line-height: 48px;
+      /* ratio: 1.2 */
+
+      --h2-size: 32px;
+      --h2-line-height: 40px;
+      /* ratio: 1.25 */
+
+      --h3-size: 26px;
+      --h3-line-height: 33px;
+      /* ratio: 1.27 */
+
+      --h4-size: 20px;
+      --h4-line-height: 26px;
+      /* ratio: 1.3 */
+
+      --h5-size: 18px;
+      --h5-line-height: 24px;
+      /* ratio: 1.33 */
+
+      --h6-size: 16px;
+      --h6-line-height: 22px;
+      /* ratio: 1.375 */
+
+      /* Body / inline */
+      --body-size: 14px;
+      --body-line-height: 21px;
+      /* ratio: 1.5 */
+
+      --small-size: 12px;
+      --small-line-height: 18px;
+
+      /* Links */
+      --link-size: var(--body-size);
+      --link-line-height: var(--body-line-height);
+
+      /* Buttons */
+      --btn-sm-size: 12px;
+      --btn-md-size: 14px;
+      --btn-lg-size: 18px;
+
+      /* List items */
+      --li-size: 14px;
+      --li-line-height: 21px;
+    }
+
+    /* ==========================================================================
+       TABLET — 768px to 1023px
+       ========================================================================== */
+    @media (max-width: 1023px) {
+      :root {
+        --h1-size: 32px;
+        --h1-line-height: 40px;
+
+        --h2-size: 26px;
+        --h2-line-height: 33px;
+
+        --h3-size: 22px;
+        --h3-line-height: 28px;
+
+        --h4-size: 18px;
+        --h4-line-height: 24px;
+
+        --h5-size: 16px;
+        --h5-line-height: 22px;
+
+        --h6-size: 14px;
+        --h6-line-height: 20px;
+
+        --body-size: 14px;
+        --body-line-height: 21px;
+
+        --link-size: 14px;
+        --link-line-height: 21px;
+
+        --btn-sm-size: 12px;
+        --btn-md-size: 14px;
+        --btn-lg-size: 16px;
+
+        --li-size: 14px;
+        --li-line-height: 21px;
+      }
+    }
+
+    /* ==========================================================================
+       MOBILE — up to 767px
+       ========================================================================== */
+    @media (max-width: 767px) {
+      :root {
+        --h1-size: 24px;
+        --h1-line-height: 30px;
+
+        --h2-size: 20px;
+        --h2-line-height: 26px;
+
+        --h3-size: 18px;
+        --h3-line-height: 24px;
+
+        --h5-size: 14px;
+        --h6-line-height: 18px;
+
+        --body-size: 13px;
+        --body-line-height: 20px;
+
+        --link-size: 13px;
+        --link-line-height: 20px;
+
+        --btn-sm-size: 11px;
+        --btn-md-size: 13px;
+        --btn-lg-size: 16px;
+
+        --li-size: 13px;
+        --li-line-height: 20px;
+      }
+    }
+
+    /* ==========================================================================
+       USAGE — apply tokens to elements
+       ========================================================================== */
+    h1 {
+      font-size: var(--h1-size);
+      line-height: var(--h1-line-height);
+      font-weight: var(--font-weight-heading);
+    }
+
+    h2 {
+      font-family: 'Poppins', sans-serif;
+      font-style: normal;
+      color: var(--text-heading);
+      margin-bottom: 14px;
+      font-size: var(--h2-size);
+      line-height: var(--h2-line-height);
+      font-weight: var(--font-weight-heading);
+    }
+
+    h3 {
+      font-size: var(--h3-size);
+      line-height: var(--h3-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    h4 {
+      font-size: var(--h4-size);
+      line-height: var(--h4-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    h5 {
+      font-size: var(--h5-size);
+      line-height: var(--h5-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    h6 {
+      font-size: var(--h6-size);
+      line-height: var(--h6-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    li {
+      font-size: var(--li-size);
+      line-height: var(--li-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    a {
+      font-size: var(--link-size);
+      line-height: var(--link-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fff;
+      color: var(--text-heading);
+      line-height: var(--body-line-height);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ─── UTILS ─────────────────────────────────────────── */
+    .container {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .sec {
+      padding: 64px 20px;
+    }
+
+    .label {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      font-weight: var(--font-weight-heading);
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 22px;
+      border-radius: var(--r);
+      font-size: var(--btn-md-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-heading);
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(21, 93, 252, .3);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+    }
+
+    .btn-ghost:hover {
+      background: var(--accent-light);
+    }
+
+    .btn-block {
+      width: 100%;
+      justify-content: center;
+      padding: 14px;
+      font-size: var(--btn-md-size);
+      line-height: var(--body-line-height);
+    }
+
+    /* ─── 1. NAV ─────────────────────────────────────────── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #fff;
+      border-bottom: 1px solid var(--card-border);
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .nav-logo {
+      font-size: var(--h4-size);
+      line-height: var(--h4-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-logo span {
+      color: var(--accent);
+    }
+
+    /* ─── 2. BLOG LAYOUT ────────────────────────────────── */
+    .blog-wrapper {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 48px 20px 80px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 56px;
+      align-items: flex-start;
+    }
+
+    @media (max-width: 1023px) {
+      .blog-wrapper {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .blog-wrapper {
+        padding: 32px 16px 64px;
+        gap: 40px;
+      }
+    }
+
+    /* ─── 3. BREADCRUMB ─────────────────────────────────── */
+    .breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 20px;
+    }
+
+    .breadcrumb-item {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      font-weight: var(--font-weight-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .breadcrumb-sep {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      color: var(--text-3);
+      font-weight: var(--font-weight-body);
+    }
+
+    /* ─── 4. ARTICLE HEADER ─────────────────────────────── */
+    .article-header {
+      margin-bottom: 56px;
+    }
+
+    .article-title {
+      font-size: var(--h1-size);
+      line-height: var(--h1-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+      margin-bottom: 24px;
+    }
+
+    .article-hero-img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .article-lead {
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-body);
+      color: var(--text-2);
+      max-width: 620px;
+    }
+
+    /* ─── 5. ARTICLE BODY ───────────────────────────────── */
+    .article-body {
+      color: var(--text-heading);
+      padding-bottom: 56px;
+    }
+
+    .article-body p {
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-body);
+      color: var(--text-2);
+      margin-bottom: 20px;
+    }
+
+    .article-body h2 {
+      font-size: var(--h2-size);
+      line-height: var(--h2-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+      padding-top: 32px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f1f5f9;
+      margin-bottom: 20px;
+    }
+
+    .article-body ul {
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+
+    .article-body ul li {
+      font-size: var(--li-size);
+      line-height: var(--li-line-height);
+      font-weight: var(--font-weight-body);
+      margin-bottom: 8px;
+      color: var(--text-2);
+    }
+
+    .article-body strong {
+      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+    }
+
+    /* ─── 6. PULL QUOTE ─────────────────────────────────── */
+    .pull-quote {
+      background: #f8faff;
+      border-left: 4px solid var(--accent);
+      padding: 28px 32px;
+      margin: 32px 0;
+    }
+
+    .pull-quote p {
+      font-size: var(--h5-size);
+      line-height: var(--h5-line-height);
+      font-weight: var(--font-weight-body);
+      font-style: italic;
+      color: var(--text-2);
+      margin-bottom: 12px !important;
+    }
+
+    .pull-quote-attr {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      font-weight: var(--font-weight-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-2);
+    }
+
+    /* ─── 7. IMAGE GRID ─────────────────────────────────── */
+    .img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      padding: 24px 0;
+    }
+
+    @media (max-width: 599px) {
+      .img-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .img-grid img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border: 1px solid var(--card-border);
+      display: block;
+    }
+
+    /* ─── 8. SIDEBAR ─────────────────────────────────────── */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @media (max-width: 1023px) {
+      .sidebar {
+        position: static;
+      }
+    }
+
+    /* ─── 9. ENQUIRY CARD ───────────────────────────────── */
+    .enquiry-card {
+      background: #fff;
+      border: 1px solid var(--card-border);
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .enquiry-card h3 {
+      font-size: var(--h3-size);
+      line-height: var(--h3-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .enquiry-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-field input,
+    .form-field select {
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-body);
+      color: var(--text-heading);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid #cbd5e1;
+      padding: 8px 0;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .form-field input::placeholder {
+      color: var(--text-3);
+    }
+
+    .form-field input:focus,
+    .form-field select:focus {
+      border-bottom-color: var(--accent);
+    }
+
+    .form-field select option[disabled] {
+      color: var(--text-3);
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--btn-md-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    /* ─── 10. RELATED BLOGS ─────────────────────────────── */
+    .related-blogs-section {
+      border-top: 1px solid var(--card-border);
+      padding: 56px 20px 80px;
+    }
+
+    .related-blogs-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .related-blogs-label {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      font-weight: var(--font-weight-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-2);
+      margin-bottom: 32px;
+    }
+
+    .related-blogs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    @media (max-width: 1023px) {
+      .related-blogs-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+      }
+    }
+
+    @media (max-width: 599px) {
+      .related-blogs-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    /* ─── 11. BLOG CARD ─────────────────────────────────── */
+    .blog-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card-img-wrap {
+      overflow: hidden;
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .blog-card-img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover .blog-card-img {
+      transform: scale(1.05);
+    }
+
+    .blog-card-category {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      font-weight: var(--font-weight-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-2);
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .blog-card-title {
+      font-size: var(--h5-size);
+      line-height: var(--h5-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 14px;
+      transition: color 0.2s;
+    }
+
+    .blog-card-title:hover {
+      color: var(--accent-hover);
+    }
+
+    .blog-card-readmore {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s;
+    }
+
+    .blog-card-readmore:hover {
+      color: var(--accent-hover);
+    }
+
+    /* ─── 12. CTA BANNER ─────────────────────────────────── */
+    .cta-section {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 20px;
+    }
+
+    .cta-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .cta-card {
+      background: #f8faff;
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    @media (max-width: 767px) {
+      .cta-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 28px 24px;
+        gap: 24px;
+      }
+    }
+
+    .cta-text h2 {
+      font-size: var(--h2-size);
+      line-height: var(--h2-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+      margin-bottom: 6px;
+    }
+
+    .cta-text p {
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-body);
+      color: var(--text-2);
+    }
+
+    .cta-btn {
+      flex-shrink: 0;
+      padding: 14px 28px;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--btn-md-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+
+    .cta-btn:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    /* ─── 13. FOOTER ─────────────────────────────────────── */
+    .footer {
+      background: #f8faff;
+      border-top: 1px solid var(--card-border);
+      padding: 48px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .footer h1 {
+      font-size: var(--h4-size);
+      line-height: var(--h4-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-heading);
+    }
+
+    /* ─── 14. READING PROGRESS BAR ──────────────────────── */
+    .reading-progress-bar {
+      height: 2px;
+      background: var(--accent);
+      width: 15%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 200;
+    }
+
+    /* ─── 15. MATERIAL ICONS ─────────────────────────────── */
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div class="reading-progress-bar" aria-hidden="true"></div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">Navbar</a>
+  </nav>
+
+  <!-- Blog Layout -->
+  <div class="blog-wrapper">
+
+    <!-- ── Main Content Column ── -->
+    <main>
+
+      <!-- Article Header -->
+      <div class="article-header">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="#" class="breadcrumb-item">Home</a>
+          <span class="breadcrumb-sep">&gt;</span>
+          <a href="#" class="breadcrumb-item">Blog</a>
+          <span class="breadcrumb-sep">&gt;</span>
+          <a href="#" class="breadcrumb-item">Design</a>
+          <span class="breadcrumb-sep">&gt;</span>
+          <span class="breadcrumb-item">Blog Name</span>
+        </nav>
+
+        <h1 class="article-title">Sound Design in Filmmaking — Crafting the Auditory Experience</h1>
+
+        <img
+          class="article-hero-img"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYCrdLnvUzp_2OdBu6KEofz3sw6-77gf9NrgKanpwKePi8PQ1VJc5CI_Eqg2gvtrBLQLoIws7pANCWiZB56p0ioJBt2cttM1IX9ECJ8Gc70qi7f4Ad4oN9BOU2M2T4Zxx8xLBegVw48K1zmUbFiHXaOaqRTyXwg1LduMXrw6aEg5AIPW5ypRjbzWcOuJ7-sUcpq-MCzGAtyAEPRhsGOeYUdXXlNpGJPyFIK49PeHoD2tScanzmFLVprmo7pjBufCwnZ0Ab2t2o"
+          alt="Professional studio headphones on a mixing console"
+        />
+
+        <p class="article-lead">The sound design in movies is what makes them feel real. Ever wondered why some movies stick with you long after the credits roll? It's the invisible art form that shapes emotions and builds tension.</p>
+      </div>
+
+      <!-- Article Body -->
+      <article class="article-body">
+
+        <p>Often, it isn't just the stunning visuals or gripping plot that truly pulls you in. Sound design is the invisible art form that shapes emotions, builds tension, and makes every scene feel real. If you're curious about how sound works its magic behind the scenes, read on!</p>
+
+        <h2>What Exactly Is Sound Design?</h2>
+        <p>Let's start with the basics. What does sound design mean in movies? In short, it's all about making, recording, and mixing sound to make the tale better. It's not simply background noise; it's the movie's heartbeat, and it guides your feelings and reactions without you even realising it.</p>
+
+        <h2>The 5 Key Elements of Sound Design in Film</h2>
+        <p><strong>Dialogue and Speech Clarity:</strong> Let's be honest: if you can't hear what the characters are saying, you won't get the plot. To keep viewers interested and linked to the characters, the conversation needs to be clear and sharp.</p>
+        <p><strong>Ambient Sounds and Atmosphere:</strong> Have you ever noticed how the noise at a café or the hum of a city can change the mood right away? That's the sound of the environment at work. It makes the world seem real and puts you in the scenario.</p>
+        <p><strong>Music and Score Composition:</strong> The music in a movie is what makes it emotional. The proper music can make you laugh, cry, or sit on the edge of your seat, whether it's a big orchestral piece or a small piano song.</p>
+        <p><strong>Foley and Sound Effects:</strong> Have you ever heard the sound of footfall on gravel or a glass clinking? Foley artists often make those noises in a studio by using everyday things. Sound effects in movies make them more genuine and exciting, especially in action or fantasy movies.</p>
+        <p><strong>Spatial Sound and Surround Mixing:</strong> Modern films use cutting-edge sound technology to make you feel like you're in the thick of the action. With surround sound, you feel like you're in the scene since sounds come from all directions.</p>
+
+        <!-- Pull Quote -->
+        <div class="pull-quote">
+          <p>"Sound is 50 percent of the movie-going experience, and I've always believed that. But it's 50 percent that is often overlooked until it's missing."</p>
+          <span class="pull-quote-attr">Pinak Agte, Post-Production &amp; Film Sound Faculty</span>
+        </div>
+
+        <h2>Sound Design Techniques</h2>
+        <p>There are lots of tricks to great sound design for film. Here are a few favorites:</p>
+        <ul>
+          <li><strong>Layering:</strong> Combining different sounds to create depth and texture.</li>
+          <li><strong>Panning:</strong> Moving sounds from left to right (or all around!) to mimic real life.</li>
+          <li><strong>Pitch and Tempo Shifts:</strong> Tweaking sounds to fit the mood—like making a voice sound otherworldly.</li>
+          <li><strong>Reverb and Delay:</strong> Adding space and dimension, so sounds feel like they're in a big hall or a tiny room.</li>
+          <li><strong>Silence:</strong> Sometimes, the most powerful sound is no sound at all—using silence can create tension and drama.</li>
+        </ul>
+
+        <!-- Image Grid -->
+        <div class="img-grid">
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOghX96Z8VD4i3Kw-O77xdGTlTCF1kljlWHyLdBAxxmcKEdxb6jnrBElto-RT9mNWmkXZ2-R7RjzQlgRAijN3Hf2-ep-taoOMAFB3ECY-v7ez8ntDAMJkoZ1QMV2jmQYT2vmBF_mQdtba7uWSfvq7KdheCQFLTpZFtpUe3IKvaI-p1oRijpMPOhL8c0nMxYKI_JXXos91MKJy-AQmnwwAxBqygF6ZttguVqTNiTUhJu3Gtp9WF38NaSv-8L7cabeciuvV47ePE"
+            alt="A foley artist recording footsteps in a studio"
+          />
+          <img
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1PrpgWCf6wLY8oLxe4K9ydMyvzgV_wyBCuu3Kx_AxkYd1C8IipwwgWqnnr36WvpJmXYwjvSsZUdoiSbej-ESphpzDVPogzfEPRgIdqDhIT9gGEzqTjhwCLJBr7ERz3Ip78YB0uqolteFa9gls-bAF9musS44vYb6w1Z0RAADZr5c7gZkGfWaGigWeYDDroh8lfdY7OWu4OpassIqYNCHKONuSTyW-x5pdN2c--b960mBFGzeXLip-MRJGNu21z4E03_nE7381"
+            alt="Digital audio workstation showing complex waveform layers"
+          />
+        </div>
+
+        <h2>Films That Showcase Outstanding Sound Design</h2>
+        <p><strong>The Birds (1963):</strong> Alfred Hitchcock used eerie, synthesized bird sounds to create a sense of unease—proving that sometimes, it's the sound that scares you the most.</p>
+        <p><strong>Saving Private Ryan (1998):</strong> The D-Day scene is legendary for its realistic, immersive sound. Bullets whiz past, explosions echo, and you feel like you're right there on the beach.</p>
+        <p><strong>Arrival (2016):</strong> This sci-fi gem uses unique alien language sounds and atmospheric effects to build mystery and tension.</p>
+        <p><strong>Eraserhead (1977):</strong> David Lynch's surreal masterpiece is famous for its haunting, industrial soundscape that lingers in your mind long after the film ends.</p>
+
+      </article>
+    </main>
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+
+      <!-- Enquiry Form Card -->
+      <div class="enquiry-card">
+        <h3>Enquiry Form</h3>
+        <form class="enquiry-form" novalidate>
+
+          <!-- Name -->
+          <div class="form-field">
+            <input type="text" placeholder="Name" required />
+          </div>
+
+          <!-- Phone + Email -->
+          <div class="form-row">
+            <div class="form-field">
+              <input type="tel" placeholder="Phone No" required />
+            </div>
+            <div class="form-field">
+              <input type="email" placeholder="Email" required />
+            </div>
+          </div>
+
+          <!-- Course -->
+          <div class="form-field">
+            <select>
+              <option>B.Sc. - Sound Engineering</option>
+            </select>
+          </div>
+
+          <!-- University -->
+          <div class="form-field">
+            <select>
+              <option>NorthCap University, Gurugram</option>
+              <option>Amity University, Noida</option>
+              <option>Delhi University, Delhi</option>
+              <option>IGNOU, New Delhi</option>
+            </select>
+          </div>
+
+          <!-- State + City -->
+          <div class="form-row">
+            <div class="form-field">
+              <select required>
+                <option value="" disabled selected>State</option>
+                <option>Delhi</option>
+                <option>Haryana</option>
+                <option>Maharashtra</option>
+                <option>Karnataka</option>
+                <option>Uttar Pradesh</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <select required>
+                <option value="" disabled selected>City</option>
+                <option>New Delhi</option>
+                <option>Gurugram</option>
+                <option>Mumbai</option>
+                <option>Bengaluru</option>
+                <option>Noida</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn-submit" type="submit">Submit</button>
+        </form>
+      </div>
+
+    </aside>
+  </div><!-- /blog-wrapper -->
+
+  <!-- Related Blogs Section -->
+  <section class="related-blogs-section">
+    <div class="related-blogs-inner">
+      <p class="related-blogs-label">Related Blogs</p>
+
+      <div class="related-blogs-grid">
+
+        <!-- Card 1 -->
+        <article class="blog-card">
+          <a href="#" class="blog-card-img-wrap">
+            <img
+              class="blog-card-img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOghX96Z8VD4i3Kw-O77xdGTlTCF1kljlWHyLdBAxxmcKEdxb6jnrBElto-RT9mNWmkXZ2-R7RjzQlgRAijN3Hf2-ep-taoOMAFB3ECY-v7ez8ntDAMJkoZ1QMV2jmQYT2vmBF_mQdtba7uWSfvq7KdheCQFLTpZFtpUe3IKvaI-p1oRijpMPOhL8c0nMxYKI_JXXos91MKJy-AQmnwwAxBqygF6ZttguVqTNiTUhJu3Gtp9WF38NaSv-8L7cabeciuvV47ePE"
+              alt="Foley artist in a recording studio"
+            />
+          </a>
+          <span class="blog-card-category">Sound Engineering</span>
+          <a href="#" class="blog-card-title">How a Foley Studio Transformed Their Workflow With Seamedu Graduates...</a>
+          <a href="#" class="blog-card-readmore">Read more</a>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="blog-card">
+          <a href="#" class="blog-card-img-wrap">
+            <img
+              class="blog-card-img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1PrpgWCf6wLY8oLxe4K9ydMyvzgV_wyBCuu3Kx_AxkYd1C8IipwwgWqnnr36WvpJmXYwjvSsZUdoiSbej-ESphpzDVPogzfEPRgIdqDhIT9gGEzqTjhwCLJBr7ERz3Ip78YB0uqolteFa9gls-bAF9musS44vYb6w1Z0RAADZr5c7gZkGfWaGigWeYDDroh8lfdY7OWu4OpassIqYNCHKONuSTyW-x5pdN2c--b960mBFGzeXLip-MRJGNu21z4E03_nE7381"
+              alt="Digital audio workstation waveform editing"
+            />
+          </a>
+          <span class="blog-card-category">Sound Engineering</span>
+          <a href="#" class="blog-card-title">Top Sound Design Programs Ranked by Industry Professionals in 2025</a>
+          <a href="#" class="blog-card-readmore">Read more</a>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="blog-card">
+          <a href="#" class="blog-card-img-wrap">
+            <img
+              class="blog-card-img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYCrdLnvUzp_2OdBu6KEofz3sw6-77gf9NrgKanpwKePi8PQ1VJc5CI_Eqg2gvtrBLQLoIws7pANCWiZB56p0ioJBt2cttM1IX9ECJ8Gc70qi7f4Ad4oN9BOU2M2T4Zxx8xLBegVw48K1zmUbFiHXaOaqRTyXwg1LduMXrw6aEg5AIPW5ypRjbzWcOuJ7-sUcpq-MCzGAtyAEPRhsGOeYUdXXlNpGJPyFIK49PeHoD2tScanzmFLVprmo7pjBufCwnZ0Ab2t2o"
+              alt="Studio recording headphones"
+            />
+          </a>
+          <span class="blog-card-category">Sound Engineering</span>
+          <a href="#" class="blog-card-title">Pinak Agte on Crafting Immersive Sound in Modern Indian Cinema</a>
+          <a href="#" class="blog-card-readmore">Read more</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <div class="cta-card">
+        <div class="cta-text">
+          <h2>Looking forward to have a career in Sound Engineering?</h2>
+          <p>Our editorial team provides custom research for audio production firms. Start a conversation today.</p>
+        </div>
+        <button class="cta-btn">Contact Us</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <h1>Footer</h1>
+  </footer>
+
+</body>
+</html>

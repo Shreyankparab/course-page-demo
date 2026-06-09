@@ -4242,9 +4242,31 @@
     }
 
     /* ─── CATEGORY FILTER SWITCHER ───────────────────────── */
+    .filter-bar {
+      position: sticky;
+      top: 64px;
+      z-index: 90;
+      background: #ffffff;
+      padding: 16px 0;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .filter-bar-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    @media (max-width: 767px) {
+      .filter-bar-inner {
+        padding: 0 16px;
+      }
+    }
+
     .filter-container {
       position: relative;
-      margin: 0 auto 48px;
+      margin: 0 auto;
       max-width: 900px;
       text-align: center;
     }
@@ -4582,7 +4604,7 @@
   </section>
 
   <!-- ── 5c. Student Work ──────────────────────────── -->
-  <section class="sec" id="student-work">
+  <section class="sec" id="student-work" style="padding-bottom: 0;">
     <div class="container">
 
       <div style="text-align:center;margin-bottom:36px">
@@ -4593,71 +4615,80 @@
           industry. See where our students are placed.</p>
       </div>
 
-      <!-- Category Filter -->
-      <div class="filter-container">
+    </div>
+  </section>
 
-        <!-- Mobile Category Dropdown -->
-        <div class="mobile-filter">
-          <button id="dropdownBtn">
-            <span id="selectedCategory">
-              <span class="pulse-dot"></span>
-              All Programs
-            </span>
-            <svg id="dropdownIcon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-            </svg>
-          </button>
+  <!-- Category Filter -->
+  <div class="filter-bar">
+      <div class="filter-bar-inner">
+        <div class="filter-container">
 
-          <!-- Dropdown Menu -->
-          <div id="dropdownMenu" class="hidden">
-            <button class="category-item active" data-target="all">
-              All Programs
+          <!-- Mobile Category Dropdown -->
+          <div class="mobile-filter">
+            <button id="dropdownBtn">
+              <span id="selectedCategory">
+                <span class="pulse-dot"></span>
+                All Programs
+              </span>
+              <svg id="dropdownIcon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </button>
-            <button class="category-item" data-target="media">
-              Media
-            </button>
-            <button class="category-item" data-target="technology">
-              Technology
-            </button>
-            <button class="category-item" data-target="management">
-              Management
-            </button>
-            <button class="category-item" data-target="design">
-              Design
-            </button>
-            <button class="category-item" data-target="hospitality">
-              Hospitality
-            </button>
+
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="hidden">
+              <button class="category-item active" data-target="all">
+                All Programs
+              </button>
+              <button class="category-item" data-target="media">
+                Media
+              </button>
+              <button class="category-item" data-target="technology">
+                Technology
+              </button>
+              <button class="category-item" data-target="management">
+                Management
+              </button>
+              <button class="category-item" data-target="design">
+                Design
+              </button>
+              <button class="category-item" data-target="hospitality">
+                Hospitality
+              </button>
+            </div>
           </div>
-        </div>
 
-        <!-- Desktop Pills Switcher -->
-        <div class="desktop-filter">
-          <div class="pills-container">
-            <button class="pill-btn active" data-target="all">
-              All
-            </button>
-            <button class="pill-btn" data-target="media">
-              Media
-            </button>
-            <button class="pill-btn" data-target="technology">
-              Technology
-            </button>
-            <button class="pill-btn" data-target="management">
-              Management
-            </button>
-            <button class="pill-btn" data-target="design">
-              Design
-            </button>
-            <button class="pill-btn" data-target="hospitality">
-              Hospitality
-            </button>
+          <!-- Desktop Pills Switcher -->
+          <div class="desktop-filter">
+            <div class="pills-container">
+              <button class="pill-btn active" data-target="all">
+                All
+              </button>
+              <button class="pill-btn" data-target="media">
+                Media
+              </button>
+              <button class="pill-btn" data-target="technology">
+                Technology
+              </button>
+              <button class="pill-btn" data-target="management">
+                Management
+              </button>
+              <button class="pill-btn" data-target="design">
+                Design
+              </button>
+              <button class="pill-btn" data-target="hospitality">
+                Hospitality
+              </button>
+            </div>
           </div>
-        </div>
 
+        </div>
       </div>
+    </div>
 
-      <div class="placement-page-grid" id="placementGrid">
+    <section class="sec" style="padding-top: 0; padding-bottom: 64px;">
+      <div class="container">
+        <div class="placement-page-grid" id="placementGrid">
 
         <!-- Card 1 -->
         <div class="placement-card" data-category="management">
