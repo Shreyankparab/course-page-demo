@@ -18,20 +18,19 @@
       padding: 0;
     }
 
+    /* DESKTOP — 1024px and above (covers 1024 / 1440 / 1920) */
     :root {
-      --accent: #155DFC;
-      --accent-dark: #0e4de0;
-      --accent-light: #E5EEFF;
-      --accent-hover: #3B82F6;
-      --card-bg: #F8FAFF;
-      --card-border: #E5EEFF;
-      --text-1: #475569;
+
+      --primary: #155DFC;
+      --primary-hover: #1D4ED8;
+      --primary-bg: #FFFFFF;
+      --secondary-bg: #F8FAFC;
+      --text-1: #000000;
       --text-2: #475569;
-      --text-3: #94A3B8;
-      --text-heading: #000000;
-      --white: #FFFFFF;
-      --r: 10px;
-      --r-lg: 16px;
+      --card-bg: #F3F6F9;
+      --card-border: #F2F2F2;
+      --r: 12px;
+      --r-lg: 20px;
 
       /* Headings */
       --font-weight-heading: 700;
@@ -39,43 +38,36 @@
       --font-weight-body: 500;
       /* Medium */
 
-      --h1-size: 40px;
-      --h1-line-height: 48px;
-      /* ratio: 1.2 */
+      --h1-size: 48px;
+      --h1-line-height: 58px;
 
-      --h2-size: 32px;
-      --h2-line-height: 40px;
-      /* ratio: 1.25 */
+      --h2-size: 38px;
+      --h2-line-height: 48px;
 
-      --h3-size: 26px;
-      --h3-line-height: 33px;
-      /* ratio: 1.27 */
+      --h3-size: 30px;
+      --h3-line-height: 38px;
 
-      --h4-size: 20px;
-      --h4-line-height: 26px;
-      /* ratio: 1.3 */
+      --h4-size: 24px;
+      --h4-line-height: 32px;
 
-      --h5-size: 18px;
-      --h5-line-height: 24px;
-      /* ratio: 1.33 */
+      --h5-size: 20px;
+      --h5-line-height: 28px;
 
-      --h6-size: 16px;
-      --h6-line-height: 22px;
-      /* ratio: 1.375 */
+      --h6-size: 18px;
+      --h6-line-height: 26px;
 
-      /* Body / inline */
-      --body-size: 14px;
-      --body-line-height: 21px;
-      /* ratio: 1.5 — matches existing li line-height */
+      /* Body */
+      --body-size: 16px;
+      --body-line-height: 26px;
 
-      --small-size: 12px;
-      --small-line-height: 18px;
+      --small-size: 14px;
+      --small-line-height: 20px;
 
       /* Links */
-      --link-size: var(--body-size);
-      --link-line-height: var(--body-line-height);
+      --link-size: 14px;
+      --link-line-height: 21px;
 
-      /* Buttons — 3 named sizes replace the arbitrary 12/18/22 mix */
+      /* Buttons — 3 named sizes */
       --btn-sm-size: 12px;
       --btn-md-size: 14px;
       --btn-lg-size: 18px;
@@ -85,19 +77,42 @@
       --li-line-height: 21px;
     }
 
-    /* ==========================================================================
-       TABLET — 768px to 1023px
-       ========================================================================== */
+    /* TABLET — 768px to 1023px */
+
     @media (max-width: 1023px) {
       :root {
-        --h1-size: 32px;
-        --h1-line-height: 40px;
+        --h1-size: 38px;
+        --h1-line-height: 48px;
 
-        --h2-size: 26px;
-        --h2-line-height: 33px;
+        --h2-size: 30px;
+        --h2-line-height: 38px;
 
-        --h3-size: 22px;
-        --h3-line-height: 28px;
+        --h3-size: 24px;
+        --h3-line-height: 32px;
+
+        --h4-size: 20px;
+        --h4-line-height: 28px;
+
+        --h5-size: 18px;
+        --h5-line-height: 26px;
+
+        --h6-size: 16px;
+        --h6-line-height: 24px;
+      }
+    }
+
+    /* MOBILE — up to 767px */
+
+    @media (max-width: 767px) {
+      :root {
+        --h1-size: 28px;
+        --h1-line-height: 36px;
+
+        --h2-size: 24px;
+        --h2-line-height: 30px;
+
+        --h3-size: 20px;
+        --h3-line-height: 26px;
 
         --h4-size: 18px;
         --h4-line-height: 24px;
@@ -108,42 +123,11 @@
         --h6-size: 14px;
         --h6-line-height: 20px;
 
-        /* Body stays the same on tablet */
         --body-size: 14px;
-        --body-line-height: 21px;
+        --body-line-height: 22px;
 
-        --link-size: 14px;
-        --link-line-height: 21px;
-
-        --btn-sm-size: 12px;
-        --btn-md-size: 14px;
-        --btn-lg-size: 16px;
-
-        --li-size: 14px;
-        --li-line-height: 21px;
-      }
-    }
-
-    /* ==========================================================================
-       MOBILE — up to 767px
-       (Anchored to existing 22px h1 / 18px h2 mobile values)
-       ========================================================================== */
-    @media (max-width: 767px) {
-      :root {
-        --h1-size: 24px;
-        --h1-line-height: 30px;
-
-        --h2-size: 20px;
-        --h2-line-height: 26px;
-
-        --h3-size: 18px;
-        --h3-line-height: 24px;
-
-        --h5-size: 14px;
-        --h6-line-height: 18px;
-
-        --body-size: 13px;
-        --body-line-height: 20px;
+        --small-size: 12px;
+        --small-line-height: 18px;
 
         --link-size: 13px;
         --link-line-height: 20px;
@@ -152,64 +136,49 @@
         --btn-md-size: 13px;
         --btn-lg-size: 16px;
 
-        --li-size: 13px;
-        --li-line-height: 20px;
+        --li-size: 14px;
+        --li-line-height: 22px;
       }
     }
 
-    /* ==========================================================================
-       USAGE — apply tokens to elements
-       ========================================================================== */
+    /* Base Component */
+
     h1 {
       font-size: var(--h1-size);
       line-height: var(--h1-line-height);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
     }
 
     h2 {
-      font-family: 'Poppins', sans-serif;
-      font-style: normal;
-      color: var(--text-heading);
-      margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
       font-weight: var(--font-weight-heading);
+      margin-bottom: 14px;
     }
 
     h3 {
       font-size: var(--h3-size);
       line-height: var(--h3-line-height);
-      font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      font-weight: var(--font-weight-heading);
     }
 
     h4 {
       font-size: var(--h4-size);
       line-height: var(--h4-line-height);
-      font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      font-weight: var(--font-weight-heading);
     }
 
     h5 {
       font-size: var(--h5-size);
       line-height: var(--h5-line-height);
-      font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      font-weight: var(--font-weight-heading);
     }
 
     h6 {
       font-size: var(--h6-size);
       line-height: var(--h6-line-height);
-      font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      font-weight: var(--font-weight-heading);
     }
-
-    /* p {
-      font-size: var(--body-size);
-      line-height: var(--body-line-height);
-      font-weight: var(--font-weight-body);
-    } */
 
     li {
       font-size: var(--li-size);
@@ -220,6 +189,28 @@
     a {
       font-size: var(--link-size);
       line-height: var(--link-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    /* Button sizes via utility classes */
+    .btn-sm {
+      font-size: var(--btn-sm-size);
+      font-weight: var(--font-weight-body);
+    }
+
+    .btn-md {
+      font-size: var(--btn-md-size);
+      font-weight: var(--font-weight-body);
+    }
+
+    .btn-lg {
+      font-size: var(--btn-lg-size);
+      font-weight: var(--font-weight-body);
+    }
+
+    small {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
       font-weight: var(--font-weight-body);
     }
 
@@ -239,7 +230,7 @@
 
     /* ─── UTILS ─────────────────────────────────────────── */
     .container {
-      max-width: 1160px;
+      max-width: 1230px;
       margin: 0 auto;
     }
 
@@ -252,7 +243,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--primary);
       margin-bottom: 8px;
     }
 
@@ -273,34 +264,34 @@
     }
 
     .btn-primary {
-      background: var(--accent);
+      background: var(--primary);
       color: #fff;
     }
 
     .btn-primary:hover {
-      background: var(--accent-hover);
+      background: var(--primary-hover);
       transform: translateY(-1px);
       box-shadow: 0 6px 16px rgba(59, 130, 246, .3);
     }
 
     .btn-ghost {
       background: transparent;
-      color: var(--accent);
-      border: 1.5px solid var(--accent);
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
     }
 
     .btn-ghost:hover {
-      background: var(--accent-light);
+      background: var(--primary-light);
     }
 
     .btn-white {
       background: #fff;
-      color: var(--accent);
+      color: var(--primary);
       font-weight: var(--font-weight-heading);
     }
 
     .btn-white:hover {
-      background: var(--accent-light);
+      background: var(--primary-light);
       transform: translateY(-1px);
     }
 
@@ -336,13 +327,13 @@
     }
 
     .nav-logo span {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .nav-dot {
       width: 7px;
       height: 7px;
-      background: var(--accent);
+      background: var(--primary);
       border-radius: 50%;
     }
 
@@ -361,12 +352,12 @@
     }
 
     .nav-links a:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     /* ─── 2. HERO (Refactored to mirror TrippyBid layout) ── */
     .hero-ref {
-      max-width: 1160px;
+      max-width: 1230px;
       margin: 0 auto;
       padding: 15px 0;
       background: #ffffff;
@@ -389,7 +380,7 @@
       font-size: var(--h1-size);
       line-height: var(--h1-line-height);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .hero-text-left h1 .accent-color {
@@ -413,7 +404,7 @@
       position: relative;
       width: 100%;
       height: 380px;
-      border-radius: 24px;
+      border-radius: var(--r-lg);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
       margin-bottom: 55px;
       /* space for overlapping horizontal search bar */
@@ -423,7 +414,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 24px;
+      border-radius: var(--r-lg);
       display: block;
     }
 
@@ -441,7 +432,7 @@
     .floating-badge-item {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
-      border-radius: 10px;
+      border-radius: var(--r);
       padding: 8px 14px;
       display: flex;
       align-items: center;
@@ -477,7 +468,7 @@
     .badge-val {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      color: var(--text-heading);
+      color: var(--text-1);
       font-weight: var(--font-weight-heading);
     }
 
@@ -533,7 +524,7 @@
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: 6px;
+      border-radius: var(--r);
       padding: 6px 12px;
       font-size: var(--small-size);
       line-height: var(--small-line-height);
@@ -545,18 +536,18 @@
 
     .search-tab:hover {
       background: #ffffff;
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .search-tab.active {
-      background: var(--text-heading);
+      background: var(--text-1);
       color: #ffffff;
-      border-color: var(--text-heading);
+      border-color: var(--text-1);
     }
 
     .search-card {
       background: #f8fafc;
-      border-radius: 12px;
+      border-radius: var(--r);
       padding: 12px 20px;
       border: 1px solid #e2e8f0;
       display: flex;
@@ -584,7 +575,7 @@
       font-size: var(--body-size);
       line-height: var(--body-line-height);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       padding: 2px 0;
       white-space: nowrap;
     }
@@ -598,10 +589,10 @@
 
     .search-btn {
       padding: 10px 22px;
-      border-radius: 8px;
+      border-radius: var(--r);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
-      background: var(--accent);
+      background: var(--primary);
       color: #ffffff;
       border: none;
       cursor: pointer;
@@ -610,7 +601,7 @@
     }
 
     .search-btn:hover {
-      background: var(--accent-dark);
+      background: var(--primary-hover);
       transform: translateY(-1px);
     }
 
@@ -691,7 +682,7 @@
       padding: 16px 30px;
       font-size: var(--link-size);
       font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      color: var(--text-1);
       cursor: pointer;
       border-bottom: 2.5px solid transparent;
       white-space: nowrap;
@@ -702,12 +693,12 @@
     }
 
     .tab:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .tab.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
+      color: var(--primary);
+      border-bottom-color: var(--primary);
       font-weight: var(--font-weight-heading);
     }
 
@@ -731,7 +722,7 @@
 
     .overview-visual-wrapper {
       position: relative;
-      border-radius: 20px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       margin-bottom: 20px;
       height: 320px;
@@ -778,7 +769,7 @@
       font-size: var(--h4-size);
       line-height: var(--h4-line-height);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       margin-bottom: 4px;
     }
 
@@ -816,7 +807,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       padding: 6px 12px;
-      border-radius: 6px;
+      border-radius: var(--r);
       transition: all 0.2s;
     }
 
@@ -843,7 +834,7 @@
     .overview-right-col h2 {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
-      color: var(--text-heading);
+      color: var(--text-1);
       margin-bottom: 24px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -874,10 +865,10 @@
       display: inline-flex;
       align-items: center;
       gap: 12px;
-      background: var(--text-heading);
+      background: var(--text-1);
       color: #ffffff;
       padding: 12px 28px;
-      border-radius: 100px;
+      border-radius: var(--r-lg);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
       text-decoration: none;
@@ -894,7 +885,7 @@
       height: 24px;
       border-radius: 50%;
       background: #ffffff;
-      color: var(--text-heading);
+      color: var(--text-1);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -935,7 +926,7 @@
     .campus-placeholder {
       position: relative;
       text-align: center;
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .campus-placeholder span {
@@ -959,7 +950,7 @@
     .hi-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-left: 3px solid var(--accent);
+      border-left: 3px solid var(--primary);
       border-radius: var(--r);
       padding: 24px 22px 24px 24px;
     }
@@ -992,7 +983,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
-      color: var(--text-3);
+      color: var(--text-2);
       text-align: center;
       margin-bottom: 22px;
     }
@@ -1017,7 +1008,7 @@
     /* ─── 5. CURRICULUM ──────────────────────────────────── */
     .curriculum-layout {
       display: grid;
-      grid-template-columns: 380px 1fr;
+      grid-template-columns: 420px 1fr;
       gap: 60px;
       align-items: flex-start;
     }
@@ -1025,6 +1016,10 @@
     .curriculum-left {
       position: sticky;
       top: 140px;
+    }
+
+    .curriculum-left h2 {
+      white-space: nowrap;
     }
 
     .curriculum-sub {
@@ -1043,6 +1038,10 @@
 
       .curriculum-left {
         position: static;
+      }
+
+      .curriculum-left h2 {
+        white-space: normal;
       }
     }
 
@@ -1074,8 +1073,8 @@
     }
 
     .year-tag.open {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--primary);
+      border-color: var(--primary);
       color: #fff;
       border-radius: var(--r) var(--r) 0 0;
     }
@@ -1090,7 +1089,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--primary);
       flex-shrink: 0;
       transition: background .15s;
     }
@@ -1153,7 +1152,7 @@
     }
 
     .sem-header {
-      background: var(--accent-light);
+      background: var(--primary-light);
       border-bottom: 1px solid var(--card-border);
       padding: 14px 20px;
     }
@@ -1164,7 +1163,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--primary);
       margin-bottom: 2px;
     }
 
@@ -1173,7 +1172,7 @@
       font-size: var(--body-size);
       line-height: var(--body-line-height);
       font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .sem-body {
@@ -1301,7 +1300,7 @@
     .placement-name {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       line-height: var(--body-line-height);
     }
 
@@ -1380,7 +1379,7 @@
       width: 40px;
       height: 40px;
       border: 1px solid #e2e8f0;
-      border-radius: 6px;
+      border-radius: var(--r);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1401,7 +1400,7 @@
 
     .dot-inactive {
       height: 8px;
-      border-radius: 9999px;
+      border-radius: var(--r-lg);
       display: block;
       transition: all 0.3s;
       width: 8px;
@@ -1410,7 +1409,7 @@
 
     .dot-active {
       height: 8px;
-      border-radius: 9999px;
+      border-radius: var(--r-lg);
       display: block;
       transition: all 0.3s;
       width: 24px;
@@ -1537,8 +1536,8 @@
     }
 
     .partner-chip:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--primary);
+      color: var(--primary);
     }
 
 
@@ -1596,7 +1595,7 @@
     }
 
     .campus-item-card:hover .campus-item-name {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .campus-item-loc {
@@ -1606,7 +1605,7 @@
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
-      color: var(--text-3);
+      color: var(--text-2);
       margin-bottom: 14px;
     }
 
@@ -1673,7 +1672,7 @@
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
       padding: 4px 10px;
-      border-radius: 999px;
+      border-radius: var(--r-lg);
       margin-bottom: 16px;
     }
 
@@ -1775,7 +1774,7 @@
       font-size: var(--h4-size);
       line-height: var(--h4-line-height);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       margin-bottom: 12px;
     }
 
@@ -1823,7 +1822,7 @@
     .cert-v3-row {
       background: #fff;
       border: 1px solid #F1F5F9;
-      border-radius: 12px;
+      border-radius: var(--r);
       /* Increased corner radius */
       padding: 20px 40px;
       /* Reduced vertical padding */
@@ -1838,7 +1837,7 @@
     }
 
     .cert-v3-row:hover {
-      border-color: var(--accent);
+      border-color: var(--primary);
       transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
       /* Increased shadow on hover */
@@ -1877,18 +1876,18 @@
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       background: #EFF6FF;
       padding: 4px 10px;
-      border-radius: 4px;
+      border-radius: var(--r);
     }
 
     .cert-v3-row h3 {
       font-size: var(--h5-size);
       line-height: var(--h5-line-height);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .cert-v3-row p {
@@ -1931,7 +1930,7 @@
     .career-v2-card {
       background: #fff;
       border: 1px solid #F1F5F9;
-      border-radius: 12px;
+      border-radius: var(--r);
       padding: 24px;
       /* Reduced padding for compactness */
       display: flex;
@@ -1943,7 +1942,7 @@
 
     .career-v2-card:hover {
       transform: translateY(-4px);
-      border-color: var(--accent);
+      border-color: var(--primary);
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
     }
 
@@ -1952,7 +1951,7 @@
       /* Slightly smaller for density */
       line-height: var(--h5-line-height);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       margin-bottom: 8px;
       /* Reduced space */
     }
@@ -1992,13 +1991,13 @@
       line-height: var(--h5-line-height);
       /* Increased amount size */
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .career-v2-salary-bar {
       height: 6px;
       background: #F1F5F9;
-      border-radius: 3px;
+      border-radius: var(--r);
       position: relative;
       overflow: hidden;
     }
@@ -2008,8 +2007,8 @@
       left: 0;
       top: 0;
       height: 100%;
-      background: var(--accent);
-      border-radius: 3px;
+      background: var(--primary);
+      border-radius: var(--r);
     }
 
     @media (max-width: 1024px) {
@@ -2075,7 +2074,7 @@
       font-size: var(--h4-size);
       /* Reduced font size */
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       margin-bottom: 4px;
       display: block;
     }
@@ -2084,7 +2083,7 @@
       font-size: var(--h6-size);
       /* Reduced font size */
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       margin-bottom: 12px;
       text-transform: none;
     }
@@ -2148,7 +2147,7 @@
     .career-v4-card {
       background: #fff;
       border: 1px solid #F1F5F9;
-      border-radius: 12px;
+      border-radius: var(--r);
       display: grid;
       grid-template-columns: 280px 1fr;
       transition: all 0.3s ease;
@@ -2156,7 +2155,7 @@
     }
 
     .career-v4-card:hover {
-      border-color: var(--accent);
+      border-color: var(--primary);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
@@ -2172,7 +2171,7 @@
     .career-v4-amount {
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
@@ -2180,7 +2179,7 @@
     .career-v4-salary {
       font-size: var(--h4-size);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       margin-bottom: 4px;
     }
 
@@ -2261,12 +2260,12 @@
 
     .salary-badge {
       display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
+      background: var(--primary-light);
+      color: var(--primary);
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       padding: 3px 9px;
-      border-radius: 6px;
+      border-radius: var(--r);
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -2279,7 +2278,7 @@
 
     /* ─── 8. FAQ ─────────────────────────────────────────── */
     .faq-list {
-      max-width: 1160px;
+      max-width: 1230px;
       margin: 0 auto;
     }
 
@@ -2301,7 +2300,7 @@
       font-size: var(--body-size);
       line-height: var(--body-line-height);
       font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .faq-icon {
@@ -2321,8 +2320,8 @@
 
     .faq-item.open .faq-icon {
       transform: rotate(45deg);
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--primary);
+      border-color: var(--primary);
       color: #fff;
     }
 
@@ -2339,20 +2338,20 @@
     .faq-a p {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      color: var(--text-heading);
+      color: var(--text-1);
       padding-bottom: 20px;
       font-weight: var(--font-weight-body);
     }
 
     /* ─── 9. FOOTER ──────────────────────────────────────── */
     footer {
-      background: var(--text-heading);
+      background: var(--text-1);
       padding: 80px 40px;
       margin-top: 14px;
     }
 
     .footer-inner {
-      max-width: 1160px;
+      max-width: 1230px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 240px 1fr 280px;
@@ -2368,7 +2367,7 @@
     }
 
     .f-brand span {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .f-tagline {
@@ -2441,7 +2440,7 @@
     }
 
     .contact-toggle:hover .contact-name {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .contact-name {
@@ -2472,7 +2471,7 @@
 
     .contact-item.open .contact-chevron {
       transform: rotate(180deg);
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .contact-body {
@@ -2506,9 +2505,9 @@
 
     /* Left Column: Interactive Sandbox Console Mockup */
     .overview-v2-sandbox {
-      background: var(--text-heading);
+      background: var(--text-1);
       /* Slate-900 */
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       padding: 24px;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
       border: 1px solid #1e293b;
@@ -2592,7 +2591,7 @@
 
     .c-stat-card {
       background: #1e293b;
-      border-radius: 8px;
+      border-radius: var(--r);
       padding: 12px 16px;
       border: 1px solid #334155;
     }
@@ -2646,7 +2645,7 @@
     .v2-f-icon {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
+      border-radius: var(--r);
       background: #eff6ff;
       color: #2563eb;
       display: flex;
@@ -2669,7 +2668,7 @@
     .v2-feature-item h4 {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .v2-feature-item p {
@@ -2697,7 +2696,7 @@
       background: transparent;
       border: none;
       padding: 8px 18px;
-      border-radius: 20px;
+      border-radius: var(--r-lg);
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       color: var(--text-1);
@@ -2726,7 +2725,7 @@
     .v3-title {
       font-family: 'Poppins', sans-serif;
       font-style: normal;
-      color: var(--text-heading);
+      color: var(--text-1);
       margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
@@ -2761,7 +2760,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
+      border-radius: var(--r);
       overflow: hidden;
       background: #ffffff;
       margin-top: 0;
@@ -2795,7 +2794,7 @@
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       padding: 3px 6px;
-      border-radius: 4px;
+      border-radius: var(--r);
       text-transform: uppercase;
       display: inline-block;
     }
@@ -2803,7 +2802,7 @@
     .v3-outcome-item h4 {
       font-size: var(--h6-size);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       margin-top: 2px;
       line-height: 1.375;
     }
@@ -2831,7 +2830,7 @@
     .v3-form-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
     }
@@ -2839,7 +2838,7 @@
     .v3-form-header {
       background: #ffffff;
       padding: 32px 32px 8px 32px;
-      color: var(--text-heading);
+      color: var(--text-1);
       position: relative;
     }
 
@@ -2880,11 +2879,11 @@
 
     .v3-input {
       padding: 7px 10px;
-      border-radius: 8px;
+      border-radius: var(--r);
       border: 1.5px solid #cbd5e1;
       font-size: var(--body-size);
       font-family: inherit;
-      color: var(--text-heading);
+      color: var(--text-1);
       outline: none;
       transition: all 0.2s;
     }
@@ -2916,7 +2915,7 @@
       text-align: center;
       background: #f1f5f9;
       border: 1.5px solid #cbd5e1;
-      border-radius: 8px;
+      border-radius: var(--r);
       font-size: var(--body-size);
       display: flex;
       align-items: center;
@@ -2929,7 +2928,7 @@
       background: #2563eb;
       color: #ffffff;
       padding: 14px;
-      border-radius: 8px;
+      border-radius: var(--r);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
       border: none;
@@ -2982,7 +2981,7 @@
       gap: 6px;
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-decoration: none;
       margin-bottom: 6px;
       transition: color .2s;
@@ -3013,7 +3012,7 @@
     .contact-email-icon {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
+      border-radius: var(--r);
       background: #1E293B;
       border: 1px solid #334155;
       display: flex;
@@ -3025,8 +3024,8 @@
     }
 
     .contact-email-row:hover .contact-email-icon {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--primary);
+      border-color: var(--primary);
       color: #fff;
     }
 
@@ -3139,7 +3138,7 @@
       gap: 24px;
       background: #ffffff;
       border: 1px solid rgba(21, 93, 252, 0.1);
-      border-radius: 20px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: 0 12px 30px rgba(21, 93, 252, 0.04);
       max-width: 960px;
@@ -3156,7 +3155,7 @@
       left: 5px;
       width: 60px;
       height: 60px;
-      background-image: radial-gradient(var(--accent) 1.5px, transparent 1.5px);
+      background-image: radial-gradient(var(--primary) 1.5px, transparent 1.5px);
       background-size: 8px 8px;
       opacity: 0.08;
       pointer-events: none;
@@ -3175,8 +3174,8 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: var(--accent-light);
-      color: var(--accent);
+      background: var(--primary-light);
+      color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3231,13 +3230,13 @@
       font-weight: var(--font-weight-heading);
       font-size: var(--body-size);
       line-height: 1.2;
-      color: var(--text-heading);
+      color: var(--text-1);
       text-transform: uppercase;
       margin-bottom: 0;
     }
 
     .counsellor-cta-info h2 span {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .counsellor-cta-channels {
@@ -3258,15 +3257,15 @@
       font-size: var(--btn-md-size);
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       padding: 8px 16px;
-      border-radius: 36px;
+      border-radius: var(--r-lg);
       border: 1px solid rgba(21, 93, 252, 0.12);
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(8px);
     }
 
     .counsellor-cta-link:hover {
-      border-color: var(--accent);
-      background: var(--accent);
+      border-color: var(--primary);
+      background: var(--primary);
       color: #ffffff;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(21, 93, 252, 0.1);
@@ -3277,7 +3276,7 @@
       height: 26px;
       border-radius: 50%;
       background: rgba(21, 93, 252, 0.08);
-      color: var(--accent);
+      color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3301,7 +3300,7 @@
         align-items: stretch;
         gap: 16px;
         padding: 20px;
-        border-radius: 16px;
+        border-radius: var(--r-lg);
       }
 
       .counsellor-cta-channels {
@@ -3327,7 +3326,7 @@
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       background: linear-gradient(135deg, #155DFC 0%, #0e4de0 100%);
-      border-radius: 24px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(21, 93, 252, 0.15);
       max-width: 960px;
@@ -3393,7 +3392,7 @@
       font-size: var(--btn-md-size);
       text-decoration: none;
       padding: 12px 32px;
-      border-radius: 36px;
+      border-radius: var(--r-lg);
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
       transition: all 0.25s ease;
       text-align: center;
@@ -3454,7 +3453,7 @@
       overflow: hidden;
       overflow-x: auto;
       border: 1px solid #cbd5e1;
-      border-radius: 10px;
+      border-radius: var(--r);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
       background: #ffffff;
       margin-top: 20px;
@@ -3476,7 +3475,7 @@
 
     .career-table td {
       font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .career-table th:not(:last-child),
@@ -3485,7 +3484,7 @@
     }
 
     .career-table th {
-      background: var(--accent);
+      background: var(--primary);
       color: #ffffff;
       font-weight: var(--font-weight-heading);
       font-size: var(--small-size);
@@ -3511,7 +3510,7 @@
     }
 
     .role-cell {
-      color: var(--text-heading);
+      color: var(--text-1);
       font-weight: var(--font-weight-body);
     }
 
@@ -3519,7 +3518,7 @@
       display: inline-flex;
       align-items: center;
       padding: 6px 14px;
-      border-radius: 36px;
+      border-radius: var(--r-lg);
       background: rgba(34, 197, 94, 0.1);
       color: #16a34a;
       font-weight: var(--font-weight-heading);
@@ -3568,7 +3567,7 @@
       .career-table td.role-cell {
         font-size: var(--h5-size);
         padding-bottom: 4px;
-        color: var(--accent);
+        color: var(--primary);
       }
 
       .career-table td:nth-child(3) {
@@ -3583,7 +3582,7 @@
         content: "Salary:";
         font-size: var(--small-size);
         text-transform: uppercase;
-        color: var(--text-3);
+        color: var(--text-2);
         font-weight: var(--font-weight-heading);
       }
 
@@ -3608,10 +3607,10 @@
 
       .career-table-outer:not(.expanded) .career-table-overlay span {
         background: #ffffff;
-        color: var(--accent);
-        border: 1px solid var(--accent);
+        color: var(--primary);
+        border: 1px solid var(--primary);
         padding: 8px 24px;
-        border-radius: 36px;
+        border-radius: var(--r-lg);
         font-size: var(--small-size);
         font-weight: var(--font-weight-heading);
         line-height: var(--small-line-height);
@@ -3620,7 +3619,7 @@
       }
 
       .career-table-outer:not(.expanded) .career-table-overlay:hover span {
-        background: var(--accent-light);
+        background: var(--primary-light);
       }
 
       /* Expanded state - overlay is shown as a text link at the end of the table */
@@ -3632,7 +3631,7 @@
       }
 
       .career-table-outer.expanded .career-table-overlay span {
-        color: var(--accent);
+        color: var(--primary);
         font-size: var(--small-size);
         font-weight: var(--font-weight-heading);
         text-decoration: underline;
@@ -3663,7 +3662,7 @@
     /* ─── STUDENT WORK CARD V2 ─────────────────────────── */
     .student-work-card-v2 {
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -3760,14 +3759,14 @@
     .work-title-v2 {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       line-height: 1.35;
       margin: 10px 0;
       transition: color 0.2s ease;
     }
 
     .student-work-card-v2:hover .work-title-v2 {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .work-student-v2 {
@@ -3781,7 +3780,7 @@
     /* ─── STUDENT WORK CARD V3 (MINIMAL) ───────────────── */
     .student-work-card-v3 {
       background: #fff;
-      border-radius: 12px;
+      border-radius: var(--r);
       overflow: hidden;
       border: 1px solid #F1F5F9;
       cursor: default;
@@ -3833,7 +3832,7 @@
       left: 14px;
       right: 14px;
       background: #ffffff;
-      border-radius: 12px;
+      border-radius: var(--r);
       padding: 12px 14px;
       z-index: 2;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
@@ -3851,7 +3850,7 @@
     .work-category-v3 {
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       display: block;
       margin-bottom: 4px;
@@ -3860,14 +3859,14 @@
     .work-title-v3 {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       line-height: 1.35;
       margin: 0 0 2px 0;
       transition: color 0.2s ease;
     }
 
     .student-work-card-v3:hover .work-title-v3 {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .work-student-v3 {
@@ -3882,7 +3881,7 @@
     .student-work-card-v4 {
       position: relative;
       aspect-ratio: 3 / 4;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.8);
@@ -3952,7 +3951,7 @@
     .work-category-v4 {
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent-light);
+      color: var(--primary-light);
       text-transform: uppercase;
       display: block;
       margin-bottom: 4px;
@@ -3970,7 +3969,7 @@
     }
 
     .student-work-card-v4:hover .work-title-v4 {
-      color: var(--accent-light);
+      color: var(--primary-bg);
     }
 
     .work-student-v4 {
@@ -3986,7 +3985,7 @@
       position: relative;
       width: 100%;
       aspect-ratio: 4/5;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       background: #f1f5f9;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
@@ -4073,7 +4072,7 @@
     .work-category {
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       display: block;
       margin-bottom: 8px;
@@ -4082,14 +4081,14 @@
     .work-title {
       font-size: var(--h5-size);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       line-height: 1.3;
       margin-bottom: 6px;
       transition: color 0.2s ease;
     }
 
     .student-work-card:hover .work-title {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .work-student {
@@ -4167,13 +4166,13 @@
       .slider-arrow-btn {
         width: 40px;
         height: 40px;
-        border-radius: 8px;
+        border-radius: var(--r);
         background: #ffffff;
         border: 1px solid #cbd5e1;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--text-heading);
+        color: var(--text-1);
         cursor: pointer;
         transition: transform 0.1s;
         padding: 0;
@@ -4189,7 +4188,7 @@
         gap: 4px;
         font-size: 13px;
         font-weight: 600;
-        color: var(--accent);
+        color: var(--primary);
         text-decoration: none;
       }
     }
@@ -4204,7 +4203,7 @@
 
     .campus-v2-card {
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       border: 1px solid rgba(226, 232, 240, 0.8);
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
@@ -4249,13 +4248,13 @@
     .campus-v2-title {
       font-size: var(--h5-size);
       font-weight: var(--font-weight-heading);
-      color: var(--text-heading);
+      color: var(--text-1);
       margin-bottom: 8px;
       transition: color 0.2s ease;
     }
 
     .campus-v2-card:hover .campus-v2-title {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .campus-v2-loc {
@@ -4270,14 +4269,14 @@
     }
 
     .campus-v2-loc svg {
-      color: var(--accent);
+      color: var(--primary);
       flex-shrink: 0;
     }
 
     .campus-v2-desc {
       font-size: var(--body-size);
       font-weight: var(--font-weight-body);
-      color: var(--text-1);
+      color: var(--text-2);
       line-height: var(--body-line-height);
       margin-bottom: 24px;
       opacity: 0.85;
@@ -4288,10 +4287,10 @@
       align-items: center;
       gap: 8px;
       padding: 10px 20px;
-      background: var(--accent);
+      background: var(--primary);
       color: #ffffff;
       border: none;
-      border-radius: 8px;
+      border-radius: var(--r);
       font-size: var(--btn-sm-size);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
@@ -4303,7 +4302,7 @@
     }
 
     .campus-v2-btn:hover {
-      background: var(--accent-dark);
+      background: var(--primary-hover);
       box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2), 0 4px 6px -4px rgba(37, 99, 235, 0.2);
     }
 
@@ -4370,11 +4369,11 @@
     .admission-section h5 {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       margin-top: 40px;
       margin-bottom: 20px;
-      border-bottom: 2px solid var(--accent-light);
+      border-bottom: 2px solid var(--primary-light);
       padding-bottom: 8px;
     }
 
@@ -4388,7 +4387,7 @@
 
     .admission-tab-btn {
       padding: 12px 32px;
-      border-radius: 36px;
+      border-radius: var(--r-lg);
       font-size: 16px;
       font-weight: 700;
       background: #f8fafc;
@@ -4410,9 +4409,9 @@
     }
 
     .admission-tab-btn.active {
-      background: var(--accent);
+      background: var(--primary);
       color: #ffffff;
-      border-color: var(--accent);
+      border-color: var(--primary);
       box-shadow: 0 4px 14px rgba(21, 93, 252, 0.25);
     }
 
@@ -4441,7 +4440,7 @@
     }
 
     .admission-item.open {
-      border-color: var(--accent);
+      border-color: var(--primary);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
     }
 
@@ -4470,8 +4469,8 @@
     }
 
     .admission-item.open .admission-button {
-      background: var(--accent-light);
-      color: var(--accent);
+      background: var(--primary-light);
+      color: var(--primary);
     }
 
     .admission-button::after {
@@ -4486,7 +4485,7 @@
 
     .admission-item.open .admission-button::after {
       content: '−';
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .admission-collapse {
@@ -4554,7 +4553,7 @@
 
     .criteria-divider {
       margin: 0 12px;
-      color: var(--text-3);
+      color: var(--text-2);
       font-weight: 300;
       user-select: none;
     }
@@ -4681,7 +4680,7 @@
     </div>
     <!-- <div style="display: flex; justify-content: center; margin-top: 24px;">
       <a href="#about-the-program" class="btn btn-primary"
-        style="padding: 14px 44px; border-radius: 36px; font-size: var(--body-size); text-transform: uppercase; font-weight: 700; background: var(--accent); color: #fff; line-height: var(--body-line-height);">Enquire
+        style="padding: 14px 44px; border-radius: var(--r-lg); font-size: var(--body-size); text-transform: uppercase; font-weight: 700; background: var(--primary); color: #fff; line-height: var(--body-line-height);">Enquire
         Now</a>
     </div> -->
   </section>
@@ -4854,7 +4853,7 @@
     <div class="container overview-v3-grid">
       <!-- Left Column: Heading, Description & Milestones -->
       <div class="v3-left-col">
-        <h2 class="v3-title">B.Tech <span style="color: var(--accent);">- CSE (AI & Data Engineering)</span></h2>
+        <h2 class="v3-title">B.Tech <span style="color: var(--primary);">- CSE (AI & Data Engineering)</span></h2>
         <!-- <h5
           style="color: #000000; font-size: var(--h4-size); line-height: var(--h4-line-height); font-weight: var(--font-weight-body); margin-top: 6px; margin-bottom: 8px; text-transform: uppercase; text-align: left;">
           <b>B.Tech - CSE (AI & Data Engineering)</b>
@@ -4884,28 +4883,28 @@
             <li
               style="display: flex; align-items: flex-start; gap: 8px; font-size: var(--body-size); color: var(--text-2); line-height: var(--body-line-height);">
               <span
-                style="color: var(--accent); font-weight: bold; font-size: var(--h6-size); line-height: var(--h6-line-height);">•</span>
+                style="color: var(--primary); font-weight: bold; font-size: var(--h6-size); line-height: var(--h6-line-height);">•</span>
               <div><strong>Industry Readiness:</strong> Acquire hands-on expertise with AWS, GCP, and NVIDIA tools,
                 preparing you for immediate corporate deployment.</div>
             </li>
             <li
               style="display: flex; align-items: flex-start; gap: 8px; font-size: var(--body-size); color: var(--text-2); line-height: var(--body-line-height);">
               <span
-                style="color: var(--accent); font-weight: bold; font-size: var(--h6-size); line-height: var(--h6-line-height);">•</span>
+                style="color: var(--primary); font-weight: bold; font-size: var(--h6-size); line-height: var(--h6-line-height);">•</span>
               <div><strong>Data Engineering Mastery:</strong> Design and optimize massive real-time data pipelines,
                 database architectures, and distributed computing clusters.</div>
             </li>
             <li
               style="display: flex; align-items: flex-start; gap: 8px; font-size: var(--body-size); color: var(--text-2); line-height: var(--body-line-height);">
               <span
-                style="color: var(--accent); font-weight: bold; font-size: var(--h6-size); line-height: var(--h6-line-height);">•</span>
+                style="color: var(--primary); font-weight: bold; font-size: var(--h6-size); line-height: var(--h6-line-height);">•</span>
               <div><strong>Advanced AI Development:</strong> Build, train, and deploy custom neural networks, large
                 language models (LLMs), and computer vision systems.</div>
             </li>
             <li
               style="display: flex; align-items: flex-start; gap: 8px; font-size: var(--body-size); color: var(--text-2); line-height: var(--body-line-height);">
               <span
-                style="color: var(--accent); font-weight: bold; font-size: var(--h6-size); line-height: var(--h6-line-height);">•</span>
+                style="color: var(--primary); font-weight: bold; font-size: var(--h6-size); line-height: var(--h6-line-height);">•</span>
               <div><strong>Dual Certifications:</strong> Graduate with built-in official cloud and AI developer
                 credentials valued by top-tier tech recruiters globally.</div>
             </li>
@@ -5011,7 +5010,7 @@
     <div class="container">
       <div class="curriculum-layout">
         <div class="curriculum-left">
-          <h2>Academic <span style="color: var(--accent);">Curriculum</span></h2>
+          <h2>Academic <span style="color: var(--primary);">Curriculum</span></h2>
           <p class="curriculum-sub">
             A carefully structured 8-semester program from fundamentals to cutting-edge specialisations.
           </p>
@@ -5259,7 +5258,7 @@
   <section class="sec" id="certifications-v3">
     <div class="container" style="text-align:center;">
       <!-- <div class="label">Credentials</div> -->
-      <h2>Industry <span style="color: var(--accent);">Certifications</span></h2>
+      <h2>Industry <span style="color: var(--primary);">Certifications</span></h2>
       <p
         style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:536px;margin:0 auto 36px;font-weight: var(--font-weight-body);">
         Earn industry-recognized
@@ -5318,7 +5317,7 @@
           <div class="campus-item-body">
             <h4 class="campus-item-name">The NorthCap University</h4>
             <div class="campus-item-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
+              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
               </svg>
@@ -5342,7 +5341,7 @@
           <div class="campus-item-body">
             <h4 class="campus-item-name">Ajeenkya DY Patil University Pune</h4>
             <div class="campus-item-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
+              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
               </svg>
@@ -5364,14 +5363,14 @@
   </section> -->
 
   <!-- ── 5b2. CAMPUS V2 ──────────────────────────────────────── -->
-  <section class="sec" id="campuses-v2" style="background: #f8fafc;">
+  <section class="sec" style="background: #f8fafc;">
     <div class="container">
       <!-- Section Header -->
       <div style="text-align: center; margin-bottom: 36px;">
-        <h2 style="text-align:center; margin-bottom: 14px;">Program <span style="color: var(--accent);">Available
+        <h2 style="text-align:center; margin-bottom: 14px;">Program <span style="color: var(--primary);">Available
             at</span></h2>
         <p
-          style="color: var(--text-1); max-width: 640px; margin: 0 auto; font-size: var(--body-size); line-height: var(--body-line-height); font-weight: var(--font-weight-body);">
+          style="color: var(--text-2); max-width: 640px; margin: 0 auto; font-size: var(--body-size); line-height: var(--body-line-height); font-weight: var(--font-weight-body);">
           Join our world-class learning centers in collaboration with leading universities across India.
         </p>
       </div>
@@ -5386,7 +5385,8 @@
           <div class="campus-v2-body">
             <h5 class="campus-v2-title">The NorthCap University</h5>
             <div class="campus-v2-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
+              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--primary)"
+                xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
               </svg>
@@ -5418,7 +5418,8 @@
           <div class="campus-v2-body">
             <h5 class="campus-v2-title">Ajeenkya DY Patil University Pune</h5>
             <div class="campus-v2-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--accent)" xmlns="http://www.w3.org/2000/svg">
+              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--primary)"
+                xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
               </svg>
@@ -5450,7 +5451,7 @@
   <section class="sec" id="placements" style="background-color: #ffffff;">
     <div class="container">
       <div style="text-align:left;margin-bottom:36px;">
-        <h2>Student <span style="color:var(--accent)">Placements</span></h2>
+        <h2>Student <span style="color:var(--primary)">Placements</span></h2>
         <p
           style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);font-weight: var(--font-weight-body);">
           From classroom learning
@@ -5818,7 +5819,7 @@
     <div class="placement-partners-section">
       <div style="text-align:center;margin-bottom:32px;">
         <!-- <div class="label">Our Network</div> -->
-        <h2>Hiring <span style="color:var(--accent);">Partners</span></h2>
+        <h2>Hiring <span style="color:var(--primary);">Partners</span></h2>
       </div>
 
       <div class="marquee-stack">
@@ -5997,7 +5998,7 @@
   <section class="sec" id="career-table-section" style="background: #ffffff;">
     <div class="container">
       <!-- <div class="label">Salary & Skill Mapping</div> -->
-      <h2>Career <span style="color: var(--accent);">Pathways</span></h2>
+      <h2>Career <span style="color: var(--primary);">Pathways</span></h2>
       <p
         style="color:var(--text-2);font-size:var(--body-size);margin-bottom:36px;max-width:640px;line-height:var(--body-line-height);font-weight: var(--font-weight-body);">
         A comprehensive
@@ -6090,9 +6091,9 @@
     <div class="container">
       <!-- <div class="label">Showcase</div> -->
       <div class="student-work-header-row">
-        <h2>Creative work by <span style="color: var(--accent);">our students</span></h2>
+        <h2>Creative work by <span style="color: var(--primary);">our students</span></h2>
         <a href="#" class="btn-link"
-          style="color: var(--accent); font-weight: 600; font-size: var(--body-size); text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: var(--body-line-height);">
+          style="color: var(--primary); font-weight: 600; font-size: var(--body-size); text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: var(--body-line-height);">
           View More
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -6218,9 +6219,9 @@
   <section class="sec" id="student-work-2" style="display: none; background: #F8FAFF; border-top: 1px solid #F1F5F9;">
     <div class="container">
       <div class="student-work-header-row">
-        <h2>Creative work by <span style="color: var(--accent);">our students </span></h2>
+        <h2>Creative work by <span style="color: var(--primary);">our students </span></h2>
         <a href="#" class="btn-link"
-          style="color: var(--accent); font-weight: 600; font-size: var(--body-size); text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: var(--body-line-height);">
+          style="color: var(--primary); font-weight: 600; font-size: var(--body-size); text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: var(--body-line-height);">
           View More
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -6381,9 +6382,9 @@
   <section class="sec" id="student-work-3" style="display: none; background: #ffffff; border-top: 1px solid #F1F5F9;">
     <div class="container">
       <div class="student-work-header-row">
-        <h2>Creative work by <span style="color: var(--accent);">our students</span></h2>
+        <h2>Creative work by <span style="color: var(--primary);">our students</span></h2>
         <a href="#" class="btn-link"
-          style="color: var(--accent); font-weight: 600; font-size: var(--body-size); text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: var(--body-line-height);">
+          style="color: var(--primary); font-weight: 600; font-size: var(--body-size); text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: var(--body-line-height);">
           View More
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -6506,12 +6507,12 @@
   </section>
 
   <!-- ── 7h. STUDENT WORK SHOWCASE V4 (OVERLAY GRADIENT MINIMAL) ────── -->
-  <section class="sec" id="student-work-4" style="background: #ffffff;">
+  <section class="sec" style="background: #ffffff;">
     <div class="container">
       <div class="student-work-header-row">
-        <h2>Creative work by <span style="color: var(--accent);">our students</span></h2>
+        <h2>Creative work by <span style="color: var(--primary);">our students</span></h2>
         <a href="#" class="btn-link"
-          style="color: var(--accent); font-weight: 600; font-size: var(--body-size); text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: var(--body-line-height);">
+          style="color: var(--primary); font-weight: 600; font-size: var(--body-size); text-decoration: none; display: flex; align-items: center; gap: 4px; line-height: var(--body-line-height);">
           View More
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -6636,9 +6637,9 @@
   </section>
 
   <!-- ── 8. FAQ ──────────────────────────────────────────────── -->
-  <section class="sec" id="faq">
+  <section class="sec">
     <div class="container" style="text-align:center;">
-      <h2>Frequently Asked <span style="color: var(--accent);">Questions</span></h2>
+      <h2>Frequently Asked <span style="color: var(--primary);">Questions</span></h2>
       <p
         style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto 36px;font-weight: var(--font-weight-body);">
         Everything you need to know

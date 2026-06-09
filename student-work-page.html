@@ -19,17 +19,17 @@
     }
 
     :root {
-      --accent: #155DFC;
-      --accent-dark: #0e4de0;
-      --accent-light: #E5EEFF;
-      --card-bg: #F8FAFF;
-      --card-border: #E5EEFF;
-      --text-1: #0F172A;
+
+      --primary: #155DFC;
+      --primary-hover: #1D4ED8;
+      --primary-bg: #FFFFFF;
+      --secondary-bg: #F8FAFC;
+      --text-1: #000000;
       --text-2: #475569;
-      --text-3: #94A3B8;
-      --white: #FFFFFF;
-      --r: 10px;
-      --r-lg: 16px;
+      --card-bg: #F3F6F9;
+      --card-border: #F2F2F2;
+      --r: 12px;
+      --r-lg: 20px;
 
       /* Headings */
       --font-weight-heading: 700;
@@ -37,43 +37,36 @@
       --font-weight-body: 500;
       /* Medium */
 
-      --h1-size: 40px;
-      --h1-line-height: 48px;
-      /* ratio: 1.2 */
+      --h1-size: 48px;
+      --h1-line-height: 58px;
 
-      --h2-size: 32px;
-      --h2-line-height: 40px;
-      /* ratio: 1.25 */
+      --h2-size: 38px;
+      --h2-line-height: 48px;
 
-      --h3-size: 26px;
-      --h3-line-height: 33px;
-      /* ratio: 1.27 */
+      --h3-size: 30px;
+      --h3-line-height: 38px;
 
-      --h4-size: 20px;
-      --h4-line-height: 26px;
-      /* ratio: 1.3 */
+      --h4-size: 24px;
+      --h4-line-height: 32px;
 
-      --h5-size: 18px;
-      --h5-line-height: 24px;
-      /* ratio: 1.33 */
+      --h5-size: 20px;
+      --h5-line-height: 28px;
 
-      --h6-size: 16px;
-      --h6-line-height: 22px;
-      /* ratio: 1.375 */
+      --h6-size: 18px;
+      --h6-line-height: 26px;
 
-      /* Body / inline */
-      --body-size: 14px;
-      --body-line-height: 21px;
-      /* ratio: 1.5 — matches existing li line-height */
+      /* Body */
+      --body-size: 16px;
+      --body-line-height: 26px;
 
-      --small-size: 12px;
-      --small-line-height: 18px;
+      --small-size: 14px;
+      --small-line-height: 20px;
 
       /* Links */
-      --link-size: var(--body-size);
-      --link-line-height: var(--body-line-height);
+      --link-size: 14px;
+      --link-line-height: 21px;
 
-      /* Buttons — 3 named sizes replace the arbitrary 12/18/22 mix */
+      /* Buttons — 3 named sizes */
       --btn-sm-size: 12px;
       --btn-md-size: 14px;
       --btn-lg-size: 18px;
@@ -83,19 +76,42 @@
       --li-line-height: 21px;
     }
 
-    /* ==========================================================================
-       TABLET — 768px to 1023px
-       ========================================================================== */
+    /* TABLET — 768px to 1023px */
+
     @media (max-width: 1023px) {
       :root {
-        --h1-size: 32px;
-        --h1-line-height: 40px;
+        --h1-size: 38px;
+        --h1-line-height: 48px;
 
-        --h2-size: 26px;
-        --h2-line-height: 33px;
+        --h2-size: 30px;
+        --h2-line-height: 38px;
 
-        --h3-size: 22px;
-        --h3-line-height: 28px;
+        --h3-size: 24px;
+        --h3-line-height: 32px;
+
+        --h4-size: 20px;
+        --h4-line-height: 28px;
+
+        --h5-size: 18px;
+        --h5-line-height: 26px;
+
+        --h6-size: 16px;
+        --h6-line-height: 24px;
+      }
+    }
+
+    /* MOBILE — up to 767px */
+
+    @media (max-width: 767px) {
+      :root {
+        --h1-size: 28px;
+        --h1-line-height: 36px;
+
+        --h2-size: 24px;
+        --h2-line-height: 30px;
+
+        --h3-size: 20px;
+        --h3-line-height: 26px;
 
         --h4-size: 18px;
         --h4-line-height: 24px;
@@ -106,42 +122,11 @@
         --h6-size: 14px;
         --h6-line-height: 20px;
 
-        /* Body stays the same on tablet */
         --body-size: 14px;
-        --body-line-height: 21px;
+        --body-line-height: 22px;
 
-        --link-size: 14px;
-        --link-line-height: 21px;
-
-        --btn-sm-size: 12px;
-        --btn-md-size: 14px;
-        --btn-lg-size: 16px;
-
-        --li-size: 14px;
-        --li-line-height: 21px;
-      }
-    }
-
-    /* ==========================================================================
-       MOBILE — up to 767px
-       (Anchored to existing 22px h1 / 18px h2 mobile values)
-       ========================================================================== */
-    @media (max-width: 767px) {
-      :root {
-        --h1-size: 24px;
-        --h1-line-height: 30px;
-
-        --h2-size: 20px;
-        --h2-line-height: 26px;
-
-        --h3-size: 18px;
-        --h3-line-height: 24px;
-
-        --h5-size: 14px;
-        --h6-line-height: 18px;
-
-        --body-size: 13px;
-        --body-line-height: 20px;
+        --small-size: 12px;
+        --small-line-height: 18px;
 
         --link-size: 13px;
         --link-line-height: 20px;
@@ -150,14 +135,13 @@
         --btn-md-size: 13px;
         --btn-lg-size: 16px;
 
-        --li-size: 13px;
-        --li-line-height: 20px;
+        --li-size: 14px;
+        --li-line-height: 22px;
       }
     }
 
-    /* ==========================================================================
-       USAGE — apply tokens to elements
-       ========================================================================== */
+    /* Base Component */
+
     h1 {
       font-size: var(--h1-size);
       line-height: var(--h1-line-height);
@@ -165,44 +149,35 @@
     }
 
     h2 {
-      font-family: 'Poppins', sans-serif;
-      font-style: normal;
-      color: rgb(15, 23, 42);
-      margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
       font-weight: var(--font-weight-heading);
+      margin-bottom: 14px;
     }
 
     h3 {
       font-size: var(--h3-size);
       line-height: var(--h3-line-height);
-      font-weight: var(--font-weight-body);
+      font-weight: var(--font-weight-heading);
     }
 
     h4 {
       font-size: var(--h4-size);
       line-height: var(--h4-line-height);
-      font-weight: var(--font-weight-body);
+      font-weight: var(--font-weight-heading);
     }
 
     h5 {
       font-size: var(--h5-size);
       line-height: var(--h5-line-height);
-      font-weight: var(--font-weight-body);
+      font-weight: var(--font-weight-heading);
     }
 
     h6 {
       font-size: var(--h6-size);
       line-height: var(--h6-line-height);
-      font-weight: var(--font-weight-body);
+      font-weight: var(--font-weight-heading);
     }
-
-    /* p {
-      font-size: var(--body-size);
-      line-height: var(--body-line-height);
-      font-weight: var(--font-weight-body);
-    } */
 
     li {
       font-size: var(--li-size);
@@ -216,6 +191,28 @@
       font-weight: var(--font-weight-body);
     }
 
+    /* Button sizes via utility classes */
+    .btn-sm {
+      font-size: var(--btn-sm-size);
+      font-weight: var(--font-weight-body);
+    }
+
+    .btn-md {
+      font-size: var(--btn-md-size);
+      font-weight: var(--font-weight-body);
+    }
+
+    .btn-lg {
+      font-size: var(--btn-lg-size);
+      font-weight: var(--font-weight-body);
+    }
+
+    small {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
     html {
       scroll-behavior: smooth;
     }
@@ -224,6 +221,7 @@
       font-family: 'Poppins', sans-serif;
       background: #fff;
       color: var(--text-1);
+      font-size: var(--body-size);
       line-height: var(--body-line-height);
       display: flex;
       flex-direction: column;
@@ -244,7 +242,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--primary);
       margin-bottom: 8px;
     }
 
@@ -266,34 +264,34 @@
     }
 
     .btn-primary {
-      background: var(--accent);
+      background: var(--primary);
       color: #fff;
     }
 
     .btn-primary:hover {
-      background: var(--accent-dark);
+      background: var(--primary-hover);
       transform: translateY(-1px);
       box-shadow: 0 6px 16px rgba(21, 93, 252, .3);
     }
 
     .btn-ghost {
       background: transparent;
-      color: var(--accent);
-      border: 1.5px solid var(--accent);
+      color: var(--primary);
+      border: 1.5px solid var(--primary);
     }
 
     .btn-ghost:hover {
-      background: var(--accent-light);
+      background: var(--primary-bg);
     }
 
     .btn-white {
       background: #fff;
-      color: var(--accent);
+      color: var(--primary);
       font-weight: var(--font-weight-heading);
     }
 
     .btn-white:hover {
-      background: var(--accent-light);
+      background: var(--primary-bg);
       transform: translateY(-1px);
     }
 
@@ -331,13 +329,13 @@
     }
 
     .nav-logo span {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .nav-dot {
       width: 7px;
       height: 7px;
-      background: var(--accent);
+      background: var(--primary);
       border-radius: 50%;
     }
 
@@ -351,13 +349,13 @@
       font-size: var(--link-size);
       line-height: var(--link-line-height);
       font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      color: var(--text-1);
       text-decoration: none;
       transition: color .2s;
     }
 
     .nav-links a:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     /* ─── 2. HERO (Refactored to mirror TrippyBid layout) ── */
@@ -409,7 +407,7 @@
       position: relative;
       width: 100%;
       height: 380px;
-      border-radius: 24px;
+      border-radius: var(--r-lg);
       box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
       margin-bottom: 55px;
       /* space for overlapping horizontal search bar */
@@ -419,7 +417,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 24px;
+      border-radius: var(--r-lg);
       display: block;
     }
 
@@ -437,7 +435,7 @@
     .floating-badge-item {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
-      border-radius: 10px;
+      border-radius: var(--r);
       padding: 8px 14px;
       display: flex;
       align-items: center;
@@ -530,7 +528,7 @@
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: 6px;
+      border-radius: var(--r);
       padding: 6px 12px;
       font-size: var(--small-size);
       line-height: var(--small-line-height);
@@ -553,7 +551,7 @@
 
     .search-card {
       background: #f8fafc;
-      border-radius: 12px;
+      border-radius: var(--r);
       padding: 12px 20px;
       border: 1px solid #e2e8f0;
       display: flex;
@@ -595,10 +593,10 @@
 
     .search-btn {
       padding: 10px 22px;
-      border-radius: 8px;
+      border-radius: var(--r);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
-      background: var(--accent);
+      background: var(--primary);
       color: #ffffff;
       border: none;
       cursor: pointer;
@@ -607,7 +605,7 @@
     }
 
     .search-btn:hover {
-      background: var(--accent-dark);
+      background: var(--primary-hover);
       transform: translateY(-1px);
     }
 
@@ -700,12 +698,12 @@
     }
 
     .tab:hover {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .tab.active {
-      color: var(--accent);
-      border-bottom-color: var(--accent);
+      color: var(--primary);
+      border-bottom-color: var(--primary);
       font-weight: var(--font-weight-heading);
     }
 
@@ -729,7 +727,7 @@
 
     .overview-visual-wrapper {
       position: relative;
-      border-radius: 20px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       margin-bottom: 20px;
       height: 320px;
@@ -814,7 +812,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       padding: 6px 12px;
-      border-radius: 6px;
+      border-radius: var(--r);
       transition: all 0.2s;
     }
 
@@ -875,7 +873,7 @@
       background: #0f172a;
       color: #ffffff;
       padding: 12px 28px;
-      border-radius: 100px;
+      border-radius: var(--r-lg);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
       text-decoration: none;
@@ -933,7 +931,7 @@
     .campus-placeholder {
       position: relative;
       text-align: center;
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .campus-placeholder span {
@@ -957,7 +955,7 @@
     .hi-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-left: 3px solid var(--accent);
+      border-left: 3px solid var(--primary);
       border-radius: var(--r);
       padding: 24px 22px 24px 24px;
     }
@@ -1041,8 +1039,8 @@
     }
 
     .year-tag.open {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--primary);
+      border-color: var(--primary);
       color: #fff;
       border-radius: var(--r) var(--r) 0 0;
     }
@@ -1057,7 +1055,7 @@
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--primary);
       flex-shrink: 0;
       transition: background .15s;
     }
@@ -1119,7 +1117,7 @@
     }
 
     .sem-header {
-      background: var(--accent-light);
+      background: var(--primary-bg);
       border-bottom: 1px solid var(--card-border);
       padding: 14px 20px;
     }
@@ -1130,7 +1128,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--primary);
       margin-bottom: 2px;
     }
 
@@ -1286,8 +1284,8 @@
     }
 
     .partner-chip:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: var(--primary);
+      color: var(--primary);
     }
 
     .placement-partners-section {
@@ -1348,7 +1346,7 @@
     }
 
     .campus-item-card:hover .campus-item-name {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .campus-item-loc {
@@ -1429,7 +1427,7 @@
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
       padding: 4px 10px;
-      border-radius: 999px;
+      border-radius: var(--r-lg);
       margin-bottom: 16px;
     }
 
@@ -1580,7 +1578,7 @@
     .cert-v3-row {
       background: #fff;
       border: 1px solid #F1F5F9;
-      border-radius: 12px;
+      border-radius: var(--r);
       /* Increased corner radius */
       padding: 20px 40px;
       /* Reduced vertical padding */
@@ -1595,7 +1593,7 @@
     }
 
     .cert-v3-row:hover {
-      border-color: var(--accent);
+      border-color: var(--primary);
       transform: translateY(-2px);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
       /* Increased shadow on hover */
@@ -1633,11 +1631,11 @@
     .cert-v3-pill {
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       background: #EFF6FF;
       padding: 4px 10px;
-      border-radius: 4px;
+      border-radius: var(--r);
     }
 
     .cert-v3-row h3 {
@@ -1686,7 +1684,7 @@
     .career-v2-card {
       background: #fff;
       border: 1px solid #F1F5F9;
-      border-radius: 12px;
+      border-radius: var(--r);
       padding: 24px;
       /* Reduced padding for compactness */
       display: flex;
@@ -1698,7 +1696,7 @@
 
     .career-v2-card:hover {
       transform: translateY(-4px);
-      border-color: var(--accent);
+      border-color: var(--primary);
       box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
     }
 
@@ -1751,7 +1749,7 @@
     .career-v2-salary-bar {
       height: 6px;
       background: #F1F5F9;
-      border-radius: 3px;
+      border-radius: var(--r);
       position: relative;
       overflow: hidden;
     }
@@ -1761,8 +1759,8 @@
       left: 0;
       top: 0;
       height: 100%;
-      background: var(--accent);
-      border-radius: 3px;
+      background: var(--primary);
+      border-radius: var(--r);
     }
 
     @media (max-width: 1024px) {
@@ -1828,7 +1826,7 @@
       font-size: var(--h4-size);
       /* Reduced font size */
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       margin-bottom: 4px;
       display: block;
     }
@@ -1901,7 +1899,7 @@
     .career-v4-card {
       background: #fff;
       border: 1px solid #F1F5F9;
-      border-radius: 12px;
+      border-radius: var(--r);
       display: grid;
       grid-template-columns: 280px 1fr;
       transition: all 0.3s ease;
@@ -1909,7 +1907,7 @@
     }
 
     .career-v4-card:hover {
-      border-color: var(--accent);
+      border-color: var(--primary);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     }
 
@@ -1925,7 +1923,7 @@
     .career-v4-amount {
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       margin-bottom: 8px;
     }
@@ -2014,19 +2012,19 @@
 
     .salary-badge {
       display: inline-block;
-      background: var(--accent-light);
-      color: var(--accent);
+      background: var(--primary-bg);
+      color: var(--primary);
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       padding: 3px 9px;
-      border-radius: 6px;
+      border-radius: var(--r);
       white-space: nowrap;
       flex-shrink: 0;
     }
 
     .pathway-desc {
       font-size: var(--small-size);
-      color: var(--text-heading);
+      color: var(--text-1);
       line-height: 1.7;
     }
 
@@ -2053,7 +2051,7 @@
     .faq-q-text {
       font-size: var(--body-size);
       font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .faq-icon {
@@ -2074,8 +2072,8 @@
 
     .faq-item.open .faq-icon {
       transform: rotate(45deg);
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--primary);
+      border-color: var(--primary);
       color: #fff;
     }
 
@@ -2120,7 +2118,7 @@
     }
 
     .f-brand span {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .f-tagline {
@@ -2189,7 +2187,7 @@
     }
 
     .contact-toggle:hover .contact-name {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .contact-name {
@@ -2218,7 +2216,7 @@
 
     .contact-item.open .contact-chevron {
       transform: rotate(180deg);
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .contact-body {
@@ -2254,7 +2252,7 @@
     .overview-v2-sandbox {
       background: #0f172a;
       /* Slate-900 */
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       padding: 24px;
       box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
       border: 1px solid #1e293b;
@@ -2338,7 +2336,7 @@
 
     .c-stat-card {
       background: #1e293b;
-      border-radius: 8px;
+      border-radius: var(--r);
       padding: 12px 16px;
       border: 1px solid #334155;
     }
@@ -2391,7 +2389,7 @@
     .v2-f-icon {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
+      border-radius: var(--r);
       background: #eff6ff;
       color: #2563eb;
       display: flex;
@@ -2442,7 +2440,7 @@
       background: transparent;
       border: none;
       padding: 8px 18px;
-      border-radius: 20px;
+      border-radius: var(--r-lg);
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       color: #64748b;
@@ -2506,7 +2504,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       border: 1px solid #e2e8f0;
-      border-radius: 8px;
+      border-radius: var(--r);
       overflow: hidden;
       background: #ffffff;
       margin-top: 0;
@@ -2540,7 +2538,7 @@
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       padding: 3px 6px;
-      border-radius: 4px;
+      border-radius: var(--r);
       text-transform: uppercase;
       display: inline-block;
     }
@@ -2576,7 +2574,7 @@
     .v3-form-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
     }
@@ -2624,7 +2622,7 @@
 
     .v3-input {
       padding: 7px 10px;
-      border-radius: 8px;
+      border-radius: var(--r);
       border: 1.5px solid #cbd5e1;
       font-size: var(--body-size);
       font-family: inherit;
@@ -2660,7 +2658,7 @@
       text-align: center;
       background: #f1f5f9;
       border: 1.5px solid #cbd5e1;
-      border-radius: 8px;
+      border-radius: var(--r);
       font-size: var(--body-size);
       display: flex;
       align-items: center;
@@ -2673,7 +2671,7 @@
       background: #2563eb;
       color: #ffffff;
       padding: 14px;
-      border-radius: 8px;
+      border-radius: var(--r);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
       border: none;
@@ -2726,7 +2724,7 @@
       gap: 6px;
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-decoration: none;
       margin-bottom: 6px;
       transition: color .2s;
@@ -2757,7 +2755,7 @@
     .contact-email-icon {
       width: 32px;
       height: 32px;
-      border-radius: 8px;
+      border-radius: var(--r);
       background: #1E293B;
       border: 1px solid #334155;
       display: flex;
@@ -2769,8 +2767,8 @@
     }
 
     .contact-email-row:hover .contact-email-icon {
-      background: var(--accent);
-      border-color: var(--accent);
+      background: var(--primary);
+      border-color: var(--primary);
       color: #fff;
     }
 
@@ -2887,7 +2885,7 @@
       gap: 24px;
       background: #ffffff;
       border: 1px solid rgba(21, 93, 252, 0.1);
-      border-radius: 20px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: 0 12px 30px rgba(21, 93, 252, 0.04);
       max-width: 960px;
@@ -2904,7 +2902,7 @@
       left: 5px;
       width: 60px;
       height: 60px;
-      background-image: radial-gradient(var(--accent) 1.5px, transparent 1.5px);
+      background-image: radial-gradient(var(--primary) 1.5px, transparent 1.5px);
       background-size: 8px 8px;
       opacity: 0.08;
       pointer-events: none;
@@ -2923,8 +2921,8 @@
       width: 44px;
       height: 44px;
       border-radius: 50%;
-      background: var(--accent-light);
-      color: var(--accent);
+      background: var(--primary-bg);
+      color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -2985,7 +2983,7 @@
     }
 
     .counsellor-cta-info h2 span {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .counsellor-cta-channels {
@@ -3006,15 +3004,15 @@
       font-size: var(--btn-md-size);
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       padding: 8px 16px;
-      border-radius: 50px;
+      border-radius: var(--r-lg);
       border: 1px solid rgba(21, 93, 252, 0.12);
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(8px);
     }
 
     .counsellor-cta-link:hover {
-      border-color: var(--accent);
-      background: var(--accent);
+      border-color: var(--primary);
+      background: var(--primary);
       color: #ffffff;
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(21, 93, 252, 0.1);
@@ -3025,7 +3023,7 @@
       height: 26px;
       border-radius: 50%;
       background: rgba(21, 93, 252, 0.08);
-      color: var(--accent);
+      color: var(--primary);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3049,7 +3047,7 @@
         align-items: stretch;
         gap: 16px;
         padding: 20px;
-        border-radius: 16px;
+        border-radius: var(--r-lg);
       }
 
       .counsellor-cta-channels {
@@ -3074,7 +3072,7 @@
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       background: linear-gradient(135deg, #155DFC 0%, #0e4de0 100%);
-      border-radius: 24px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(21, 93, 252, 0.15);
       max-width: 960px;
@@ -3140,7 +3138,7 @@
       font-size: var(--btn-md-size);
       text-decoration: none;
       padding: 12px 32px;
-      border-radius: 50px;
+      border-radius: var(--r-lg);
       box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
       transition: all 0.25s ease;
       text-align: center;
@@ -3201,7 +3199,7 @@
       overflow: hidden;
       overflow-x: auto;
       border: 1px solid #cbd5e1;
-      border-radius: 10px;
+      border-radius: var(--r);
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
       background: #ffffff;
       margin-top: 20px;
@@ -3223,7 +3221,7 @@
 
     .career-table td {
       font-weight: var(--font-weight-body);
-      color: var(--text-heading);
+      color: var(--text-1);
     }
 
     .career-table th:not(:last-child),
@@ -3232,7 +3230,7 @@
     }
 
     .career-table th {
-      background: var(--accent);
+      background: var(--primary);
       color: #ffffff;
       font-weight: var(--font-weight-heading);
       font-size: var(--small-size);
@@ -3265,7 +3263,7 @@
       display: inline-flex;
       align-items: center;
       padding: 6px 14px;
-      border-radius: 50px;
+      border-radius: var(--r-lg);
       background: rgba(34, 197, 94, 0.1);
       color: #16a34a;
       font-weight: var(--font-weight-heading);
@@ -3310,7 +3308,7 @@
       .career-table td.role-cell {
         font-size: var(--h5-size);
         padding-bottom: 4px;
-        color: var(--accent);
+        color: var(--primary);
       }
 
       .career-table td:nth-child(3) {
@@ -3350,10 +3348,10 @@
 
       .career-table-outer:not(.expanded) .career-table-overlay span {
         background: #ffffff;
-        color: var(--accent);
-        border: 1px solid var(--accent);
+        color: var(--primary);
+        border: 1px solid var(--primary);
         padding: 8px 24px;
-        border-radius: 50px;
+        border-radius: var(--r-lg);
         font-size: var(--small-size);
         font-weight: var(--font-weight-heading);
         box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
@@ -3361,7 +3359,7 @@
       }
 
       .career-table-outer:not(.expanded) .career-table-overlay:hover span {
-        background: var(--accent-light);
+        background: var(--primary-bg);
       }
 
       /* Expanded state - overlay is shown as a text link at the end of the table */
@@ -3373,7 +3371,7 @@
       }
 
       .career-table-outer.expanded .career-table-overlay span {
-        color: var(--accent);
+        color: var(--primary);
         font-size: var(--small-size);
         font-weight: var(--font-weight-heading);
         text-decoration: underline;
@@ -3402,7 +3400,7 @@
     /* ─── STUDENT WORK CARD V2 ─────────────────────────── */
     .student-work-card-v2 {
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -3506,7 +3504,7 @@
     }
 
     .student-work-card-v2:hover .work-title-v2 {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .work-student-v2 {
@@ -3521,7 +3519,7 @@
     .student-work-card-v3 {
       position: relative;
       aspect-ratio: 3 / 4;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(15, 23, 42, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.8);
@@ -3575,7 +3573,7 @@
       left: 14px;
       right: 14px;
       background: #ffffff;
-      border-radius: 12px;
+      border-radius: var(--r);
       padding: 12px 14px;
       z-index: 2;
       box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
@@ -3593,7 +3591,7 @@
     .work-category-v3 {
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       display: block;
       margin-bottom: 4px;
@@ -3609,7 +3607,7 @@
     }
 
     .student-work-card-v3:hover .work-title-v3 {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .work-student-v3 {
@@ -3624,7 +3622,7 @@
     .student-work-card-v4 {
       position: relative;
       aspect-ratio: 3 / 4;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.8);
@@ -3694,7 +3692,7 @@
     .work-category-v4 {
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent-light);
+      color: var(--primary-bg);
       text-transform: uppercase;
       display: block;
       margin-bottom: 4px;
@@ -3712,7 +3710,7 @@
     }
 
     .student-work-card-v4:hover .work-title-v4 {
-      color: var(--accent-light);
+      color: var(--primary-bg);
     }
 
     .work-student-v4 {
@@ -3727,7 +3725,7 @@
       position: relative;
       width: 100%;
       aspect-ratio: 4/5;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       background: #f1f5f9;
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
@@ -3814,7 +3812,7 @@
     .work-category {
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       display: block;
       margin-bottom: 8px;
@@ -3830,7 +3828,7 @@
     }
 
     .student-work-card:hover .work-title {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .work-student {
@@ -3908,7 +3906,7 @@
       .slider-arrow-btn {
         width: 40px;
         height: 40px;
-        border-radius: 8px;
+        border-radius: var(--r);
         background: #ffffff;
         border: 1px solid #cbd5e1;
         display: flex;
@@ -3930,7 +3928,7 @@
         gap: 4px;
         font-size: 13px;
         font-weight: 600;
-        color: var(--accent);
+        color: var(--primary);
         text-decoration: none;
       }
     }
@@ -3945,7 +3943,7 @@
 
     .campus-v2-card {
       background: #ffffff;
-      border-radius: 16px;
+      border-radius: var(--r-lg);
       overflow: hidden;
       border: 1px solid rgba(226, 232, 240, 0.8);
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
@@ -3996,7 +3994,7 @@
     }
 
     .campus-v2-card:hover .campus-v2-title {
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .campus-v2-loc {
@@ -4011,7 +4009,7 @@
     }
 
     .campus-v2-loc svg {
-      color: var(--accent);
+      color: var(--primary);
       flex-shrink: 0;
     }
 
@@ -4029,10 +4027,10 @@
       align-items: center;
       gap: 8px;
       padding: 10px 20px;
-      background: var(--accent);
+      background: var(--primary);
       color: #ffffff;
       border: none;
-      border-radius: 8px;
+      border-radius: var(--r);
       font-size: var(--btn-sm-size);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
@@ -4044,7 +4042,7 @@
     }
 
     .campus-v2-btn:hover {
-      background: var(--accent-dark);
+      background: var(--primary-hover);
       box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2), 0 4px 6px -4px rgba(37, 99, 235, 0.2);
     }
 
@@ -4077,7 +4075,7 @@
       position: relative;
       width: 100%;
       height: 100%;
-      border-radius: 0px;
+      border-radius: 0;
       overflow: hidden;
       border: 1px solid #ffffff;
       background: #ffffff;
@@ -4112,11 +4110,11 @@
     .admission-section h5 {
       font-size: var(--body-size);
       font-weight: var(--font-weight-heading);
-      color: var(--accent);
+      color: var(--primary);
       text-transform: uppercase;
       margin-top: 40px;
       margin-bottom: 20px;
-      border-bottom: 2px solid var(--accent-light);
+      border-bottom: 2px solid var(--primary-bg);
       padding-bottom: 8px;
     }
 
@@ -4137,7 +4135,7 @@
     }
 
     .admission-item.open {
-      border-color: var(--accent);
+      border-color: var(--primary);
       box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
     }
 
@@ -4166,15 +4164,15 @@
     }
 
     .admission-item.open .admission-button {
-      background: var(--accent-light);
-      color: var(--accent);
+      background: var(--primary-bg);
+      color: var(--primary);
     }
 
     .admission-button::after {
       content: '+';
       font-size: var(--h4-size);
       font-weight: 300;
-      color: var(--text-heading);
+      color: var(--text-1);
       transition: transform 0.3s ease;
       display: inline-block;
       line-height: 1;
@@ -4182,7 +4180,7 @@
 
     .admission-item.open .admission-button::after {
       content: '−';
-      color: var(--accent);
+      color: var(--primary);
     }
 
     .admission-collapse {
@@ -4421,7 +4419,7 @@
       flex-wrap: wrap;
       justify-content: center;
       padding: 6px;
-      background: rgba(226, 232, 240, 0.4);
+      background: var(--card-bg);
       backdrop-filter: blur(12px);
       border-radius: var(--r-lg);
       border: 1px solid rgba(203, 213, 225, 0.4);
@@ -4521,7 +4519,7 @@
     <div class="container">
 
       <div style="text-align:center;margin-bottom:36px;">
-        <h2>Student <span style="color:var(--accent);">Work</span></h2>
+        <h2>Student <span style="color:var(--primary);">Work</span></h2>
         <p
           style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:780px;margin:0 auto;font-weight:var(--font-weight-body);">
           Learning by doing is at
@@ -4535,400 +4533,400 @@
 
   <!-- Category Filter -->
   <div class="filter-bar">
-      <div class="filter-bar-inner">
-        <div class="filter-container">
+    <div class="filter-bar-inner">
+      <div class="filter-container">
 
-          <!-- Mobile Category Dropdown -->
-          <div class="mobile-filter">
-            <button id="dropdownBtn">
-              <span id="selectedCategory">
-                <span class="pulse-dot"></span>
-                All Programs
-              </span>
-              <svg id="dropdownIcon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-              </svg>
+        <!-- Mobile Category Dropdown -->
+        <div class="mobile-filter">
+          <button id="dropdownBtn">
+            <span id="selectedCategory">
+              <span class="pulse-dot"></span>
+              All Programs
+            </span>
+            <svg id="dropdownIcon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <!-- Dropdown Menu -->
+          <div id="dropdownMenu" class="hidden">
+            <button class="category-item active" data-target="all">
+              All Programs
             </button>
-
-            <!-- Dropdown Menu -->
-            <div id="dropdownMenu" class="hidden">
-              <button class="category-item active" data-target="all">
-                All Programs
-              </button>
-              <button class="category-item" data-target="media">
-                Media
-              </button>
-              <button class="category-item" data-target="technology">
-                Technology
-              </button>
-              <button class="category-item" data-target="management">
-                Management
-              </button>
-              <button class="category-item" data-target="design">
-                Design
-              </button>
-              <button class="category-item" data-target="hospitality">
-                Hospitality
-              </button>
-            </div>
+            <button class="category-item" data-target="media">
+              Media
+            </button>
+            <button class="category-item" data-target="technology">
+              Technology
+            </button>
+            <button class="category-item" data-target="management">
+              Management
+            </button>
+            <button class="category-item" data-target="design">
+              Design
+            </button>
+            <button class="category-item" data-target="hospitality">
+              Hospitality
+            </button>
           </div>
-
-          <!-- Desktop Pills Switcher -->
-          <div class="desktop-filter">
-            <div class="pills-container">
-              <button class="pill-btn active" data-target="all">
-                All
-              </button>
-              <button class="pill-btn" data-target="media">
-                Media
-              </button>
-              <button class="pill-btn" data-target="technology">
-                Technology
-              </button>
-              <button class="pill-btn" data-target="management">
-                Management
-              </button>
-              <button class="pill-btn" data-target="design">
-                Design
-              </button>
-              <button class="pill-btn" data-target="hospitality">
-                Hospitality
-              </button>
-            </div>
-          </div>
-
         </div>
+
+        <!-- Desktop Pills Switcher -->
+        <div class="desktop-filter">
+          <div class="pills-container">
+            <button class="pill-btn active" data-target="all">
+              All
+            </button>
+            <button class="pill-btn" data-target="media">
+              Media
+            </button>
+            <button class="pill-btn" data-target="technology">
+              Technology
+            </button>
+            <button class="pill-btn" data-target="management">
+              Management
+            </button>
+            <button class="pill-btn" data-target="design">
+              Design
+            </button>
+            <button class="pill-btn" data-target="hospitality">
+              Hospitality
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
+  </div>
 
-    <section class="sec" id="student-work-grid-section"
-      style="background: #ffffff; border-top: 1px solid #F1F5F9; padding: 0;">
-        <div class="container">
-          <div class="student-work-page-grid" id="studentWorkGrid4">
+  <section class="sec" id="student-work-grid-section"
+    style="background: #ffffff; border-top: 1px solid #F1F5F9; padding: 0;">
+    <div class="container">
+      <div class="student-work-page-grid" id="studentWorkGrid4">
 
-            <!-- Card 1 -->
-            <div class="student-work-card-v4" data-category="media">
-              <div class="work-media-v4">
-                <img src="./gd-image1.png" alt="VFX & Compositing Sequence" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">VFX & Compositing Sequence: Dragon Fire and Cinematic Environment
-                  Integration</h4>
-                <p class="work-student-v4">By Aryan Sharma</p>
+        <!-- Card 1 -->
+        <div class="student-work-card-v4" data-category="media">
+          <div class="work-media-v4">
+            <img src="./gd-image1.png" alt="VFX & Compositing Sequence" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
               </div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="student-work-card-v4" data-category="design">
-              <div class="work-media-v4">
-                <img src="./gd-image2.png" alt="Game Environment Asset" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Game Environment Asset: Mythical Golden Sword and Ruined Stone
-                  Pedestal</h4>
-                <p class="work-student-v4">By Rohan Das</p>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="student-work-card-v4" data-category="media">
-              <div class="work-media-v4">
-                <img src="./gd-image3.png" alt="Sound Engineering Mastery" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Sound Engineering Mastery: Immersive Ambient Audio and
-                  Synthesizer Track Layout</h4>
-                <p class="work-student-v4">By Isha Malhotra</p>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="student-work-card-v4" data-category="media">
-              <div class="work-media-v4">
-                <img src="./gd-image4.png" alt="Cinematic Short Film" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Cinematic Short Film: Behind the Scenes Production and Director's
-                  Cut</h4>
-                <p class="work-student-v4">By Ananya Rai</p>
-              </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="student-work-card-v4" data-category="management">
-              <div class="work-media-v4">
-                <img src="./film_making_work.png" alt="Hospital Administration System" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Hospital Administration System: ERP Dashboard, Resource Rosters,
-                  and Auditing Analytics</h4>
-                <p class="work-student-v4">By Karan Johar</p>
-              </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="student-work-card-v4" data-category="hospitality">
-              <div class="work-media-v4">
-                <img src="./Techno.png" alt="Pharmacy Inventory Dashboard" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Pharmacy Inventory Dashboard: Dynamic Batch Tracking and
-                  Cold-Chain Temperature Loggers</h4>
-                <p class="work-student-v4">By Sneha Reddy</p>
-              </div>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="student-work-card-v4" data-category="technology">
-              <div class="work-media-v4">
-                <img src="./gd-image5.png" alt="Robot Kinematics Simulator" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Robot Kinematics Simulator: Inverse Kinematics Solvers and
-                  Real-Time Trajectory Planning</h4>
-                <p class="work-student-v4">By Rahul Mehta</p>
-              </div>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="student-work-card-v4" data-category="management">
-              <div class="work-media-v4">
-                <img src="./ajinkya.png" alt="Healthcare Supply Chain Tracker" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Healthcare Supply Chain Tracker: Blockchain-Verified Drug
-                  Authenticity Auditing</h4>
-                <p class="work-student-v4">By Aditya Birla</p>
-              </div>
-            </div>
-
-            <!-- Card 9 -->
-            <div class="student-work-card-v4" data-category="management">
-              <div class="work-media-v4">
-                <img src="./sound_engineering_work.png" alt="Fintech Transaction System" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Fintech Transaction System: Distributed Ledger Records and Risk
-                  Assessment Charts</h4>
-                <p class="work-student-v4">By Vikram Seth</p>
-              </div>
-            </div>
-
-            <!-- Card 10 -->
-            <div class="student-work-card-v4" data-category="technology">
-              <div class="work-media-v4">
-                <img src="./certification.png" alt="Molecular Docking Visualization" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Molecular Docking Visualization: Receptor-Ligand Interactions and
-                  Free Energy Grids</h4>
-                <p class="work-student-v4">By Dr. Ritu Karidhal</p>
-              </div>
-            </div>
-
-            <!-- Card 11 -->
-            <div class="student-work-card-v4" data-category="design">
-              <div class="work-media-v4">
-                <img src="./game_art_asset_work.png" alt="AR Construction Workspace" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">AR Construction Workspace: Precision Spatial Overlays and 3D
-                  Asset Anchor Placement</h4>
-                <p class="work-student-v4">By Pooja Rao</p>
-              </div>
-            </div>
-
-            <!-- Card 12 -->
-            <div class="student-work-card-v4" data-category="management">
-              <div class="work-media-v4">
-                <img src="./Ambi.png" alt="E-Commerce Analytics Engine" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">E-Commerce Analytics Engine: Real-Time User Funnel Heatmaps and
-                  Sales Conversions</h4>
-                <p class="work-student-v4">By Meera Patel</p>
-              </div>
-            </div>
-
-            <!-- Card 13 -->
-            <div class="student-work-card-v4" data-category="hospitality">
-              <div class="work-media-v4">
-                <img src="./gd-image5.png" alt="Clinical Trial Monitor" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Clinical Trial Monitor: Patient Cohort Randomization and Adverse
-                  Event Heatmaps</h4>
-                <p class="work-student-v4">By Dr. Anil Kakodkar</p>
-              </div>
-            </div>
-
-            <!-- Card 14 -->
-            <div class="student-work-card-v4" data-category="technology">
-              <div class="work-media-v4">
-                <img src="./gd-image1.png" alt="Mobile Healthcare App" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Mobile Healthcare App: Telehealth Consultations and Prescription
-                  Scanning Integrations</h4>
-                <p class="work-student-v4">By Neha Kakkar</p>
-              </div>
-            </div>
-
-            <!-- Card 15 -->
-            <div class="student-work-card-v4" data-category="management">
-              <div class="work-media-v4">
-                <img src="./NorthCap.png" alt="AI Stock Trading Agent" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">AI Stock Trading Agent: Sentiment Classification and Backtesting
-                  Visualization</h4>
-                <p class="work-student-v4">By Arjun Kapur</p>
-              </div>
-            </div>
-
-            <!-- Card 16 -->
-            <div class="student-work-card-v4" data-category="technology">
-              <div class="work-media-v4">
-                <img src="./vfx_dragon_work.png" alt="Automated Smart Grid Network" loading="lazy">
-                <div class="play-overlay">
-                  <div class="play-btn-circle-small">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
-                      stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-              <div class="work-details-v4">
-                <h4 class="work-title-v4 line-clamp-2">Automated Smart Grid Network: SCADA Integrations and Load
-                  Balancer Visualizer</h4>
-                <p class="work-student-v4">By Deepak Sen</p>
-              </div>
-            </div>
-
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">VFX & Compositing Sequence: Dragon Fire and Cinematic Environment
+              Integration</h4>
+            <p class="work-student-v4">By Aryan Sharma</p>
           </div>
         </div>
-      </section>
+
+        <!-- Card 2 -->
+        <div class="student-work-card-v4" data-category="design">
+          <div class="work-media-v4">
+            <img src="./gd-image2.png" alt="Game Environment Asset" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Game Environment Asset: Mythical Golden Sword and Ruined Stone
+              Pedestal</h4>
+            <p class="work-student-v4">By Rohan Das</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="student-work-card-v4" data-category="media">
+          <div class="work-media-v4">
+            <img src="./gd-image3.png" alt="Sound Engineering Mastery" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Sound Engineering Mastery: Immersive Ambient Audio and
+              Synthesizer Track Layout</h4>
+            <p class="work-student-v4">By Isha Malhotra</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="student-work-card-v4" data-category="media">
+          <div class="work-media-v4">
+            <img src="./gd-image4.png" alt="Cinematic Short Film" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Cinematic Short Film: Behind the Scenes Production and Director's
+              Cut</h4>
+            <p class="work-student-v4">By Ananya Rai</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="student-work-card-v4" data-category="management">
+          <div class="work-media-v4">
+            <img src="./film_making_work.png" alt="Hospital Administration System" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Hospital Administration System: ERP Dashboard, Resource Rosters,
+              and Auditing Analytics</h4>
+            <p class="work-student-v4">By Karan Johar</p>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="student-work-card-v4" data-category="hospitality">
+          <div class="work-media-v4">
+            <img src="./Techno.png" alt="Pharmacy Inventory Dashboard" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Pharmacy Inventory Dashboard: Dynamic Batch Tracking and
+              Cold-Chain Temperature Loggers</h4>
+            <p class="work-student-v4">By Sneha Reddy</p>
+          </div>
+        </div>
+
+        <!-- Card 7 -->
+        <div class="student-work-card-v4" data-category="technology">
+          <div class="work-media-v4">
+            <img src="./gd-image5.png" alt="Robot Kinematics Simulator" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Robot Kinematics Simulator: Inverse Kinematics Solvers and
+              Real-Time Trajectory Planning</h4>
+            <p class="work-student-v4">By Rahul Mehta</p>
+          </div>
+        </div>
+
+        <!-- Card 8 -->
+        <div class="student-work-card-v4" data-category="management">
+          <div class="work-media-v4">
+            <img src="./ajinkya.png" alt="Healthcare Supply Chain Tracker" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Healthcare Supply Chain Tracker: Blockchain-Verified Drug
+              Authenticity Auditing</h4>
+            <p class="work-student-v4">By Aditya Birla</p>
+          </div>
+        </div>
+
+        <!-- Card 9 -->
+        <div class="student-work-card-v4" data-category="management">
+          <div class="work-media-v4">
+            <img src="./sound_engineering_work.png" alt="Fintech Transaction System" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Fintech Transaction System: Distributed Ledger Records and Risk
+              Assessment Charts</h4>
+            <p class="work-student-v4">By Vikram Seth</p>
+          </div>
+        </div>
+
+        <!-- Card 10 -->
+        <div class="student-work-card-v4" data-category="technology">
+          <div class="work-media-v4">
+            <img src="./certification.png" alt="Molecular Docking Visualization" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Molecular Docking Visualization: Receptor-Ligand Interactions and
+              Free Energy Grids</h4>
+            <p class="work-student-v4">By Dr. Ritu Karidhal</p>
+          </div>
+        </div>
+
+        <!-- Card 11 -->
+        <div class="student-work-card-v4" data-category="design">
+          <div class="work-media-v4">
+            <img src="./game_art_asset_work.png" alt="AR Construction Workspace" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">AR Construction Workspace: Precision Spatial Overlays and 3D
+              Asset Anchor Placement</h4>
+            <p class="work-student-v4">By Pooja Rao</p>
+          </div>
+        </div>
+
+        <!-- Card 12 -->
+        <div class="student-work-card-v4" data-category="management">
+          <div class="work-media-v4">
+            <img src="./Ambi.png" alt="E-Commerce Analytics Engine" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">E-Commerce Analytics Engine: Real-Time User Funnel Heatmaps and
+              Sales Conversions</h4>
+            <p class="work-student-v4">By Meera Patel</p>
+          </div>
+        </div>
+
+        <!-- Card 13 -->
+        <div class="student-work-card-v4" data-category="hospitality">
+          <div class="work-media-v4">
+            <img src="./gd-image5.png" alt="Clinical Trial Monitor" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Clinical Trial Monitor: Patient Cohort Randomization and Adverse
+              Event Heatmaps</h4>
+            <p class="work-student-v4">By Dr. Anil Kakodkar</p>
+          </div>
+        </div>
+
+        <!-- Card 14 -->
+        <div class="student-work-card-v4" data-category="technology">
+          <div class="work-media-v4">
+            <img src="./gd-image1.png" alt="Mobile Healthcare App" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Mobile Healthcare App: Telehealth Consultations and Prescription
+              Scanning Integrations</h4>
+            <p class="work-student-v4">By Neha Kakkar</p>
+          </div>
+        </div>
+
+        <!-- Card 15 -->
+        <div class="student-work-card-v4" data-category="management">
+          <div class="work-media-v4">
+            <img src="./NorthCap.png" alt="AI Stock Trading Agent" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">AI Stock Trading Agent: Sentiment Classification and Backtesting
+              Visualization</h4>
+            <p class="work-student-v4">By Arjun Kapur</p>
+          </div>
+        </div>
+
+        <!-- Card 16 -->
+        <div class="student-work-card-v4" data-category="technology">
+          <div class="work-media-v4">
+            <img src="./vfx_dragon_work.png" alt="Automated Smart Grid Network" loading="lazy">
+            <div class="play-overlay">
+              <div class="play-btn-circle-small">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor"
+                  stroke-width="3" stroke-linejoin="round" style="margin-left: 2px;">
+                  <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="work-details-v4">
+            <h4 class="work-title-v4 line-clamp-2">Automated Smart Grid Network: SCADA Integrations and Load
+              Balancer Visualizer</h4>
+            <p class="work-student-v4">By Deepak Sen</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ── 8c. COUNSELLOR CTA SECTION V2 ───────────────────────── -->
   <section class="counsellor-cta-v2-section">
