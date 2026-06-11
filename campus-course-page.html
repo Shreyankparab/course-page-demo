@@ -18,19 +18,18 @@
       padding: 0;
     }
 
+    /* DESKTOP — 1024px and above (covers 1024 / 1440 / 1920) */
     :root {
-
-      --primary: #155DFC;
-      --primary-hover: #1D4ED8;
-      --primary-bg: #FFFFFF;
-      --secondary-bg: #F8FAFC;
+      --primary: #155dfc;
+      --primary-hover: #1d4ed8;
+      --primary-bg: #ffffff;
+      --secondary-bg: #f8fafc;
       --text-1: #000000;
       --text-2: #475569;
-      --card-bg: #F3F6F9;
-      --card-border: #F2F2F2;
-      --r: 12px;
-      --r-lg: 20px;
-
+      --card-border: #f2f2f2;
+      --r-btn: 12px;
+      --r-lg-btn: 20px;
+      --r-lg: 50px;
       /* Headings */
       --font-weight-heading: 700;
       /* Bold */
@@ -43,14 +42,14 @@
       --h2-size: 38px;
       --h2-line-height: 48px;
 
-      --h3-size: 30px;
-      --h3-line-height: 38px;
+      --h3-size: 24px;
+      --h3-line-height: 32px;
 
       --h4-size: 24px;
       --h4-line-height: 32px;
 
-      --h5-size: 20px;
-      --h5-line-height: 28px;
+      --h5-size: 18px;
+      --h5-line-height: 26px;
 
       --h6-size: 18px;
       --h6-line-height: 26px;
@@ -72,8 +71,8 @@
       --btn-lg-size: 18px;
 
       /* List items */
-      --li-size: 14px;
-      --li-line-height: 21px;
+      --li-size: 16px;
+      --li-line-height: 26px;
     }
 
     /* TABLET — 768px to 1023px */
@@ -86,18 +85,19 @@
         --h2-size: 30px;
         --h2-line-height: 38px;
 
-        --h3-size: 24px;
-        --h3-line-height: 32px;
+        --h3-size: 20px;
+        --h3-line-height: 28px;
 
         --h4-size: 20px;
         --h4-line-height: 28px;
 
-        --h5-size: 18px;
-        --h5-line-height: 26px;
+        --h5-size: 16px;
+        --h5-line-height: 24px;
 
         --h6-size: 16px;
         --h6-line-height: 24px;
       }
+
     }
 
     /* MOBILE — up to 767px */
@@ -110,14 +110,14 @@
         --h2-size: 24px;
         --h2-line-height: 30px;
 
-        --h3-size: 20px;
-        --h3-line-height: 26px;
+        --h3-size: 18px;
+        --h3-line-height: 24px;
 
         --h4-size: 18px;
         --h4-line-height: 24px;
 
-        --h5-size: 16px;
-        --h5-line-height: 22px;
+        --h5-size: 14px;
+        --h5-line-height: 20px;
 
         --h6-size: 14px;
         --h6-line-height: 20px;
@@ -149,10 +149,10 @@
     }
 
     h2 {
+      margin-bottom: 14px;
       font-size: var(--h2-size);
       line-height: var(--h2-line-height);
       font-weight: var(--font-weight-heading);
-      margin-bottom: 14px;
     }
 
     h3 {
@@ -213,6 +213,7 @@
       font-weight: var(--font-weight-body);
     }
 
+
     html {
       scroll-behavior: smooth;
     }
@@ -229,12 +230,12 @@
 
     /* ─── UTILS ─────────────────────────────────────────── */
     .container {
-      max-width: 1160px;
+      max-width: 1230px;
       margin: 0 auto;
     }
 
     .sec {
-      padding: 64px 20px;
+      padding: 49px 0px;
     }
 
     .label {
@@ -251,7 +252,7 @@
       align-items: center;
       gap: 7px;
       padding: 11px 22px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
       cursor: pointer;
@@ -356,7 +357,7 @@
 
     /* ─── 2. HERO (Refactored to mirror TrippyBid layout) ── */
     .hero-ref {
-      max-width: 1160px;
+      max-width: 1230px;
       margin: 0 auto;
       padding: 15px 0;
       background: #ffffff;
@@ -403,7 +404,7 @@
       position: relative;
       width: 100%;
       height: 380px;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
       margin-bottom: 55px;
       /* space for overlapping horizontal search bar */
@@ -413,7 +414,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       display: block;
     }
 
@@ -431,7 +432,7 @@
     .floating-badge-item {
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       padding: 8px 14px;
       display: flex;
       align-items: center;
@@ -523,7 +524,7 @@
       background: rgba(255, 255, 255, 0.9);
       backdrop-filter: blur(8px);
       border: 1px solid rgba(255, 255, 255, 0.8);
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       padding: 6px 12px;
       font-size: var(--small-size);
       line-height: var(--small-line-height);
@@ -545,8 +546,8 @@
     }
 
     .search-card {
-      background: #f8fafc;
-      border-radius: var(--r);
+      background: var(--secondary-bg);
+      border-radius: var(--r-btn);
       padding: 12px 20px;
       border: 1px solid #e2e8f0;
       display: flex;
@@ -588,7 +589,7 @@
 
     .search-btn {
       padding: 10px 22px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
       background: var(--primary);
@@ -680,6 +681,7 @@
     .tab {
       padding: 16px 30px;
       font-size: var(--link-size);
+      line-height: var(--link-line-height);
       font-weight: var(--font-weight-body);
       color: var(--text-1);
       cursor: pointer;
@@ -721,7 +723,7 @@
 
     .overview-visual-wrapper {
       position: relative;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       margin-bottom: 20px;
       height: 320px;
@@ -806,7 +808,7 @@
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-heading);
       padding: 6px 12px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       transition: all 0.2s;
     }
 
@@ -867,7 +869,7 @@
       background: #0f172a;
       color: #ffffff;
       padding: 12px 28px;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
       text-decoration: none;
@@ -950,7 +952,7 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-left: 3px solid var(--primary);
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       padding: 24px 22px 24px 24px;
     }
 
@@ -1025,7 +1027,7 @@
       color: var(--text-2);
       font-size: var(--body-size);
       line-height: var(--body-line-height);
-      margin-top: 16px;
+      /* margin-top: 16px; */
       font-weight: 500;
     }
 
@@ -1056,7 +1058,7 @@
       color: var(--text-1);
       background: #fff;
       border: 1px solid var(--card-border);
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -1075,7 +1077,7 @@
       background: var(--primary);
       border-color: var(--primary);
       color: #fff;
-      border-radius: var(--r) var(--r) 0 0;
+      border-radius: var(--r-btn) var(--r-btn) 0 0;
     }
 
     .year-tag-label {
@@ -1126,7 +1128,7 @@
       transition: max-height .4s cubic-bezier(.4, 0, .2, 1);
       border: 1px solid var(--card-border);
       border-top: none;
-      border-radius: 0 0 var(--r) var(--r);
+      border-radius: 0 0 var(--r-btn) var(--r-btn);
     }
 
     .year-body.open {
@@ -1146,7 +1148,7 @@
     .sem-block {
       background: #fff;
       border: 1px solid var(--card-border);
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       overflow: hidden;
     }
 
@@ -1284,7 +1286,7 @@
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       padding: 4px 10px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(4px);
     }
@@ -1378,7 +1380,7 @@
       width: 40px;
       height: 40px;
       border: 1px solid #e2e8f0;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1390,7 +1392,7 @@
     }
 
     .placement-carousel-btn:hover {
-      background-color: #f8fafc;
+      background-color: var(--secondary-bg);
     }
 
     .placement-carousel-btn:active {
@@ -1399,7 +1401,7 @@
 
     .dot-inactive {
       height: 8px;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       display: block;
       transition: all 0.3s;
       width: 8px;
@@ -1408,7 +1410,7 @@
 
     .dot-active {
       height: 8px;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       display: block;
       transition: all 0.3s;
       width: 24px;
@@ -1417,6 +1419,11 @@
 
     /* Mobile view - turns grid to dynamic slider/track */
     @media (max-width: 768px) {
+      .sec {
+        padding: 49px 20px;
+
+      }
+
       .placement-carousel-frame {
         overflow: hidden;
         cursor: grab;
@@ -1523,7 +1530,7 @@
       padding: 0 28px;
       margin: 0 12px;
       border: 1.5px solid var(--card-border);
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       background: #fff;
       font-size: var(--body-size);
       line-height: var(--body-line-height);
@@ -1539,9 +1546,9 @@
       color: var(--primary);
     }
 
-    .placement-partners-section {
+    /* .placement-partners-section {
       margin-bottom: 48px;
-    }
+    } */
 
     .marquee-stack {
       display: flex;
@@ -1558,7 +1565,7 @@
 
     .campus-item-card {
       background: #fff;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       border: 1px solid rgba(148, 163, 184, .2);
       box-shadow: 0 2px 12px rgba(0, 0, 0, .06);
@@ -1646,7 +1653,7 @@
     .cert-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       padding: 40px 28px;
       text-align: center;
     }
@@ -1674,7 +1681,7 @@
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
       padding: 4px 10px;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       margin-bottom: 16px;
     }
 
@@ -1824,7 +1831,7 @@
     .cert-v3-row {
       background: #fff;
       border: 1px solid #F1F5F9;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       /* Increased corner radius */
       padding: 20px 40px;
       /* Reduced vertical padding */
@@ -1881,7 +1888,7 @@
       text-transform: uppercase;
       background: #EFF6FF;
       padding: 4px 10px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
     }
 
     .cert-v3-row h3 {
@@ -1931,7 +1938,7 @@
     .career-v2-card {
       background: #fff;
       border: 1px solid #F1F5F9;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       padding: 24px;
       /* Reduced padding for compactness */
       display: flex;
@@ -1961,7 +1968,7 @@
       font-size: var(--body-size);
       /* Slightly smaller for density */
       line-height: var(--body-line-height);
-      color: #64748B;
+      color: var(--text-2);
       margin-bottom: 20px;
       /* Reduced space */
       flex-grow: 1;
@@ -1998,7 +2005,7 @@
     .career-v2-salary-bar {
       height: 6px;
       background: #F1F5F9;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       position: relative;
       overflow: hidden;
     }
@@ -2009,10 +2016,14 @@
       top: 0;
       height: 100%;
       background: var(--primary);
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
     }
 
     @media (max-width: 1024px) {
+      .sec {
+        padding: 49px 20px;
+      }
+
       .career-v2-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -2148,7 +2159,7 @@
     .career-v4-card {
       background: #fff;
       border: 1px solid #F1F5F9;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       display: grid;
       grid-template-columns: 280px 1fr;
       transition: all 0.3s ease;
@@ -2162,7 +2173,7 @@
 
     .career-v4-header {
       padding: 32px;
-      background: #F8FAFC;
+      background: var(--secondary-bg);
       border-right: 1px solid #F1F5F9;
       display: flex;
       flex-direction: column;
@@ -2231,7 +2242,7 @@
     .pathway-card {
       background: #fff;
       border: 1px solid var(--card-border);
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       padding: 20px 22px;
       display: flex;
       flex-direction: column;
@@ -2266,7 +2277,7 @@
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       padding: 3px 9px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       white-space: nowrap;
       flex-shrink: 0;
     }
@@ -2279,7 +2290,7 @@
 
     /* ─── 8. FAQ ─────────────────────────────────────────── */
     .faq-list {
-      max-width: 1160px;
+      max-width: 1230px;
       margin: 0 auto;
     }
 
@@ -2351,7 +2362,7 @@
     }
 
     .footer-inner {
-      max-width: 1160px;
+      max-width: 1230px;
       margin: 0 auto;
       display: grid;
       grid-template-columns: 240px 1fr 280px;
@@ -2507,7 +2518,7 @@
     .overview-v2-sandbox {
       background: #0f172a;
       /* Slate-900 */
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       padding: 24px;
       box-shadow: 0 20px 40px rgba(15, 23, 42, 0.15);
       border: 1px solid #1e293b;
@@ -2591,7 +2602,7 @@
 
     .c-stat-card {
       background: #1e293b;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       padding: 12px 16px;
       border: 1px solid #334155;
     }
@@ -2645,7 +2656,7 @@
     .v2-f-icon {
       width: 32px;
       height: 32px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       background: #eff6ff;
       color: #2563eb;
       display: flex;
@@ -2696,7 +2707,7 @@
       background: transparent;
       border: none;
       padding: 8px 18px;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       color: #64748b;
@@ -2760,7 +2771,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       border: 1px solid #e2e8f0;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       overflow: hidden;
       background: #ffffff;
       margin-top: 0;
@@ -2794,7 +2805,7 @@
       font-size: var(--small-size);
       font-weight: var(--font-weight-heading);
       padding: 3px 6px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       text-transform: uppercase;
       display: inline-block;
     }
@@ -2830,7 +2841,7 @@
     .v3-form-card {
       background: #ffffff;
       border: 1px solid #e2e8f0;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
     }
@@ -2879,7 +2890,7 @@
 
     .v3-input {
       padding: 7px 10px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       border: 1.5px solid #cbd5e1;
       font-size: var(--body-size);
       font-family: inherit;
@@ -2915,7 +2926,7 @@
       text-align: center;
       background: #f1f5f9;
       border: 1.5px solid #cbd5e1;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       font-size: var(--body-size);
       display: flex;
       align-items: center;
@@ -2928,7 +2939,7 @@
       background: #2563eb;
       color: #ffffff;
       padding: 14px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       font-size: var(--btn-md-size);
       font-weight: var(--font-weight-heading);
       border: none;
@@ -3012,7 +3023,7 @@
     .contact-email-icon {
       width: 32px;
       height: 32px;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       background: #1E293B;
       border: 1px solid #334155;
       display: flex;
@@ -3142,7 +3153,7 @@
       gap: 24px;
       background: #ffffff;
       border: 1px solid rgba(21, 93, 252, 0.1);
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       box-shadow: 0 12px 30px rgba(21, 93, 252, 0.04);
       max-width: 960px;
@@ -3261,7 +3272,7 @@
       font-size: var(--btn-md-size);
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       padding: 8px 16px;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       border: 1px solid rgba(21, 93, 252, 0.12);
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(8px);
@@ -3304,7 +3315,7 @@
         align-items: stretch;
         gap: 16px;
         padding: 20px;
-        border-radius: var(--r-lg);
+        border-radius: var(--r-lg-btn);
       }
 
       .counsellor-cta-channels {
@@ -3322,14 +3333,16 @@
     /* ─── 8c. COUNSELLOR CTA CARD V2 ──────────────────────── */
     .counsellor-cta-v2-section {
       background: #ffffff;
-      padding: 30px 20px 60px 20px;
+      /* padding: 30px 20px 60px 20px; */
+      padding: 49px 0px;
+
     }
 
     .counsellor-cta-v2-card {
       display: grid;
       grid-template-columns: 1.5fr 1fr;
       background: linear-gradient(135deg, #155DFC 0%, #0e4de0 100%);
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       box-shadow: 0 20px 40px rgba(21, 93, 252, 0.15);
       max-width: 960px;
@@ -3393,6 +3406,7 @@
       color: #155DFC;
       font-weight: var(--font-weight-heading);
       font-size: var(--btn-md-size);
+      line-height: var(--small-line-height);
       text-decoration: none;
       padding: 12px 32px;
       border-radius: var(--r-lg);
@@ -3411,6 +3425,7 @@
       color: #ffffff;
       font-weight: var(--font-weight-heading);
       font-size: var(--btn-md-size);
+      line-height: var(--small-line-height);
       text-decoration: none;
       transition: all 0.25s ease;
       gap: 6px;
@@ -3456,7 +3471,7 @@
       overflow: hidden;
       overflow-x: auto;
       border: 1px solid #cbd5e1;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
       background: #ffffff;
       margin-top: 20px;
@@ -3505,7 +3520,7 @@
     }
 
     .career-table tbody tr:hover {
-      background: #f8fafc;
+      background: var(--secondary-bg);
     }
 
     .career-table tbody tr:last-child td {
@@ -3521,7 +3536,7 @@
       display: inline-flex;
       align-items: center;
       padding: 6px 14px;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       background: rgba(34, 197, 94, 0.1);
       color: #16a34a;
       font-weight: var(--font-weight-heading);
@@ -3613,7 +3628,7 @@
         color: var(--primary);
         border: 1px solid var(--primary);
         padding: 8px 24px;
-        border-radius: var(--r-lg);
+        border-radius: var(--r-lg-btn);
         font-size: var(--small-size);
         font-weight: var(--font-weight-heading);
         box-shadow: 0 4px 15px rgba(15, 23, 42, 0.08);
@@ -3655,7 +3670,7 @@
     .student-work-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       cursor: default;
       transition: box-shadow .2s, border-color .2s, transform .2s;
@@ -3664,7 +3679,7 @@
     /* ─── STUDENT WORK CARD V2 ─────────────────────────── */
     .student-work-card-v2 {
       background: #ffffff;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       display: flex;
       flex-direction: column;
@@ -3686,7 +3701,7 @@
       width: 100%;
       height: 80%;
       overflow: hidden;
-      background: #f8fafc;
+      background: var(--secondary-bg);
     }
 
     .work-media-v2 img {
@@ -3782,7 +3797,7 @@
     /* ─── STUDENT WORK CARD V3 (MINIMAL) ───────────────── */
     .student-work-card-v3 {
       background: #fff;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       overflow: hidden;
       border: 1px solid #F1F5F9;
       cursor: default;
@@ -3801,7 +3816,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      background: #f8fafc;
+      background: var(--secondary-bg);
     }
 
     .work-media-v3::after {
@@ -3834,7 +3849,7 @@
       left: 14px;
       right: 14px;
       background: #ffffff;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       padding: 12px 14px;
       z-index: 2;
       box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
@@ -3883,7 +3898,7 @@
     .student-work-card-v4 {
       position: relative;
       aspect-ratio: 3 / 4;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
       border: 1px solid rgba(226, 232, 240, 0.8);
@@ -3910,7 +3925,7 @@
       width: 100%;
       height: 100%;
       z-index: 1;
-      background: #f8fafc;
+      background: var(--secondary-bg);
     }
 
     .work-media-v4 img {
@@ -3987,7 +4002,7 @@
       position: relative;
       width: 100%;
       aspect-ratio: 4/5;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       background: #f1f5f9;
       box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
@@ -4104,7 +4119,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
       flex-wrap: wrap;
       gap: 16px;
     }
@@ -4168,7 +4183,7 @@
       .slider-arrow-btn {
         width: 40px;
         height: 40px;
-        border-radius: var(--r);
+        border-radius: var(--r-btn);
         background: #ffffff;
         border: 1px solid #cbd5e1;
         display: flex;
@@ -4205,7 +4220,7 @@
 
     .campus-v2-card {
       background: #ffffff;
-      border-radius: var(--r-lg);
+      border-radius: var(--r-lg-btn);
       overflow: hidden;
       border: 1px solid rgba(226, 232, 240, 0.8);
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
@@ -4292,7 +4307,7 @@
       background: var(--primary);
       color: #ffffff;
       border: none;
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       font-size: var(--btn-sm-size);
       font-weight: var(--font-weight-heading);
       text-transform: uppercase;
@@ -4360,13 +4375,13 @@
 
     /* ─── ADMISSION PROCESS ───────────────────────────────── */
     .admission-section {
-      background: #f8fafc;
+      background: var(--secondary-bg);
       border-top: 1px solid #E2E8F0;
     }
 
     .admission-section h2 {
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .admission-section h5 {
@@ -4385,7 +4400,7 @@
       display: flex;
       justify-content: center;
       gap: 32px;
-      margin-bottom: 32px;
+      margin-bottom: 36px;
       padding-bottom: 2px;
     }
 
@@ -4431,7 +4446,7 @@
     .admission-item {
       background: #ffffff;
       border: 1px solid var(--card-border);
-      border-radius: var(--r);
+      border-radius: var(--r-btn);
       margin-bottom: 16px;
       overflow: hidden;
       transition: all 0.3s ease;
@@ -4569,7 +4584,13 @@
     }
 
     #curriculum {
-      background: #f8fafc;
+      background: var(--secondary-bg);
+    }
+
+    @media (max-width: 1024px) {
+      /* .container {
+        padding: 0 20px;
+      } */
     }
   </style>
 </head>
@@ -4679,7 +4700,7 @@
     </div>
     <!-- <div style="display: flex; justify-content: center; margin-top: 24px;">
       <a href="#about-the-program" class="btn btn-primary"
-        style="padding: 14px 44px; border-radius: var(--r-lg); font-size: 15px; text-transform: uppercase; font-weight: 700; background: var(--primary); color: #fff;">Enquire
+        style="padding: 14px 44px; border-radius: var(--r-lg-btn); font-size: 15px; text-transform: uppercase; font-weight: 700; background: var(--primary); color: #fff;">Enquire
         Now</a>
     </div> -->
   </section>
@@ -4847,7 +4868,7 @@
   </section> -->
 
   <!-- ── 4c. ABOUT THE PROGRAM (Iteration 3) ──────────────── -->
-  <section class="sec" id="about-the-program" style="padding-top: 48px;">
+  <section class="sec" id="about-the-program" style="padding-top: 49px;">
     <div class="container overview-v3-grid">
       <!-- Left Column: Heading, Description & Milestones -->
       <div class="v3-left-col">
@@ -5023,7 +5044,7 @@
             </div>
             <div class="placement-info">
               <h4 class="placement-name">Harsh Gaur</h4>
-              <p class="placement-company">Jaro Education</p>
+              <p class="placement-company">Sound Engineering</p>
             </div>
             <div class="placement-footer">
               <span class="placement-footer-lbl">Placed At</span>
@@ -5040,7 +5061,7 @@
             </div>
             <div class="placement-info">
               <h4 class="placement-name">Pavan Kulkarni</h4>
-              <p class="placement-company">IntervueVet Technologies Pvt Ltd</p>
+              <p class="placement-company">Sound Engineering</p>
             </div>
             <div class="placement-footer">
               <span class="placement-footer-lbl">Placed At</span>
@@ -5057,7 +5078,7 @@
             </div>
             <div class="placement-info">
               <h4 class="placement-name">Om Giramkar</h4>
-              <p class="placement-company">Learning Routes</p>
+              <p class="placement-company">Sound Engineering</p>
             </div>
             <div class="placement-footer">
               <span class="placement-footer-lbl">Placed At</span>
@@ -5074,7 +5095,7 @@
             </div>
             <div class="placement-info">
               <h4 class="placement-name">Sanket Dhawale</h4>
-              <p class="placement-company">Edgewise Innovations Pvt Ltd</p>
+              <p class="placement-company">Sound Engineering</p>
             </div>
             <div class="placement-footer">
               <span class="placement-footer-lbl">Placed At</span>
@@ -5091,7 +5112,7 @@
             </div>
             <div class="placement-info">
               <h4 class="placement-name">Harsh Gaur (Copy)</h4>
-              <p class="placement-company">Jaro Education</p>
+              <p class="placement-company">Sound Engineering</p>
             </div>
             <div class="placement-footer">
               <span class="placement-footer-lbl">Placed At</span>
@@ -5108,7 +5129,7 @@
             </div>
             <div class="placement-info">
               <h4 class="placement-name">Pavan Kulkarni (Copy)</h4>
-              <p class="placement-company">IntervueVet Technologies Pvt Ltd</p>
+              <p class="placement-company">Sound Engineering</p>
             </div>
             <div class="placement-footer">
               <span class="placement-footer-lbl">Placed At</span>
@@ -5125,7 +5146,7 @@
             </div>
             <div class="placement-info">
               <h4 class="placement-name">Om Giramkar (Copy)</h4>
-              <p class="placement-company">Learning Routes</p>
+              <p class="placement-company">Sound Engineering</p>
             </div>
             <div class="placement-footer">
               <span class="placement-footer-lbl">Placed At</span>
@@ -5142,7 +5163,7 @@
             </div>
             <div class="placement-info">
               <h4 class="placement-name">Sanket Dhawale (Copy)</h4>
-              <p class="placement-company">Edgewise Innovations Pvt Ltd</p>
+              <p class="placement-company">Sound Engineering</p>
             </div>
             <div class="placement-footer">
               <span class="placement-footer-lbl">Placed At</span>
@@ -5244,7 +5265,7 @@
           </div>
         </div>
       </div>
-      <div style="text-align:center; margin-top: 40px; padding-bottom: 90px;">
+      <div style="text-align:center; margin-top: 40px;">
         <a href="#" class="btn btn-primary" style="font-size:var(--btn-md-size);padding:14px 40px;">View All
           Placements</a>
       </div>
@@ -5569,13 +5590,14 @@
   <!-- ── 6c. CERTIFICATIONS (v3 - Architectural Row) ──────── -->
   <section class="sec" id="certifications-v3">
     <div class="container" style="text-align:center;">
-      <!-- <div class="label">Credentials</div> -->
-      <h2>Industry <span style="color: var(--primary);">Certifications</span></h2>
-      <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto 36px;font-weight:500;">
-        Earn industry-recognized
-        professional credentials from global technology leaders to validate your expertise and stand out to top
-        recruiters.</p>
+      <div style="margin-bottom: 36px;">
+        <h2>Industry <span style="color: var(--primary);">Certifications</span></h2>
+        <p
+          style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto;font-weight:500;">
+          Earn industry-recognized
+          professional credentials from global technology leaders to validate your expertise and stand out to top
+          recruiters.</p>
+      </div>
 
       <div class="cert-v3-stack">
         <div class="cert-v3-row">
@@ -5611,12 +5633,14 @@
   <!-- ── 6d. ADMISSION PROCESS ───────────────────────────────── -->
   <section class="sec admission-section" id="admission-process">
     <div class="container" style="text-align:center;">
-      <h2>Admission <span style="color: var(--primary);">Process</span></h2>
-      <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto 36px;font-weight:500;">
-        Follow these step-by-step guidelines to secure your admission, whether you are a domestic or international
-        applicant.
-      </p>
+      <div style="margin-bottom:36px;">
+        <h2>Admission <span style="color: var(--primary);">Process</span></h2>
+        <p
+          style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto;font-weight:500;">
+          Follow these step-by-step guidelines to secure your admission, whether you are a domestic or international
+          applicant.
+        </p>
+      </div>
 
       <!-- Admission Criteria -->
       <!-- <div class="admission-summary-inline">
@@ -5649,7 +5673,8 @@
                     <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on
                       our
                       Online Application Platform.</li>
-                    <li>Fill in all information correctly and accurately as required in the Online Application Platform.
+                    <li>Fill in all information correctly and accurately as required in the Online Application
+                      Platform.
                     </li>
                     <li>Upload the scanned copy of the following documents:</li>
                     <ul>
@@ -5660,7 +5685,8 @@
                       <li>1 passport sized photograph</li>
                     </ul>
                     <li>Make a payment of Rs. 500 (non-refundable) against STAC (Seamedu Technical Assessment and
-                      Counseling). After completing the above steps, you will receive a confirmation of your application
+                      Counseling). After completing the above steps, you will receive a confirmation of your
+                      application
                       being submitted using your registered email ID.</li>
                   </ul>
                 </div>
@@ -5731,7 +5757,8 @@
                     <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on
                       our
                       Online Application Platform.</li>
-                    <li>Fill in all information correctly and accurately as required in the Online Application Platform.
+                    <li>Fill in all information correctly and accurately as required in the Online Application
+                      Platform.
                     </li>
                     <li>Upload the scanned copy of the following documents:</li>
                     <ul class="ul-list">
@@ -5761,15 +5788,18 @@
               </div>
               <div class="admission-collapse">
                 <div class="admission-body">
-                  <p>Within 15 days of your application, you will be intimated about your selection (if selected) B.Des
+                  <p>Within 15 days of your application, you will be intimated about your selection (if selected)
+                    B.Des
                     in
-                    Communication Design - Visual Communication by email on your registered email ID. On receipt of the
+                    Communication Design - Visual Communication by email on your registered email ID. On receipt of
+                    the
                     email, please complete the following process:</p>
                   <ul class="ul-list">
                     <li>Please sign in to the Seamedu Online Application Platform using your registered username and
                       password.</li>
                     <li>Complete the set of steps as prompted</li>
-                    <li>Make a payment of $160 as processing and eligibility fees and $350 as admission confirmation fee
+                    <li>Make a payment of $160 as processing and eligibility fees and $350 as admission confirmation
+                      fee
                       [We adjust the admission confirmation fee against the total fees.] *Both fee amounts are
                       non-refundable</li>
                   </ul>
@@ -5789,7 +5819,8 @@
                   <p>On receipt of the Provisional Admission Letter, please complete the following process:</p>
                   <ul class="ul-list">
                     <li>Have all Marks Transcripts attested by the Ministry of Higher Education in your country</li>
-                    <li>Apply for visa at the nearest Indian mission or Indian Embassy in your country (You must take an
+                    <li>Apply for visa at the nearest Indian mission or Indian Embassy in your country (You must take
+                      an
                       endorsed Student Visa)</li>
                     <li>Email us a copy of the attested transcripts and the visa issued</li>
                   </ul>
@@ -5833,10 +5864,12 @@
                   <p><b>Please carry all your original documents for verification.</b> You’ll get all your original
                     documents back after post-verification. Additional important notes:</p>
                   <ul class="ul-list">
-                    <li>All foreign students must take the English Language Proficiency Test. Clearance of this test is
+                    <li>All foreign students must take the English Language Proficiency Test. Clearance of this test
+                      is
                       a
                       must for firm admission.</li>
-                    <li>You need to report to the FRO for registration. Students must register within 14 days of arrival
+                    <li>You need to report to the FRO for registration. Students must register within 14 days of
+                      arrival
                       in India or they may have to pay late fees.</li>
                   </ul>
                 </div>
@@ -5953,11 +5986,13 @@
   <section class="sec" id="career-table-section" style="background: #ffffff;">
     <div class="container">
       <!-- <div class="label">Salary & Skill Mapping</div> -->
-      <h2>Career <span style="color: var(--primary);">Pathways</span></h2>
-      <p
-        style="color:var(--text-2);font-size:var(--body-size);margin-bottom:36px;max-width:640px;line-height:var(--body-line-height);font-weight:500;">
-        A comprehensive
-        breakdown of engineering roles, industry demand, entry-level salaries, and key technology requirements.</p>
+      <div style="margin-bottom: 36px;">
+        <h2>Career <span style="color: var(--primary);">Pathways</span></h2>
+        <p
+          style="color:var(--text-2);font-size:var(--body-size);max-width:640px;line-height:var(--body-line-height);font-weight:500;">
+          A comprehensive
+          breakdown of engineering roles, industry demand, entry-level salaries, and key technology requirements.</p>
+      </div>
 
       <div class="career-table-outer">
         <div class="career-table-wrapper collapsed" id="careerTableWrapper">
@@ -6594,11 +6629,13 @@
   <!-- ── 8. FAQ ──────────────────────────────────────────────── -->
   <section class="sec" id="faq">
     <div class="container" style="text-align:center;">
-      <h2>Frequently Asked <span style="color: var(--primary);">Questions</span></h2>
-      <p
-        style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto 36px;font-weight:500;">
-        Everything you need to know
-        before applying. Can't find the answer? Reach us anytime.</p>
+      <div style="margin-bottom: 36px;">
+        <h2 style="margin-bottom: 14px;">Frequently Asked <span style="color: var(--primary);">Questions</span></h2>
+        <p
+          style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto;font-weight:500;">
+          Everything you need to know
+          before applying. Can't find the answer? Reach us anytime.</p>
+      </div>
 
       <div class="faq-list" style="text-align:left;">
 
