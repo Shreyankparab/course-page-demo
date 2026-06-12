@@ -628,9 +628,9 @@
         }
 
         @media (max-width: 1024px) {
-            /* .related-blogs-inner {
-                padding: 0 20px;
-            } */
+            .related-blogs-section {
+                padding: 49px 20px;
+            }
 
             .related-blogs-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -713,7 +713,6 @@
         .cta-section {
             border-top: 1px solid var(--card-border);
             padding: 49px 0px;
-
         }
 
         .cta-inner {
@@ -722,36 +721,30 @@
         }
 
         .cta-card {
-            background: #1154ED;
-            padding: 40px 48px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 32px;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            background: linear-gradient(135deg, #155DFC 0%, #0e4de0 100%);
             border-radius: var(--r-lg-btn);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(21, 93, 252, 0.15);
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px 60px;
+            position: relative;
+            align-items: center;
+            gap: 40px;
         }
 
-        @media (max-width: 767px) {
-            .cta-card {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 28px 24px;
-                gap: 24px;
-            }
-
-            .related-blogs-section {
-                /* border-top: 1px solid var(--card-border); */
-                padding: 49px 20px;
-            }
-
-            /* .related-blogs-inner {
-                margin: 0 20px;
-            } */
+        .cta-text {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
         }
 
         .cta-text h2 {
-            font-size: var(--h2-size);
-            line-height: var(--h2-line-height);
+            font-size: var(--h3-size);
+            line-height: var(--h3-line-height);
             font-weight: var(--font-weight-heading);
             color: #fff;
             margin-bottom: 14px;
@@ -762,28 +755,69 @@
             line-height: var(--body-line-height);
             font-weight: var(--font-weight-body);
             color: rgba(255, 255, 255, 0.85);
+            max-width: 480px;
         }
 
         .cta-btn {
-            flex-shrink: 0;
-            padding: 14px 28px;
-            background: var(--primary);
-            color: #fff;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            color: #155DFC;
             font-family: 'Poppins', sans-serif;
-            font-size: var(--btn-md-size);
-            line-height: var(--body-line-height);
             font-weight: var(--font-weight-heading);
+            font-size: var(--btn-md-size);
+            line-height: var(--small-line-height);
             text-transform: uppercase;
             letter-spacing: 0.08em;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: var(--r-lg);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
             border: none;
             cursor: pointer;
-            transition: opacity 0.2s, transform 0.2s;
+            transition: all 0.25s ease;
+            text-align: center;
             white-space: nowrap;
+            justify-self: end;
+            z-index: 2;
         }
 
         .cta-btn:hover {
-            background: var(--primary-hover);
-            transform: translateY(-1px);
+            background: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        @media (max-width: 868px) {
+            .cta-card {
+                grid-template-columns: 1fr;
+                padding: 36px 30px;
+                gap: 24px;
+                text-align: center;
+                margin: 0 16px;
+            }
+
+            .cta-text p {
+                margin: 0 auto;
+            }
+
+            .cta-btn {
+                justify-self: center;
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .related-blogs-section {
+                /* border-top: 1px solid var(--card-border); */
+                padding: 49px 20px;
+            }
+
+            /* .related-blogs-inner {
+                margin: 0 20px;
+            } */
         }
 
         /* ─── 13. FOOTER ─────────────────────────────────────── */
@@ -1058,7 +1092,7 @@
         <div class="cta-inner">
             <div class="cta-card">
                 <div class="cta-text">
-                    <h2 style="font-size: 30px;">Looking forward to have a career in Sound Engineering?</h2>
+                    <h2>Looking forward to have a career in Sound Engineering?</h2>
                     <p>Our editorial team provides custom research for audio production firms. Start a conversation
                         today.</p>
                 </div>
