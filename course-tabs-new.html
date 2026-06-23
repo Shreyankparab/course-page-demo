@@ -1083,6 +1083,13 @@
       border-radius: var(--r-btn) var(--r-btn) 0 0;
     }
 
+    @media (max-width: 768px) {
+      .year-tag,
+      .year-tag.open {
+        border-radius: 0 !important;
+      }
+    }
+
     .year-tag-label {
       display: flex;
       align-items: center;
@@ -4585,7 +4592,15 @@
     }
 
     #curriculum {
-      background: var(--secondary-bg);
+      background: var(--primary-bg);
+      padding-bottom: 10px !important;
+    }
+
+    @media (max-width: 768px) {
+      #curriculum {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+      }
     }
 
     @media (max-width: 1024px) {
@@ -4858,7 +4873,7 @@
     }
 
     .tab-content-pane {
-      display: block !important;
+      display: none !important;
     }
 
     .tab-content-pane.active {
@@ -6687,7 +6702,7 @@
     });
 
     /* ── Tab Switcher logic (About, Curriculum, Certifications) ── */
-    /* const TABS = document.querySelectorAll('.tab');
+    const TABS = document.querySelectorAll('.tab');
     const PANES = document.querySelectorAll('.tab-content-pane');
     const NAV_H = 64 + 49; // nav + tab bar
 
@@ -6705,10 +6720,10 @@
         PANES.forEach(p => p.classList.toggle('active', p === targetPane));
 
       });
-    }); */
+    });
 
     /* ── Mobile Accordions logic ── */
-    /* document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+    document.querySelectorAll('.mobile-accordion-header').forEach(header => {
       header.addEventListener('click', () => {
         const targetId = header.dataset.target;
         const pane = document.getElementById(targetId);
@@ -6729,7 +6744,7 @@
           if (tab) tab.classList.add('active');
         }
       });
-    }); */
+    });
 
     function toggleCareerTable() {
       const wrapper = document.getElementById('careerTableWrapper');
