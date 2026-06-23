@@ -700,7 +700,23 @@
     .tab.active {
       color: var(--primary);
       border-bottom-color: var(--primary);
+    }
+
+    .tabs-heading {
+      text-align: center;
+      margin-top: 36px;
+      margin-bottom: 36px;
+      font-size: var(--h2-size);
+      line-height: var(--h2-line-height);
       font-weight: var(--font-weight-heading);
+      color: var(--text-1);
+    }
+
+    @media (max-width: 960px) {
+      .tabs-heading {
+        margin-top: 24px;
+        margin-bottom: 16px;
+      }
     }
 
     /* ─── 4. OVERVIEW (Redesigned Ref) ───────────────────── */
@@ -1191,7 +1207,7 @@
     .stag {
       display: list-item;
       list-style-type: disc;
-      padding: 6px 0px;
+      /* padding: 6px 0px; */
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       font-weight: var(--font-weight-body);
@@ -4592,6 +4608,358 @@
         padding: 0 20px;
       } */
     }
+
+
+    @media (max-width: 1024px) {
+      .why-seamedu-stats {
+        padding: 49px 20px;
+
+      }
+
+      /* .container {
+        padding: 0 20px;
+      } */
+
+    }
+
+    /* ── WHY SEAMEDU STATS SECTION ── */
+    .why-seamedu-stats {
+      /* background: #000000; */
+      color: var(--text-1);
+      padding: 49px 20px;
+      text-align: center;
+    }
+
+    .why-seamedu-stats h1 {
+
+      margin-bottom: 36px;
+    }
+
+    .why-seamedu-stats .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      max-width: 1230px;
+      margin: 0 auto;
+    }
+
+    .why-seamedu-stats .stat-item-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .why-seamedu-stats .stat-icon {
+      /* color: var(--primary); */
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .why-seamedu-stats .stat-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--primary);
+    }
+
+    .why-seamedu-stats .stat-icon i {
+      font-size: 32px;
+      color: var(--primary);
+    }
+
+    .why-seamedu-stats .stat-number {
+      font-size: 38px;
+      line-height: 48px;
+      font-weight: 800;
+      color: var(--primary);
+      /* Blue number color */
+      margin-bottom: 8px;
+    }
+
+    .why-seamedu-stats .stat-label {
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-body);
+      color: var(--text-1);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    @media (max-width: 768px) {
+      .why-seamedu-stats .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .why-seamedu-stats h2 {
+        font-size: var(--h4-size);
+        line-height: var(--h4-line-height);
+        margin-bottom: 30px;
+      }
+
+      .why-seamedu-stats .stat-number {
+        font-size: 28px;
+        line-height: 36px;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .why-seamedu-stats {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .why-seamedu-stats .container {
+        margin-left: 105px;
+        margin-right: 105px;
+        max-width: calc(100% - 210px);
+      }
+    }
+
+    /* ── INQUIRY FORM SECTION ── */
+    .inquiry-section {
+      background: #ffffff;
+      padding: 49px 0px;
+    }
+
+    .inquiry-section h2 {
+      font-size: var(--h2-size);
+      line-height: var(--h2-line-height);
+      font-weight: 700;
+      color: var(--text-1);
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    .inquiry-section .sub-title {
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      color: var(--text-2);
+      text-align: center;
+      margin-bottom: 36px;
+      font-weight: 400;
+    }
+
+    .inquiry-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px 24px;
+      width: 100%;
+    }
+
+    .inquiry-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--r-btn);
+      padding: 0 16px;
+      height: 52px;
+      transition: all 0.2s ease;
+      box-sizing: border-box;
+    }
+
+    .inquiry-input-wrapper:focus-within {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(21, 93, 252, 0.15);
+    }
+
+    .inquiry-input-wrapper .input-icon {
+      color: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    .inquiry-input-wrapper .input-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .inquiry-input-wrapper input,
+    .inquiry-input-wrapper select {
+      border: none;
+      background: transparent;
+      outline: none;
+      width: 100%;
+      height: 100%;
+      font-family: inherit;
+      font-size: var(--body-size);
+      color: var(--text-1);
+    }
+
+    .inquiry-input-wrapper select {
+      appearance: none;
+      cursor: pointer;
+    }
+
+    .inquiry-input-wrapper select::placeholder {
+      color: #94a3b8;
+    }
+
+    /* Chevron arrow for selects */
+    .inquiry-input-wrapper.select-wrapper::after {
+      content: "";
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #000000;
+      pointer-events: none;
+    }
+
+    .inquiry-submit-btn {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: var(--body-size);
+      font-weight: 600;
+      padding: 14px 48px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(21, 93, 252, 0.2);
+    }
+
+    .inquiry-submit-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(21, 93, 252, 0.3);
+    }
+
+    @media (min-width: 1025px) {
+      .inquiry-section {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .inquiry-section .container {
+        margin-left: 105px;
+        margin-right: 105px;
+        max-width: calc(100% - 210px);
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .inquiry-section {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .inquiry-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .inquiry-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .inquiry-section {
+        padding: 40px 20px;
+      }
+    }
+
+    .tab-content-pane {
+      display: none !important;
+    }
+
+    .tab-content-pane.active {
+      display: block !important;
+    }
+
+    /* ─── MOBILE ACCORDION STYLES ────────────────────────── */
+    .mobile-accordion-item {
+      margin-bottom: 12px;
+      width: 100%;
+    }
+
+    .mobile-accordion-header {
+      display: none;
+      /* Hidden on desktop */
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      background: var(--primary-bg);
+      border: 2px solid var(--card-border);
+      border-radius: var(--r-btn);
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: var(--body-size);
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-1);
+      transition: all 0.2s ease;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .mobile-accordion-header:hover {
+      background: var(--secondary-bg);
+    }
+
+    .mobile-accordion-header .chevron {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.3s ease;
+      color: var(--text-1);
+    }
+
+    .mobile-accordion-header.open {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-color: transparent;
+      background: var(--primary-bg);
+    }
+
+    .mobile-accordion-header.open .chevron {
+      transform: rotate(90deg);
+    }
+
+    @media (max-width: 960px) {
+      .mobile-accordion-header {
+        display: flex;
+      }
+
+      .tab-content-pane.active {
+        display: block !important;
+        background: var(--primary-bg);
+        border: 1px solid var(--card-border);
+        border-top: none;
+        border-bottom-left-radius: var(--r-btn);
+        border-bottom-right-radius: var(--r-btn);
+        padding: 24px 20px !important;
+        margin-top: 0 !important;
+      }
+
+      /* Hide the desktop tab bar margin in mobile since we're using accordions */
+      .tabs-container-wrapper {
+        padding: 0 16px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+      }
+    }
+  </style>
   </style>
 </head>
 
@@ -4705,650 +5073,59 @@
     </div> -->
   </section>
 
-  <!-- ── 3. STICKY TAB BAR ──────────────────────────────────── -->
-  <nav class="tab-bar" id="tab-bar" aria-label="Page sections">
-    <a class="tab active" data-sec="about-the-program" href="#about-the-program">About the Program</a>
-    <a class="tab" data-sec="curriculum" href="#curriculum">Curriculum</a>
-    <a class="tab" data-sec="admission-process" href="#admission-process">Admission Process</a>
-    <a class="tab" data-sec="career-table-section" href="#career-table-section">Career Opportunity</a>
-    <a class="tab" data-sec="faq" href="#faq">FAQ</a>
-  </nav>
+  <div class="tabs-container-wrapper">
+    <h2 class="tabs-heading">B.Tech - CSE (AI & Data Engineering) <span style="color: var(--primary);">in Pune</span>
+    </h2>
+    <!-- ── 3. STICKY TAB BAR ──────────────────────────────────── -->
+    <nav class="tab-bar" id="tab-bar" aria-label="Page sections">
+      <a class="tab active" data-sec="about-the-program" href="#about-the-program">About</a>
+      <a class="tab" data-sec="curriculum" href="#curriculum">Curriculum</a>
+      <a class="tab" data-sec="certifications-v3" href="#certifications-v3">Certifications</a>
+    </nav>
 
 
-  <!-- <section class="sec overview-ref-section" id="overview">
-    <div class="container overview-ref-grid">
-
-      <div class="overview-left-col">
-        <div class="overview-visual-wrapper">
-          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80"
-            alt="Artificial Intelligence & Coding Data Representation" class="overview-visual-img">
-        </div>
-
-
-        <div class="overview-specs-list">
-          <div class="spec-item">
-            <div class="spec-icon-v2">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
-              </svg>
-            </div>
-            <div class="spec-details">
-              <h4>Academic Foundation</h4>
-              <p>4-Year curriculum co-designed with industry giants, covering deep learning, neural networks, and
-                massive data pipelines.</p>
-            </div>
-          </div>
-          <div class="spec-item">
-            <div class="spec-icon-v2">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg>
-            </div>
-            <div class="spec-details">
-              <h4>Placement & Labs</h4>
-              <p>Includes official AWS & Google Cloud professional credentials, NVIDIA AI Lab access, and dedicated
-                placement assistance (₹24 LPA Average Package).</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="overview-right-col">
-        <span class="overview-tag">About the Program</span>
-        <h2>B.Tech - CSE <span class="blue-text">(AI & Data Engineering)</span></h2>
-
-        <div class="overview-body-text">
-          <p>The Bachelor of Technology in Computer Science & Engineering (AI & Data Engineering) is a premium,
-            future-focused degree program co-designed with industry giants. It integrates rigorous core computer science
-            with advanced training in deep learning, big data pipeline design, and intelligence architectures. Students
-            learn through active engineering labs, working on real-world datasets with lifelong support from our
-            upskilling network to ensure continuous industry readiness.</p>
-        </div>
-
-
-        <div class="overview-tech-stack">
-          <div class="tech-stack-title">Core Technologies & Tools Taught</div>
-          <div class="tech-stack-badges">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">PyTorch</span>
-            <span class="tech-badge">TensorFlow</span>
-            <span class="tech-badge">SQL & NoSQL</span>
-            <span class="tech-badge">AWS Cloud</span>
-            <span class="tech-badge">Google Cloud</span>
-            <span class="tech-badge">Docker & K8s</span>
-            <span class="tech-badge">Git</span>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec overview-ref-section" id="overview-v2">
-    <div class="container overview-v2-grid">
-
-      <div class="overview-left-col">
-        <div class="overview-visual-wrapper" style="height: 450px; margin-bottom: 0;">
-          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80"
-            alt="Artificial Intelligence & Robotics Interface" class="overview-visual-img">
-        </div>
-      </div>
-
-      <div class="overview-v2-right-col">
-        <span class="overview-tag">About the Program</span>
-        <h2>B.Tech - CSE <span class="blue-text">(AI & Data Engineering)</span></h2>
-
-        <p class="v2-lead-text">
-          A premium, future-focused degree co-designed with industry giants, combining core computer science with
-          advanced training in deep learning, big data pipeline design, and intelligence architectures.
-        </p>
-
-
-        <div class="overview-v2-features-grid">
-          <div class="v2-feature-item">
-            <div class="v2-feature-header">
-              <div class="v2-f-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                  <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
-                </svg>
-              </div>
-              <h4>Industry-Led Core</h4>
-            </div>
-            <p>Syllabus designed in alignment with AWS, Google Cloud, and NVIDIA guidelines.</p>
-          </div>
-          <div class="v2-feature-item">
-            <div class="v2-feature-header">
-              <div class="v2-f-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-                  <line x1="6" y1="6" x2="6.01" y2="6" />
-                  <line x1="6" y1="18" x2="6.01" y2="18" />
-                </svg>
-              </div>
-              <h4>High-End AI Labs</h4>
-            </div>
-            <p>Access specialized NVIDIA compute nodes to train deep learning models on real datasets.</p>
-          </div>
-          <div class="v2-feature-item">
-            <div class="v2-feature-header">
-              <div class="v2-f-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                </svg>
-              </div>
-              <h4>Career Guarantee</h4>
-            </div>
-            <p>Full placement assistance track with ₹24 LPA average packaging and industry interviews.</p>
-          </div>
-          <div class="v2-feature-item">
-            <div class="v2-feature-header">
-              <div class="v2-f-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
-                </svg>
-              </div>
-              <h4>Continuous Upskilling</h4>
-            </div>
-            <p>Lifelong access to updated course modules, keeping your skills current with tech shifts.</p>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- ── 4c. ABOUT THE PROGRAM (Iteration 3) ──────────────── -->
-  <section class="sec" id="about-the-program" style="padding-top: 49px;">
-    <div class="container overview-v3-grid">
-      <!-- Left Column: Heading, Description & Milestones -->
-      <div class="v3-left-col">
-        <h2 class="v3-title">B.Tech - CSE (AI & Data Engineering) <span style="color: var(--primary);">in Pune</span>
-        </h2>
-        <!-- <h5
-          style="color: #000000; font-size: 14px; font-weight: 400; margin-top: 6px; margin-bottom: 8px; text-transform: uppercase; text-align: left;">
-          <b>B.Tech - CSE (AI & Data Engineering)</b>
-        </h5> -->
-        <p class="v3-desc">
-          This <b>Bachelor of Technology in Computer Science & Engineering (AI & Data Engineering)</b> as the program at
-          Seamedu
-          co-designed with industry giants has been created to provide high-end skills that will help you land your
-          dream job. This
-          course will help you to gain expertise in Machine Learning, Deep Learning, Big Data pipelines, Neural Network
-          structures, Cloud Infrastructure, and AI system deployments through live sessions and industry projects.
-        </p>
-
-        <p class="v3-desc">
-          This <b>Bachelor of Technology in Computer Science & Engineering (AI & Data Engineering)</b> as the program at
-          Seamedu
-          co-designed with industry giants has been created to provide high-end skills that will help you land your
-          dream job. This
-          course will help you to gain expertise in Machine Learning, Deep Learning, Big Data pipelines, Neural Network
-          structures, Cloud Infrastructure, and AI system deployments through live sessions and industry projects.
-        </p>
-
-        <!-- <div style="margin-bottom: 24px; text-align: left;">
-          <h3 class="v3-pillars-title" style="margin-bottom: 12px; font-size: 18px;">Program Outcomes</h3>
-          <ul style="list-style-type: none; padding-left: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li
-              style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--text-2); line-height: 1.5;">
-              <span style="color: var(--primary); font-weight: bold; font-size: 16px; line-height: 1;">•</span>
-              <div><strong>Industry Readiness:</strong> Acquire hands-on expertise with AWS, GCP, and NVIDIA tools,
-                preparing you for immediate corporate deployment.</div>
-            </li>
-            <li
-              style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--text-2); line-height: 1.5;">
-              <span style="color: var(--primary); font-weight: bold; font-size: 16px; line-height: 1;">•</span>
-              <div><strong>Data Engineering Mastery:</strong> Design and optimize massive real-time data pipelines,
-                database architectures, and distributed computing clusters.</div>
-            </li>
-            <li
-              style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--text-2); line-height: 1.5;">
-              <span style="color: var(--primary); font-weight: bold; font-size: 16px; line-height: 1;">•</span>
-              <div><strong>Advanced AI Development:</strong> Build, train, and deploy custom neural networks, large
-                language models (LLMs), and computer vision systems.</div>
-            </li>
-            <li
-              style="display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--text-2); line-height: 1.5;">
-              <span style="color: var(--primary); font-weight: bold; font-size: 16px; line-height: 1;">•</span>
-              <div><strong>Dual Certifications:</strong> Graduate with built-in official cloud and AI developer
-                credentials valued by top-tier tech recruiters globally.</div>
-            </li>
-          </ul>
-        </div> -->
-
-        <!-- <h3 class="v3-pillars-title">Program Outcomes</h3>
-        <div class="v3-outcomes-grid">
-          <div class="v3-outcome-item">
-            <h4>Industry Readiness</h4>
-            <p>Acquire hands-on expertise with AWS, GCP, and NVIDIA tools, preparing you for immediate corporate
-              deployment.</p>
-          </div>
-          <div class="v3-outcome-item">
-            <h4>Data Engineering Mastery</h4>
-            <p>Design and optimize massive real-time data pipelines, database architectures, and distributed computing
-              clusters.</p>
-          </div>
-          <div class="v3-outcome-item">
-            <h4>Advanced AI Development</h4>
-            <p>Build, train, and deploy deep learning models, neural networks, and computer vision systems to solve
-              complex problems.</p>
-          </div>
-          <div class="v3-outcome-item">
-            <h4>Global Credentials</h4>
-            <p>Graduate with built-in official cloud and AI developer credentials valued by top-tier tech recruiters
-              globally.</p>
-          </div>
-        </div> -->
-      </div>
-
-      <!-- Right Column: Float Counseling Form Card -->
-      <div class="v3-right-col">
-        <div class="v3-form-card">
-          <div class="v3-form-header">
-            <h4>Get more Information</h4>
-            <p>Talk to our senior academic advisor today</p>
-          </div>
-          <form class="v3-form-body"
-            onsubmit="event.preventDefault(); alert('Counselling request submitted successfully!');">
-            <div class="v3-input-group">
-              <label for="v3-name">Full Name*</label>
-              <input type="text" id="v3-name" class="v3-input" placeholder="Enter your full name" required>
-            </div>
-
-            <div class="form-row-2col">
-              <div class="v3-input-group" style="flex: 1;">
-                <label for="v3-email">Email Address*</label>
-                <input type="email" id="v3-email" class="v3-input" placeholder="name@domain.com" required>
-              </div>
-              <div class="v3-input-group" style="flex: 1;">
-                <label for="v3-phone">Mobile Number*</label>
-                <div class="v3-phone-wrapper">
-                  <!-- <span class="v3-prefix">+91 IN</span> -->
-                  <input type="tel" id="v3-phone" class="v3-input" style="flex: 1; width: 100%;"
-                    placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="v3-input-group">
-              <label for="v3-country">Country</label>
-              <input type="text" id="v3-country" class="v3-input" placeholder="Select Country" required>
-            </div> -->
-            <div class="form-row-2col">
-              <div class="v3-input-group" style="flex: 1;">
-                <label for="v3-state">State</label>
-                <input type="text" id="v3-state" class="v3-input" placeholder="Select State" required>
-              </div>
-              <div class="v3-input-group" style="flex: 1;">
-                <label for="v3-city">City</label>
-                <input type="text" id="v3-city" class="v3-input" placeholder="Select City" required>
-              </div>
-            </div>
-            <!-- <div class="v3-input-group">
-              <label for="v3-course">Course</label>
-              <select id="v3-course" class="v3-input" placeholder="Select Course" required>
-                <option value="B.Sc. in Game Development">B.Tech - CSE (AI & Data Engineering)</option>
-              </select>
-            </div> -->
-            <div class="v3-input-group">
-              <label for="v3-campus">Campus</label>
-              <select id="v3-campus" class="v3-input" placeholder="Select Campus" required>
-                <option value="B.Sc. in Game Development">Techno India University</option>
-              </select>
-            </div>
-
-            <button type="submit" class="v3-submit-btn">Submit Request</button>
-
-            <!-- <label class="v3-checkbox-label">
-              <input type="checkbox" required checked>
-              <span>By providing contact details, you agree to our <a href="#">Terms of Use</a> &amp; <a
-                  href="#">Privacy Policy</a>.</span>
-            </label> -->
-          </form>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
-
-
-  <!-- PLACEMENT CAROUSEL -->
-  <section class="sec" id="placements" style="background-color: #ffffff;">
-    <div class="container">
-      <div style="text-align:left;margin-bottom:36px;">
-        <h2>Student <span style="color:var(--primary)">Placements</span></h2>
-        <p
-          style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);font-weight:500;">
-          From classroom learning
-          to real industry opportunities, Seamedu students are building careers with some of the biggest names in the
-          industry. See where our students are placed.</p>
-      </div>
-
-      <div id="placementCarouselFrame" class="placement-carousel-frame">
-        <div class="placement-page-grid" id="placementGrid">
-
-          <!-- Card 1 -->
-          <div class="placement-card" data-category="management">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
-              <!-- <div class="package-badge">₹14.50 LPA</div> -->
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Harsh Gaur</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Jaro Education logo">
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="placement-card" data-category="technology">
-            <div class="placement-media">
-              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Pavan Kulkarni</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="costco.png" alt="IntervueVet logo">
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="placement-card" data-category="design">
-            <div class="placement-media">
-              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Om Giramkar</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Learning Routes logo">
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="placement-card" data-category="media">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Sanket Dhawale</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="paytm.png" alt="Edgewise logo">
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 5 (Duplicated Harsh Gaur) -->
-          <div class="placement-card" data-category="management">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Harsh Gaur (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Jaro Education logo">
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 6 (Duplicated Pavan Kulkarni) -->
-          <div class="placement-card" data-category="technology">
-            <div class="placement-media">
-              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Pavan Kulkarni (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="costco.png" alt="IntervueVet logo">
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 7 (Duplicated Om Giramkar) -->
-          <div class="placement-card" data-category="design">
-            <div class="placement-media">
-              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Om Giramkar (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Learning Routes logo">
-              </div>
-            </div>
-          </div>
-
-          <!-- Card 8 (Duplicated Sanket Dhawale) -->
-          <div class="placement-card" data-category="media">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Sanket Dhawale (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="paytm.png" alt="Edgewise logo">
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <div class="placement-carousel-controls">
-        <div id="placementDotsContainer" class="placement-dots-container"></div>
-        <div class="placement-buttons-container">
-          <button id="placementPrevBtn" aria-label="Previous slide" class="placement-carousel-btn">
-            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
-              <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-          <button id="placementNextBtn" aria-label="Next slide" class="placement-carousel-btn">
-            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
-              <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Hiring Partners -->
-    <div class="placement-partners-section">
-      <div style="text-align:center;margin-bottom:32px;">
-        <!-- <div class="label">Our Network</div> -->
-        <h2>Hiring <span style="color:var(--primary);">Partners</span></h2>
-      </div>
-
-      <div class="marquee-stack">
-        <!-- Row 1 — scrolls left -->
-        <div class="marquee-outer">
-          <div class="marquee-track left">
-            <span class="partner-chip">Google</span>
-            <span class="partner-chip">Microsoft</span>
-            <span class="partner-chip">TCS</span>
-            <span class="partner-chip">IBM</span>
-            <span class="partner-chip">Cognizant</span>
-            <span class="partner-chip">Cisco</span>
-            <span class="partner-chip">Wipro</span>
-            <span class="partner-chip">Capgemini</span>
-            <span class="partner-chip">Siemens</span>
-            <span class="partner-chip">Infosys</span>
-            <span class="partner-chip">Accenture</span>
-            <span class="partner-chip">Oracle</span>
-            <!-- duplicate for seamless loop -->
-            <span class="partner-chip">Google</span>
-            <span class="partner-chip">Microsoft</span>
-            <span class="partner-chip">TCS</span>
-            <span class="partner-chip">IBM</span>
-            <span class="partner-chip">Cognizant</span>
-            <span class="partner-chip">Cisco</span>
-            <span class="partner-chip">Wipro</span>
-            <span class="partner-chip">Capgemini</span>
-            <span class="partner-chip">Siemens</span>
-            <span class="partner-chip">Infosys</span>
-            <span class="partner-chip">Accenture</span>
-            <span class="partner-chip">Oracle</span>
-          </div>
-        </div>
-
-        <!-- Row 2 — scrolls right -->
-        <div class="marquee-outer">
-          <div class="marquee-track right">
-            <span class="partner-chip">Amazon</span>
-            <span class="partner-chip">Meta</span>
-            <span class="partner-chip">Deloitte</span>
-            <span class="partner-chip">HCL</span>
-            <span class="partner-chip">Zensar</span>
-            <span class="partner-chip">Mphasis</span>
-            <span class="partner-chip">L&amp;T Tech</span>
-            <span class="partner-chip">Hexaware</span>
-            <span class="partner-chip">Mindtree</span>
-            <span class="partner-chip">Persistent</span>
-            <span class="partner-chip">Birlasoft</span>
-            <span class="partner-chip">Nagarro</span>
-            <!-- duplicate for seamless loop -->
-            <span class="partner-chip">Amazon</span>
-            <span class="partner-chip">Meta</span>
-            <span class="partner-chip">Deloitte</span>
-            <span class="partner-chip">HCL</span>
-            <span class="partner-chip">Zensar</span>
-            <span class="partner-chip">Mphasis</span>
-            <span class="partner-chip">L&amp;T Tech</span>
-            <span class="partner-chip">Hexaware</span>
-            <span class="partner-chip">Mindtree</span>
-            <span class="partner-chip">Persistent</span>
-            <span class="partner-chip">Birlasoft</span>
-            <span class="partner-chip">Nagarro</span>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top: 40px;">
-        <a href="#" class="btn btn-primary" style="font-size:var(--btn-md-size);padding:14px 40px;">View All
-          Placements</a>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- ── 5b. CAMPUS ─────────────────────────────────────────── -->
-  <!-- <section class="sec sec-gray" id="campus">
-    <div class="container">
-      <div class="label" style="text-align:center;">Where You'll Study</div>
-      <h2 style="text-align:center;">Our Campuses</h2>
-      <p
-        style="color:var(--text-1);font-size:15px;margin-bottom:44px;max-width:640px;text-align:center;margin-left:auto;margin-right:auto;">
-        Join our world-class learning centres in collaboration with leading universities across India.</p>
-
-      <div class="campus-cards-grid">
-
-        <div class="campus-item-card">
-          <img class="campus-item-img" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=800&q=80"
-            alt="The NorthCap University Campus, Gurugram" loading="lazy"
-            onerror="this.style.background='linear-gradient(135deg,#dce7ff,#c7d7fe)'" />
-          <div class="campus-item-body">
-            <h4 class="campus-item-name">The NorthCap University</h4>
-            <div class="campus-item-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
-              </svg>
-              Gurugram
-            </div>
-            <div class="campus-item-desc">A leading private university known for strong programs in engineering,
-              management, and law. Focuses on innovation, research, and industry-aligned education.</div>
-            <a href="#" class="btn btn-primary btn-upper">Explore
-              <svg fill="currentColor" viewBox="0 0 448 512" height="10" width="10">
-                <path
-                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div class="campus-item-card">
-          <img class="campus-item-img" src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=800&q=80"
-            alt="Ajeenkya DY Patil University Pune" loading="lazy"
-            onerror="this.style.background='linear-gradient(135deg,#dce7ff,#c7d7fe)'" />
-          <div class="campus-item-body">
-            <h4 class="campus-item-name">Ajeenkya DY Patil University Pune</h4>
-            <div class="campus-item-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--primary)" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
-              </svg>
-              Pune
-            </div>
-            <div class="campus-item-desc">An innovation-driven university focused on future-ready education and
-              entrepreneurship. Offers modern infrastructure with strong industry integration.</div>
-            <a href="#" class="btn btn-primary btn-upper">Explore
-              <svg fill="currentColor" viewBox="0 0 448 512" height="10" width="10">
-                <path
-                  d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z" />
-              </svg>
-            </a>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-
-
-  <!-- ── 5. CURRICULUM ──────────────────────────────────────── -->
-  <section class="sec sec-gray" id="curriculum">
-    <div class="container">
-      <div class="curriculum-layout">
-        <div class="curriculum-left">
-          <h2>Academic <span style="color: var(--primary);">Curriculum</span></h2>
-          <p class="curriculum-sub">
-            A carefully structured 8-semester program from fundamentals to cutting-edge specialisations.
+    <!-- About Accordion Item -->
+    <div class="mobile-accordion-item">
+      <button class="mobile-accordion-header open" data-target="about-the-program">
+        <span>About</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+      <section class="sec tab-content-pane active" id="about-the-program">
+        <div class="container">
+          <!-- <h2 class="v3-title">B.Tech - CSE (AI & Data Engineering) <span style="color: var(--primary);">in Pune</span></h2> -->
+          <p class="v3-desc">
+            This <b>Bachelor of Technology in Computer Science & Engineering (AI & Data Engineering)</b> as the program
+            at Seamedu co-designed with industry giants has been created to provide high-end skills that will help you
+            land your dream job. This course will help you to gain expertise in Machine Learning, Deep Learning, Big
+            Data pipelines, Neural Network structures, Cloud Infrastructure, and AI system deployments through live
+            sessions and industry projects.
+          </p>
+          <p class="v3-desc">
+            This <b>Bachelor of Technology in Computer Science & Engineering (AI & Data Engineering)</b> as the program
+            at Seamedu co-designed with industry giants has been created to provide high-end skills that will help you
+            land your dream job. This course will help you to gain expertise in Machine Learning, Deep Learning, Big
+            Data pipelines, Neural Network structures, Cloud Infrastructure, and AI system deployments through live
+            sessions and industry projects.
           </p>
         </div>
-        <div class="curriculum-right">
+      </section>
+
+    </div>
+
+    <!-- Curriculum Accordion Item -->
+    <div class="mobile-accordion-item">
+      <button class="mobile-accordion-header" data-target="curriculum">
+        <span>Curriculum</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+      <section class="sec sec-gray tab-content-pane" id="curriculum">
+        <div class="container">
           <!-- Year 1 -->
           <div class="acc-group">
             <div class="year-tag open" data-year>
@@ -5521,129 +5298,391 @@
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
-  </section>
 
-  <!-- ── 6. CERTIFICATIONS (Original) ──────────────────── -->
-  <!-- <section class="sec" id="certifications">
-    <div class="container" style="text-align:center;">
-      <div class="label">Credentials</div>
-      <h2>Included Certifications</h2>
-      <p style="color:var(--text-1);font-size:15px;max-width:500px;margin:0 auto 44px;font-weight:500;">Industry-recognised
-        certifications bundled with your degree at zero extra cost.</p>
-
-      <div class="cert-grid">
-        <div class="cert-card">
-          <div class="cert-badge"><img src="./certification.png" alt="" class="cert-img"></div>
-          <span class="cert-pill">Included</span>
-          <h3>AWS Certified Cloud Practitioner</h3>
-          <p>Validate foundational cloud knowledge and AWS services with the world's leading cloud provider. Valued by
-            90% of Fortune 500 companies hiring today.</p>
-        </div>
-        <div class="cert-card">
-          <div class="cert-badge"><img src="./certification.png" alt="" class="cert-img"></div>
-          <span class="cert-pill">Included</span>
-          <h3>Google Associate Cloud Engineer</h3>
-          <p>Demonstrate expertise in deploying applications and managing Google Cloud infrastructure — one of the most
-            sought-after certifications in the industry.</p>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- ── 6b. CERTIFICATIONS (v2 - Minimalist Highlight) ───── -->
-  <!-- <section class="sec" id="certifications-v2">
-    <div class="container" style="text-align:center;">
-      <div class="label">Credentials</div>
-      <h2>Included Certifications</h2>
-      <p style="color:var(--text-1);font-size:15px;max-width:520px;margin:0 auto 44px;font-weight:500;">A clean, borderless layout
-        focused on pure information and subtle architectural accents.</p>
-
-      <div class="cert-v2-grid">
-        <div class="cert-v2-card">
-          <div class="cert-v2-badge"><img src="./certification.png" alt="AWS"></div>
-          <div class="cert-v2-info">
-            <span class="cert-v2-pill">Provider: Amazon Web Services</span>
-            <h3>AWS Certified Cloud Practitioner</h3>
-            <p>This foundational credential validates your overall understanding of the AWS Cloud platform, covering
-              basic cloud concepts and security essentials.</p>
-          </div>
-        </div>
-        <div class="cert-v2-card">
-          <div class="cert-v2-badge"><img src="./certification.png" alt="Google"></div>
-          <div class="cert-v2-info">
-            <span class="cert-v2-pill">Provider: Google Cloud</span>
-            <h3>Google Asso. Cloud Engineer</h3>
-            <p>Develop the skills to deploy apps, monitor operations, and manage enterprise solutions on one of the
-              world's most innovative cloud infrastructures.</p>
-          </div>
-        </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-
-
-  <!-- ── 6c. CERTIFICATIONS (v3 - Architectural Row) ──────── -->
-  <section class="sec" id="certifications-v3">
-    <div class="container" style="text-align:center;">
-      <div style="margin-bottom: 36px;">
-        <h2>Industry <span style="color: var(--primary);">Certifications</span></h2>
-        <p
-          style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto;font-weight:500;">
-          Earn industry-recognized
-          professional credentials from global technology leaders to validate your expertise and stand out to top
-          recruiters.</p>
-      </div>
-
-      <div class="cert-v3-stack">
-        <div class="cert-v3-row">
-          <div class="cert-v3-icon">
-            <img src="./certification.png" alt="AWS">
-          </div>
-          <div class="cert-v3-content">
-            <div class="cert-v3-top">
-              <h3>AWS Certified Cloud Practitioner</h3>
+    <!-- Certifications Accordion Item -->
+    <div class="mobile-accordion-item">
+      <button class="mobile-accordion-header" data-target="certifications-v3">
+        <span>Certifications</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+      <section class="sec tab-content-pane" id="certifications-v3">
+        <div class="container" style="text-align:center;">
+          <div class="cert-v3-stack">
+            <div class="cert-v3-row">
+              <div class="cert-v3-icon">
+                <img src="./certification.png" alt="AWS">
+              </div>
+              <div class="cert-v3-content">
+                <div class="cert-v3-top">
+                  <h3>AWS Certified Cloud Practitioner</h3>
+                </div>
+                <p style="font-weight: var(--font-weight-body); ">Validate foundational cloud knowledge and AWS services
+                  with the world's leading cloud provider. This certification is a prerequisite for all advanced AWS
+                  roles and valued by 90% of Fortune 500 companies.</p>
+              </div>
             </div>
-            <p>Validate foundational cloud knowledge and AWS services with the world's leading cloud provider. This
-              certification is a prerequisite for all advanced AWS roles and valued by 90% of Fortune 500 companies.</p>
-          </div>
-        </div>
 
-        <div class="cert-v3-row">
-          <div class="cert-v3-icon">
-            <img src="./certification.png" alt="Google">
-          </div>
-          <div class="cert-v3-content">
-            <div class="cert-v3-top">
-              <h3>Google Associate Cloud Engineer</h3>
+            <div class="cert-v3-row">
+              <div class="cert-v3-icon">
+                <img src="./certification.png" alt="Google">
+              </div>
+              <div class="cert-v3-content">
+                <div class="cert-v3-top">
+                  <h3>Google Associate Cloud Engineer</h3>
+                </div>
+                <p>Demonstrate expertise in deploying applications and managing Google Cloud infrastructure. A core
+                  credential for modern infrastructure engineers and systems administrators in high-growth startups.</p>
+              </div>
             </div>
-            <p>Demonstrate expertise in deploying applications and managing Google Cloud infrastructure. A core
-              credential for modern infrastructure engineers and systems administrators in high-growth startups.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="inquiry-section">
+      <div class="container">
+        <div class="sub-title">
+          <h2>Looking For More Information</h2>
+          <p class="">Fill in your details and our team will connect with you.</p>
+        </div>
+        <form class="inquiry-form"
+          onsubmit="event.preventDefault(); alert('Your inquiry has been submitted successfully!');">
+          <div class="inquiry-grid">
+            <!-- Full Name -->
+            <div class="inquiry-input-wrapper">
+              <input type="text" placeholder="Full Name" required>
+            </div>
+
+            <!-- Email Address -->
+            <div class="inquiry-input-wrapper">
+              <input type="email" placeholder="Email Address" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="inquiry-input-wrapper">
+              <input type="tel" placeholder="Phone Number" required>
+            </div>
+
+            <!-- Select Country -->
+            <div class="inquiry-input-wrapper select-wrapper">
+              <select required>
+                <option value="" disabled selected>Select Country</option>
+                <option value="India">India</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- Select State -->
+            <div class="inquiry-input-wrapper select-wrapper">
+              <select required>
+                <option value="" disabled selected>Select State</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Karnataka">Karnataka</option>
+              </select>
+            </div>
+
+            <!-- Select City -->
+            <div class="inquiry-input-wrapper select-wrapper">
+              <select required>
+                <option value="" disabled selected>Select City</option>
+                <option value="Pune">Pune</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Bengaluru">Bengaluru</option>
+              </select>
+            </div>
+
+            <!-- Select Course -->
+            <div class="inquiry-input-wrapper select-wrapper">
+              <select required>
+                <option value="" disabled selected>Select Course</option>
+                <option value="B.Tech - CSE (AI & Data Engineering)">B.Tech - CSE (AI & Data Engineering)</option>
+              </select>
+            </div>
+
+            <!-- Select Campus -->
+            <div class="inquiry-input-wrapper select-wrapper">
+              <select required>
+                <option value="Ajeenkya DY Patil University" selected>Ajeenkya DY Patil University</option>
+                <option value="Techno India University">Techno India University</option>
+                <option value="The NorthCap University">The NorthCap University</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="inquiry-submit-btn">Submit Inquiry</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- PLACEMENT CAROUSEL -->
+    <section class="sec" id="placements" style="background-color: #ffffff;">
+      <div class="container">
+        <div style="text-align:left;margin-bottom:36px;">
+          <h2>Student <span style="color:var(--primary)">Placements</span></h2>
+          <p
+            style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);font-weight:500;">
+            From classroom learning
+            to real industry opportunities, Seamedu students are building careers with some of the biggest names in the
+            industry. See where our students are placed.</p>
+        </div>
+
+        <div id="placementCarouselFrame" class="placement-carousel-frame">
+          <div class="placement-page-grid" id="placementGrid">
+
+            <!-- Card 1 -->
+            <div class="placement-card" data-category="management">
+              <div class="placement-media">
+                <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
+              </div>
+              <div class="placement-info">
+                <h4 class="placement-name">Harsh Gaur</h4>
+                <p class="placement-company">Sound Engineering</p>
+              </div>
+              <div class="placement-footer">
+                <span class="placement-footer-lbl">Placed At</span>
+                <div class="placement-logo-wrap">
+                  <img src="jcb.png" alt="Jaro Education logo">
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="placement-card" data-category="technology">
+              <div class="placement-media">
+                <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
+              </div>
+              <div class="placement-info">
+                <h4 class="placement-name">Pavan Kulkarni</h4>
+                <p class="placement-company">Sound Engineering</p>
+              </div>
+              <div class="placement-footer">
+                <span class="placement-footer-lbl">Placed At</span>
+                <div class="placement-logo-wrap">
+                  <img src="costco.png" alt="IntervueVet logo">
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="placement-card" data-category="design">
+              <div class="placement-media">
+                <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
+              </div>
+              <div class="placement-info">
+                <h4 class="placement-name">Om Giramkar</h4>
+                <p class="placement-company">Sound Engineering</p>
+              </div>
+              <div class="placement-footer">
+                <span class="placement-footer-lbl">Placed At</span>
+                <div class="placement-logo-wrap">
+                  <img src="jcb.png" alt="Learning Routes logo">
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="placement-card" data-category="media">
+              <div class="placement-media">
+                <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
+              </div>
+              <div class="placement-info">
+                <h4 class="placement-name">Sanket Dhawale</h4>
+                <p class="placement-company">Sound Engineering</p>
+              </div>
+              <div class="placement-footer">
+                <span class="placement-footer-lbl">Placed At</span>
+                <div class="placement-logo-wrap">
+                  <img src="paytm.png" alt="Edgewise logo">
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 (Duplicated Harsh Gaur) -->
+            <div class="placement-card" data-category="management">
+              <div class="placement-media">
+                <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
+              </div>
+              <div class="placement-info">
+                <h4 class="placement-name">Harsh Gaur (Copy)</h4>
+                <p class="placement-company">Sound Engineering</p>
+              </div>
+              <div class="placement-footer">
+                <span class="placement-footer-lbl">Placed At</span>
+                <div class="placement-logo-wrap">
+                  <img src="jcb.png" alt="Jaro Education logo">
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 (Duplicated Pavan Kulkarni) -->
+            <div class="placement-card" data-category="technology">
+              <div class="placement-media">
+                <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
+              </div>
+              <div class="placement-info">
+                <h4 class="placement-name">Pavan Kulkarni (Copy)</h4>
+                <p class="placement-company">Sound Engineering</p>
+              </div>
+              <div class="placement-footer">
+                <span class="placement-footer-lbl">Placed At</span>
+                <div class="placement-logo-wrap">
+                  <img src="costco.png" alt="IntervueVet logo">
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7 (Duplicated Om Giramkar) -->
+            <div class="placement-card" data-category="design">
+              <div class="placement-media">
+                <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
+              </div>
+              <div class="placement-info">
+                <h4 class="placement-name">Om Giramkar (Copy)</h4>
+                <p class="placement-company">Sound Engineering</p>
+              </div>
+              <div class="placement-footer">
+                <span class="placement-footer-lbl">Placed At</span>
+                <div class="placement-logo-wrap">
+                  <img src="jcb.png" alt="Learning Routes logo">
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8 (Duplicated Sanket Dhawale) -->
+            <div class="placement-card" data-category="media">
+              <div class="placement-media">
+                <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
+              </div>
+              <div class="placement-info">
+                <h4 class="placement-name">Sanket Dhawale (Copy)</h4>
+                <p class="placement-company">Sound Engineering</p>
+              </div>
+              <div class="placement-footer">
+                <span class="placement-footer-lbl">Placed At</span>
+                <div class="placement-logo-wrap">
+                  <img src="paytm.png" alt="Edgewise logo">
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="placement-carousel-controls">
+          <div id="placementDotsContainer" class="placement-dots-container"></div>
+          <div class="placement-buttons-container">
+            <button id="placementPrevBtn" aria-label="Previous slide" class="placement-carousel-btn">
+              <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+                <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button id="placementNextBtn" aria-label="Next slide" class="placement-carousel-btn">
+              <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+                <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
-    </div>
-    </div>
-  </section>
 
-  <!-- ── 6d. ADMISSION PROCESS ───────────────────────────────── -->
-  <section class="sec admission-section" id="admission-process">
-    <div class="container" style="text-align:center;">
-      <div style="margin-bottom:36px;">
-        <h2>Admission <span style="color: var(--primary);">Process</span></h2>
-        <p
-          style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto;font-weight:500;">
-          Follow these step-by-step guidelines to secure your admission, whether you are a domestic or international
-          applicant.
-        </p>
+      <!-- Hiring Partners -->
+      <div class="placement-partners-section">
+        <div style="text-align:center;margin-bottom:32px;">
+          <h2>Hiring <span style="color:var(--primary);">Partners</span></h2>
+        </div>
+
+        <div class="marquee-stack">
+          <!-- Row 1 — scrolls left -->
+          <div class="marquee-outer">
+            <div class="marquee-track left">
+              <span class="partner-chip">Google</span>
+              <span class="partner-chip">Microsoft</span>
+              <span class="partner-chip">TCS</span>
+              <span class="partner-chip">IBM</span>
+              <span class="partner-chip">Cognizant</span>
+              <span class="partner-chip">Cisco</span>
+              <span class="partner-chip">Wipro</span>
+              <span class="partner-chip">Capgemini</span>
+              <span class="partner-chip">Siemens</span>
+              <span class="partner-chip">Infosys</span>
+              <span class="partner-chip">Accenture</span>
+              <span class="partner-chip">Oracle</span>
+              <!-- duplicate for seamless loop -->
+              <span class="partner-chip">Google</span>
+              <span class="partner-chip">Microsoft</span>
+              <span class="partner-chip">TCS</span>
+              <span class="partner-chip">IBM</span>
+              <span class="partner-chip">Cognizant</span>
+              <span class="partner-chip">Cisco</span>
+              <span class="partner-chip">Wipro</span>
+              <span class="partner-chip">Capgemini</span>
+              <span class="partner-chip">Siemens</span>
+              <span class="partner-chip">Infosys</span>
+              <span class="partner-chip">Accenture</span>
+              <span class="partner-chip">Oracle</span>
+            </div>
+          </div>
+
+          <!-- Row 2 — scrolls right -->
+          <div class="marquee-outer">
+            <div class="marquee-track right">
+              <span class="partner-chip">Amazon</span>
+              <span class="partner-chip">Meta</span>
+              <span class="partner-chip">Deloitte</span>
+              <span class="partner-chip">HCL</span>
+              <span class="partner-chip">Zensar</span>
+              <span class="partner-chip">Mphasis</span>
+              <span class="partner-chip">L&amp;T Tech</span>
+              <span class="partner-chip">Hexaware</span>
+              <span class="partner-chip">Mindtree</span>
+              <span class="partner-chip">Persistent</span>
+              <span class="partner-chip">Birlasoft</span>
+              <span class="partner-chip">Nagarro</span>
+              <!-- duplicate for seamless loop -->
+              <span class="partner-chip">Amazon</span>
+              <span class="partner-chip">Meta</span>
+              <span class="partner-chip">Deloitte</span>
+              <span class="partner-chip">HCL</span>
+              <span class="partner-chip">Zensar</span>
+              <span class="partner-chip">Mphasis</span>
+              <span class="partner-chip">L&amp;T Tech</span>
+              <span class="partner-chip">Hexaware</span>
+              <span class="partner-chip">Mindtree</span>
+              <span class="partner-chip">Persistent</span>
+              <span class="partner-chip">Birlasoft</span>
+              <span class="partner-chip">Nagarro</span>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center; margin-top: 40px;">
+          <a href="#" class="btn btn-primary" style="font-size:var(--btn-md-size);padding:14px 40px;">View All
+            Placements</a>
+        </div>
       </div>
 
-      <!-- Admission Criteria -->
-      <!-- <div class="admission-summary-inline">
+    </section>
+    <!-- ── 6d. ADMISSION PROCESS ───────────────────────────────── -->
+    <section class="sec admission-section" id="admission-process">
+      <div class="container" style="text-align:center;">
+        <div style="margin-bottom:36px;">
+          <h2>Admission <span style="color: var(--primary);">Process</span></h2>
+          <p
+            style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:550px;margin:0 auto;font-weight:500;">
+            Follow these step-by-step guidelines to secure your admission, whether you are a domestic or international
+            applicant.
+          </p>
+        </div>
+
+        <!-- Admission Criteria -->
+        <!-- <div class="admission-summary-inline">
         <span class="criteria-item"><span class="criteria-label">Eligibility:</span> 10+2 (Any Stream)</span>
         <span class="criteria-divider">•</span>
         <span class="criteria-item"><span class="criteria-label">Campus:</span> Ambi, Pune / Gurugram</span>
@@ -5652,236 +5691,236 @@
           Honours)</span>
       </div> -->
 
-      <div class="admission-accordion">
-        <div class="admission-tabs">
-          <button class="admission-tab-btn active" data-admission-tab="indian">Indian Students</button>
-          <button class="admission-tab-btn" data-admission-tab="international">International Students</button>
-        </div>
+        <div class="admission-accordion">
+          <div class="admission-tabs">
+            <button class="admission-tab-btn active" data-admission-tab="indian">Indian Students</button>
+            <button class="admission-tab-btn" data-admission-tab="international">International Students</button>
+          </div>
 
-        <div id="indian-admission" class="admission-tab-content active">
-          <div class="accordion">
-            <!-- Step 1 -->
-            <div class="admission-item open">
-              <div class="admission-header">
-                <button class="admission-button" type="button">
-                  Apply for Admission
-                </button>
-              </div>
-              <div class="admission-collapse">
-                <div class="admission-body">
-                  <ul class="ul-list">
-                    <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on
-                      our
-                      Online Application Platform.</li>
-                    <li>Fill in all information correctly and accurately as required in the Online Application
-                      Platform.
-                    </li>
-                    <li>Upload the scanned copy of the following documents:</li>
-                    <ul>
-                      <li>Original 10th Mark sheet</li>
-                      <li>Original 12th or Equivalent Mark sheet</li>
-                      <li>1 photo Id proof</li>
-                      <li>1 Address proof</li>
-                      <li>1 passport sized photograph</li>
+          <div id="indian-admission" class="admission-tab-content active">
+            <div class="accordion">
+              <!-- Step 1 -->
+              <div class="admission-item open">
+                <div class="admission-header">
+                  <button class="admission-button" type="button">
+                    Apply for Admission
+                  </button>
+                </div>
+                <div class="admission-collapse">
+                  <div class="admission-body">
+                    <ul class="ul-list">
+                      <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on
+                        our
+                        Online Application Platform.</li>
+                      <li>Fill in all information correctly and accurately as required in the Online Application
+                        Platform.
+                      </li>
+                      <li>Upload the scanned copy of the following documents:</li>
+                      <ul>
+                        <li>Original 10th Mark sheet</li>
+                        <li>Original 12th or Equivalent Mark sheet</li>
+                        <li>1 photo Id proof</li>
+                        <li>1 Address proof</li>
+                        <li>1 passport sized photograph</li>
+                      </ul>
+                      <li>Make a payment of Rs. 500 (non-refundable) against STAC (Seamedu Technical Assessment and
+                        Counseling). After completing the above steps, you will receive a confirmation of your
+                        application
+                        being submitted using your registered email ID.</li>
                     </ul>
-                    <li>Make a payment of Rs. 500 (non-refundable) against STAC (Seamedu Technical Assessment and
-                      Counseling). After completing the above steps, you will receive a confirmation of your
-                      application
-                      being submitted using your registered email ID.</li>
-                  </ul>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Step 2 -->
-            <div class="admission-item">
-              <div class="admission-header">
-                <button class="admission-button" type="button">
-                  Confirmation of Selection
-                </button>
-              </div>
-              <div class="admission-collapse">
-                <div class="admission-body">
-                  <p>Within 15 days of application of admission, you will be intimated on your selection (if selected)
-                    B.Des in Communication Design - Visual Communication by email on your registered email id. On
-                    receipt
-                    of the email, please complete the following:</p>
-                  <ul class="ul-list">
-                    <li>Please sign in to the Seamedu Online Application Platform using your registered username and
-                      password.</li>
-                    <li>Please respond to any additional queries that arise.</li>
-                    <li>Make payment as described by the counselor.</li>
-                    <li>On receipt of the same, Provisional Admission letter will be issued for the course.</li>
-                  </ul>
+              <!-- Step 2 -->
+              <div class="admission-item">
+                <div class="admission-header">
+                  <button class="admission-button" type="button">
+                    Confirmation of Selection
+                  </button>
+                </div>
+                <div class="admission-collapse">
+                  <div class="admission-body">
+                    <p>Within 15 days of application of admission, you will be intimated on your selection (if selected)
+                      B.Des in Communication Design - Visual Communication by email on your registered email id. On
+                      receipt
+                      of the email, please complete the following:</p>
+                    <ul class="ul-list">
+                      <li>Please sign in to the Seamedu Online Application Platform using your registered username and
+                        password.</li>
+                      <li>Please respond to any additional queries that arise.</li>
+                      <li>Make payment as described by the counselor.</li>
+                      <li>On receipt of the same, Provisional Admission letter will be issued for the course.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Step 3 -->
-            <div class="admission-item">
-              <div class="admission-header">
-                <button class="admission-button" type="button">
-                  Confirmation of Admission
-                </button>
-              </div>
-              <div class="admission-collapse">
-                <div class="admission-body">
-                  <p>Submit the filled-in Final Admission form and copies of the following documents.</p>
-                  <ul class="ul-list">
-                    <li>Two photo copies of 10th Mark sheet</li>
-                    <li>Two photo copies of 12th or Equivalent Mark sheet</li>
-                    <li>Two photo copies of photo Id proof</li>
-                    <li>Two photocopies of Address proof</li>
-                    <li>Six passport sized photographs with red background</li>
-                  </ul>
-                  <p><b>Note:</b> Please carry the Original documents for Verification. You’ll get all your original
-                    documents back.</p>
+              <!-- Step 3 -->
+              <div class="admission-item">
+                <div class="admission-header">
+                  <button class="admission-button" type="button">
+                    Confirmation of Admission
+                  </button>
+                </div>
+                <div class="admission-collapse">
+                  <div class="admission-body">
+                    <p>Submit the filled-in Final Admission form and copies of the following documents.</p>
+                    <ul class="ul-list">
+                      <li>Two photo copies of 10th Mark sheet</li>
+                      <li>Two photo copies of 12th or Equivalent Mark sheet</li>
+                      <li>Two photo copies of photo Id proof</li>
+                      <li>Two photocopies of Address proof</li>
+                      <li>Six passport sized photographs with red background</li>
+                    </ul>
+                    <p><b>Note:</b> Please carry the Original documents for Verification. You’ll get all your original
+                      documents back.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div id="international-admission" class="admission-tab-content">
-          <div class="accordion">
-            <!-- Step 1 -->
-            <div class="admission-item">
-              <div class="admission-header">
-                <button class="admission-button" type="button">
-                  Apply for Admission
-                </button>
-              </div>
-              <div class="admission-collapse">
-                <div class="admission-body">
-                  <ul class="ul-list">
-                    <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on
-                      our
-                      Online Application Platform.</li>
-                    <li>Fill in all information correctly and accurately as required in the Online Application
-                      Platform.
-                    </li>
-                    <li>Upload the scanned copy of the following documents:</li>
+          <div id="international-admission" class="admission-tab-content">
+            <div class="accordion">
+              <!-- Step 1 -->
+              <div class="admission-item">
+                <div class="admission-header">
+                  <button class="admission-button" type="button">
+                    Apply for Admission
+                  </button>
+                </div>
+                <div class="admission-collapse">
+                  <div class="admission-body">
                     <ul class="ul-list">
-                      <li>Valid Passport</li>
-                      <li>Marks transcripts of:</li>
+                      <li>Register yourself for B.Des in Communication Design - Visual Communication by clicking here on
+                        our
+                        Online Application Platform.</li>
+                      <li>Fill in all information correctly and accurately as required in the Online Application
+                        Platform.
+                      </li>
+                      <li>Upload the scanned copy of the following documents:</li>
                       <ul class="ul-list">
-                        <li>High school</li>
-                        <li>Bachelor’s Degree (if applicable)</li>
-                        <li>Previous VISA to India if any</li>
+                        <li>Valid Passport</li>
+                        <li>Marks transcripts of:</li>
+                        <ul class="ul-list">
+                          <li>High school</li>
+                          <li>Bachelor’s Degree (if applicable)</li>
+                          <li>Previous VISA to India if any</li>
+                        </ul>
                       </ul>
+                      <li>Make a payment of $50 (non-refundable) against STAC (Seamedu Technical Assessment and
+                        Counseling).
+                        After completing the above steps, you will receive a confirmation of your application being
+                        submitted using your registered email ID.</li>
                     </ul>
-                    <li>Make a payment of $50 (non-refundable) against STAC (Seamedu Technical Assessment and
-                      Counseling).
-                      After completing the above steps, you will receive a confirmation of your application being
-                      submitted using your registered email ID.</li>
-                  </ul>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Step 2 -->
-            <div class="admission-item">
-              <div class="admission-header">
-                <button class="admission-button" type="button">
-                  Confirmation of Selection
-                </button>
-              </div>
-              <div class="admission-collapse">
-                <div class="admission-body">
-                  <p>Within 15 days of your application, you will be intimated about your selection (if selected)
-                    B.Des
-                    in
-                    Communication Design - Visual Communication by email on your registered email ID. On receipt of
-                    the
-                    email, please complete the following process:</p>
-                  <ul class="ul-list">
-                    <li>Please sign in to the Seamedu Online Application Platform using your registered username and
-                      password.</li>
-                    <li>Complete the set of steps as prompted</li>
-                    <li>Make a payment of $160 as processing and eligibility fees and $350 as admission confirmation
-                      fee
-                      [We adjust the admission confirmation fee against the total fees.] *Both fee amounts are
-                      non-refundable</li>
-                  </ul>
+              <!-- Step 2 -->
+              <div class="admission-item">
+                <div class="admission-header">
+                  <button class="admission-button" type="button">
+                    Confirmation of Selection
+                  </button>
+                </div>
+                <div class="admission-collapse">
+                  <div class="admission-body">
+                    <p>Within 15 days of your application, you will be intimated about your selection (if selected)
+                      B.Des
+                      in
+                      Communication Design - Visual Communication by email on your registered email ID. On receipt of
+                      the
+                      email, please complete the following process:</p>
+                    <ul class="ul-list">
+                      <li>Please sign in to the Seamedu Online Application Platform using your registered username and
+                        password.</li>
+                      <li>Complete the set of steps as prompted</li>
+                      <li>Make a payment of $160 as processing and eligibility fees and $350 as admission confirmation
+                        fee
+                        [We adjust the admission confirmation fee against the total fees.] *Both fee amounts are
+                        non-refundable</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Step 3 -->
-            <div class="admission-item">
-              <div class="admission-header">
-                <button class="admission-button" type="button">
-                  Documentation For Confirmed Admission
-                </button>
-              </div>
-              <div class="admission-collapse">
-                <div class="admission-body">
-                  <p>On receipt of the Provisional Admission Letter, please complete the following process:</p>
-                  <ul class="ul-list">
-                    <li>Have all Marks Transcripts attested by the Ministry of Higher Education in your country</li>
-                    <li>Apply for visa at the nearest Indian mission or Indian Embassy in your country (You must take
-                      an
-                      endorsed Student Visa)</li>
-                    <li>Email us a copy of the attested transcripts and the visa issued</li>
-                  </ul>
+              <!-- Step 3 -->
+              <div class="admission-item">
+                <div class="admission-header">
+                  <button class="admission-button" type="button">
+                    Documentation For Confirmed Admission
+                  </button>
+                </div>
+                <div class="admission-collapse">
+                  <div class="admission-body">
+                    <p>On receipt of the Provisional Admission Letter, please complete the following process:</p>
+                    <ul class="ul-list">
+                      <li>Have all Marks Transcripts attested by the Ministry of Higher Education in your country</li>
+                      <li>Apply for visa at the nearest Indian mission or Indian Embassy in your country (You must take
+                        an
+                        endorsed Student Visa)</li>
+                      <li>Email us a copy of the attested transcripts and the visa issued</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Step 4 -->
-            <div class="admission-item">
-              <div class="admission-header">
-                <button class="admission-button" type="button">
-                  Confirmation of Admission
-                </button>
-              </div>
-              <div class="admission-collapse">
-                <div class="admission-body">
-                  <p>On arrival in India, you must report to the International Students’ Cell to take admission in
-                    person
-                  </p>
-                  <p>Fill in and submit the Final Admission Form along with copies of the following documents:</p>
-                  <ul class="ul-list">
-                    <li>Endorsed Student Visa</li>
-                    <li>Medical Fitness Report / Yellow Fever Vaccination Card</li>
-                    <li>C-Form and House Agreement</li>
-                    <li>4 Photographs</li>
-                    <li>Complete Payment of Fee / Receipts</li>
-                  </ul>
+              <!-- Step 4 -->
+              <div class="admission-item">
+                <div class="admission-header">
+                  <button class="admission-button" type="button">
+                    Confirmation of Admission
+                  </button>
+                </div>
+                <div class="admission-collapse">
+                  <div class="admission-body">
+                    <p>On arrival in India, you must report to the International Students’ Cell to take admission in
+                      person
+                    </p>
+                    <p>Fill in and submit the Final Admission Form along with copies of the following documents:</p>
+                    <ul class="ul-list">
+                      <li>Endorsed Student Visa</li>
+                      <li>Medical Fitness Report / Yellow Fever Vaccination Card</li>
+                      <li>C-Form and House Agreement</li>
+                      <li>4 Photographs</li>
+                      <li>Complete Payment of Fee / Receipts</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Step 5 -->
-            <div class="admission-item">
-              <div class="admission-header">
-                <button class="admission-button" type="button">
-                  Important Verification Notes
-                </button>
-              </div>
-              <div class="admission-collapse">
-                <div class="admission-body">
-                  <p><b>Please carry all your original documents for verification.</b> You’ll get all your original
-                    documents back after post-verification. Additional important notes:</p>
-                  <ul class="ul-list">
-                    <li>All foreign students must take the English Language Proficiency Test. Clearance of this test
-                      is
-                      a
-                      must for firm admission.</li>
-                    <li>You need to report to the FRO for registration. Students must register within 14 days of
-                      arrival
-                      in India or they may have to pay late fees.</li>
-                  </ul>
+              <!-- Step 5 -->
+              <div class="admission-item">
+                <div class="admission-header">
+                  <button class="admission-button" type="button">
+                    Important Verification Notes
+                  </button>
+                </div>
+                <div class="admission-collapse">
+                  <div class="admission-body">
+                    <p><b>Please carry all your original documents for verification.</b> You’ll get all your original
+                      documents back after post-verification. Additional important notes:</p>
+                    <ul class="ul-list">
+                      <li>All foreign students must take the English Language Proficiency Test. Clearance of this test
+                        is
+                        a
+                        must for firm admission.</li>
+                      <li>You need to report to the FRO for registration. Students must register within 14 days of
+                        arrival
+                        in India or they may have to pay late fees.</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── 7. CAREER OPPORTUNITY ───────────────────────────────
+    <!-- ── 7. CAREER OPPORTUNITY ───────────────────────────────
   <section class="sec" id="career">
     <div class="container">
       <div class="label">After Graduation</div>
@@ -5982,98 +6021,104 @@
 
 
 
-  <!-- ── 7d. CAREER OPPORTUNITY (Table View) ────────────────── -->
-  <section class="sec" id="career-table-section" style="background: #ffffff;">
-    <div class="container">
-      <!-- <div class="label">Salary & Skill Mapping</div> -->
-      <div style="margin-bottom: 36px;">
-        <h2>Career <span style="color: var(--primary);">Pathways</span></h2>
-        <p
-          style="color:var(--text-2);font-size:var(--body-size);max-width:640px;line-height:var(--body-line-height);font-weight:500;">
-          A comprehensive
-          breakdown of engineering roles, industry demand, entry-level salaries, and key technology requirements.</p>
-      </div>
+    <!-- ── 7d. CAREER OPPORTUNITY (Table View) ────────────────── -->
+    <section class="sec" id="career-table-section" style="background: #ffffff;">
+      <div class="container">
+        <!-- <div class="label">Salary & Skill Mapping</div> -->
+        <div style="margin-bottom: 36px;">
+          <h2>Career <span style="color: var(--primary);">Pathways</span></h2>
+          <p
+            style="color:var(--text-2);font-size:var(--body-size);max-width:640px;line-height:var(--body-line-height);font-weight:500;">
+            A comprehensive
+            breakdown of engineering roles, industry demand, entry-level salaries, and key technology requirements.</p>
+        </div>
 
-      <div class="career-table-outer">
-        <div class="career-table-wrapper collapsed" id="careerTableWrapper">
-          <table class="career-table">
-            <thead>
-              <tr>
-                <th style="width: 25%;">Role</th>
-                <th style="width: 55%;">Core Focus & Description</th>
-                <th style="width: 20%;">Salary Range</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td class="role-cell">Software Engineer</td>
-                <td>Design, build, and maintain scalable software applications across web, mobile, and backend systems.
-                </td>
-                <td><span class="">₹8–18 LPA</span></td>
-              </tr>
-              <tr>
-                <td class="role-cell">AI / ML Engineer</td>
-                <td>Develop intelligent systems powered by machine learning, deep learning, neural networks, and NLP
-                  systems.</td>
-                <td><span class="">₹12–35 LPA</span></td>
-              </tr>
-              <tr>
-                <td class="role-cell">Cloud & DevOps Engineer</td>
-                <td>Architect and manage cloud infrastructure, and automate software deployment and CI/CD pipelines.
-                </td>
-                <td><span class="">₹10–28 LPA</span></td>
-              </tr>
-              <tr>
-                <td class="role-cell">Data Scientist</td>
-                <td>Turn large, complex datasets into business decisions using statistical modelling and data
-                  engineering.
-                </td>
-                <td><span class="">₹10–22 LPA</span></td>
-              </tr>
-              <tr>
-                <td class="role-cell">Cybersecurity Analyst</td>
-                <td>Safeguard digital infrastructure through vulnerability assessments, penetration testing, and audits.
-                </td>
-                <td><span class="">₹8–20 LPA</span></td>
-              </tr>
-              <tr>
-                <td class="role-cell">Product Manager</td>
-                <td>Bridge engineering and business to define product strategy, roadmap planning, and software delivery.
-                </td>
-                <td><span class="">₹12–28 LPA</span></td>
-              </tr>
-              <tr>
-                <td class="role-cell">Full Stack Developer</td>
-                <td>Develop both client-side and server-side software, managing database integrations, server
-                  configurations, and responsive user interfaces.</td>
-                <td><span class="">₹8–20 LPA</span></td>
-              </tr>
-              <tr>
-                <td class="role-cell">Blockchain Developer</td>
-                <td>Design and implement secure decentralized applications, smart contracts, and cryptographic protocols
-                  for Web3 and fintech platforms.</td>
-                <td><span class="">₹10–25 LPA</span></td>
-              </tr>
-              <tr>
-                <td class="role-cell">Systems Architect</td>
-                <td>Define the high-level structure of software systems, selecting technologies, frameworks, and coding
-                  standards to ensure scalability and reliability.</td>
-                <td><span class="">₹18–40 LPA</span></td>
-              </tr>
-              <tr>
-                <td class="role-cell">Game Developer</td>
-                <td>Design, program, and test interactive video game experiences, implementing gameplay mechanics,
-                  physics engines, and graphics rendering.</td>
-                <td><span class="">₹7–18 LPA</span></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="career-table-overlay" id="careerTableToggleBtn" onclick="toggleCareerTable()"><span>View more</span>
+        <div class="career-table-outer">
+          <div class="career-table-wrapper collapsed" id="careerTableWrapper">
+            <table class="career-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Role</th>
+                  <th style="width: 55%;">Core Focus & Description</th>
+                  <th style="width: 20%;">Salary Range</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="role-cell">Software Engineer</td>
+                  <td>Design, build, and maintain scalable software applications across web, mobile, and backend
+                    systems.
+                  </td>
+                  <td><span class="">₹8–18 LPA</span></td>
+                </tr>
+                <tr>
+                  <td class="role-cell">AI / ML Engineer</td>
+                  <td>Develop intelligent systems powered by machine learning, deep learning, neural networks, and NLP
+                    systems.</td>
+                  <td><span class="">₹12–35 LPA</span></td>
+                </tr>
+                <tr>
+                  <td class="role-cell">Cloud & DevOps Engineer</td>
+                  <td>Architect and manage cloud infrastructure, and automate software deployment and CI/CD pipelines.
+                  </td>
+                  <td><span class="">₹10–28 LPA</span></td>
+                </tr>
+                <tr>
+                  <td class="role-cell">Data Scientist</td>
+                  <td>Turn large, complex datasets into business decisions using statistical modelling and data
+                    engineering.
+                  </td>
+                  <td><span class="">₹10–22 LPA</span></td>
+                </tr>
+                <tr>
+                  <td class="role-cell">Cybersecurity Analyst</td>
+                  <td>Safeguard digital infrastructure through vulnerability assessments, penetration testing, and
+                    audits.
+                  </td>
+                  <td><span class="">₹8–20 LPA</span></td>
+                </tr>
+                <tr>
+                  <td class="role-cell">Product Manager</td>
+                  <td>Bridge engineering and business to define product strategy, roadmap planning, and software
+                    delivery.
+                  </td>
+                  <td><span class="">₹12–28 LPA</span></td>
+                </tr>
+                <tr>
+                  <td class="role-cell">Full Stack Developer</td>
+                  <td>Develop both client-side and server-side software, managing database integrations, server
+                    configurations, and responsive user interfaces.</td>
+                  <td><span class="">₹8–20 LPA</span></td>
+                </tr>
+                <tr>
+                  <td class="role-cell">Blockchain Developer</td>
+                  <td>Design and implement secure decentralized applications, smart contracts, and cryptographic
+                    protocols
+                    for Web3 and fintech platforms.</td>
+                  <td><span class="">₹10–25 LPA</span></td>
+                </tr>
+                <tr>
+                  <td class="role-cell">Systems Architect</td>
+                  <td>Define the high-level structure of software systems, selecting technologies, frameworks, and
+                    coding
+                    standards to ensure scalability and reliability.</td>
+                  <td><span class="">₹18–40 LPA</span></td>
+                </tr>
+                <tr>
+                  <td class="role-cell">Game Developer</td>
+                  <td>Design, program, and test interactive video game experiences, implementing gameplay mechanics,
+                    physics engines, and graphics rendering.</td>
+                  <td><span class="">₹7–18 LPA</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="career-table-overlay" id="careerTableToggleBtn" onclick="toggleCareerTable()"><span>View
+              more</span>
+          </div>
         </div>
       </div>
-    </div>
-    </div>
+  </div>
   </section>
 
   <!-- ── 7e. STUDENT WORK SHOWCASE (v1 - Commented Out) ────── -->
@@ -7067,30 +7112,48 @@
       });
     });
 
-    /* ── Tab bar active on scroll ── */
-    const SECTIONS = ['about-the-program', 'curriculum', 'admission-process', 'career-table-section', 'faq'];
+    /* ── Tab Switcher logic (About, Curriculum, Certifications) ── */
     const TABS = document.querySelectorAll('.tab');
+    const PANES = document.querySelectorAll('.tab-content-pane');
     const NAV_H = 64 + 49; // nav + tab bar
 
-    function setActiveTab() {
-      let current = SECTIONS[0];
-      SECTIONS.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && el.getBoundingClientRect().top <= NAV_H + 100) current = id;
-      });
-      TABS.forEach(t => t.classList.toggle('active', t.dataset.sec === current));
-    }
-
-    window.addEventListener('scroll', setActiveTab, { passive: true });
-
-    /* Smooth scroll on tab click */
     TABS.forEach(tab => {
       tab.addEventListener('click', e => {
         e.preventDefault();
-        const target = document.getElementById(tab.dataset.sec);
-        if (!target) return;
-        const top = target.getBoundingClientRect().top + window.scrollY - NAV_H - 12;
-        window.scrollTo({ top, behavior: 'smooth' });
+        const targetId = tab.dataset.sec;
+        const targetPane = document.getElementById(targetId);
+        if (!targetPane) return;
+
+        // Switch active tab indicator
+        TABS.forEach(t => t.classList.toggle('active', t === tab));
+
+        // Switch active content pane
+        PANES.forEach(p => p.classList.toggle('active', p === targetPane));
+
+      });
+    });
+
+    /* ── Mobile Accordions logic ── */
+    document.querySelectorAll('.mobile-accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const targetId = header.dataset.target;
+        const pane = document.getElementById(targetId);
+        if (!pane) return;
+
+        const isOpen = header.classList.contains('open');
+
+        // Close all headers and panes
+        document.querySelectorAll('.mobile-accordion-header').forEach(h => h.classList.remove('open'));
+        document.querySelectorAll('.tab-content-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+
+        if (!isOpen) {
+          header.classList.add('open');
+          pane.classList.add('active');
+          // sync the desktop tab just in case
+          const tab = document.querySelector(`.tab[data-sec="${targetId}"]`);
+          if (tab) tab.classList.add('active');
+        }
       });
     });
 
