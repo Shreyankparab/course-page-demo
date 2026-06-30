@@ -1232,17 +1232,36 @@
       flex-shrink: 0 !important;
     }
 
+    @media (max-width: 1024px) {
+      .placement-page-grid .placement-card {
+        width: calc((100% - 24px) / 2) !important;
+      }
+      .placement-page-grid {
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .placement-page-grid .placement-card {
+        width: 100% !important;
+      }
+      .placement-page-grid {
+        gap: 0;
+      }
+    }
+
     /* Placement Card Styling matching the React design */
     .placement-card {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 0;
       display: flex;
       flex-direction: column;
-      /* padding: 24px 20px; */
       transition: all 0.3s ease;
       cursor: grab;
       position: relative;
       box-sizing: border-box;
+      overflow: hidden;
     }
 
     .placement-card:active {
@@ -1250,8 +1269,15 @@
     }
 
     .placement-card:hover {
-      background: #fafbfd;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .placement-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .placement-media {
@@ -1421,9 +1447,10 @@
     @media (max-width: 768px) {
       .sec {
         padding: 49px 20px;
-
       }
+    }
 
+    @media (max-width: 576px) {
       .placement-carousel-frame {
         overflow: hidden;
         cursor: grab;
@@ -5034,24 +5061,49 @@
       </div>
 
       <div id="placementCarouselFrame" class="placement-carousel-frame">
-        <div class="placement-page-grid" id="placementGrid">
+                <div class="placement-page-grid" id="placementGrid">
 
           <!-- Card 1 -->
           <div class="placement-card" data-category="management">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
-              <!-- <div class="package-badge">₹14.50 LPA</div> -->
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Harsh Gaur</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Jaro Education logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 1" loading="lazy">
+          </div>
+
+          <!-- Card 2 -->
+          <div class="placement-card" data-category="technology">
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 2" loading="lazy">
+          </div>
+
+          <!-- Card 3 -->
+          <div class="placement-card" data-category="design">
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 3" loading="lazy">
+          </div>
+
+          <!-- Card 4 -->
+          <div class="placement-card" data-category="media">
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 4" loading="lazy">
+          </div>
+
+          <!-- Card 5 (Duplicated Harsh Gaur) -->
+          <div class="placement-card" data-category="management">
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 1" loading="lazy">
+          </div>
+
+          <!-- Card 6 (Duplicated Pavan Kulkarni) -->
+          <div class="placement-card" data-category="technology">
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 2" loading="lazy">
+          </div>
+
+          <!-- Card 7 (Duplicated Om Giramkar) -->
+          <div class="placement-card" data-category="design">
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 3" loading="lazy">
+          </div>
+
+          <!-- Card 8 (Duplicated Sanket Dhawale) -->
+          <div class="placement-card" data-category="media">
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 4" loading="lazy">
+          </div>
+
+        </div>
           </div>
 
           <!-- Card 2 -->
@@ -7137,10 +7189,17 @@
     let isCurrentlyDraggingGesture = false;
     let gestureDragStartXCoordinate = 0;
     const totalItems = 8;
-    let lastIsDesktop = window.innerWidth > 768;
+    let lastViewMode = window.innerWidth > 1024 ? "desktop" : (window.innerWidth > 576 ? "tablet" : "mobile");
 
     function getMaxIndex() {
-      return window.innerWidth > 768 ? (totalItems - 4) : (totalItems - 1);
+      const width = window.innerWidth;
+      if (width > 1024) {
+        return totalItems - 4; // 4 cards visible
+      } else if (width > 576) {
+        return totalItems - 2; // 2 cards visible
+      } else {
+        return totalItems - 1; // 1 card visible
+      }
     }
 
     function initializePlacementCarouselDOM() {
@@ -7169,13 +7228,16 @@
         carouselTrack.style.transition = "none";
       }
 
-      if (window.innerWidth > 768) {
-        // Desktop: 4 cards visible, calculate precise pixel shift based on current layout width
-        const frameWidth = carouselFrame.clientWidth;
+      const width = window.innerWidth;
+      const frameWidth = carouselFrame.clientWidth;
+
+      if (width > 1024) {
         const shiftPx = currentTrackIndex * (frameWidth + 24) / 4;
         carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
+      } else if (width > 576) {
+        const shiftPx = currentTrackIndex * (frameWidth + 24) / 2;
+        carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
       } else {
-        // Mobile: 1 card visible, translate by 100% per card index
         carouselTrack.style.transform = `translateX(-${currentTrackIndex * 100}%)`;
       }
     }
@@ -7271,9 +7333,16 @@
     carouselFrame.addEventListener("touchend", processDragGestureEnd);
 
     window.addEventListener("resize", () => {
-      const isDesktop = window.innerWidth > 768;
-      if (isDesktop !== lastIsDesktop) {
-        lastIsDesktop = isDesktop;
+      const width = window.innerWidth;
+      let currentViewMode = "mobile";
+      if (width > 1024) {
+        currentViewMode = "desktop";
+      } else if (width > 576) {
+        currentViewMode = "tablet";
+      }
+
+      if (currentViewMode !== lastViewMode) {
+        lastViewMode = currentViewMode;
         initializePlacementCarouselDOM();
       } else {
         applyTrackPositionTransform(false);

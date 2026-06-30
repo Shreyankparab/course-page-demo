@@ -1239,13 +1239,14 @@
     .placement-card {
       background: #ffffff;
       border: 1px solid rgba(0, 0, 0, 0.05);
+      border-radius: 0;
       display: flex;
       flex-direction: column;
-      /* padding: 24px 20px; */
       transition: all 0.3s ease;
       cursor: grab;
       position: relative;
       box-sizing: border-box;
+      overflow: hidden;
     }
 
     .placement-card:active {
@@ -1253,8 +1254,15 @@
     }
 
     .placement-card:hover {
-      background: #fafbfd;
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .placement-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .placement-media {
@@ -5285,24 +5293,49 @@
       </div>
 
       <div id="placementCarouselFrame" class="placement-carousel-frame">
-        <div class="placement-page-grid" id="placementGrid">
+                <div class="placement-page-grid" id="placementGrid">
 
           <!-- Card 1 -->
           <div class="placement-card" data-category="management">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
-              <!-- <div class="package-badge">₹14.50 LPA</div> -->
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Harsh Gaur</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Jaro Education logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 1" loading="lazy">
+          </div>
+
+          <!-- Card 2 -->
+          <div class="placement-card" data-category="technology">
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 2" loading="lazy">
+          </div>
+
+          <!-- Card 3 -->
+          <div class="placement-card" data-category="design">
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 3" loading="lazy">
+          </div>
+
+          <!-- Card 4 -->
+          <div class="placement-card" data-category="media">
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 4" loading="lazy">
+          </div>
+
+          <!-- Card 5 (Duplicated Harsh Gaur) -->
+          <div class="placement-card" data-category="management">
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 1" loading="lazy">
+          </div>
+
+          <!-- Card 6 (Duplicated Pavan Kulkarni) -->
+          <div class="placement-card" data-category="technology">
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 2" loading="lazy">
+          </div>
+
+          <!-- Card 7 (Duplicated Om Giramkar) -->
+          <div class="placement-card" data-category="design">
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 3" loading="lazy">
+          </div>
+
+          <!-- Card 8 (Duplicated Sanket Dhawale) -->
+          <div class="placement-card" data-category="media">
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 4" loading="lazy">
+          </div>
+
+        </div>
           </div>
 
           <!-- Card 2 -->

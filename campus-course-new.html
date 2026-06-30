@@ -663,7 +663,7 @@
 
     /* ─── 3. TAB BAR ─────────────────────────────────────── */
     .tab-bar {
-      position: sticky;
+      /* position: sticky; */
       top: 64px;
       z-index: 90;
       background: #fff;
@@ -1222,7 +1222,7 @@
       color: var(--text-2);
     }
 
-    /* ─── 5c. PLACEMENT HIGHLIGHTS ─────────────────────── */
+    /* ─── 5c. PLACEMENT HIGHLIGHTS CAROUSEL ─────────────────── */
     .placement-carousel-section {
       background-color: #ffffff;
       width: 100%;
@@ -1254,6 +1254,26 @@
     .placement-page-grid .placement-card {
       width: calc((100% - 72px) / 4) !important;
       flex-shrink: 0 !important;
+    }
+
+    @media (max-width: 1024px) {
+      .placement-page-grid .placement-card {
+        width: calc((100% - 24px) / 2) !important;
+      }
+
+      .placement-page-grid {
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .placement-page-grid .placement-card {
+        width: 100% !important;
+      }
+
+      .placement-page-grid {
+        gap: 0;
+      }
     }
 
     /* Placement Card Styling matching the React design */
@@ -1304,7 +1324,7 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(0, 0, 0, 0.9);
       color: #ffffff;
       font-weight: 600;
       font-size: var(--small-size);
@@ -1331,7 +1351,7 @@
 
     .placement-company {
       font-size: var(--small-size);
-      font-weight: 500;
+      font-weight: var(--font-weight-body);
       color: var(--text-2);
       margin-top: 4px;
       min-height: 32px;
@@ -1416,7 +1436,7 @@
     }
 
     .placement-carousel-btn:hover {
-      background-color: var(--secondary-bg);
+      background-color: var(--primary-bg);
     }
 
     .placement-carousel-btn:active {
@@ -1442,12 +1462,7 @@
     }
 
     /* Mobile view - turns grid to dynamic slider/track */
-    @media (max-width: 768px) {
-      .sec {
-        padding: 49px 20px;
-
-      }
-
+    @media (max-width: 576px) {
       .placement-carousel-frame {
         overflow: hidden;
         cursor: grab;
@@ -4983,12 +4998,1941 @@
 <body>
 
   <!-- ── 1. STICKY NAV ─────────────────────────────────────── -->
-  <nav class="nav">
-    <a href="#" class="nav-logo">
-      <span>Seamedu</span>
-    </a>
-    <a href="#about-the-program" class="btn btn-primary">Apply Now →</a>
+  
+  <!-- NEW STICKY NAVBAR -->
+  <style>
+
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      transition: all 0.5s ease;
+    }
+
+    .navbar.scrolled {
+      background: #f8fafc;
+      backdrop-filter: blur(24px);
+      border-bottom: 1px solid #f2f2f2;
+
+      /* padding-top: 12px; */
+      /* padding-bottom: 12px; */
+    }
+
+    .navbar.scrolled .nav-link {
+      color: #000000;
+    }
+
+    .navbar.scrolled .mobile-line {
+      background: #f8fafc !important;
+    }
+
+    .dropdown {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateX(-50%) translateY(10px) scale(0.95);
+      transition: all 0.25s ease;
+      pointer-events: none;
+    }
+
+    .nav-item:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0) scale(1);
+      pointer-events: auto;
+    }
+
+    .nav-item:hover .chevron {
+      transform: rotate(180deg);
+    }
+
+    .chevron {
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.4s ease;
+    }
+
+    .mobile-menu.active {
+      transform: translateX(0);
+    }
+
+    .backdrop {
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .backdrop.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition:
+        max-height 0.35s ease,
+        opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .accordion.active .accordion-content {
+      max-height: 1200px;
+      opacity: 1;
+    }
+
+    .accordion.active .mobile-chevron {
+      transform: rotate(90deg);
+      color: #155dfc;
+    }
+
+    .mobile-chevron {
+      transition: all 0.3s ease;
+    }
+  
+
+    /* ── Reset ── */
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #ffffff;
+      min-height: 100vh;
+    }
+
+    /* ════════════════════════════════════════
+         NAVBAR
+      ════════════════════════════════════════ */
+    .navbar {
+      width: 100%;
+      height: 70px;
+      background: #ffffff;
+      /* border-bottom: 2px solid #155dfc; */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo-block a {
+      display: block;
+      text-decoration: none;
+    }
+
+    .logo-block img {
+      height: 48px;
+      display: block;
+    }
+
+    /* ── Menu list ── */
+    .menu-list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      height: 70px;
+      gap: 0;
+    }
+
+    .menu-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      position: relative;
+    }
+
+    .sep {
+      width: 1px;
+      height: 22px;
+      background: black;
+      margin: 0 2px;
+    }
+
+    .link-item {
+      font-weight: 500;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+      color: #000000;
+      padding: 8px 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: background 0.2s;
+      height: 100%;
+    }
+
+    .link-item:hover {
+      background: #f8fafc;
+    }
+
+    .link-item .arrow-icon {
+      font-size: 18px;
+
+      display: inline-block;
+      transition: transform 0.25s ease;
+      color: #000000;
+    }
+
+    .menu-item:hover .link-item .arrow-icon,
+    .menu-item.active .link-item .arrow-icon {
+      transform: rotate(180deg);
+    }
+
+    /* Highlight parent link on menu hover */
+    .menu-item:hover .link-item,
+    .menu-item.active .link-item {
+      color: #155dfc;
+    }
+
+    .btn-pill {
+      font-family: "Poppins", sans-serif;
+      font-size: var(--btn-sm-size);
+      font-weight: var(--font-weight-body);
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 9px 20px;
+      border-radius: var(--r-lg);
+      margin-left: 10px;
+      cursor: pointer;
+      background: #155dfc;
+      color: #ffffff;
+      /* Text strictly black or blue */
+      border: 2px solid #155dfc;
+      letter-spacing: 0.5px;
+      transition:
+        background 0.2s,
+        color 0.2s,
+        transform 0.15s;
+      white-space: nowrap;
+    }
+
+    .btn-pill:hover {
+      background: #155dfc;
+      color: #ffffff;
+      /* Highlight only on state change if needed, but keeping it black/blue text by default */
+      transform: translateY(-1px);
+    }
+
+    /* ════════════════════════════════════════
+         MEGA DROPDOWN
+      ════════════════════════════════════════ */
+    .mega-dropdown {
+      position: absolute;
+      top: 70px;
+      /* Center under trigger, clamped within viewport */
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(900px, 98vw);
+      max-width: 98vw;
+      background: #f8fafc;
+      border-radius: 0 0 var(--r-btn) var(--r-btn);
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition:
+        opacity 0.28s ease,
+        visibility 0.28s ease;
+
+      border: 1.5px solid #f2f2f2;
+      border-top: none;
+    }
+
+    /* Compact dropdowns: align to left edge of trigger */
+    #about-dropdown,
+    #life-dropdown,
+    #resources-dropdown,
+    #why-dropdown {
+      width: 220px;
+      left: 0;
+      transform: none;
+      transition:
+        width 0.28s cubic-bezier(0.25, 0.8, 0.25, 1),
+        opacity 0.28s ease,
+        visibility 0.28s ease;
+    }
+
+    .menu-item:hover .mega-dropdown,
+    .menu-item.active .mega-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: all;
+    }
+
+    /* ── Background image layer ── */
+    .mega-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: background-image 0.35s ease;
+      z-index: 0;
+    }
+
+    /* semi-transparent white tint so text is readable */
+    .mega-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: #f8fafc;
+      /* transparent background as requested */
+      backdrop-filter: blur(1.5px);
+    }
+
+    /* ── Inner layout ── */
+    .mega-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 320px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .mega-inner-2 {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 120px;
+    }
+
+    .mega-inner-3 {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 200px;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .mega-inner-4 {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 200px;
+    }
+
+    /* ── LEFT: category tabs ── */
+    .cat-tabs {
+      width: 220px;
+      flex-shrink: 0;
+      border-right: 2px solid #155dfc;
+      padding: 12px 0;
+      display: flex;
+      flex-direction: column;
+      /* gap: 2px; */
+    }
+
+    .cat-tab {
+      padding: 12px 22px;
+
+      font-weight: 600;
+      color: #000000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition:
+        color 0.2s,
+        background 0.2s;
+      border-left: 3px solid transparent;
+      letter-spacing: 0.3px;
+      text-decoration: none;
+    }
+
+    .cat-tab:hover {
+      color: #155dfc;
+      background: #f8fafc;
+    }
+
+    .cat-tab.active {
+      color: #155dfc;
+      border-left: 3px solid #155dfc;
+      background: #f8fafc;
+      font-weight: 700;
+    }
+
+    .cat-tab .tab-arrow {
+      color: #155dfc;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .cat-tab.active .tab-arrow,
+    .cat-tab:hover .tab-arrow {
+      opacity: 1;
+    }
+
+    /* ── RIGHT: panels ── */
+    .programs-panel,
+    .about-panel {
+      flex: 1;
+      padding: 24px 28px;
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      animation: fadeInPanel 0.25s ease;
+    }
+
+    .programs-panel.active,
+    .about-panel.active {
+      display: flex;
+    }
+
+    @keyframes fadeInPanel {
+      from {
+        opacity: 0;
+        transform: translateX(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* Panel heading */
+    .panel-heading {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #155dfc;
+      border-bottom: 2px solid #155dfc;
+      padding-bottom: 8px;
+      margin-bottom: 4px;
+    }
+
+    /* Degree columns */
+    .degree-columns {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .degree-col {
+      min-width: 160px;
+    }
+
+    .degree-title {
+      font-weight: 700;
+      color: #155dfc;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .degree-title::before {
+      content: "";
+      width: 18px;
+      height: 2px;
+      background: #155dfc;
+      display: inline-block;
+      border-radius: var(--r-btn);
+    }
+
+    .course-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .course-list li a {
+      font-weight: 400;
+      color: #000000;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition:
+        color 0.18s,
+        gap 0.18s;
+    }
+
+    .course-list li a::before {
+      content: "›";
+
+      color: #155dfc;
+      font-weight: 700;
+      transition: transform 0.18s;
+    }
+
+    .course-list li a:hover {
+      color: #155dfc;
+      gap: 8px;
+    }
+
+    .course-list li a:hover::before {
+      transform: translateX(2px);
+    }
+
+    /* Panel footer tag */
+    .panel-footer {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid #f2f2f2;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-footer-text {
+      color: #000000;
+    }
+
+    .panel-footer-link {
+      font-weight: 600;
+      color: #155dfc;
+      text-decoration: none;
+      letter-spacing: 0.4px;
+    }
+
+    .panel-footer-link:hover {
+      text-decoration: underline;
+    }
+
+    /* ════════════════════════════════════════
+         ABOUT US TEXT CONTENT
+      ════════════════════════════════════════ */
+    .about-content-text {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 550px;
+    }
+
+    .philosophy-highlight {
+      font-weight: 700;
+      color: #155dfc;
+      line-height: 1.4;
+    }
+
+    .philosophy-desc {
+      font-weight: 400;
+      color: #000000;
+      line-height: 1.6;
+    }
+
+    /* ════════════════════════════════════════
+         CAMPUS GRID STYLING
+      ════════════════════════════════════════ */
+    .campus-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      width: 100%;
+    }
+
+    .campus-card {
+      background: #f8fafc;
+      border: 2px solid #155dfc;
+      border-radius: var(--r-btn);
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition:
+        background-color 0.2s,
+        transform 0.2s,
+        box-shadow 0.2s;
+    }
+
+    .campus-card:hover {
+      background-color: #f8fafc;
+      transform: translateY(-2px);
+    }
+
+    .campus-card img {
+      width: 70px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: var(--r-btn);
+      border: 1.5px solid #155dfc;
+    }
+
+    .campus-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .campus-name {
+      font-weight: 700;
+      color: #000000;
+    }
+
+    .campus-details {
+      font-weight: 500;
+      color: #155dfc;
+    }
+
+    /* ════════════════════════════════════════
+         DEMO PAGE BODY
+      ════════════════════════════════════════ */
+    .demo-hero {
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    .demo-hero h1 {
+      font-weight: 800;
+      color: #000000;
+    }
+
+    .demo-hero h1 span {
+      color: #155dfc;
+    }
+
+    .demo-hero p {
+      margin-top: 12px;
+
+      color: #000000;
+    }
+
+    /* ════════════════════════════════════════
+         RESPONSIVE – HAMBURGER BUTTON
+      ════════════════════════════════════════ */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 38px;
+      height: 38px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 1100;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #155dfc;
+      border-radius: var(--r-btn);
+      transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        width 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      width: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* ════════════════════════════════════════
+         RESPONSIVE – MOBILE OVERLAY MENU
+      ════════════════════════════════════════ */
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #f8fafc;
+      z-index: 1050;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .mobile-nav-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      max-width: 88vw;
+      height: 100dvh;
+      background: #ffffff;
+      border-left: 2px solid #155dfc;
+      z-index: 1200;
+      overflow-y: auto;
+      transition: right 0.32s cubic-bezier(0.25, 0.8, 0.25, 1);
+      padding: 0 0 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-nav.open {
+      right: 0;
+    }
+
+    /* Mobile nav header */
+    .mobile-nav-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      border-bottom: 2px solid #155dfc;
+      position: sticky;
+      top: 0;
+      background: #fff;
+      z-index: 1;
+    }
+
+    .mobile-nav-header img {
+      height: 36px;
+    }
+
+    .mobile-close {
+      background: none;
+      border: none;
+
+      cursor: pointer;
+      color: #155dfc;
+      line-height: 1;
+      padding: 4px 8px;
+    }
+
+    /* Mobile nav items */
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      padding: 12px 0;
+    }
+
+    .mobile-nav-list li {
+      border-bottom: 1px solid #f2f2f2;
+    }
+
+    .mobile-nav-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* Mobile accordion toggle */
+    .mobile-nav-item-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 22px;
+      background: none;
+      border: none;
+      font-family: "Poppins", sans-serif;
+
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      color: #000;
+      cursor: pointer;
+      transition:
+        color 0.2s,
+        background 0.2s;
+      text-decoration: none;
+      text-align: left;
+    }
+
+    .mobile-nav-item-btn:hover,
+    .mobile-nav-item-btn.active {
+      color: #155dfc;
+      background: #f8fafc;
+    }
+
+    .mobile-nav-item-btn .m-arrow {
+      color: #155dfc;
+      transition: transform 0.25s ease;
+    }
+
+    .mobile-nav-item-btn.active .m-arrow {
+      transform: rotate(180deg);
+    }
+
+    /* Mobile sub-list (accordion content) */
+    .mobile-sub-list {
+      list-style: none;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.32s ease;
+      background: #f8fafc;
+    }
+
+    .mobile-sub-list.open {
+      max-height: 600px;
+    }
+
+    .mobile-sub-list li a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 22px 10px 32px;
+
+      font-weight: 400;
+      color: #000;
+      text-decoration: none;
+      transition:
+        color 0.18s,
+        background 0.18s;
+      border-left: 3px solid transparent;
+    }
+
+    .mobile-sub-list li a::before {
+      content: "›";
+      color: #155dfc;
+
+      font-weight: 700;
+    }
+
+    .mobile-sub-list li a:hover {
+      color: #155dfc;
+      background: #f8fafc;
+      border-left-color: #155dfc;
+    }
+
+    /* Mobile sub-section heading */
+    .mobile-sub-heading {
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #155dfc;
+      padding: 12px 22px 4px 32px;
+    }
+
+    /* Mobile Apply Now */
+    .mobile-apply {
+      margin: 20px 22px 0;
+      display: block;
+      text-align: center;
+      background: #155dfc;
+      color: #fff;
+      font-family: "Poppins", sans-serif;
+
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 12px 24px;
+      border-radius: var(--r-lg-btn);
+      text-decoration: none;
+      transition:
+        background 0.2s,
+        transform 0.15s;
+    }
+
+    .mobile-apply:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    .small1 {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    .s-title {
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    /* ════════════════════════════════════════
+         RESPONSIVE – BREAKPOINTS
+      ════════════════════════════════════════ */
+
+    /* ── Large desktop (> 1280px): wider dropdowns look fine ── */
+    @media (min-width: 1281px) {
+      .mega-dropdown {
+        width: 900px;
+      }
+    }
+
+    /* ── Medium desktop (1025px – 1280px) ── */
+    @media (max-width: 1280px) {
+      .mega-dropdown {
+        width: min(840px, 96vw);
+      }
+
+      .link-item {
+        padding: 8px 10px;
+      }
+
+      .btn-pill {
+        font-size: var(--btn-sm-size);
+        padding: 8px 16px;
+      }
+
+      #about-dropdown,
+      #life-dropdown,
+      #resources-dropdown,
+      #why-dropdown {
+        width: 210px;
+      }
+    }
+
+    /* ── Tablet / Small desktop (≤ 1160px): shrink logo 20%, show hamburger ── */
+    @media (max-width: 1160px) {
+
+      /* Logo 20% smaller: 48px → ~38px */
+      .logo-block img {
+        height: 38px;
+      }
+
+      /* Hide desktop menu, show hamburger */
+      .menu-list {
+        display: none !important;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-nav-overlay {
+        display: block;
+      }
+    }
+
+    /* ── Tablet landscape (769px – 1024px) ── */
+    @media (max-width: 1024px) {
+      .mega-dropdown {
+        width: min(700px, 96vw);
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .link-item {
+        padding: 8px 8px;
+      }
+
+      .cat-tabs {
+        width: 180px;
+      }
+
+      .degree-columns {
+        gap: 18px;
+      }
+
+      #about-dropdown,
+      #life-dropdown,
+      #resources-dropdown,
+      #why-dropdown {
+        width: 190px;
+      }
+    }
+
+    /* ── Mobile / Tablet portrait (≤ 768px): hide desktop nav, show hamburger ── */
+    @media (max-width: 768px) {
+
+      /* Hide the desktop nav */
+      .menu-list {
+        display: none !important;
+      }
+
+      /* Show hamburger */
+      .hamburger {
+        display: flex;
+      }
+
+      /* Show overlay */
+      .mobile-nav-overlay {
+        display: block;
+      }
+
+      /* Navbar adjustments */
+      .navbar {
+        padding: 0 16px;
+      }
+
+      .logo-block img {
+        height: 38px;
+      }
+
+      /* Demo hero adjustments */
+      .demo-hero {
+        padding: 48px 20px;
+      }
+    }
+
+    /* ── Small mobile (≤ 480px) ── */
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0 12px;
+      }
+
+      .logo-block img {
+        height: 32px;
+      }
+
+      .demo-hero {
+        padding: 36px 16px;
+      }
+    }
+  
+
+  </style>
+  
+  <nav class="navbar">
+    <!-- Logo -->
+    <div class="logo-block">
+      <a href="#">
+        <img src="images/blackLogo.svg" alt="Seamedu Logo" />
+      </a>
+    </div>
+    <!-- <a class="link-item"
+            >Placements <span class="arrow-icon">&#9662;</span></a
+          > -->
+    <!-- Menu -->
+    <ul class="menu-list">
+      <li class="menu-item">
+        <a class="link-item">Placements <span class="arrow-icon">&#9662;</span></a>
+      </li>
+
+      <li class="menu-item">
+        <div class="sep"></div>
+        <a class="link-item">Alumni Testimonials <span class="arrow-icon">&#9662;</span></a>
+      </li>
+
+      <!-- ── ABOUT US (mega menu) ── -->
+      <li class="menu-item" id="about-menu-item">
+        <div class="sep"></div>
+        <a class="link-item" id="about-trigger">
+          About Us <span class="arrow-icon">&#9662;</span>
+        </a>
+
+        <div class="mega-dropdown" id="about-dropdown">
+          <!-- Background image -->
+          <div class="mega-bg" id="about-bg"></div>
+
+          <div class="mega-inner">
+            <!-- LEFT: About categories -->
+            <div class="cat-tabs" style="border-right: none">
+              <a class="cat-tab" href="Testimonials.html">Philosophy</a>
+              <a class="cat-tab" href="#team">Our Team</a>
+              <div class="cat-tab" id="campuses-tab" data-about="campuses">
+                <a href="#">Campus Locations <span class="tab-arrow">›</span></a>
+              </div>
+              <a class="cat-tab" href="#partners">Our Partners</a>
+              <a class="cat-tab" href="#careers">Careers at Seamedu</a>
+              <a class="cat-tab" href="#experts">Industry Experts</a>
+            </div>
+
+            <!-- RIGHT: Campuses list (Only shown on hover of Campus Locations) -->
+            <div class="about-panel" data-about-panel="campuses" style="width: 340px; border-left: 2px solid #155dfc">
+              <!-- <div class="panel-heading">Campus Locations</div> -->
+              <ul class="course-list">
+                <li>
+                  <a href="#"> D Y Patil University Ambi </a>
+                </li>
+                <li>
+                  <a href="#">Techno India University</a>
+                </li>
+                <li>
+                  <a href="#">The NorthCap University</a>
+                </li>
+                <li>
+                  <a href="#">AJEENKYA DY PATIL UNIVERSITY</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- /.mega-inner -->
+        </div>
+        <!-- /.mega-dropdown -->
+      </li>
+      <!-- ── END ABOUT US ── -->
+
+      <!-- ── PROGRAMS (mega menu) ── -->
+      <li class="menu-item" id="programs-menu-item">
+        <div class="sep"></div>
+        <a class="link-item" id="programs-trigger">
+          Programs <span class="arrow-icon">&#9662;</span>
+        </a>
+
+        <div class="mega-dropdown" id="programs-dropdown">
+          <!-- Background image -->
+          <div class="mega-bg" id="programs-bg"></div>
+
+          <div class="mega-inner">
+            <!-- LEFT: Category tabs -->
+            <div class="cat-tabs">
+              <div class="cat-tab active" data-cat="media">
+                Media <span class="tab-arrow">›</span>
+              </div>
+              <div class="cat-tab" data-cat="technology">
+                Technology <span class="tab-arrow">›</span>
+              </div>
+              <div class="cat-tab" data-cat="management">
+                Management <span class="tab-arrow">›</span>
+              </div>
+              <div class="cat-tab" data-cat="design">
+                Design <span class="tab-arrow">›</span>
+              </div>
+              <div class="cat-tab" data-cat="hospitality">
+                Hospitality <span class="tab-arrow">›</span>
+              </div>
+            </div>
+
+            <!-- RIGHT: Programs panels -->
+
+            <!-- MEDIA -->
+            <div class="programs-panel active" data-panel="media">
+              <!-- <div class="panel-heading">Media Programs</div> -->
+              <div class="degree-columns">
+                <div class="degree-col">
+                  <div class="degree-title">B.Sc.</div>
+                  <ul class="course-list">
+                    <li><a href="#">Game Development</a></li>
+                    <li><a href="#">Filmmaking</a></li>
+                    <li><a href="#">Sound Engineering</a></li>
+                    <li><a href="#">Game Art &amp; Design</a></li>
+                    <li><a href="#">Animation &amp; VFX</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">BCA</div>
+                  <ul class="course-list">
+                    <li><a href="#">Media &amp; IT</a></li>
+                    <li><a href="#">Game Development</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">BBA</div>
+                  <ul class="course-list">
+                    <li><a href="#">Media and Communication</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- TECHNOLOGY -->
+            <div class="programs-panel" data-panel="technology">
+              <!-- <div class="panel-heading">Technology Programs</div> -->
+              <div class="degree-columns">
+                <div class="degree-col">
+                  <div class="degree-title">B.Sc.</div>
+                  <ul class="course-list">
+                    <li><a href="#">Computer Science &amp; AI</a></li>
+                    <li><a href="#">Cybersecurity</a></li>
+                    <li><a href="#">Data Science</a></li>
+                    <li><a href="#">Cloud Computing</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">BCA</div>
+                  <ul class="course-list">
+                    <li><a href="#">AI &amp; Data Science</a></li>
+                    <li><a href="#">Full Stack Development</a></li>
+                    <li><a href="#">IoT &amp; Robotics</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">MBA / M.Sc.</div>
+                  <ul class="course-list">
+                    <li><a href="#">Information Technology</a></li>
+                    <li><a href="#">Machine Learning</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- MANAGEMENT -->
+            <div class="programs-panel" data-panel="management">
+              <!-- <div class="panel-heading">Management Programs</div> -->
+              <div class="degree-columns">
+                <div class="degree-col">
+                  <div class="degree-title">BBA</div>
+                  <ul class="course-list">
+                    <li><a href="#">Business Administration</a></li>
+                    <li><a href="#">Marketing Management</a></li>
+                    <li><a href="#">Finance &amp; Banking</a></li>
+                    <li><a href="#">HR Management</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">MBA</div>
+                  <ul class="course-list">
+                    <li><a href="#">General Management</a></li>
+                    <li><a href="#">International Business</a></li>
+                    <li><a href="#">Entrepreneurship</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">Diploma</div>
+                  <ul class="course-list">
+                    <li><a href="#">Event Management</a></li>
+                    <li><a href="#">Retail Management</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- DESIGN -->
+            <div class="programs-panel" data-panel="design">
+              <!-- <div class="panel-heading">Design Programs</div> -->
+              <div class="degree-columns">
+                <div class="degree-col">
+                  <div class="degree-title">B.Des.</div>
+                  <ul class="course-list">
+                    <li><a href="#">UI/UX Design</a></li>
+                    <li><a href="#">Graphic Design</a></li>
+                    <li><a href="#">Fashion Design</a></li>
+                    <li><a href="#">Interior Design</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">B.Sc.</div>
+                  <ul class="course-list">
+                    <li><a href="#">Game Art &amp; Design</a></li>
+                    <li><a href="#">Animation &amp; Multimedia</a></li>
+                    <li><a href="#">Visual Effects</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">Diploma</div>
+                  <ul class="course-list">
+                    <li><a href="#">Digital Design</a></li>
+                    <li><a href="#">Motion Graphics</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- HOSPITALITY -->
+            <div class="programs-panel" data-panel="hospitality">
+              <!-- <div class="panel-heading">Hospitality Programs</div> -->
+              <div class="degree-columns">
+                <div class="degree-col">
+                  <div class="degree-title">B.Sc.</div>
+                  <ul class="course-list">
+                    <li><a href="#">Hotel Management</a></li>
+                    <li><a href="#">Culinary Arts</a></li>
+                    <li><a href="#">Catering Technology</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">BHM</div>
+                  <ul class="course-list">
+                    <li><a href="#">Hospitality Management</a></li>
+                    <li><a href="#">Tourism &amp; Travel</a></li>
+                    <li><a href="#">Event &amp; Resort Mgmt</a></li>
+                  </ul>
+                </div>
+                <div class="degree-col">
+                  <div class="degree-title">Diploma</div>
+                  <ul class="course-list">
+                    <li><a href="#">Front Office Operations</a></li>
+                    <li><a href="#">Food &amp; Beverage Service</a></li>
+                    <li><a href="#">Bakery &amp; Confectionery</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.mega-inner -->
+        </div>
+        <!-- /.mega-dropdown -->
+      </li>
+      <!-- ── END PROGRAMS ── -->
+
+      <li class="menu-item">
+        <div class="sep"></div>
+        <a class="link-item">Life at Seamedu <span class="arrow-icon">&#9662;</span></a>
+        <div class="mega-dropdown" id="life-dropdown">
+          <!-- Background image -->
+          <div class="mega-bg" id="life-bg"></div>
+
+          <div class="mega-inner-2">
+            <!-- LEFT: Life at Seamedu categories -->
+            <div class="cat-tabs" style="border-right: none">
+              <a class="cat-tab" href="#">Workshops & Events</a>
+
+              <div class="cat-tab" id="life-campuses-tab" data-about="life-campuses">
+                <a href="#">Campus Tour <span class="tab-arrow">›</span></a>
+              </div>
+            </div>
+
+            <!-- RIGHT: Campuses list (Only shown on hover of Campus Tour) -->
+            <div class="about-panel" data-about-panel="life-campuses"
+              style="width: 340px; border-left: 2px solid #155dfc">
+              <!-- <div class="panel-heading">Campus Locations</div> -->
+              <ul class="course-list">
+                <li>
+                  <a href="#">Pune - Balewadi</a>
+                </li>
+                <li>
+                  <a href="#">Pune - Ambi</a>
+                </li>
+                <li>
+                  <a href="#">Pune - ADYPU</a>
+                </li>
+                <li>
+                  <a href="#">Bengaluru Campus</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- /.mega-inner-2 -->
+        </div>
+      </li>
+
+      <li class="menu-item" id="resources-menu-item">
+        <div class="sep"></div>
+        <a class="link-item" id="resources-trigger">
+          Resources <span class="arrow-icon">&#9662;</span>
+        </a>
+
+        <div class="mega-dropdown" id="resources-dropdown">
+          <!-- Background image -->
+          <div class="mega-bg" id="resources-bg"></div>
+
+          <div class="mega-inner-3">
+            <!-- LEFT: Resources categories -->
+            <div class="cat-tabs" style="border-right: none">
+              <div class="cat-tab" id="career-guides-tab" data-about="career-guides"
+                data-bg="images/resources_bg_b.png">
+                <a href>Career Guides <span class="tab-arrow">›</span></a>
+              </div>
+              <div class="cat-tab" id="articles-tab" data-about="articles" data-bg="images/resources_bg_a.png">
+                <a href>Articles <span class="tab-arrow">›</span></a>
+              </div>
+            </div>
+
+            <!-- RIGHT: Career Guides panel (Shown on hover of Career Guides) -->
+            <div class="about-panel" data-about-panel="career-guides"
+              style="width: 340px; border-left: 2px solid #155dfc">
+              <!-- <div class="panel-heading" style="margin-bottom: 15px">
+                  Career Guides
+                </div> -->
+
+              <div class="resources-section" style="margin-bottom: 18px">
+                <div class="resources-subtitle" style="
+                      font-weight: 700;
+                      color: #155dfc;
+                      margin-bottom: 6px;
+                      display: flex;
+                      align-items: center;
+                      gap: 6px;
+                    ">
+                  <span style="
+                        width: 12px;
+                        height: 2px;
+                        background: #155dfc;
+                        display: inline-block;
+                        border-radius: var(--r-btn);
+                      "></span>
+                  Media Courses
+                </div>
+                <ul class="course-list" style="padding-left: 18px">
+                  <li><a href="#">Film Making</a></li>
+                  <li><a href="#">Game Art &amp; Design</a></li>
+                  <li style="margin-top: 4px">
+                    <a href="#" style="font-weight: 600; color: #155dfc">View All</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="resources-section" style="margin-bottom: 18px">
+                <div class="resources-subtitle" style="
+                      font-weight: 700;
+                      color: #155dfc;
+                      margin-bottom: 6px;
+                      display: flex;
+                      align-items: center;
+                      gap: 6px;
+                    ">
+                  <span style="
+                        width: 12px;
+                        height: 2px;
+                        background: #155dfc;
+                        display: inline-block;
+                        border-radius: var(--r-btn);
+                      "></span>
+                  Technology Courses
+                </div>
+                <ul class="course-list" style="padding-left: 18px">
+                  <li>
+                    <a href="#">Media and Information Technology (Multimedia)</a>
+                  </li>
+                  <li>
+                    <a href="#">Multimedia and Digital Content Creation</a>
+                  </li>
+                  <li style="margin-top: 4px">
+                    <a href="#" style="font-weight: 600; color: #155dfc">View All</a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="resources-section" style="margin-bottom: 8px">
+                <div class="resources-subtitle" style="
+                      font-weight: 700;
+                      color: #155dfc;
+                      margin-bottom: 6px;
+                      display: flex;
+                      align-items: center;
+                      gap: 6px;
+                    ">
+                  <span style="
+                        width: 12px;
+                        height: 2px;
+                        background: #155dfc;
+                        display: inline-block;
+                        border-radius: var(--r-btn);
+                      "></span>
+                  Management Courses
+                </div>
+                <ul class="course-list" style="padding-left: 18px">
+                  <li><a href="#">BBA in Digital Marketing</a></li>
+                  <li><a href="#">BBA in Finance</a></li>
+                  <li style="margin-top: 4px">
+                    <a href="#" style="font-weight: 600; color: #155dfc">View All</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- RIGHT: Articles panel (Shown on hover of Articles) -->
+          </div>
+          <!-- /.mega-inner -->
+        </div>
+      </li>
+
+      <li class="menu-item" id="why-menu-item">
+        <div class="sep"></div>
+        <a class="link-item" id="why-trigger">
+          Why Seamedu <span class="arrow-icon">&#9662;</span>
+        </a>
+
+        <div class="mega-dropdown" id="why-dropdown">
+          <!-- Background image: Image A by default -->
+          <div class="mega-bg" id="why-bg" style="
+                background-image: url(&quot;images/resources_bg_a.png&quot;);
+              "></div>
+
+          <div class="mega-inner-4">
+            <!-- LEFT: Why Seamedu categories -->
+            <div class="cat-tabs" style="border-right: none">
+              <a class="cat-tab" href="#">Student Placements</a>
+              <a class="cat-tab" href="#">Student Work</a>
+              <a class="cat-tab" href="#">Alumni Testimonials</a>
+              <div class="cat-tab" id="faqs-tab" data-bg="images/resources_bg_b.png">
+                <a href>FAQs <span class="tab-arrow">›</span></a>
+              </div>
+            </div>
+
+            <!-- RIGHT: FAQs panel (shown only on hover of FAQs tab) -->
+            <div class="about-panel" data-about-panel="why-faqs" style="width: 340px; border-left: 2px solid #155dfc">
+              <ul class="course-list" style="margin-top: 12px">
+                <li><a href="#">Media</a></li>
+                <li>
+                  <a href="#">Design</a>
+                </li>
+                <li>
+                  <a href="#">Technology</a>
+                </li>
+                <li><a href="#">Management</a></li>
+                <li><a href="#">Hospitality</a></li>
+                <li style="margin-top: 8px"></li>
+              </ul>
+            </div>
+          </div>
+          <!-- /.mega-inner-4 -->
+        </div>
+      </li>
+
+      <li class="menu-item">
+        <!-- <div class="sep"></div> -->
+        <a class="btn-pill" href="#">Apply Now</a>
+      </li>
+    </ul>
+
+    <!-- Hamburger button (tablet + mobile) -->
+    <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </nav>
+
+  <!-- ══════════════════════════════════════
+         MOBILE NAV OVERLAY + DRAWER
+    ══════════════════════════════════════ -->
+  <div class="mobile-nav-overlay" id="mobile-overlay"></div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <div class="mobile-nav-header">
+      <a href="#"><img src="images/blackLogo.svg" alt="Seamedu Logo" /></a>
+      <button class="mobile-close" id="mobile-close-btn" aria-label="Close menu">
+        ✕
+      </button>
+    </div>
+
+    <ul class="mobile-nav-list">
+      <!-- Placements -->
+      <li>
+        <a href="#" class="mobile-nav-item-btn">Placements</a>
+      </li>
+
+      <!-- Alumni Testimonials -->
+      <li>
+        <a href="#" class="mobile-nav-item-btn">Alumni Testimonials</a>
+      </li>
+
+      <!-- About Us -->
+      <li>
+        <button class="mobile-nav-item-btn" data-target="mob-about">
+          About Us <span class="m-arrow">▼</span>
+        </button>
+        <ul class="mobile-sub-list" id="mob-about">
+          <li><a href="#">Philosophy</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Campus Locations</a></li>
+          <li><a href="#">Our Partners</a></li>
+          <li><a href="#">Careers at Seamedu</a></li>
+          <li><a href="#">Industry Experts</a></li>
+        </ul>
+      </li>
+
+      <!-- Programs -->
+      <li>
+        <button class="mobile-nav-item-btn" data-target="mob-programs">
+          Programs <span class="m-arrow">▼</span>
+        </button>
+        <ul class="mobile-sub-list" id="mob-programs">
+          <p class="mobile-sub-heading">Media</p>
+          <li><a href="#">Game Development</a></li>
+          <li><a href="#">Filmmaking</a></li>
+          <li><a href="#">Sound Engineering</a></li>
+          <li><a href="#">Animation &amp; VFX</a></li>
+          <p class="mobile-sub-heading">Technology</p>
+          <li><a href="#">Computer Science &amp; AI</a></li>
+          <li><a href="#">Cybersecurity</a></li>
+          <li><a href="#">Data Science</a></li>
+          <p class="mobile-sub-heading">Management</p>
+          <li><a href="#">Business Administration</a></li>
+          <li><a href="#">Marketing Management</a></li>
+          <p class="mobile-sub-heading">Design</p>
+          <li><a href="#">UI/UX Design</a></li>
+          <li><a href="#">Graphic Design</a></li>
+          <p class="mobile-sub-heading">Hospitality</p>
+          <li><a href="#">Hotel Management</a></li>
+          <li><a href="#">Culinary Arts</a></li>
+        </ul>
+      </li>
+
+      <!-- Life at Seamedu -->
+      <li>
+        <button class="mobile-nav-item-btn" data-target="mob-life">
+          Life at Seamedu <span class="m-arrow">▼</span>
+        </button>
+        <ul class="mobile-sub-list" id="mob-life">
+          <li><a href="#">Workshops &amp; Events</a></li>
+          <p class="mobile-sub-heading">Campus Tour</p>
+          <li><a href="#">Pune – Balewadi</a></li>
+          <li><a href="#">Pune – Ambi</a></li>
+          <li><a href="#">Pune – ADYPU</a></li>
+          <li><a href="#">Bengaluru Campus</a></li>
+        </ul>
+      </li>
+
+      <!-- Resources -->
+      <li>
+        <button class="mobile-nav-item-btn" data-target="mob-resources">
+          Resources <span class="m-arrow">▼</span>
+        </button>
+        <ul class="mobile-sub-list" id="mob-resources">
+          <p class="mobile-sub-heading">Career Guides</p>
+          <li><a href="#">Film Making</a></li>
+          <li><a href="#">Game Art &amp; Design</a></li>
+          <li><a href="#">BBA in Digital Marketing</a></li>
+          <p class="mobile-sub-heading">Articles</p>
+          <li><a href="#">Scope of Sound Engineering</a></li>
+          <li><a href="#">Career in Game Development</a></li>
+          <li><a href="#">Future of Filmmaking in India</a></li>
+        </ul>
+      </li>
+
+      <!-- Why Seamedu -->
+      <li>
+        <button class="mobile-nav-item-btn" data-target="mob-why">
+          Why Seamedu <span class="m-arrow">▼</span>
+        </button>
+        <ul class="mobile-sub-list" id="mob-why">
+          <li><a href="#">Student Placements</a></li>
+          <li><a href="#">Student Work</a></li>
+          <li><a href="#">Alumni Testimonials</a></li>
+          <p class="mobile-sub-heading">FAQs</p>
+          <li><a href="#">Media</a></li>
+          <li><a href="#">Design</a></li>
+          <li><a href="#">Technology</a></li>
+          <li><a href="#">Management</a></li>
+          <li><a href="#">Hospitality</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <a href="#" class="mobile-apply">Apply Now</a>
+  </nav>
+  
+  <script>
+    /* --- PROGRAMS MEGA-MENU LOGIC --- */
+    const progTabs = document.querySelectorAll("#programs-dropdown .cat-tab");
+    const progPanels = document.querySelectorAll(
+      "#programs-dropdown .programs-panel",
+    );
+    const progBg = document.getElementById("programs-bg");
+
+    progTabs.forEach((tab) => {
+      tab.addEventListener("mouseenter", () => {
+        progTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const cat = tab.dataset.cat;
+        progPanels.forEach((p) => {
+          p.classList.remove("active");
+          if (p.dataset.panel === cat) p.classList.add("active");
+        });
+
+        const img = tab.dataset.img;
+        if (img) progBg.style.backgroundImage = `url('${img}')`;
+      });
+    });
+
+    /* --- ABOUT US MEGA-MENU LOGIC --- */
+    const aboutDropdown = document.getElementById("about-dropdown");
+    const campusesTab = document.getElementById("campuses-tab");
+    const campusesPanel = document.querySelector(
+      '[data-about-panel="campuses"]',
+    );
+    const aboutBg = document.getElementById("about-bg");
+    const aboutTabs = document.querySelectorAll("#about-dropdown .cat-tab");
+
+    // Initial state
+    campusesPanel.style.display = "none";
+
+    aboutTabs.forEach((tab) => {
+      tab.addEventListener("mouseenter", () => {
+        aboutTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        if (tab === campusesTab) {
+          aboutDropdown.style.width = "560px";
+          campusesPanel.style.display = "flex";
+        } else {
+          aboutDropdown.style.width = "220px";
+          campusesPanel.style.display = "none";
+        }
+      });
+    });
+
+    // Keep open when hovering panel
+    campusesPanel.addEventListener("mouseenter", () => {
+      aboutTabs.forEach((t) => t.classList.remove("active"));
+      campusesTab.classList.add("active");
+      aboutDropdown.style.width = "560px";
+      campusesPanel.style.display = "flex";
+    });
+
+    // Reset when leaving dropdown
+    aboutDropdown.addEventListener("mouseleave", () => {
+      aboutTabs.forEach((t) => t.classList.remove("active"));
+      aboutDropdown.style.width = "220px";
+      campusesPanel.style.display = "none";
+    });
+
+    // Hovering over campus links updates the About Us background image
+    const campusLinks = document.querySelectorAll(
+      '.about-panel[data-about-panel="campuses"] .course-list a',
+    );
+    campusLinks.forEach((link) => {
+      link.addEventListener("mouseenter", () => {
+        const img = link.dataset.campusImg;
+        if (img) aboutBg.style.backgroundImage = `url('${img}')`;
+      });
+    });
+
+    /* --- LIFE AT SEAMEDU MEGA-MENU LOGIC --- */
+    const lifeDropdown = document.getElementById("life-dropdown");
+    const lifeCampusesTab = document.getElementById("life-campuses-tab");
+    const lifeCampusesPanel = document.querySelector(
+      '[data-about-panel="life-campuses"]',
+    );
+    const lifeBg = document.getElementById("life-bg");
+    const lifeTabs = document.querySelectorAll("#life-dropdown .cat-tab");
+
+    // Initial state
+    if (lifeCampusesPanel) {
+      lifeCampusesPanel.style.display = "none";
+    }
+
+    lifeTabs.forEach((tab) => {
+      tab.addEventListener("mouseenter", () => {
+        lifeTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        if (tab === lifeCampusesTab) {
+          lifeDropdown.style.width = "560px";
+          lifeCampusesPanel.style.display = "flex";
+        } else {
+          lifeDropdown.style.width = "220px";
+          lifeCampusesPanel.style.display = "none";
+        }
+      });
+    });
+
+    // Keep open when hovering panel
+    if (lifeCampusesPanel) {
+      lifeCampusesPanel.addEventListener("mouseenter", () => {
+        lifeTabs.forEach((t) => t.classList.remove("active"));
+        lifeCampusesTab.classList.add("active");
+        lifeDropdown.style.width = "560px";
+        lifeCampusesPanel.style.display = "flex";
+      });
+    }
+
+    // Reset when leaving dropdown
+    if (lifeDropdown) {
+      lifeDropdown.addEventListener("mouseleave", () => {
+        lifeTabs.forEach((t) => t.classList.remove("active"));
+        lifeDropdown.style.width = "220px";
+        if (lifeCampusesPanel) {
+          lifeCampusesPanel.style.display = "none";
+        }
+      });
+    }
+
+    // Hovering over campus links updates the Life at Seamedu background image (if any)
+    const lifeCampusLinks = document.querySelectorAll(
+      '.about-panel[data-about-panel="life-campuses"] .course-list a',
+    );
+    lifeCampusLinks.forEach((link) => {
+      link.addEventListener("mouseenter", () => {
+        const img = link.dataset.campusImg;
+        if (img && lifeBg) lifeBg.style.backgroundImage = `url('${img}')`;
+      });
+    });
+
+    /* --- RESOURCES MEGA-MENU LOGIC --- */
+    const resourcesDropdown = document.getElementById("resources-dropdown");
+    const careerGuidesTab = document.getElementById("career-guides-tab");
+    const articlesTab = document.getElementById("articles-tab");
+    const careerGuidesPanel = document.querySelector(
+      '[data-about-panel="career-guides"]',
+    );
+    const articlesPanel = document.querySelector(
+      '[data-about-panel="articles"]',
+    );
+    const resourcesBg = document.getElementById("resources-bg");
+    const resourcesTabs = document.querySelectorAll(
+      "#resources-dropdown .cat-tab",
+    );
+
+    // Initial state
+    if (careerGuidesPanel) careerGuidesPanel.style.display = "none";
+    if (articlesPanel) articlesPanel.style.display = "none";
+
+    resourcesTabs.forEach((tab) => {
+      tab.addEventListener("mouseenter", () => {
+        resourcesTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        // Update background image
+        const bgImg = tab.dataset.bg;
+        if (bgImg && resourcesBg) {
+          resourcesBg.style.backgroundImage = `url('${bgImg}')`;
+        }
+
+        // Show correct panel and update dropdown width
+        if (tab === careerGuidesTab) {
+          resourcesDropdown.style.width = "560px";
+          if (careerGuidesPanel) careerGuidesPanel.style.display = "flex";
+          if (articlesPanel) articlesPanel.style.display = "none";
+        } else if (tab === articlesTab) {
+          resourcesDropdown.style.width = "560px";
+          if (careerGuidesPanel) careerGuidesPanel.style.display = "none";
+          if (articlesPanel) articlesPanel.style.display = "flex";
+        } else {
+          resourcesDropdown.style.width = "220px";
+          if (careerGuidesPanel) careerGuidesPanel.style.display = "none";
+          if (articlesPanel) articlesPanel.style.display = "none";
+        }
+      });
+    });
+
+    // Keep open when hovering panels
+    if (careerGuidesPanel) {
+      careerGuidesPanel.addEventListener("mouseenter", () => {
+        resourcesTabs.forEach((t) => t.classList.remove("active"));
+        if (careerGuidesTab) careerGuidesTab.classList.add("active");
+        resourcesDropdown.style.width = "560px";
+        careerGuidesPanel.style.display = "flex";
+        if (resourcesBg)
+          resourcesBg.style.backgroundImage =
+            "url('images/resources_bg_b.png')";
+      });
+    }
+
+    if (articlesPanel) {
+      articlesPanel.addEventListener("mouseenter", () => {
+        resourcesTabs.forEach((t) => t.classList.remove("active"));
+        if (articlesTab) articlesTab.classList.add("active");
+        resourcesDropdown.style.width = "560px";
+        articlesPanel.style.display = "flex";
+        if (resourcesBg)
+          resourcesBg.style.backgroundImage =
+            "url('images/resources_bg_a.png')";
+      });
+    }
+
+    // Reset when leaving dropdown
+    if (resourcesDropdown) {
+      resourcesDropdown.addEventListener("mouseleave", () => {
+        resourcesTabs.forEach((t) => t.classList.remove("active"));
+        resourcesDropdown.style.width = "220px";
+        if (careerGuidesPanel) careerGuidesPanel.style.display = "none";
+        if (articlesPanel) articlesPanel.style.display = "none";
+        if (resourcesBg)
+          resourcesBg.style.backgroundImage =
+            "url('images/resources_bg_a.png')";
+      });
+    }
+
+    /* --- WHY SEAMEDU MEGA-MENU LOGIC --- */
+    const whyDropdown = document.getElementById("why-dropdown");
+    const faqsTab = document.getElementById("faqs-tab");
+    const faqsPanel = document.querySelector('[data-about-panel="why-faqs"]');
+    const whyBg = document.getElementById("why-bg");
+    const whyTabs = document.querySelectorAll("#why-dropdown .cat-tab");
+
+    // Initial state: hide FAQs panel
+    if (faqsPanel) faqsPanel.style.display = "none";
+
+    whyTabs.forEach((tab) => {
+      tab.addEventListener("mouseenter", () => {
+        whyTabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        if (tab === faqsTab) {
+          // Hover FAQs: expand width, show panel, swap to Image B
+          whyDropdown.style.width = "560px";
+          if (faqsPanel) faqsPanel.style.display = "flex";
+          if (whyBg)
+            whyBg.style.backgroundImage = "url('images/resources_bg_b.png')";
+        } else {
+          // Any other tab: keep compact, hide panel, keep Image A
+          whyDropdown.style.width = "220px";
+          if (faqsPanel) faqsPanel.style.display = "none";
+          if (whyBg)
+            whyBg.style.backgroundImage = "url('images/resources_bg_a.png')";
+        }
+      });
+    });
+
+    // Keep expanded when hovering FAQs panel
+    if (faqsPanel) {
+      faqsPanel.addEventListener("mouseenter", () => {
+        whyTabs.forEach((t) => t.classList.remove("active"));
+        if (faqsTab) faqsTab.classList.add("active");
+        whyDropdown.style.width = "560px";
+        faqsPanel.style.display = "flex";
+        if (whyBg)
+          whyBg.style.backgroundImage = "url('images/resources_bg_b.png')";
+      });
+    }
+
+    // Reset when leaving dropdown
+    if (whyDropdown) {
+      whyDropdown.addEventListener("mouseleave", () => {
+        whyTabs.forEach((t) => t.classList.remove("active"));
+        whyDropdown.style.width = "220px";
+        if (faqsPanel) faqsPanel.style.display = "none";
+        if (whyBg)
+          whyBg.style.backgroundImage = "url('images/resources_bg_a.png')";
+      });
+    }
+
+    /* ════════════════════════════════════════
+       MOBILE NAV – HAMBURGER + ACCORDION JS
+    ════════════════════════════════════════ */
+    (function () {
+      const hamburger = document.getElementById("hamburger-btn");
+      const mobileNav = document.getElementById("mobile-nav");
+      const overlay = document.getElementById("mobile-overlay");
+      const closeBtn = document.getElementById("mobile-close-btn");
+
+      function openMenu() {
+        hamburger.classList.add("open");
+        hamburger.setAttribute("aria-expanded", "true");
+        mobileNav.classList.add("open");
+        overlay.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMenu() {
+        hamburger.classList.remove("open");
+        hamburger.setAttribute("aria-expanded", "false");
+        mobileNav.classList.remove("open");
+        overlay.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      hamburger.addEventListener("click", openMenu);
+      closeBtn.addEventListener("click", closeMenu);
+      overlay.addEventListener("click", closeMenu);
+
+      // Close on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMenu();
+      });
+
+      // Accordion sub-lists
+      document
+        .querySelectorAll(".mobile-nav-item-btn[data-target]")
+        .forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const target = document.getElementById(btn.dataset.target);
+            if (!target) return;
+            const isOpen = target.classList.contains("open");
+            // Close all other sub-lists
+            document
+              .querySelectorAll(".mobile-sub-list.open")
+              .forEach((el) => el.classList.remove("open"));
+            document
+              .querySelectorAll(".mobile-nav-item-btn.active")
+              .forEach((el) => el.classList.remove("active"));
+            // Toggle the clicked one
+            if (!isOpen) {
+              target.classList.add("open");
+              btn.classList.add("active");
+            }
+          });
+        });
+
+      // Close mobile nav when resizing back to desktop
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768) closeMenu();
+      });
+    })();
+  </script>
+
 
   <!-- ── 2. HERO ────────────────────────────────────────────── -->
   <!-- <section class="hero-ref" id="hero">
@@ -5441,7 +7385,7 @@
           </div>
         </div>
 
-        <button type="submit" class="inquiry-submit-btn">Submit Inquiry</button>
+        <button type="submit" class="inquiry-submit-btn">Submit</button>
       </form>
     </div>
   </section>
@@ -5452,7 +7396,7 @@
       <div style="text-align:left;margin-bottom:36px;">
         <h2>Student <span style="color:var(--primary)">Placements</span></h2>
         <p
-          style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);font-weight:500;">
+          style="color:var(--text-2);font-size:var(--body-size);max-width:780px;margin:0;line-height:var(--body-line-height);font-weight: var(--font-weight-body);">
           From classroom learning
           to real industry opportunities, Seamedu students are building careers with some of the biggest names in the
           industry. See where our students are placed.</p>
@@ -5465,6 +7409,7 @@
           <div class="placement-card" data-category="management">
             <div class="placement-media">
               <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
+              <!-- <div class="package-badge">₹14.50 LPA</div> -->
             </div>
             <div class="placement-info">
               <h4 class="placement-name">Harsh Gaur</h4>
@@ -5619,9 +7564,221 @@
       </div>
     </div>
 
+    <!--
+  COMMENTED OUT PREVIOUS DYNAMIC CAROUSEL JS:
+  <script>
+   const placementDataset = [
+    {
+     name: "Harsh Gaur",
+     company: "Jaro Education",
+     package: "₹14.50 LPA",
+     image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=800",
+     companyLogo: "/images/HighringPatners/cohesity.webp",
+    },
+    {
+     name: "Pavan Kulkarni",
+     company: "IntervueVet Technologies Pvt Ltd",
+     package: "₹7.5 LPA",
+     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800",
+     companyLogo: "/images/HighringPatners/cognizant.webp",
+    },
+    {
+     name: "Prathush P",
+     company: "Learning Routes",
+     package: "₹6.5 LPA",
+     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800",
+     companyLogo: "/images/HighringPatners/oceania.png",
+    },
+    {
+     name: "Sanket Dhawale",
+     company: "Edgewise Innovations Pvt Ltd",
+     package: "₹7.02 LPA",
+     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800",
+     companyLogo: "/images/HighringPatners/capgemini.webp",
+    }
+   ];
+   // initializePlacementCarouselDOM() ...
+  </script>
+  -->
+
+    <script>
+      const carouselFrame = document.getElementById("placementCarouselFrame");
+      const carouselTrack = document.getElementById("placementGrid");
+      const dotsContainer = document.getElementById("placementDotsContainer");
+      const btnPrev = document.getElementById("placementPrevBtn");
+      const btnNext = document.getElementById("placementNextBtn");
+
+      let currentTrackIndex = 0;
+      let isCarouselTransitioning = false;
+      let isCurrentlyDraggingGesture = false;
+      let gestureDragStartXCoordinate = 0;
+      const totalItems = 8;
+      let lastViewMode = window.innerWidth > 1024 ? "desktop" : (window.innerWidth > 576 ? "tablet" : "mobile");
+
+      function getMaxIndex() {
+        const width = window.innerWidth;
+        if (width > 1024) {
+          return totalItems - 4; // 4 cards visible
+        } else if (width > 576) {
+          return totalItems - 2; // 2 cards visible
+        } else {
+          return totalItems - 1; // 1 card visible
+        }
+      }
+
+      function initializePlacementCarouselDOM() {
+        const maxIndex = getMaxIndex();
+        const numDots = maxIndex + 1;
+
+        if (currentTrackIndex > maxIndex) {
+          currentTrackIndex = maxIndex;
+        }
+
+        dotsContainer.innerHTML = Array.from({ length: numDots })
+          .map(
+            (_, idx) =>
+              `<span id="placement-dot-${idx}" class="dot-inactive"></span>`,
+          )
+          .join("");
+
+        applyTrackPositionTransform(false);
+        refreshActiveDotHighlightIndicators();
+      }
+
+      function applyTrackPositionTransform(enableSmoothTransition) {
+        if (enableSmoothTransition) {
+          carouselTrack.style.transition = "transform 0.5s ease-in-out";
+        } else {
+          carouselTrack.style.transition = "none";
+        }
+
+        const width = window.innerWidth;
+        const frameWidth = carouselFrame.clientWidth;
+
+        if (width > 1024) {
+          const shiftPx = currentTrackIndex * (frameWidth + 24) / 4;
+          carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
+        } else if (width > 576) {
+          const shiftPx = currentTrackIndex * (frameWidth + 24) / 2;
+          carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
+        } else {
+          carouselTrack.style.transform = `translateX(-${currentTrackIndex * 100}%)`;
+        }
+      }
+
+      function refreshActiveDotHighlightIndicators() {
+        const maxIndex = getMaxIndex();
+        const numDots = maxIndex + 1;
+        for (let idx = 0; idx < numDots; idx++) {
+          const targetedDot = document.getElementById(`placement-dot-${idx}`);
+          if (targetedDot) {
+            if (idx === currentTrackIndex) {
+              targetedDot.className = "dot-active";
+            } else {
+              targetedDot.className = "dot-inactive";
+            }
+          }
+        }
+      }
+
+      function advanceCarouselNextSlide() {
+        if (isCarouselTransitioning) return;
+        isCarouselTransitioning = true;
+        const maxIndex = getMaxIndex();
+        if (currentTrackIndex >= maxIndex) {
+          currentTrackIndex = 0;
+        } else {
+          currentTrackIndex++;
+        }
+        applyTrackPositionTransform(true);
+        refreshActiveDotHighlightIndicators();
+        setTimeout(() => {
+          isCarouselTransitioning = false;
+        }, 500);
+      }
+
+      function regressCarouselPreviousSlide() {
+        if (isCarouselTransitioning) return;
+        isCarouselTransitioning = true;
+        const maxIndex = getMaxIndex();
+        if (currentTrackIndex <= 0) {
+          currentTrackIndex = maxIndex;
+        } else {
+          currentTrackIndex--;
+        }
+        applyTrackPositionTransform(true);
+        refreshActiveDotHighlightIndicators();
+        setTimeout(() => {
+          isCarouselTransitioning = false;
+        }, 500);
+      }
+
+      function processDragGestureStart(clientX) {
+        isCurrentlyDraggingGesture = true;
+        gestureDragStartXCoordinate = clientX;
+      }
+      function processDragGestureMove(clientX) {
+        if (!isCurrentlyDraggingGesture) return;
+        const netDeltaDifferenceX = clientX - gestureDragStartXCoordinate;
+        if (netDeltaDifferenceX > 50) {
+          regressCarouselPreviousSlide();
+          isCurrentlyDraggingGesture = false;
+        } else if (netDeltaDifferenceX < -50) {
+          advanceCarouselNextSlide();
+          isCurrentlyDraggingGesture = false;
+        }
+      }
+      function processDragGestureEnd() {
+        isCurrentlyDraggingGesture = false;
+      }
+
+      btnPrev.addEventListener("click", regressCarouselPreviousSlide);
+      btnNext.addEventListener("click", advanceCarouselNextSlide);
+
+      carouselFrame.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        processDragGestureStart(e.pageX);
+      });
+      carouselFrame.addEventListener("mousemove", (e) => {
+        e.preventDefault();
+        processDragGestureMove(e.pageX);
+      });
+      window.addEventListener("mouseup", processDragGestureEnd);
+      carouselFrame.addEventListener(
+        "touchstart",
+        (e) => processDragGestureStart(e.touches[0].clientX),
+        { passive: true },
+      );
+      carouselFrame.addEventListener(
+        "touchmove",
+        (e) => processDragGestureMove(e.touches[0].clientX),
+        { passive: true },
+      );
+      carouselFrame.addEventListener("touchend", processDragGestureEnd);
+
+      window.addEventListener("resize", () => {
+        const width = window.innerWidth;
+        let currentViewMode = "mobile";
+        if (width > 1024) {
+          currentViewMode = "desktop";
+        } else if (width > 576) {
+          currentViewMode = "tablet";
+        }
+
+        if (currentViewMode !== lastViewMode) {
+          lastViewMode = currentViewMode;
+          initializePlacementCarouselDOM();
+        } else {
+          applyTrackPositionTransform(false);
+        }
+      });
+
+      initializePlacementCarouselDOM();
+    </script>
     <!-- Hiring Partners -->
     <div class="placement-partners-section">
       <div style="text-align:center;margin-bottom:32px;">
+        <!-- <div class="label">Our Network</div> -->
         <h2>Hiring <span style="color:var(--primary);">Partners</span></h2>
       </div>
 
@@ -5695,6 +7852,7 @@
     </div>
 
   </section>
+
   <!-- ── 6d. ADMISSION PROCESS ───────────────────────────────── -->
   <section class="sec admission-section" id="admission-process">
     <div class="container" style="text-align:center;">
@@ -6903,475 +9061,370 @@
   </section>
 
   <!-- ── 9. FOOTER ───────────────────────────────────────────── -->
-  <footer>
-    <div class="footer-inner">
+  <!-- FOOTER -->
+    
+    <!-- Font Awesome for footer icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-      <!-- Brand -->
-      <div>
-        <div class="f-brand">Uni<span>Verse</span>.</div>
-        <div class="f-tagline">Shaping the minds that shape tomorrow.</div>
-        <div class="f-copy">© 2025 UniVerse University. All rights reserved.<br>Approved by AICTE &nbsp;·&nbsp;
-          Accredited NAAC A++</div>
-      </div>
+    
+    <!-- FOOTER CSS -->
+    <style>
+      .sea-footer {
+        position: relative;
+        background: #fff;
+        padding: 49px 20px 16px;
+        width: 100%;
+        border-top: 1px solid #f1f5f9;
+        overflow: hidden;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      .sea-footer * { box-sizing: border-box; }
+      .sea-footer-inner {
+        max-width: 1230px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+      }
+      .sea-footer-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 16px;
+        margin-bottom: 8px;
+      }
+      @media (min-width: 768px) {
+        .sea-footer-grid {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 48px 56px;
+        }
+      }
+      .sea-footer-brand {
+        grid-column: span 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        .sea-footer-brand {
+          grid-column: span 1;
+          align-items: flex-start;
+          text-align: left;
+        }
+      }
+      .sea-footer-logo {
+        height: 40px;
+        display: block;
+        margin-top: 8px;
+      }
+      @media (min-width: 640px) { .sea-footer-logo { height: 48px; } }
+      .sea-footer-desc {
+        color: #475569;
+        margin: 0;
+        line-height: 1.6;
+        font-size: 14px;
+      }
+      .sea-footer-socials {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-top: 8px;
+      }
+      @media (min-width: 768px) { .sea-footer-socials { justify-content: flex-start; } }
+      .sea-social-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #F8FAFC;
+        border: 1px solid #f2f2f2;
+        border-radius: 50%;
+        color: #000;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 14px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      }
+      .sea-social-icon:hover {
+        background: #155DFC;
+        color: #fff;
+        transform: translateY(-4px);
+      }
+      .sea-footer-col h6 {
+        color: #000;
+        text-transform: uppercase;
+        margin: 8px 0 24px;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+      }
+      @media (min-width: 768px) { .sea-footer-col h6 { margin-top: 20px; } }
+      .sea-footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .sea-footer-col ul a {
+        color: #475569;
+        text-decoration: none;
+        font-size: 14px;
+        transition: color 0.3s ease;
+      }
+      .sea-footer-col ul a:hover { color: #155DFC; }
+      .sea-footer-contact {
+        grid-column: span 2;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        align-items: center;
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        .sea-footer-contact {
+          grid-column: span 1;
+          align-items: flex-start;
+          text-align: left;
+        }
+      }
+      .sea-footer-contact-inner { width: 100%; }
+      .sea-campus-list { display: flex; flex-direction: column; gap: 8px; }
+      .campus-item { border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 4px; }
+      .campus-item:last-child { border-bottom: none; }
+      .campus-btn {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 4px 0;
+        color: inherit;
+        font-family: inherit;
+        font-size: 14px;
+        transition: color 0.2s;
+      }
+      .campus-btn:hover { color: #155DFC; }
+      .campus-btn p { color: #000; text-transform: uppercase; margin: 0; font-weight: 600; font-size: 13px; }
+      .campus-btn span { color: #475569; text-transform: uppercase; font-size: 11px; display: block; margin-top: -1px; }
+      .campus-btn i { color: #000; transition: transform 0.3s ease; font-size: 12px; }
+      .campus-item.active .campus-btn i { transform: rotate(180deg); color: #2563eb; }
+      .campus-content {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.35s ease, opacity 0.3s ease;
+      }
+      .campus-item.active .campus-content { max-height: 300px; opacity: 1; }
+      .campus-content p { color: #475569; margin: 8px 0; font-size: 13px; }
+      .campus-phones {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding-left: 0;
+        border-left: none;
+      }
+      @media (min-width: 768px) {
+        .campus-phones { padding-left: 8px; border-left: 2px solid #155DFC; }
+      }
+      .campus-phones a {
+        color: #155DFC;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+      }
+      .campus-phones a:hover { text-decoration: underline; }
+      .sea-footer-email {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: #000;
+        text-decoration: none;
+        transition: color 0.2s;
+        margin-top: 20px;
+        font-size: 14px;
+      }
+      @media (min-width: 768px) { .sea-footer-email { justify-content: flex-start; } }
+      .sea-footer-email:hover { color: #155DFC; }
+      .sea-footer-email-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background: #F8FAFC;
+        border: 1px solid #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .sea-footer-bottom {
+        border-top: 1px solid #f1f5f9;
+        margin-top: 16px;
+        padding-top: 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+      @media (min-width: 768px) {
+        .sea-footer-bottom {
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 20px;
+        }
+      }
+      .sea-footer-copy {
+        color: #000;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+      .sea-footer-links {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+      }
+      .sea-footer-links a {
+        text-transform: uppercase;
+        color: #000;
+        text-decoration: none;
+        font-size: 12px;
+        transition: color 0.2s;
+      }
+      .sea-footer-links a:hover { color: #155DFC; }
+    </style>
 
-      <!-- Links -->
-      <div class="f-links">
-        <div class="f-col">
-          <h5>Programs</h5>
-          <a href="#">B.Tech - CSE (AI & Data Engineering)</a>
-        </div>
-        <div class="f-col">
-          <h5>Admission</h5>
-          <a href="#">Apply Online</a>
-          <a href="#">Eligibility</a>
-          <a href="#">Scholarships</a>
-          <a href="#">Fee Structure</a>
-        </div>
-        <div class="f-col">
-          <h5>Company</h5>
-          <a href="#">About Us</a>
-          <a href="#">Campus Life</a>
-          <a href="#">Contact</a>
-          <a href="#">Privacy Policy</a>
-        </div>
-      </div>
-
-      <!-- Contact accordion -->
-      <div>
-        <div class="f-contact-head">Contact With Us</div>
-
-        <!-- HO Pune — open by default -->
-        <div class="contact-item open">
-          <button class="contact-toggle" data-contact>
-            <div>
-              <span class="contact-name">HO Pune</span>
-              <span class="contact-sub">Head Office</span>
+    <!-- FOOTER -->
+    <footer class="sea-footer">
+      <div class="sea-footer-inner">
+        <!-- Main Grid -->
+        <div class="sea-footer-grid">
+          <!-- Branding -->
+          <div class="sea-footer-brand">
+            <div style="margin-top:8px">
+              <img src="/images/blackLogo.svg" alt="Logo" class="sea-footer-logo" />
             </div>
-            <svg class="contact-chevron" width="10" height="10" viewBox="0 0 448 512" fill="currentColor">
-              <path
-                d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" />
-            </svg>
-          </button>
-          <div class="contact-body open">
-            <div class="contact-body-inner">
-              <p class="contact-address">6th Floor, Solitaire Business Hub, Office No. 612, Balewadi High St, Balewadi,
-                Pune, Maharashtra 411045</p>
-              <a href="tel:+918530203440" class="contact-phone">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.24 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                +91 8530203440
+            <p class="sea-footer-desc">
+              Established in 2008, Seamedu is a leading media school offering
+              industry-integrated education in Sound Engineering, Film Making,
+              VFX, and Game Design.
+            </p>
+            <div class="sea-footer-socials">
+              <a href="#" class="sea-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="#" class="sea-social-icon"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="sea-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" class="sea-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="sea-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <!-- Information -->
+          <div class="sea-footer-col">
+            <h6>Information</h6>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Our Campuses</a></li>
+              <li><a href="#">Student Placements</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">FAQ's</a></li>
+            </ul>
+          </div>
+
+          <!-- Schools -->
+          <div class="sea-footer-col">
+            <h6>Schools</h6>
+            <ul>
+              <li><a href="#">Design</a></li>
+              <li><a href="#">Media</a></li>
+              <li><a href="#">Technology</a></li>
+              <li><a href="#">Management</a></li>
+              <li><a href="#">Hospitality</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div class="sea-footer-contact">
+            <div class="sea-footer-contact-inner">
+              <h6 style="color:#000;text-transform:uppercase;margin-top:8px;margin-bottom:24px;font-size:13px;font-weight:700">Contact With Us</h6>
+              <div class="sea-campus-list" id="campusList"></div>
+              <a href="mailto:info@seamedu.com" class="sea-footer-email">
+                <div class="sea-footer-email-icon">
+                  <i class="fa-regular fa-envelope"></i>
+                </div>
+                <span>info@seamedu.com</span>
               </a>
-              <a href="tel:+918999761319" class="contact-phone">
-                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.13 12.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.24 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-                +91 8999761319
-              </a>
             </div>
           </div>
         </div>
 
-        <!-- Lohegaon -->
-        <div class="contact-item">
-          <button class="contact-toggle" data-contact>
-            <div>
-              <span class="contact-name">Lohegaon, Pune</span>
-              <span class="contact-sub">ADPYU Campus</span>
-            </div>
-            <svg class="contact-chevron" width="10" height="10" viewBox="0 0 448 512" fill="currentColor">
-              <path
-                d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" />
-            </svg>
-          </button>
-          <div class="contact-body">
-            <div class="contact-body-inner">
-              <p class="contact-address">Lohegaon, Pune, Maharashtra 411047</p>
-            </div>
+        <!-- Bottom -->
+        <div class="sea-footer-bottom">
+          <span class="sea-footer-copy">© 2025 Seamedu All Right Reserved</span>
+          <div class="sea-footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Disclaimer</a>
+            <a href="#">Terms of Service</a>
           </div>
         </div>
-
-        <!-- Ambi -->
-        <div class="contact-item">
-          <button class="contact-toggle" data-contact>
-            <div>
-              <span class="contact-name">Ambi, Pune</span>
-              <span class="contact-sub">DY Patil Campus</span>
-            </div>
-            <svg class="contact-chevron" width="10" height="10" viewBox="0 0 448 512" fill="currentColor">
-              <path
-                d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" />
-            </svg>
-          </button>
-          <div class="contact-body">
-            <div class="contact-body-inner">
-              <p class="contact-address">Ambi, Tal. Maval, Pune, Maharashtra 412106</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gurugram -->
-        <div class="contact-item">
-          <button class="contact-toggle" data-contact>
-            <div>
-              <span class="contact-name">Gurugram</span>
-              <span class="contact-sub">NCU Campus</span>
-            </div>
-            <svg class="contact-chevron" width="10" height="10" viewBox="0 0 448 512" fill="currentColor">
-              <path
-                d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" />
-            </svg>
-          </button>
-          <div class="contact-body">
-            <div class="contact-body-inner">
-              <p class="contact-address">Sector 23A, Gurugram, Haryana 122017</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Kolkata -->
-        <div class="contact-item">
-          <button class="contact-toggle" data-contact>
-            <div>
-              <span class="contact-name">Kolkata</span>
-              <span class="contact-sub">TIU Campus</span>
-            </div>
-            <svg class="contact-chevron" width="10" height="10" viewBox="0 0 448 512" fill="currentColor">
-              <path
-                d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" />
-            </svg>
-          </button>
-          <div class="contact-body">
-            <div class="contact-body-inner">
-              <p class="contact-address">BF 142, Sector 1, Salt Lake City, Kolkata, West Bengal 700064</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Email -->
-        <a href="mailto:info@seamedu.com" class="contact-email-row">
-          <span class="contact-email-icon">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-          </span>
-          info@seamedu.com
-        </a>
       </div>
+    </footer>
 
-    </div>
-  </footer>
+    <script>
+      (function() {
+        var campuses = [
+          { detail: "BALEWADI, Pune", name: "Head Office", address: "6th Floor, Solitaire Business Hub, Balewadi High St, Pune", tels: ["+91 8530203440", "+91 8999761319"] },
+          { detail: "Lohegaon, Pune", name: "ADPYU Campus", tels: ["+91 8530203440"] },
+          { detail: "Ambi, Pune", name: "DY Patil Campus", tels: ["+91 8999711619"] },
+          { detail: "Gurugram", name: "NCU Campus", tels: ["+91 7338299301"] },
+          { detail: "Kolkata", name: "TIU Campus", tels: ["+91 7338299301"] }
+        ];
+        var campusList = document.getElementById("campusList");
+        if (!campusList) return;
+        campuses.forEach(function(campus) {
+          var item = document.createElement("div");
+          item.className = "campus-item";
+          item.innerHTML =
+            '<button class="campus-btn">' +
+              '<div style="display:flex;flex-direction:column">' +
+                '<p>' + campus.name + '</p>' +
+                '<span>' + campus.detail + '</span>' +
+              '</div>' +
+              '<i class="fa-solid fa-chevron-down"></i>' +
+            '</button>' +
+            '<div class="campus-content">' +
+              (campus.address ? '<p>' + campus.address + '</p>' : '') +
+              '<div class="campus-phones">' +
+                campus.tels.map(function(tel) {
+                  return '<a href="tel:' + tel + '"><i class="fa-solid fa-phone"></i>' + tel + '</a>';
+                }).join("") +
+              '</div>' +
+            '</div>';
+          var btn = item.querySelector(".campus-btn");
+          btn.addEventListener("click", function() {
+            var active = campusList.querySelector(".campus-item.active");
+            if (active && active !== item) active.classList.remove("active");
+            item.classList.toggle("active");
+          });
+          campusList.appendChild(item);
+        });
+        var first = campusList.querySelector(".campus-item");
+        if (first) first.classList.add("active");
+      })();
+    </script>
+
+
 
   <!-- ── SCRIPTS ─────────────────────────────────────────────── -->
-  <script>
-    /* ── Year accordions ── */
-    document.querySelectorAll('[data-year]').forEach(tag => {
-      tag.addEventListener('click', () => {
-        const body = tag.nextElementSibling;
-        const isOpen = tag.classList.contains('open');
-        tag.classList.toggle('open', !isOpen);
-        body.classList.toggle('open', !isOpen);
-      });
-    });
-
-    /* ── Contact accordions ── */
-    document.querySelectorAll('[data-contact]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.parentElement;
-        const body = btn.nextElementSibling;
-        const isOpen = item.classList.contains('open');
-        item.classList.toggle('open', !isOpen);
-        body.classList.toggle('open', !isOpen);
-      });
-    });
-
-    /* ── FAQ accordions ── */
-    document.querySelectorAll('.faq-q').forEach(q => {
-      q.addEventListener('click', () => {
-        const item = q.parentElement;
-        const answer = q.nextElementSibling;
-        const isOpen = item.classList.contains('open');
-        item.classList.toggle('open', !isOpen);
-        answer.classList.toggle('open', !isOpen);
-      });
-    });
-
-    /* ── Admission Tab Switcher ── */
-    document.querySelectorAll('[data-admission-tab]').forEach(tabBtn => {
-      tabBtn.addEventListener('click', () => {
-        const targetTab = tabBtn.dataset.admissionTab;
-
-        // Update tab buttons active class
-        document.querySelectorAll('[data-admission-tab]').forEach(btn => {
-          btn.classList.toggle('active', btn.dataset.admissionTab === targetTab);
-        });
-
-        // Update tab content active class
-        document.getElementById('indian-admission').classList.toggle('active', targetTab === 'indian');
-        document.getElementById('international-admission').classList.toggle('active', targetTab === 'international');
-      });
-    });
-
-    /* ── Admission Process accordions ── */
-    document.querySelectorAll('.admission-button').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const item = btn.closest('.admission-item');
-        const isOpen = item.classList.contains('open');
-
-        // Close other items in the same accordion group
-        const accordionGroup = btn.closest('.accordion');
-        if (accordionGroup) {
-          accordionGroup.querySelectorAll('.admission-item').forEach(i => {
-            i.classList.remove('open');
-          });
-        }
-
-        if (!isOpen) {
-          item.classList.add('open');
-        }
-      });
-    });
-
-    /* ── Tab Switcher logic (About, Curriculum, Certifications) ── */
-    const TABS = document.querySelectorAll('.tab');
-    const PANES = document.querySelectorAll('.tab-content-pane');
-    const NAV_H = 64 + 49; // nav + tab bar
-
-    TABS.forEach(tab => {
-      tab.addEventListener('click', e => {
-        e.preventDefault();
-        const targetId = tab.dataset.sec;
-        const targetPane = document.getElementById(targetId);
-        if (!targetPane) return;
-
-        // Switch active tab indicator
-        TABS.forEach(t => t.classList.toggle('active', t === tab));
-
-        // Switch active content pane
-        PANES.forEach(p => p.classList.toggle('active', p === targetPane));
-
-      });
-    });
-
-    /* ── Mobile Accordions logic ── */
-    document.querySelectorAll('.mobile-accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const targetId = header.dataset.target;
-        const pane = document.getElementById(targetId);
-        if (!pane) return;
-
-        const isOpen = header.classList.contains('open');
-
-        // Close all headers and panes
-        document.querySelectorAll('.mobile-accordion-header').forEach(h => h.classList.remove('open'));
-        document.querySelectorAll('.tab-content-pane').forEach(p => p.classList.remove('active'));
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-
-        if (!isOpen) {
-          header.classList.add('open');
-          pane.classList.add('active');
-          // sync the desktop tab just in case
-          const tab = document.querySelector(`.tab[data-sec="${targetId}"]`);
-          if (tab) tab.classList.add('active');
-        }
-      });
-    });
-
-    function toggleCareerTable() {
-      const wrapper = document.getElementById('careerTableWrapper');
-      const btn = document.getElementById('careerTableToggleBtn');
-      const outer = wrapper.parentElement;
-      const span = btn.querySelector('span');
-      if (wrapper.classList.contains('collapsed')) {
-        wrapper.classList.remove('collapsed');
-        outer.classList.add('expanded');
-        span.textContent = 'Collapse';
-      } else {
-        wrapper.classList.add('collapsed');
-        outer.classList.remove('expanded');
-        span.textContent = 'View more';
-        const target = document.getElementById('career-table-section');
-        if (target) {
-          const top = target.getBoundingClientRect().top + window.scrollY - NAV_H - 12;
-          window.scrollTo({ top, behavior: 'instant' });
-        }
-      }
-    }
-
-    function scrollStudentWork(direction, gridId = 'studentWorkGrid') {
-      const grid = document.getElementById(gridId);
-      const cardWidth = window.innerWidth * 0.75 + 16;
-      if (direction === 'left') {
-        grid.scrollLeft -= cardWidth;
-      } else {
-        grid.scrollLeft += cardWidth;
-      }
-    }
-
-    /* ── Placements Carousel ── */
-    const carouselFrame = document.getElementById("placementCarouselFrame");
-    const carouselTrack = document.getElementById("placementGrid");
-    const dotsContainer = document.getElementById("placementDotsContainer");
-    const btnPrev = document.getElementById("placementPrevBtn");
-    const btnNext = document.getElementById("placementNextBtn");
-
-    let currentTrackIndex = 0;
-    let isCarouselTransitioning = false;
-    let isCurrentlyDraggingGesture = false;
-    let gestureDragStartXCoordinate = 0;
-    const totalItems = 8;
-    let lastIsDesktop = window.innerWidth > 768;
-
-    function getMaxIndex() {
-      return window.innerWidth > 768 ? (totalItems - 4) : (totalItems - 1);
-    }
-
-    function initializePlacementCarouselDOM() {
-      const maxIndex = getMaxIndex();
-      const numDots = maxIndex + 1;
-
-      if (currentTrackIndex > maxIndex) {
-        currentTrackIndex = maxIndex;
-      }
-
-      dotsContainer.innerHTML = Array.from({ length: numDots })
-        .map(
-          (_, idx) =>
-            `<span id="placement-dot-${idx}" class="dot-inactive"></span>`,
-        )
-        .join("");
-
-      applyTrackPositionTransform(false);
-      refreshActiveDotHighlightIndicators();
-    }
-
-    function applyTrackPositionTransform(enableSmoothTransition) {
-      if (enableSmoothTransition) {
-        carouselTrack.style.transition = "transform 0.5s ease-in-out";
-      } else {
-        carouselTrack.style.transition = "none";
-      }
-
-      if (window.innerWidth > 768) {
-        // Desktop: 4 cards visible, calculate precise pixel shift based on current layout width
-        const frameWidth = carouselFrame.clientWidth;
-        const shiftPx = currentTrackIndex * (frameWidth + 24) / 4;
-        carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
-      } else {
-        // Mobile: 1 card visible, translate by 100% per card index
-        carouselTrack.style.transform = `translateX(-${currentTrackIndex * 100}%)`;
-      }
-    }
-
-    function refreshActiveDotHighlightIndicators() {
-      const maxIndex = getMaxIndex();
-      const numDots = maxIndex + 1;
-      for (let idx = 0; idx < numDots; idx++) {
-        const targetedDot = document.getElementById(`placement-dot-${idx}`);
-        if (targetedDot) {
-          if (idx === currentTrackIndex) {
-            targetedDot.className = "dot-active";
-          } else {
-            targetedDot.className = "dot-inactive";
-          }
-        }
-      }
-    }
-
-    function advanceCarouselNextSlide() {
-      if (isCarouselTransitioning) return;
-      isCarouselTransitioning = true;
-      const maxIndex = getMaxIndex();
-      if (currentTrackIndex >= maxIndex) {
-        currentTrackIndex = 0;
-      } else {
-        currentTrackIndex++;
-      }
-      applyTrackPositionTransform(true);
-      refreshActiveDotHighlightIndicators();
-      setTimeout(() => {
-        isCarouselTransitioning = false;
-      }, 500);
-    }
-
-    function regressCarouselPreviousSlide() {
-      if (isCarouselTransitioning) return;
-      isCarouselTransitioning = true;
-      const maxIndex = getMaxIndex();
-      if (currentTrackIndex <= 0) {
-        currentTrackIndex = maxIndex;
-      } else {
-        currentTrackIndex--;
-      }
-      applyTrackPositionTransform(true);
-      refreshActiveDotHighlightIndicators();
-      setTimeout(() => {
-        isCarouselTransitioning = false;
-      }, 500);
-    }
-
-    function processDragGestureStart(clientX) {
-      isCurrentlyDraggingGesture = true;
-      gestureDragStartXCoordinate = clientX;
-    }
-    function processDragGestureMove(clientX) {
-      if (!isCurrentlyDraggingGesture) return;
-      const netDeltaDifferenceX = clientX - gestureDragStartXCoordinate;
-      if (netDeltaDifferenceX > 50) {
-        regressCarouselPreviousSlide();
-        isCurrentlyDraggingGesture = false;
-      } else if (netDeltaDifferenceX < -50) {
-        advanceCarouselNextSlide();
-        isCurrentlyDraggingGesture = false;
-      }
-    }
-    function processDragGestureEnd() {
-      isCurrentlyDraggingGesture = false;
-    }
-
-    btnPrev.addEventListener("click", regressCarouselPreviousSlide);
-    btnNext.addEventListener("click", advanceCarouselNextSlide);
-
-    carouselFrame.addEventListener("mousedown", (e) => {
-      e.preventDefault();
-      processDragGestureStart(e.pageX);
-    });
-    carouselFrame.addEventListener("mousemove", (e) => {
-      e.preventDefault();
-      processDragGestureMove(e.pageX);
-    });
-    window.addEventListener("mouseup", processDragGestureEnd);
-    carouselFrame.addEventListener(
-      "touchstart",
-      (e) => processDragGestureStart(e.touches[0].clientX),
-      { passive: true },
-    );
-    carouselFrame.addEventListener(
-      "touchmove",
-      (e) => processDragGestureMove(e.touches[0].clientX),
-      { passive: true },
-    );
-    carouselFrame.addEventListener("touchend", processDragGestureEnd);
-
-    window.addEventListener("resize", () => {
-      const isDesktop = window.innerWidth > 768;
-      if (isDesktop !== lastIsDesktop) {
-        lastIsDesktop = isDesktop;
-        initializePlacementCarouselDOM();
-      } else {
-        applyTrackPositionTransform(false);
-      }
-    });
-
-    initializePlacementCarouselDOM();
-
-  </script>
+  
 
 </body>
 
