@@ -548,32 +548,11 @@
             margin: 0 auto;
         }
 
-        /* ─── CATEGORY FILTER SWITCHER (Tab Bar) ───────────────────────── */
-        .filter-bar {
-            background: #ffffff;
-            padding: 16px 0;
-            margin-bottom: 36px;
-        }
-
-        .filter-bar-inner {
-            max-width: 1230px;
-            margin: 0 auto;
-        }
-
-        .filter-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-        }
-
         .mobile-filter {
             width: 100%;
             position: relative;
         }
 
-        #dropdownBtn,
         #minimalDropdownBtn {
             width: 100%;
             display: flex;
@@ -590,12 +569,10 @@
             font-family: inherit;
         }
 
-        #dropdownBtn:active,
         #minimalDropdownBtn:active {
             transform: scale(0.98);
         }
 
-        #selectedCategory,
         #minimalSelectedCategory {
             font-size: var(--small-size);
             font-weight: var(--font-weight-body);
@@ -626,7 +603,6 @@
             }
         }
 
-        #dropdownIcon,
         #minimalDropdownIcon {
             width: 16px;
             height: 16px;
@@ -638,7 +614,6 @@
             transform: rotate(180deg);
         }
 
-        #dropdownMenu,
         #minimalDropdownMenu {
             position: absolute;
             top: calc(100% + 8px);
@@ -653,12 +628,10 @@
             display: block;
         }
 
-        #dropdownMenu.hidden,
         #minimalDropdownMenu.hidden {
             display: none !important;
         }
 
-        .category-item,
         .minimal-category-item {
             width: 100%;
             text-align: left;
@@ -675,77 +648,15 @@
             font-family: inherit;
         }
 
-        .category-item:hover,
         .minimal-category-item:hover {
             background: var(--secondary-bg);
         }
 
-        .category-item.active,
         .minimal-category-item.active {
             background: #eff6ff;
             color: #2563eb;
             font-weight: var(--font-weight-body);
             box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        }
-
-        .desktop-filter {
-            display: none;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .pills-container {
-            display: flex;
-            flex-wrap: nowrap;
-            justify-content: center;
-            align-items: center;
-            width: fit-content;
-            padding: 6px 8px;
-            background: var(--secondary-bg);
-            backdrop-filter: blur(12px);
-            border-radius: var(--r-lg-btn);
-            border: 1px solid rgba(203, 213, 225, 0.4);
-            gap: 4px;
-            box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.04);
-        }
-
-        .pill-btn {
-            padding: 10px 24px;
-            border-radius: var(--r-btn);
-            font-weight: var(--font-weight-body);
-            font-size: var(--body-size);
-            line-height: var(--body-line-height);
-            text-transform: uppercase;
-            border: none;
-            background: transparent;
-            color: #0f172a;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: inherit;
-            white-space: nowrap;
-        }
-
-        .pill-btn:hover {
-            color: #0f172a;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .pill-btn.active {
-            background: #ffffff;
-            color: #2563eb;
-            font-weight: var(--font-weight-body);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-            transform: scale(1.03);
-        }
-
-        @media (min-width: 769px) {
-            .mobile-filter {
-                display: none;
-            }
-
-            .desktop-filter {
-                display: flex;
-            }
         }
 
         /* ── Split Layout: Map + Info ── */
@@ -756,7 +667,7 @@
             grid-template-columns: 1.2fr 0.8fr;
             gap: 40px;
             background: #ffffff;
-            border-radius: 20px;
+            border-radius: var(--r-btn);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
             border: 1px solid var(--card-border);
             padding: 20px;
@@ -764,7 +675,7 @@
         }
 
         .location-map-container {
-            border-radius: 14px;
+            border-radius: var(--r-btn);
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
             min-height: 450px;
@@ -883,12 +794,16 @@
             }
         }
 
-        /* ─── VARIATION 4: MINIMAL UNDERLINE TABS ─────────── */
         .minimal-tabs-nav {
+            width: 100%;
+            position: sticky;
+            top: 64px;
+            z-index: 90;
             display: flex;
+            background-color: #ffffff;
             justify-content: center;
             border-bottom: 1px solid var(--card-border);
-            max-width: 800px;
+            /* max-width: 800px; */
             margin: 0 auto 32px;
             padding: 0 20px;
             gap: 32px;
@@ -1685,12 +1600,10 @@
                 margin: 0 auto !important;
             }
 
-            #dropdownBtn,
             #minimalDropdownBtn {
                 width: 250px !important;
             }
 
-            #dropdownMenu,
             #minimalDropdownMenu {
                 width: 250px !important;
                 left: 50% !important;
@@ -1713,7 +1626,7 @@
 
 
     <section class="new-hero">
-        <h2>Contact US</h2>
+        <h2>Contact Us</h2>
         <p>We understand that making definitive career decisions can be an arduous task at times. Let our seasoned,
             experienced academic veterans guide you towards making the right choice. Feel free to give us a buzz, to
             find the best fit for your future.</p>
@@ -1745,44 +1658,6 @@
         <div class="locations-header">
             <h2>Locations</h2>
             <p>We have multiple centers across India to help you connect with us easily.</p>
-        </div>
-
-        <!-- Tab Bar/Filter Bar adapted from student-work-page.html -->
-        <div class="filter-bar">
-            <div class="filter-bar-inner">
-                <div class="filter-container">
-                    <!-- Mobile Category Dropdown -->
-                    <div class="mobile-filter">
-                        <button id="dropdownBtn">
-                            <span id="selectedCategory">
-                                <span class="pulse-dot"></span>
-                                SEAMEDU - HO
-                            </span>
-                            <svg id="dropdownIcon" fill="none" stroke="currentColor" stroke-width="2"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </button>
-                        <div id="dropdownMenu" class="hidden">
-                            <button class="category-item active" data-target="ho">SEAMEDU - HO</button>
-                            <button class="category-item" data-target="design">Pune - ADYPU</button>
-                            <button class="category-item" data-target="technology">Ambi - DYPU</button>
-                            <button class="category-item" data-target="management">Kolkata - TIU</button>
-                            <button class="category-item" data-target="hospitality">Gurugram - NCU</button>
-                        </div>
-                    </div>
-                    <!-- Desktop Pills Switcher -->
-                    <div class="desktop-filter">
-                        <div class="pills-container">
-                            <button class="pill-btn active" data-target="ho">SEAMEDU - HO</button>
-                            <button class="pill-btn" data-target="design">Pune - ADYPU</button>
-                            <button class="pill-btn" data-target="technology">Ambi - DYPU</button>
-                            <button class="pill-btn" data-target="management">Kolkata - TIU</button>
-                            <button class="pill-btn" data-target="hospitality">Gurugram - NCU</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- ── VARIATION 4: Minimal Underline Tabs & Mobile Dropdown ── -->
@@ -2072,7 +1947,7 @@
                 mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.6!2d73.7699!3d18.5679!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf07b5555555%3A0x1234567890abcdef!2sSolitaire%20Business%20Hub!5e0!3m2!1sen!2sin!4v1700000000000"
             },
             design: {
-                name: "Pune – ADYPU",
+                name: "Ajeenkya D.Y. Patil University",
                 tagline: "School of Media & Design campus at Ajeenkya DY Patil University, Lohegaon.",
                 address: "Chandani Chowk, Near ADYPU Campus, Pune, Maharashtra 411045",
                 contact: "+91 89997 61319",
@@ -2081,7 +1956,7 @@
                 mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.0!2d73.92!3d18.59!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c147b5555555%3A0x1234567890abcdef!2sADYPU!5e0!3m2!1sen!2sin!4v1700000000000"
             },
             technology: {
-                name: "Pune – DYPU",
+                name: "D.Y. Patil University",
                 tagline: "School of Media & Technology campus at D.Y. Patil University, Tathawade.",
                 address: "Tathawade, Pune, Maharashtra 411057",
                 contact: "+91 85302 03440",
@@ -2090,7 +1965,7 @@
                 mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3781.5!2d73.76!3d18.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b555b5555555%3A0x1234567890abcdef!2sDY%20Patil!5e0!3m2!1sen!2sin!4v1700000000000"
             },
             management: {
-                name: "Kolkata – TIU",
+                name: "Techno India University",
                 tagline: "School of Media & Management campus at Techno India University, Kolkata.",
                 address: "New Town, Kolkata, West Bengal 700156",
                 contact: "+91 85302 03440",
@@ -2099,7 +1974,7 @@
                 mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.0!2d88.43!3d22.58!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0275c555555555%3A0x1234567890abcdef!2sTIU!5e0!3m2!1sen!2sin!4v1700000000000"
             },
             hospitality: {
-                name: "Gurugram – NCU",
+                name: "The NorthCap University",
                 tagline: "School of Media & Technology campus at The NorthCap University, Gurugram.",
                 address: "Sector 39, Gurugram, Haryana 122001",
                 contact: "+91 85302 03440",
@@ -2108,12 +1983,7 @@
                 mapSrc: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.0!2d77.05!3d28.49!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d19c555555555%3A0x1234567890abcdef!2sNCU!5e0!3m2!1sen!2sin!4v1700000000000"
             }
         };
-        const dropdownBtn = document.getElementById("dropdownBtn");
-        const dropdownMenu = document.getElementById("dropdownMenu");
-        const dropdownIcon = document.getElementById("dropdownIcon");
-        const selectedCategory = document.getElementById("selectedCategory");
-        const categoryItems = document.querySelectorAll(".category-item");
-        const pillBtns = document.querySelectorAll(".pill-btn");
+
         const minimalDropdownBtn = document.getElementById("minimalDropdownBtn");
         const minimalDropdownMenu = document.getElementById("minimalDropdownMenu");
         const minimalDropdownIcon = document.getElementById("minimalDropdownIcon");
@@ -2147,13 +2017,7 @@
             locationMapIframe.src = data.mapSrc;
         }
 
-        // Toggle Mobile Dropdowns
-        if (dropdownBtn) {
-            dropdownBtn.addEventListener("click", () => {
-                dropdownMenu.classList.toggle("hidden");
-                dropdownIcon.classList.toggle("rotate-180");
-            });
-        }
+        // Toggle Mobile Dropdown
         if (minimalDropdownBtn) {
             minimalDropdownBtn.addEventListener("click", () => {
                 minimalDropdownMenu.classList.toggle("hidden");
@@ -2165,27 +2029,7 @@
 
         // Helper to sync all navigation variants and update layout
         function syncAllNav(target) {
-            // 1. Sync original dropdown items & selection label
-            categoryItems.forEach(item => {
-                item.classList.remove("active");
-                if (item.getAttribute("data-target") === target) {
-                    item.classList.add("active");
-                    selectedCategory.innerHTML = `
-                      <span class="pulse-dot"></span>
-                      ${item.textContent.trim()}
-                    `;
-                }
-            });
-
-            // 2. Sync desktop pills
-            pillBtns.forEach(pill => {
-                pill.classList.remove("active");
-                if (pill.getAttribute("data-target") === target) {
-                    pill.classList.add("active");
-                }
-            });
-
-            // 3. Sync Variation 4 minimal underline tabs
+            // 1. Sync Variation 4 minimal underline tabs
             minimalTabBtns.forEach(btn => {
                 btn.classList.remove("active");
                 if (btn.getAttribute("data-target") === target) {
@@ -2193,7 +2037,7 @@
                 }
             });
 
-            // 4. Sync Variation 4 mobile select dropdown
+            // 2. Sync Variation 4 mobile select dropdown
             minimalCategoryItems.forEach(item => {
                 item.classList.remove("active");
                 if (item.getAttribute("data-target") === target) {
@@ -2207,26 +2051,9 @@
                 }
             });
 
-            // 5. Update map and info content
+            // 3. Update map and info content
             updateLocationInfo(target);
         }
-
-        // Mobile Dropdown Click Handler
-        categoryItems.forEach(item => {
-            item.addEventListener("click", () => {
-                const target = item.getAttribute("data-target");
-                syncAllNav(target);
-                dropdownMenu.classList.add("hidden");
-                dropdownIcon.classList.remove("rotate-180");
-            });
-        });
-
-        // Desktop Pills Click Handler
-        pillBtns.forEach(pill => {
-            pill.addEventListener("click", () => {
-                syncAllNav(pill.getAttribute("data-target"));
-            });
-        });
 
         // Minimal Underline Tabs Click Handler (Variation 4)
         minimalTabBtns.forEach(btn => {
@@ -2245,12 +2072,8 @@
             });
         });
 
-        // Close Dropdowns on Outside Click
+        // Close Dropdown on Outside Click
         document.addEventListener("click", (e) => {
-            if (dropdownBtn && !dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                dropdownMenu.classList.add("hidden");
-                dropdownIcon.classList.remove("rotate-180");
-            }
             if (minimalDropdownBtn && !minimalDropdownBtn.contains(e.target) && !minimalDropdownMenu.contains(e.target)) {
                 minimalDropdownMenu.classList.add("hidden");
                 minimalDropdownIcon.classList.remove("rotate-180");
