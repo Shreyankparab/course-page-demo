@@ -562,9 +562,9 @@
 
         .filter-container {
             position: relative;
-            margin: 0 auto;
-            max-width: 900px;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             padding: 0 20px;
         }
 
@@ -573,7 +573,8 @@
             position: relative;
         }
 
-        #dropdownBtn {
+        #dropdownBtn,
+        #minimalDropdownBtn {
             width: 100%;
             display: flex;
             align-items: center;
@@ -589,11 +590,13 @@
             font-family: inherit;
         }
 
-        #dropdownBtn:active {
+        #dropdownBtn:active,
+        #minimalDropdownBtn:active {
             transform: scale(0.98);
         }
 
-        #selectedCategory {
+        #selectedCategory,
+        #minimalSelectedCategory {
             font-size: var(--small-size);
             font-weight: var(--font-weight-body);
             text-transform: uppercase;
@@ -623,7 +626,8 @@
             }
         }
 
-        #dropdownIcon {
+        #dropdownIcon,
+        #minimalDropdownIcon {
             width: 16px;
             height: 16px;
             color: #94a3b8;
@@ -634,7 +638,8 @@
             transform: rotate(180deg);
         }
 
-        #dropdownMenu {
+        #dropdownMenu,
+        #minimalDropdownMenu {
             position: absolute;
             top: calc(100% + 8px);
             left: 0;
@@ -648,11 +653,13 @@
             display: block;
         }
 
-        #dropdownMenu.hidden {
+        #dropdownMenu.hidden,
+        #minimalDropdownMenu.hidden {
             display: none !important;
         }
 
-        .category-item {
+        .category-item,
+        .minimal-category-item {
             width: 100%;
             text-align: left;
             padding: 14px 16px;
@@ -668,11 +675,13 @@
             font-family: inherit;
         }
 
-        .category-item:hover {
+        .category-item:hover,
+        .minimal-category-item:hover {
             background: var(--secondary-bg);
         }
 
-        .category-item.active {
+        .category-item.active,
+        .minimal-category-item.active {
             background: #eff6ff;
             color: #2563eb;
             font-weight: var(--font-weight-body);
@@ -682,18 +691,21 @@
         .desktop-filter {
             display: none;
             justify-content: center;
+            align-items: center;
         }
 
         .pills-container {
-            display: inline-flex;
-            flex-wrap: wrap;
+            display: flex;
+            flex-wrap: nowrap;
             justify-content: center;
-            padding: 6px;
+            align-items: center;
+            width: fit-content;
+            padding: 6px 8px;
             background: var(--secondary-bg);
             backdrop-filter: blur(12px);
             border-radius: var(--r-lg-btn);
             border: 1px solid rgba(203, 213, 225, 0.4);
-            gap: 6px;
+            gap: 4px;
             box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.04);
         }
 
@@ -710,6 +722,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-family: inherit;
+            white-space: nowrap;
         }
 
         .pill-btn:hover {
@@ -737,7 +750,7 @@
 
         /* ── Split Layout: Map + Info ── */
         .locations-split-layout {
-            max-width: 1230px;
+            max-width: 1000px;
             margin: 0 auto;
             display: grid;
             grid-template-columns: 1.2fr 0.8fr;
@@ -860,6 +873,131 @@
             }
         }
 
+        @media (max-width: 768px) {
+            .location-info-container {
+                order: 1;
+            }
+
+            .location-map-container {
+                order: 2;
+            }
+        }
+
+        /* ─── VARIATION 4: MINIMAL UNDERLINE TABS ─────────── */
+        .minimal-tabs-nav {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid var(--card-border);
+            max-width: 800px;
+            margin: 0 auto 32px;
+            padding: 0 20px;
+            gap: 32px;
+        }
+
+        .minimal-tab-btn {
+            font-size: var(--link-size);
+            font-weight: var(--font-weight-body);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #64748b;
+            background: none;
+            border: none;
+            padding: 8px 4px 14px;
+            cursor: pointer;
+            position: relative;
+            font-family: inherit;
+            transition: color 0.3s ease;
+        }
+
+        .minimal-tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background: transparent;
+            transform: scaleX(0);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease;
+        }
+
+        .minimal-tab-btn:hover {
+            color: #0f172a;
+        }
+
+        .minimal-tab-btn.active {
+            color: #2563eb;
+        }
+
+        .minimal-tab-btn.active::after {
+            background-color: #2563eb;
+            transform: scaleX(1);
+        }
+
+        .minimal-mobile-dropdown {
+            display: none;
+            position: relative;
+            width: 250px;
+            margin: 0 auto 32px;
+        }
+
+        .minimal-mobile-dropdown select {
+            width: 100%;
+            padding: 12px 40px 12px 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0f172a;
+            background: #f8fafc;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            font-family: inherit;
+            outline: none;
+            transition: all 0.2s ease;
+        }
+
+        .minimal-mobile-dropdown select:focus {
+            border-color: #2563eb;
+            background: #ffffff;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .minimal-mobile-dropdown .select-arrow {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .minimal-tabs-nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px 20px;
+                padding-bottom: 12px;
+            }
+
+            .minimal-tab-btn {
+                white-space: nowrap;
+                padding: 6px 4px 10px;
+            }
+        }
+
+        @media (max-width: 426px) {
+            .minimal-tabs-nav {
+                display: none !important;
+            }
+
+            .minimal-mobile-dropdown {
+                display: block;
+            }
+        }
 
         /* ─── RESPONSIVE ─────────────────────────────────────── */
         @media (max-width: 1024px) {
@@ -1546,10 +1684,14 @@
                 width: 250px !important;
                 margin: 0 auto !important;
             }
-            #dropdownBtn {
+
+            #dropdownBtn,
+            #minimalDropdownBtn {
                 width: 250px !important;
             }
-            #dropdownMenu {
+
+            #dropdownMenu,
+            #minimalDropdownMenu {
                 width: 250px !important;
                 left: 50% !important;
                 transform: translateX(-50%) !important;
@@ -1614,7 +1756,7 @@
                         <button id="dropdownBtn">
                             <span id="selectedCategory">
                                 <span class="pulse-dot"></span>
-                                SEAMEDU (HO)
+                                SEAMEDU - HO
                             </span>
                             <svg id="dropdownIcon" fill="none" stroke="currentColor" stroke-width="2"
                                 viewBox="0 0 24 24">
@@ -1622,23 +1764,54 @@
                             </svg>
                         </button>
                         <div id="dropdownMenu" class="hidden">
-                            <button class="category-item active" data-target="ho">SEAMEDU (HO)</button>
-                            <button class="category-item" data-target="design">ADYPU</button>
-                            <button class="category-item" data-target="technology">DYPU</button>
-                            <button class="category-item" data-target="management">TIU</button>
-                            <button class="category-item" data-target="hospitality">NCU</button>
+                            <button class="category-item active" data-target="ho">SEAMEDU - HO</button>
+                            <button class="category-item" data-target="design">Pune - ADYPU</button>
+                            <button class="category-item" data-target="technology">Ambi - DYPU</button>
+                            <button class="category-item" data-target="management">Kolkata - TIU</button>
+                            <button class="category-item" data-target="hospitality">Gurugram - NCU</button>
                         </div>
                     </div>
                     <!-- Desktop Pills Switcher -->
                     <div class="desktop-filter">
                         <div class="pills-container">
-                            <button class="pill-btn active" data-target="ho">SEAMEDU (HO)</button>
-                            <button class="pill-btn" data-target="design">ADYPU</button>
-                            <button class="pill-btn" data-target="technology">DYPU</button>
-                            <button class="pill-btn" data-target="management">TIU</button>
-                            <button class="pill-btn" data-target="hospitality">NCU</button>
+                            <button class="pill-btn active" data-target="ho">SEAMEDU - HO</button>
+                            <button class="pill-btn" data-target="design">Pune - ADYPU</button>
+                            <button class="pill-btn" data-target="technology">Ambi - DYPU</button>
+                            <button class="pill-btn" data-target="management">Kolkata - TIU</button>
+                            <button class="pill-btn" data-target="hospitality">Gurugram - NCU</button>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ── VARIATION 4: Minimal Underline Tabs & Mobile Dropdown ── -->
+        <div class="minimal-tabs-nav">
+            <button class="minimal-tab-btn active" data-target="ho">Seamedu HO</button>
+            <button class="minimal-tab-btn" data-target="design">Pune - ADYPU</button>
+            <button class="minimal-tab-btn" data-target="technology">Ambi - DYPU</button>
+            <button class="minimal-tab-btn" data-target="management">Kolkata - TIU</button>
+            <button class="minimal-tab-btn" data-target="hospitality">Gurugram - NCU</button>
+        </div>
+
+        <div class="minimal-mobile-dropdown">
+            <div class="mobile-filter">
+                <button id="minimalDropdownBtn">
+                    <span id="minimalSelectedCategory">
+                        <span class="pulse-dot"></span>
+                        SEAMEDU - HO
+                    </span>
+                    <svg id="minimalDropdownIcon" fill="none" stroke="currentColor" stroke-width="2"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </button>
+                <div id="minimalDropdownMenu" class="hidden">
+                    <button class="minimal-category-item active" data-target="ho">SEAMEDU - HO</button>
+                    <button class="minimal-category-item" data-target="design">Pune - ADYPU</button>
+                    <button class="minimal-category-item" data-target="technology">Ambi - DYPU</button>
+                    <button class="minimal-category-item" data-target="management">Kolkata - TIU</button>
+                    <button class="minimal-category-item" data-target="hospitality">Gurugram - NCU</button>
                 </div>
             </div>
         </div>
@@ -1941,6 +2114,11 @@
         const selectedCategory = document.getElementById("selectedCategory");
         const categoryItems = document.querySelectorAll(".category-item");
         const pillBtns = document.querySelectorAll(".pill-btn");
+        const minimalDropdownBtn = document.getElementById("minimalDropdownBtn");
+        const minimalDropdownMenu = document.getElementById("minimalDropdownMenu");
+        const minimalDropdownIcon = document.getElementById("minimalDropdownIcon");
+        const minimalSelectedCategory = document.getElementById("minimalSelectedCategory");
+        const minimalCategoryItems = document.querySelectorAll(".minimal-category-item");
 
         const locName = document.getElementById("locName");
         const locTagline = document.getElementById("locTagline");
@@ -1969,38 +2147,75 @@
             locationMapIframe.src = data.mapSrc;
         }
 
-        // Toggle Mobile Dropdown
+        // Toggle Mobile Dropdowns
         if (dropdownBtn) {
             dropdownBtn.addEventListener("click", () => {
                 dropdownMenu.classList.toggle("hidden");
                 dropdownIcon.classList.toggle("rotate-180");
             });
         }
+        if (minimalDropdownBtn) {
+            minimalDropdownBtn.addEventListener("click", () => {
+                minimalDropdownMenu.classList.toggle("hidden");
+                minimalDropdownIcon.classList.toggle("rotate-180");
+            });
+        }
+
+        const minimalTabBtns = document.querySelectorAll(".minimal-tab-btn");
+
+        // Helper to sync all navigation variants and update layout
+        function syncAllNav(target) {
+            // 1. Sync original dropdown items & selection label
+            categoryItems.forEach(item => {
+                item.classList.remove("active");
+                if (item.getAttribute("data-target") === target) {
+                    item.classList.add("active");
+                    selectedCategory.innerHTML = `
+                      <span class="pulse-dot"></span>
+                      ${item.textContent.trim()}
+                    `;
+                }
+            });
+
+            // 2. Sync desktop pills
+            pillBtns.forEach(pill => {
+                pill.classList.remove("active");
+                if (pill.getAttribute("data-target") === target) {
+                    pill.classList.add("active");
+                }
+            });
+
+            // 3. Sync Variation 4 minimal underline tabs
+            minimalTabBtns.forEach(btn => {
+                btn.classList.remove("active");
+                if (btn.getAttribute("data-target") === target) {
+                    btn.classList.add("active");
+                }
+            });
+
+            // 4. Sync Variation 4 mobile select dropdown
+            minimalCategoryItems.forEach(item => {
+                item.classList.remove("active");
+                if (item.getAttribute("data-target") === target) {
+                    item.classList.add("active");
+                    if (minimalSelectedCategory) {
+                        minimalSelectedCategory.innerHTML = `
+                          <span class="pulse-dot"></span>
+                          ${item.textContent.trim()}
+                        `;
+                    }
+                }
+            });
+
+            // 5. Update map and info content
+            updateLocationInfo(target);
+        }
 
         // Mobile Dropdown Click Handler
         categoryItems.forEach(item => {
             item.addEventListener("click", () => {
                 const target = item.getAttribute("data-target");
-
-                // Update selected text
-                selectedCategory.innerHTML = `
-                  <span class="pulse-dot"></span>
-                  ${item.textContent.trim()}
-                `;
-
-                // Update active class on dropdown items
-                categoryItems.forEach(i => i.classList.remove("active"));
-                item.classList.add("active");
-
-                // Sync with desktop pills
-                pillBtns.forEach(pill => {
-                    if (pill.getAttribute("data-target") === target) {
-                        pillBtns.forEach(p => p.classList.remove("active"));
-                        pill.classList.add("active");
-                    }
-                });
-
-                updateLocationInfo(target);
+                syncAllNav(target);
                 dropdownMenu.classList.add("hidden");
                 dropdownIcon.classList.remove("rotate-180");
             });
@@ -2009,34 +2224,36 @@
         // Desktop Pills Click Handler
         pillBtns.forEach(pill => {
             pill.addEventListener("click", () => {
-                const target = pill.getAttribute("data-target");
-
-                // Update active class on desktop pills
-                pillBtns.forEach(p => p.classList.remove("active"));
-                pill.classList.add("active");
-
-                // Sync with mobile dropdown item text and active state
-                categoryItems.forEach(item => {
-                    if (item.getAttribute("data-target") === target) {
-                        categoryItems.forEach(i => i.classList.remove("active"));
-                        item.classList.add("active");
-
-                        selectedCategory.innerHTML = `
-                          <span class="pulse-dot"></span>
-                          ${item.textContent.trim()}
-                        `;
-                    }
-                });
-
-                updateLocationInfo(target);
+                syncAllNav(pill.getAttribute("data-target"));
             });
         });
 
-        // Close Dropdown on Outside Click
+        // Minimal Underline Tabs Click Handler (Variation 4)
+        minimalTabBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                syncAllNav(btn.getAttribute("data-target"));
+            });
+        });
+
+        // Minimal Dropdown Click Handler (Variation 4 Mobile)
+        minimalCategoryItems.forEach(item => {
+            item.addEventListener("click", () => {
+                const target = item.getAttribute("data-target");
+                syncAllNav(target);
+                minimalDropdownMenu.classList.add("hidden");
+                minimalDropdownIcon.classList.remove("rotate-180");
+            });
+        });
+
+        // Close Dropdowns on Outside Click
         document.addEventListener("click", (e) => {
             if (dropdownBtn && !dropdownBtn.contains(e.target) && !dropdownMenu.contains(e.target)) {
                 dropdownMenu.classList.add("hidden");
                 dropdownIcon.classList.remove("rotate-180");
+            }
+            if (minimalDropdownBtn && !minimalDropdownBtn.contains(e.target) && !minimalDropdownMenu.contains(e.target)) {
+                minimalDropdownMenu.classList.add("hidden");
+                minimalDropdownIcon.classList.remove("rotate-180");
             }
         });
 
