@@ -1245,11 +1245,17 @@
 
     @media (max-width: 1024px) {
       .placement-page-grid .placement-card {
-        width: calc((100% - 24px) / 2) !important;
+        width: calc((100% - 48px) / 3) !important;
       }
 
       .placement-page-grid {
         gap: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .placement-page-grid .placement-card {
+        width: calc((100% - 24px) / 2) !important;
       }
     }
 
@@ -1391,7 +1397,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 0;
-      background-color: #ffffff;
+      background-color: var(--primary-bg);
       width: 100%;
       box-sizing: border-box;
     }
@@ -1481,7 +1487,7 @@
       }
 
       .placement-carousel-controls {
-        padding: 16px 24px;
+        /* padding: 16px 24px; */
       }
     }
 
@@ -4231,36 +4237,45 @@
       }
     }
 
-    /* ─── CAMPUS V2 ──────────────────────────────────────── */
+    /* ─── CAMPUS CAROUSEL & CARDS ───────────────────────── */
+    .campus-carousel-frame {
+      width: 100%;
+      overflow: visible;
+      position: relative;
+    }
+
     .campus-v2-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
       margin-top: 0;
+      width: 100%;
     }
 
     .campus-v2-card {
       background: #ffffff;
-      border-radius: var(--r-lg-btn);
+      border-radius: 24px;
       overflow: hidden;
       border: 1px solid rgba(226, 232, 240, 0.8);
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
       display: flex;
       flex-direction: column;
       transition: all 0.3s ease;
+      padding: 16px;
+      box-sizing: border-box;
     }
 
     .campus-v2-card:hover {
-      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
-      transform: translateY(-2px);
-      border-color: rgba(226, 232, 240, 1);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      transform: translateY(-4px);
     }
 
     .campus-v2-img-wrapper {
       position: relative;
-      height: 256px;
+      height: 220px;
       width: 100%;
       overflow: hidden;
+      border-radius: 16px;
       background: #f1f5f9;
     }
 
@@ -4276,46 +4291,53 @@
       transform: scale(1.03);
     }
 
+    .campus-badge-loc {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #ffffff;
+      /* padding: 6px 14px; */
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      z-index: 2;
+    }
+
+    .campus-badge-loc svg {
+      width: 12px;
+      height: 12px;
+      fill: #155dfc;
+    }
+
+    .campus-badge-loc span {
+      font-size: 12px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
     .campus-v2-body {
-      padding: 24px;
+      padding: 20px 4px 4px;
       flex: 1;
       display: flex;
       flex-direction: column;
     }
 
     .campus-v2-title {
-      /* font-size: var(--h4-size); */
-      font-weight: var(--font-weight-heading);
-      color: var(--text-1);
-      margin-bottom: 8px;
-      transition: color 0.2s ease;
-    }
-
-    .campus-v2-card:hover .campus-v2-title {
-      color: var(--primary);
-    }
-
-    .campus-v2-loc {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--text-1);
-      font-size: var(--small-size);
-      font-weight: var(--font-weight-heading);
-      text-transform: uppercase;
-      margin-bottom: 16px;
-    }
-
-    .campus-v2-loc svg {
-      color: var(--primary);
-      flex-shrink: 0;
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+      line-height: 1.3;
     }
 
     .campus-v2-desc {
-      font-size: var(--body-size);
+      font-size: 14px;
       font-weight: var(--font-weight-body);
       color: var(--text-2);
-      line-height: var(--body-line-height);
+      line-height: 1.6;
       margin-bottom: 24px;
       opacity: 0.85;
     }
@@ -4323,44 +4345,105 @@
     .campus-v2-btn {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       padding: 10px 20px;
       background: var(--primary);
       color: #ffffff;
       border: none;
-      border-radius: var(--r-btn);
-      font-size: var(--btn-sm-size);
-      font-weight: var(--font-weight-heading);
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.05em;
       transition: all 0.2s;
       cursor: pointer;
-      box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -2px rgba(37, 99, 235, 0.1);
       width: fit-content;
-      font-family: 'Poppins', sans-serif;
+      font-family: inherit;
     }
 
     .campus-v2-btn:hover {
       background: var(--primary-hover);
-      box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2), 0 4px 6px -4px rgba(37, 99, 235, 0.2);
     }
 
     .campus-v2-btn:active {
       transform: scale(0.95);
     }
 
-    @media (max-width: 768px) {
-      .sec {
-        padding: 49px 20px;
+    .campus-carousel-controls {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      background-color: transparent;
+      width: 100%;
+      box-sizing: border-box;
+      /* margin-top: 24px; */
+    }
 
+    .campus-dots-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .campus-buttons-container {
+      display: flex;
+      gap: 8px;
+    }
+
+    .campus-carousel-btn {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--r-btn);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      color: #334155;
+      outline: none;
+    }
+
+    .campus-carousel-btn:hover {
+      background-color: var(--primary-bg);
+    }
+
+    .campus-carousel-btn:active {
+      background-color: #f1f5f9;
+    }
+
+    /* Tablet and Mobile views - turn grid to slider */
+    @media (max-width: 1023px) {
+      .campus-carousel-frame {
+        overflow: hidden;
       }
 
       .campus-v2-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+        transition: transform 0.5s ease-in-out;
       }
 
-      .campus-v2-img-wrapper {
-        height: 200px;
+      .campus-v2-grid .campus-v2-card {
+        width: calc((100% - 24px) / 2) !important;
+        flex-shrink: 0 !important;
+      }
+
+      .campus-carousel-controls {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .campus-v2-grid .campus-v2-card {
+        width: 100% !important;
       }
     }
 
@@ -4986,11 +5069,9 @@
 <body>
 
   <!-- ── 1. STICKY NAV ─────────────────────────────────────── -->
-  
+
   <!-- NEW STICKY NAVBAR -->
   <style>
-
-
     .navbar {
       position: sticky;
       top: 0;
@@ -5080,7 +5161,7 @@
     .mobile-chevron {
       transition: all 0.3s ease;
     }
-  
+
 
     /* ── Reset ── */
     *,
@@ -5974,10 +6055,203 @@
         padding: 36px 16px;
       }
     }
-  
 
+    /* ── Team Carousel Section ── */
+    .team-carousel-section {
+      padding: 49px 0;
+      background-color: #f8fafc;
+      overflow: hidden;
+    }
+
+    .team-carousel-section .container {
+      max-width: 1230px;
+      margin: 0 auto;
+      /* padding: 0 20px; */
+    }
+
+    .team-carousel-header {
+      text-align: left;
+      margin-bottom: 36px;
+    }
+
+    .team-carousel-header h2 {
+      font-size: var(--h2-size);
+      line-height: var(--h2-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-1);
+      margin-bottom: 14px;
+    }
+
+    .team-carousel-header p {
+      color: var(--text-2);
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-body);
+      max-width: 780px;
+      margin: 0;
+    }
+
+    .team-carousel-track-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      cursor: grab;
+    }
+
+    .team-carousel-track-wrapper:active {
+      cursor: grabbing;
+    }
+
+    .team-carousel-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+
+    .team-member-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      width: calc((100% - 3 * 24px) / 4);
+      /* Default 4 cards */
+    }
+
+    .team-member-img-wrapper {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background-color: #f1f5f9;
+    }
+
+    .team-member-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-member-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-grow: 1;
+      justify-content: flex-start;
+    }
+
+    .team-member-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .team-member-role {
+      font-size: 13px;
+      font-weight: 500;
+      color: #64748b;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* Controls: dots on left, buttons on right */
+    .team-carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+    }
+
+    .team-dots-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .team-dots-container span {
+      height: 8px;
+      border-radius: 9999px;
+      background-color: #cbd5e1;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .team-dots-container .team-dot-inactive {
+      width: 8px;
+    }
+
+    .team-dots-container .team-dot-active {
+      width: 24px;
+      background-color: #0f172a;
+    }
+
+    .team-buttons-container {
+      display: flex;
+      gap: 12px;
+    }
+
+    .team-carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid #e2e8f0;
+      background-color: #ffffff;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .team-carousel-btn:hover {
+      background-color: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    /* Responsive rules matching user's breakpoint requirements:
+       - 768px: 3 cards
+       - 425px: 2 cards
+       - Else: 4 cards
+    */
+    @media (max-width: 768px) {
+      .team-member-card {
+        width: calc((100% - 2 * 24px) / 3);
+        /* 3 cards */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-member-card {
+        width: calc((100% - 1 * 16px) / 2);
+        /* 2 cards */
+      }
+
+      .team-carousel-track {
+        gap: 10px;
+      }
+
+      .team-member-info {
+        padding: 12px;
+      }
+
+      .team-member-name {
+        font-size: 14px;
+      }
+
+      .team-member-role {
+        font-size: 12px;
+      }
+    }
   </style>
-  
+
   <nav class="navbar">
     <!-- Logo -->
     <div class="logo-block">
@@ -6579,7 +6853,7 @@
 
     <a href="#" class="mobile-apply">Apply Now</a>
   </nav>
-  
+
   <script>
     /* --- PROGRAMS MEGA-MENU LOGIC --- */
     const progTabs = document.querySelectorAll("#programs-dropdown .cat-tab");
@@ -7450,6 +7724,7 @@
 
 
 
+
   <section class="inquiry-section">
     <div class="container">
       <div class="sub-title">
@@ -7527,7 +7802,7 @@
   </section>
 
   <!-- ── 5b2. CAMPUS V2 ──────────────────────────────────────── -->
-  <section class="sec" style="background: var(--secondary-bg);">
+  <section class="sec" style="background: var(--secondary-bg); overflow: hidden;">
     <div class="container">
       <!-- Section Header -->
       <div style="text-align: center; margin-bottom: 36px;">
@@ -7539,75 +7814,108 @@
         </p>
       </div>
 
-      <!-- Campus Grid -->
-      <div class="campus-v2-grid">
-        <!-- Campus 1 -->
-        <div class="campus-v2-card">
-          <div class="campus-v2-img-wrapper">
-            <img src="NorthCap.png" alt="The NorthCap University" loading="lazy">
-          </div>
-          <div class="campus-v2-body">
-            <h5 class="campus-v2-title">The NorthCap University</h5>
-            <div class="campus-v2-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--primary)"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
-              </svg>
-              <span
-                style="font-size: var(--small-size); line-height: var(--small-line-height); font-weight: var(--font-weight-body);">Gurugram</span>
-            </div>
-            <p class="campus-v2-desc">
-              A leading private university known for strong programs in engineering, management, and law. Focuses on
-              innovation, research, and industry-aligned education.
-            </p>
-            <div style="margin-top: auto;">
-              <button class="campus-v2-btn">
-                Explore
-                <svg width="10" height="10" viewBox="0 0 448 512" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg">
+      <!-- Campus Carousel Frame -->
+      <div id="campusCarouselFrame" class="campus-carousel-frame">
+        <!-- Campus Grid -->
+        <div class="campus-v2-grid" id="campusGrid">
+          <!-- Campus 1: ADYPU -->
+          <div class="campus-v2-card">
+            <div class="campus-v2-img-wrapper">
+              <img src="ajinkya.png" alt="Ajeenkya DY Patil University" loading="lazy">
+              <div class="campus-badge-loc">
+                <svg viewBox="0 0 384 512">
                   <path
-                    d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
                 </svg>
-              </button>
+                <span>Pune</span>
+              </div>
+            </div>
+            <div class="campus-v2-body">
+              <h5 class="campus-v2-title">Ajeenkya DY Patil University</h5>
+              <p class="campus-v2-desc">
+                TIU, established in 2012, is West Bengal's first private university and a leader in education, research,
+                and innovation.
+              </p>
+              <div style="margin-top: auto;">
+                <button class="campus-v2-btn">
+                  Explore →
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Campus 2 -->
-        <div class="campus-v2-card">
-          <div class="campus-v2-img-wrapper">
-            <img src="ajinkya.png" alt="Ajeenkya DY Patil University Pune" loading="lazy">
-          </div>
-          <div class="campus-v2-body">
-            <h5 class="campus-v2-title">Ajeenkya DY Patil University Pune</h5>
-            <div class="campus-v2-loc">
-              <svg width="10" height="10" viewBox="0 0 384 512" fill="var(--primary)"
-                xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
-              </svg>
-              <span
-                style="font-size: var(--small-size); line-height: var(--small-line-height); font-weight: var(--font-weight-body);">Pune</span>
-            </div>
-            <p class="campus-v2-desc">
-              An innovation-driven university focused on future-ready education and entrepreneurship. Offers modern
-              infrastructure with strong industry integration.
-            </p>
-            <div style="margin-top: auto;">
-              <button class="campus-v2-btn">
-                Explore
-                <svg width="10" height="10" viewBox="0 0 448 512" fill="currentColor"
-                  xmlns="http://www.w3.org/2000/svg">
+          <!-- Campus 2: TIU -->
+          <div class="campus-v2-card">
+            <div class="campus-v2-img-wrapper">
+              <img src="Techno.png" alt="Techno India University" loading="lazy">
+              <div class="campus-badge-loc">
+                <svg viewBox="0 0 384 512">
                   <path
-                    d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h306.7L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
                 </svg>
-              </button>
+                <span>Kolkata</span>
+              </div>
+            </div>
+            <div class="campus-v2-body">
+              <h5 class="campus-v2-title">Techno India University</h5>
+              <p class="campus-v2-desc">
+                TIU, established in 2012, is West Bengal's first private university and a leader in education, research,
+                and innovation.
+              </p>
+              <div style="margin-top: auto;">
+                <button class="campus-v2-btn">
+                  Explore →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Campus 3: NCU -->
+          <div class="campus-v2-card">
+            <div class="campus-v2-img-wrapper">
+              <img src="NorthCap.png" alt="The NorthCap University" loading="lazy">
+              <div class="campus-badge-loc">
+                <svg viewBox="0 0 384 512">
+                  <path
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+                </svg>
+                <span>Gurugram</span>
+              </div>
+            </div>
+            <div class="campus-v2-body">
+              <h5 class="campus-v2-title">The NorthCap University</h5>
+              <p class="campus-v2-desc">
+                TIU, established in 2012, is West Bengal's first private university and a leader in education, research,
+                and innovation.
+              </p>
+              <div style="margin-top: auto;">
+                <button class="campus-v2-btn">
+                  Explore →
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+
+      <!-- Campus Carousel Controls (Tablets & Mobile only) -->
+      <div class="campus-carousel-controls">
+        <div id="campusDotsContainer" class="campus-dots-container"></div>
+        <div class="campus-buttons-container">
+          <button id="campusPrevBtn" aria-label="Previous slide" class="campus-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button id="campusNextBtn" aria-label="Next slide" class="campus-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -7626,141 +7934,104 @@
       <div id="placementCarouselFrame" class="placement-carousel-frame">
         <div class="placement-page-grid" id="placementGrid">
 
+          <!-- Row 1 -->
           <!-- Card 1 -->
           <div class="placement-card" data-category="management">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
-              <!-- <div class="package-badge">₹14.50 LPA</div> -->
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Harsh Gaur</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Jaro Education logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 1"
+              loading="lazy">
           </div>
 
           <!-- Card 2 -->
           <div class="placement-card" data-category="technology">
-            <div class="placement-media">
-              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Pavan Kulkarni</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="costco.png" alt="IntervueVet logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 2"
+              loading="lazy">
           </div>
 
           <!-- Card 3 -->
           <div class="placement-card" data-category="design">
-            <div class="placement-media">
-              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Om Giramkar</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Learning Routes logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 3"
+              loading="lazy">
           </div>
 
           <!-- Card 4 -->
           <div class="placement-card" data-category="media">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Sanket Dhawale</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="paytm.png" alt="Edgewise logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 4"
+              loading="lazy">
           </div>
 
-          <!-- Card 5 (Duplicated Harsh Gaur) -->
+          <!-- Row 2 -->
+          <!-- Card 5 -->
+          <div class="placement-card" data-category="hospitality">
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 5"
+              loading="lazy">
+          </div>
+
+          <!-- Card 6 -->
           <div class="placement-card" data-category="management">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Harsh Gaur (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Jaro Education logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 6"
+              loading="lazy">
           </div>
 
-          <!-- Card 6 (Duplicated Pavan Kulkarni) -->
+          <!-- Card 7 -->
           <div class="placement-card" data-category="technology">
-            <div class="placement-media">
-              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Pavan Kulkarni (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="costco.png" alt="IntervueVet logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 7"
+              loading="lazy">
           </div>
 
-          <!-- Card 7 (Duplicated Om Giramkar) -->
+          <!-- Card 8 -->
           <div class="placement-card" data-category="design">
-            <div class="placement-media">
-              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Om Giramkar (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Learning Routes logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 8"
+              loading="lazy">
           </div>
 
-          <!-- Card 8 (Duplicated Sanket Dhawale) -->
+          <!-- Row 3 -->
+          <!-- Card 9 -->
           <div class="placement-card" data-category="media">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Sanket Dhawale (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="paytm.png" alt="Edgewise logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 9"
+              loading="lazy">
+          </div>
+
+          <!-- Card 10 -->
+          <div class="placement-card" data-category="hospitality">
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 10"
+              loading="lazy">
+          </div>
+
+          <!-- Card 11 -->
+          <div class="placement-card" data-category="management">
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 11"
+              loading="lazy">
+          </div>
+
+          <!-- Card 12 -->
+          <div class="placement-card" data-category="technology">
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 12"
+              loading="lazy">
+          </div>
+
+          <!-- Row 4 -->
+          <!-- Card 13 -->
+          <div class="placement-card" data-category="design">
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 13"
+              loading="lazy">
+          </div>
+
+          <!-- Card 14 -->
+          <div class="placement-card" data-category="media">
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 14"
+              loading="lazy">
+          </div>
+
+          <!-- Card 15 -->
+          <div class="placement-card" data-category="hospitality">
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 15"
+              loading="lazy">
+          </div>
+
+          <!-- Card 16 -->
+          <div class="placement-card" data-category="management">
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 16"
+              loading="lazy">
           </div>
 
         </div>
@@ -7833,13 +8104,15 @@
       let isCarouselTransitioning = false;
       let isCurrentlyDraggingGesture = false;
       let gestureDragStartXCoordinate = 0;
-      const totalItems = 8;
-      let lastViewMode = window.innerWidth > 1024 ? "desktop" : (window.innerWidth > 576 ? "tablet" : "mobile");
+      const totalItems = 16;
+      let lastViewMode = window.innerWidth > 1024 ? "desktop" : (window.innerWidth > 768 ? "tablet-3col" : (window.innerWidth > 576 ? "tablet-2col" : "mobile"));
 
       function getMaxIndex() {
         const width = window.innerWidth;
         if (width > 1024) {
           return totalItems - 4; // 4 cards visible
+        } else if (width > 768) {
+          return totalItems - 3; // 3 cards visible
         } else if (width > 576) {
           return totalItems - 2; // 2 cards visible
         } else {
@@ -7849,18 +8122,30 @@
 
       function initializePlacementCarouselDOM() {
         const maxIndex = getMaxIndex();
-        const numDots = maxIndex + 1;
 
         if (currentTrackIndex > maxIndex) {
           currentTrackIndex = maxIndex;
         }
 
-        dotsContainer.innerHTML = Array.from({ length: numDots })
+        dotsContainer.innerHTML = Array.from({ length: 4 })
           .map(
             (_, idx) =>
-              `<span id="placement-dot-${idx}" class="dot-inactive"></span>`,
+              `<span id="placement-dot-${idx}" class="dot-inactive" style="cursor:pointer;"></span>`,
           )
           .join("");
+
+        // Click handler for dots
+        for (let idx = 0; idx < 4; idx++) {
+          const dotEl = document.getElementById(`placement-dot-${idx}`);
+          if (dotEl) {
+            dotEl.addEventListener("click", () => {
+              if (isCarouselTransitioning) return;
+              currentTrackIndex = Math.round((idx / 3) * maxIndex);
+              applyTrackPositionTransform(true);
+              refreshActiveDotHighlightIndicators();
+            });
+          }
+        }
 
         applyTrackPositionTransform(false);
         refreshActiveDotHighlightIndicators();
@@ -7879,6 +8164,9 @@
         if (width > 1024) {
           const shiftPx = currentTrackIndex * (frameWidth + 24) / 4;
           carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
+        } else if (width > 768) {
+          const shiftPx = currentTrackIndex * (frameWidth + 24) / 3;
+          carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
         } else if (width > 576) {
           const shiftPx = currentTrackIndex * (frameWidth + 24) / 2;
           carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
@@ -7889,11 +8177,11 @@
 
       function refreshActiveDotHighlightIndicators() {
         const maxIndex = getMaxIndex();
-        const numDots = maxIndex + 1;
-        for (let idx = 0; idx < numDots; idx++) {
+        const activeDotIndex = maxIndex > 0 ? Math.round((currentTrackIndex / maxIndex) * 3) : 0;
+        for (let idx = 0; idx < 4; idx++) {
           const targetedDot = document.getElementById(`placement-dot-${idx}`);
           if (targetedDot) {
-            if (idx === currentTrackIndex) {
+            if (idx === activeDotIndex) {
               targetedDot.className = "dot-active";
             } else {
               targetedDot.className = "dot-inactive";
@@ -7982,8 +8270,10 @@
         let currentViewMode = "mobile";
         if (width > 1024) {
           currentViewMode = "desktop";
+        } else if (width > 768) {
+          currentViewMode = "tablet-3col";
         } else if (width > 576) {
-          currentViewMode = "tablet";
+          currentViewMode = "tablet-2col";
         }
 
         if (currentViewMode !== lastViewMode) {
@@ -7995,82 +8285,202 @@
       });
 
       initializePlacementCarouselDOM();
+
+      // ── CAMPUS SLIDER LOGIC ──
+      const campusFrame = document.getElementById("campusCarouselFrame");
+      const campusTrack = document.getElementById("campusGrid");
+      const campusDotsContainer = document.getElementById("campusDotsContainer");
+      const campusBtnPrev = document.getElementById("campusPrevBtn");
+      const campusBtnNext = document.getElementById("campusNextBtn");
+
+      let campusCurrentIndex = 0;
+      let isCampusTransitioning = false;
+      let isCampusDragging = false;
+      let campusDragStartX = 0;
+      const campusTotalItems = 3;
+      let campusLastViewMode = window.innerWidth > 1023 ? "desktop" : (window.innerWidth > 576 ? "tablet" : "mobile");
+
+      function getCampusMaxIndex() {
+        const width = window.innerWidth;
+        if (width > 1023) {
+          return 0; // all 3 visible
+        } else if (width > 576) {
+          return campusTotalItems - 2; // 2 visible
+        } else {
+          return campusTotalItems - 1; // 1 visible
+        }
+      }
+
+      function initCampusSlider() {
+        const maxIndex = getCampusMaxIndex();
+        const numDots = maxIndex + 1;
+
+        if (campusCurrentIndex > maxIndex) {
+          campusCurrentIndex = maxIndex;
+        }
+
+        if (numDots <= 1) {
+          campusDotsContainer.innerHTML = "";
+        } else {
+          campusDotsContainer.innerHTML = Array.from({ length: numDots })
+            .map(
+              (_, idx) =>
+                `<span id="campus-dot-${idx}" class="dot-inactive" style="cursor:pointer;"></span>`,
+            )
+            .join("");
+
+          // Click handler for dots
+          for (let idx = 0; idx < numDots; idx++) {
+            const dotEl = document.getElementById(`campus-dot-${idx}`);
+            if (dotEl) {
+              dotEl.addEventListener("click", () => {
+                if (isCampusTransitioning) return;
+                campusCurrentIndex = idx;
+                applyCampusTransform(true);
+                highlightCampusDots();
+              });
+            }
+          }
+        }
+
+        applyCampusTransform(false);
+        highlightCampusDots();
+      }
+
+      function applyCampusTransform(smooth) {
+        if (smooth) {
+          campusTrack.style.transition = "transform 0.5s ease-in-out";
+        } else {
+          campusTrack.style.transition = "none";
+        }
+
+        const width = window.innerWidth;
+        if (width > 1023) {
+          campusTrack.style.transform = "none";
+        } else if (width > 576) {
+          const frameWidth = campusFrame.clientWidth;
+          const shiftPx = campusCurrentIndex * (frameWidth + 24) / 2;
+          campusTrack.style.transform = `translateX(-${shiftPx}px)`;
+        } else {
+          campusTrack.style.transform = `translateX(-${campusCurrentIndex * 100}%)`;
+        }
+      }
+
+      function highlightCampusDots() {
+        const maxIndex = getCampusMaxIndex();
+        const numDots = maxIndex + 1;
+        for (let idx = 0; idx < numDots; idx++) {
+          const dot = document.getElementById(`campus-dot-${idx}`);
+          if (dot) {
+            if (idx === campusCurrentIndex) {
+              dot.className = "dot-active";
+            } else {
+              dot.className = "dot-inactive";
+            }
+          }
+        }
+      }
+
+      function advanceCampusNext() {
+        if (isCampusTransitioning) return;
+        isCampusTransitioning = true;
+        const maxIndex = getCampusMaxIndex();
+        if (campusCurrentIndex >= maxIndex) {
+          campusCurrentIndex = 0;
+        } else {
+          campusCurrentIndex++;
+        }
+        applyCampusTransform(true);
+        highlightCampusDots();
+        setTimeout(() => {
+          isCampusTransitioning = false;
+        }, 500);
+      }
+
+      function regressCampusPrev() {
+        if (isCampusTransitioning) return;
+        isCampusTransitioning = true;
+        const maxIndex = getCampusMaxIndex();
+        if (campusCurrentIndex <= 0) {
+          campusCurrentIndex = maxIndex;
+        } else {
+          campusCurrentIndex--;
+        }
+        applyCampusTransform(true);
+        highlightCampusDots();
+        setTimeout(() => {
+          isCampusTransitioning = false;
+        }, 500);
+      }
+
+      // Drag Gestures for Campus
+      function handleCampusDragStart(clientX) {
+        if (getCampusMaxIndex() === 0) return;
+        isCampusDragging = true;
+        campusDragStartX = clientX;
+      }
+      function handleCampusDragMove(clientX) {
+        if (!isCampusDragging) return;
+        const deltaX = clientX - campusDragStartX;
+        if (deltaX > 50) {
+          regressCampusPrev();
+          isCampusDragging = false;
+        } else if (deltaX < -50) {
+          advanceCampusNext();
+          isCampusDragging = false;
+        }
+      }
+      function handleCampusDragEnd() {
+        isCampusDragging = false;
+      }
+
+      if (campusBtnPrev) campusBtnPrev.addEventListener("click", regressCampusPrev);
+      if (campusBtnNext) campusBtnNext.addEventListener("click", advanceCampusNext);
+
+      if (campusFrame) {
+        campusFrame.addEventListener("mousedown", (e) => {
+          e.preventDefault();
+          handleCampusDragStart(e.pageX);
+        });
+        campusFrame.addEventListener("mousemove", (e) => {
+          e.preventDefault();
+          handleCampusDragMove(e.pageX);
+        });
+        window.addEventListener("mouseup", handleCampusDragEnd);
+
+        campusFrame.addEventListener(
+          "touchstart",
+          (e) => handleCampusDragStart(e.touches[0].clientX),
+          { passive: true },
+        );
+        campusFrame.addEventListener(
+          "touchmove",
+          (e) => handleCampusDragMove(e.touches[0].clientX),
+          { passive: true },
+        );
+        campusFrame.addEventListener("touchend", handleCampusDragEnd);
+      }
+
+      window.addEventListener("resize", () => {
+        const width = window.innerWidth;
+        let currentMode = "mobile";
+        if (width > 1023) {
+          currentMode = "desktop";
+        } else if (width > 576) {
+          currentMode = "tablet";
+        }
+
+        if (currentMode !== campusLastViewMode) {
+          campusLastViewMode = currentMode;
+          initCampusSlider();
+        } else {
+          applyCampusTransform(false);
+        }
+      });
+
+      initCampusSlider();
     </script>
-    <!-- Hiring Partners -->
-    <div class="placement-partners-section">
-      <div style="text-align:center;margin-bottom:32px;">
-        <!-- <div class="label">Our Network</div> -->
-        <h2>Hiring <span style="color:var(--primary);">Partners</span></h2>
-      </div>
 
-      <div class="marquee-stack">
-        <!-- Row 1 — scrolls left -->
-        <div class="marquee-outer">
-          <div class="marquee-track left">
-            <span class="partner-chip">Google</span>
-            <span class="partner-chip">Microsoft</span>
-            <span class="partner-chip">TCS</span>
-            <span class="partner-chip">IBM</span>
-            <span class="partner-chip">Cognizant</span>
-            <span class="partner-chip">Cisco</span>
-            <span class="partner-chip">Wipro</span>
-            <span class="partner-chip">Capgemini</span>
-            <span class="partner-chip">Siemens</span>
-            <span class="partner-chip">Infosys</span>
-            <span class="partner-chip">Accenture</span>
-            <span class="partner-chip">Oracle</span>
-            <!-- duplicate for seamless loop -->
-            <span class="partner-chip">Google</span>
-            <span class="partner-chip">Microsoft</span>
-            <span class="partner-chip">TCS</span>
-            <span class="partner-chip">IBM</span>
-            <span class="partner-chip">Cognizant</span>
-            <span class="partner-chip">Cisco</span>
-            <span class="partner-chip">Wipro</span>
-            <span class="partner-chip">Capgemini</span>
-            <span class="partner-chip">Siemens</span>
-            <span class="partner-chip">Infosys</span>
-            <span class="partner-chip">Accenture</span>
-            <span class="partner-chip">Oracle</span>
-          </div>
-        </div>
-
-        <!-- Row 2 — scrolls right -->
-        <div class="marquee-outer">
-          <div class="marquee-track right">
-            <span class="partner-chip">Amazon</span>
-            <span class="partner-chip">Meta</span>
-            <span class="partner-chip">Deloitte</span>
-            <span class="partner-chip">HCL</span>
-            <span class="partner-chip">Zensar</span>
-            <span class="partner-chip">Mphasis</span>
-            <span class="partner-chip">L&amp;T Tech</span>
-            <span class="partner-chip">Hexaware</span>
-            <span class="partner-chip">Mindtree</span>
-            <span class="partner-chip">Persistent</span>
-            <span class="partner-chip">Birlasoft</span>
-            <span class="partner-chip">Nagarro</span>
-            <!-- duplicate for seamless loop -->
-            <span class="partner-chip">Amazon</span>
-            <span class="partner-chip">Meta</span>
-            <span class="partner-chip">Deloitte</span>
-            <span class="partner-chip">HCL</span>
-            <span class="partner-chip">Zensar</span>
-            <span class="partner-chip">Mphasis</span>
-            <span class="partner-chip">L&amp;T Tech</span>
-            <span class="partner-chip">Hexaware</span>
-            <span class="partner-chip">Mindtree</span>
-            <span class="partner-chip">Persistent</span>
-            <span class="partner-chip">Birlasoft</span>
-            <span class="partner-chip">Nagarro</span>
-          </div>
-        </div>
-      </div>
-      <div style="text-align:center; margin-top: 40px;">
-        <a href="#" class="btn btn-primary" style="font-size:var(--btn-md-size);padding:14px 40px;">View All
-          Placements</a>
-      </div>
-    </div>
 
   </section>
 
@@ -8104,7 +8514,8 @@
             <tbody>
               <tr>
                 <td class="role-cell">Software Engineer</td>
-                <td>Design, build, and maintain scalable software applications across web, mobile, and backend systems.
+                <td>Design, build, and maintain scalable software applications across web, mobile, and backend
+                  systems.
                 </td>
                 <td><span class="">₹8–18 LPA</span></td>
               </tr>
@@ -8129,13 +8540,15 @@
               </tr>
               <tr>
                 <td class="role-cell">Cybersecurity Analyst</td>
-                <td>Safeguard digital infrastructure through vulnerability assessments, penetration testing, and audits.
+                <td>Safeguard digital infrastructure through vulnerability assessments, penetration testing, and
+                  audits.
                 </td>
                 <td><span class="">₹8–20 LPA</span></td>
               </tr>
               <tr>
                 <td class="role-cell">Product Manager</td>
-                <td>Bridge engineering and business to define product strategy, roadmap planning, and software delivery.
+                <td>Bridge engineering and business to define product strategy, roadmap planning, and software
+                  delivery.
                 </td>
                 <td><span class="">₹12–28 LPA</span></td>
               </tr>
@@ -8147,13 +8560,15 @@
               </tr>
               <tr>
                 <td class="role-cell">Blockchain Developer</td>
-                <td>Design and implement secure decentralized applications, smart contracts, and cryptographic protocols
+                <td>Design and implement secure decentralized applications, smart contracts, and cryptographic
+                  protocols
                   for Web3 and fintech platforms.</td>
                 <td><span class="">₹10–25 LPA</span></td>
               </tr>
               <tr>
                 <td class="role-cell">Systems Architect</td>
-                <td>Define the high-level structure of software systems, selecting technologies, frameworks, and coding
+                <td>Define the high-level structure of software systems, selecting technologies, frameworks, and
+                  coding
                   standards to ensure scalability and reliability.</td>
                 <td><span class="">₹18–40 LPA</span></td>
               </tr>
@@ -8166,7 +8581,8 @@
             </tbody>
           </table>
         </div>
-        <div class="career-table-overlay" id="careerTableToggleBtn" onclick="toggleCareerTable()"><span>View more</span>
+        <div class="career-table-overlay" id="careerTableToggleBtn" onclick="toggleCareerTable()"><span>View
+            more</span>
         </div>
       </div>
     </div>
@@ -8249,7 +8665,8 @@
               </div>
             </div>
             <div class="work-details-v4">
-              <h4 class="work-title-v4 line-clamp-2">Sound Engineering Mastery: Immersive Ambient Audio and Synthesizer
+              <h4 class="work-title-v4 line-clamp-2">Sound Engineering Mastery: Immersive Ambient Audio and
+                Synthesizer
                 Track Layout</h4>
               <p class="work-student-v4">By Isha Malhotra</p>
             </div>
@@ -8305,6 +8722,138 @@
     </div>
   </section>
 
+  <!-- MEET THE TEAM SECTION -->
+  <section class="team-carousel-section" style="background-color: #f8fafc;">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="team-carousel-header">
+        <h2>Meet the team</h2>
+        <p>Our faculty combines academic excellence with real-world industry experience to deliver practical learning.
+        </p>
+      </div>
+
+      <!-- Carousel Frame -->
+      <div class="team-carousel-track-wrapper" id="teamCarouselFrame">
+        <div class="team-carousel-track" id="teamCarouselTrack">
+          <!-- Card 1 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=500&q=80"
+                alt="Johnston DSouza" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Johnston DSouza</h4>
+              <p class="team-member-role">Live Sound Expert</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80"
+                alt="Dr. Sukhada Khandge" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Dr. Sukhada Khandge</h4>
+              <p class="team-member-role">Associate HOA - Journalism and Media Studies</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80"
+                alt="Rahul Singh" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Rahul Singh</h4>
+              <p class="team-member-role">Senior Faculty - VFX & Animation</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80"
+                alt="Tanmay Datta" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Tanmay Datta</h4>
+              <p class="team-member-role">HOD - Game Art and Design</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80"
+                alt="Abid Shaikh" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Abid Shaikh</h4>
+              <p class="team-member-role">HOA - Game Art, Design & Development</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80"
+                alt="Mandar Patil" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Mandar Patil</h4>
+              <p class="team-member-role">HOA - Sound Engineering & Filmmaking</p>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80"
+                alt="Nikhila Kotwal" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Nikhila Kotwal</h4>
+              <p class="team-member-role">Assistant Professor - Journalism</p>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80"
+                alt="Bhuvanesh Pandian" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Bhuvanesh Pandian</h4>
+              <p class="team-member-role">Assistant Professor - VFX</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls matching Student Placements Section -->
+      <div class="placement-carousel-controls" style="background-color: var(--secondary-bg);">
+        <div id="teamDotsContainer" class="placement-dots-container"></div>
+        <div class="placement-buttons-container">
+          <button id="teamPrevBtn" aria-label="Previous slide" class="placement-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button id="teamNextBtn" aria-label="Next slide" class="placement-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── 8. FAQ ──────────────────────────────────────────────── -->
   <section class="sec">
     <div class="container" style="text-align:center;">
@@ -8334,7 +8883,8 @@
             <h6 class="faq-q-text">What are the admission requirements?</h6><span class="faq-icon">+</span>
           </div>
           <div class="faq-a">
-            <p>Candidates must have completed 10+2 with Physics, Chemistry, and Mathematics with a minimum aggregate of
+            <p>Candidates must have completed 10+2 with Physics, Chemistry, and Mathematics with a minimum aggregate
+              of
               60%. A valid JEE Main score is required for domestic students. International students may apply with
               equivalent qualifications and SAT/ACT scores.</p>
           </div>
@@ -8378,7 +8928,8 @@
             <h6 class="faq-q-text">What is the placement record for CSE graduates?</h6><span class="faq-icon">+</span>
           </div>
           <div class="faq-a">
-            <p>Our placement rate stands at 98% with over 250 recruiting companies visiting campus annually. The highest
+            <p>Our placement rate stands at 98% with over 250 recruiting companies visiting campus annually. The
+              highest
               package in 2023–24 was ₹62 LPA (domestic) and the average package was ₹24 LPA.</p>
           </div>
         </div>
@@ -8388,7 +8939,8 @@
             <h6 class="faq-q-text">Can I pursue higher studies after graduation?</h6><span class="faq-icon">+</span>
           </div>
           <div class="faq-a">
-            <p>Absolutely. Many graduates go on to pursue M.Tech, MBA, or MS programs at MIT, Stanford, IITs, and IIMs.
+            <p>Absolutely. Many graduates go on to pursue M.Tech, MBA, or MS programs at MIT, Stanford, IITs, and
+              IIMs.
               We have dedicated preparation programs for GRE, GMAT, and GATE exams.</p>
           </div>
         </div>
@@ -8400,7 +8952,8 @@
           </div>
           <div class="faq-a">
             <p>Yes — exam vouchers and preparatory training for both AWS Cloud Practitioner and Google Associate Cloud
-              Engineer are fully included in your program fees. Training is conducted in Semesters 5 and 6 by certified
+              Engineer are fully included in your program fees. Training is conducted in Semesters 5 and 6 by
+              certified
               instructors.</p>
           </div>
         </div>
@@ -8476,369 +9029,524 @@
 
   <!-- ── 9. FOOTER ───────────────────────────────────────────── -->
   <!-- FOOTER -->
-    
-    <!-- Font Awesome for footer icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    
-    <!-- FOOTER CSS -->
-    <style>
-      .sea-footer {
-        position: relative;
-        background: #fff;
-        padding: 49px 20px 16px;
-        width: 100%;
-        border-top: 1px solid #f1f5f9;
-        overflow: hidden;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-      }
-      .sea-footer * { box-sizing: border-box; }
-      .sea-footer-inner {
-        max-width: 1230px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 10;
-      }
+  <!-- Font Awesome for footer icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+
+  <!-- FOOTER CSS -->
+  <style>
+    .sea-footer {
+      position: relative;
+      background: #fff;
+      padding: 49px 20px 16px;
+      width: 100%;
+      border-top: 1px solid #f1f5f9;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .sea-footer * {
+      box-sizing: border-box;
+    }
+
+    .sea-footer-inner {
+      max-width: 1230px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .sea-footer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 16px;
+      margin-bottom: 8px;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px 16px;
-        margin-bottom: 8px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 48px 56px;
       }
-      @media (min-width: 768px) {
-        .sea-footer-grid {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 48px 56px;
-        }
-      }
+    }
+
+    .sea-footer-brand {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-brand {
-        grid-column: span 2;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        .sea-footer-brand {
-          grid-column: span 1;
-          align-items: flex-start;
-          text-align: left;
-        }
-      }
-      .sea-footer-logo {
-        height: 40px;
-        display: block;
-        margin-top: 8px;
-      }
-      @media (min-width: 640px) { .sea-footer-logo { height: 48px; } }
-      .sea-footer-desc {
-        color: #475569;
-        margin: 0;
-        line-height: 1.6;
-        font-size: 14px;
-      }
-      .sea-footer-socials {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        margin-top: 8px;
-      }
-      @media (min-width: 768px) { .sea-footer-socials { justify-content: flex-start; } }
-      .sea-social-icon {
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #F8FAFC;
-        border: 1px solid #f2f2f2;
-        border-radius: 50%;
-        color: #000;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 14px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-      }
-      .sea-social-icon:hover {
-        background: #155DFC;
-        color: #fff;
-        transform: translateY(-4px);
-      }
-      .sea-footer-col h6 {
-        color: #000;
-        text-transform: uppercase;
-        margin: 8px 0 24px;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-      }
-      @media (min-width: 768px) { .sea-footer-col h6 { margin-top: 20px; } }
-      .sea-footer-col ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-      .sea-footer-col ul a {
-        color: #475569;
-        text-decoration: none;
-        font-size: 14px;
-        transition: color 0.3s ease;
-      }
-      .sea-footer-col ul a:hover { color: #155DFC; }
-      .sea-footer-contact {
-        grid-column: span 2;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        align-items: center;
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        .sea-footer-contact {
-          grid-column: span 1;
-          align-items: flex-start;
-          text-align: left;
-        }
-      }
-      .sea-footer-contact-inner { width: 100%; }
-      .sea-campus-list { display: flex; flex-direction: column; gap: 8px; }
-      .campus-item { border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 4px; }
-      .campus-item:last-child { border-bottom: none; }
-      .campus-btn {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        grid-column: span 1;
+        align-items: flex-start;
         text-align: left;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px 0;
-        color: inherit;
-        font-family: inherit;
-        font-size: 14px;
-        transition: color 0.2s;
       }
-      .campus-btn:hover { color: #155DFC; }
-      .campus-btn p { color: #000; text-transform: uppercase; margin: 0; font-weight: 600; font-size: 13px; }
-      .campus-btn span { color: #475569; text-transform: uppercase; font-size: 11px; display: block; margin-top: -1px; }
-      .campus-btn i { color: #000; transition: transform 0.3s ease; font-size: 12px; }
-      .campus-item.active .campus-btn i { transform: rotate(180deg); color: #2563eb; }
-      .campus-content {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .sea-footer-logo {
+      height: 40px;
+      display: block;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .sea-footer-logo {
+        height: 48px;
       }
-      .campus-item.active .campus-content { max-height: 300px; opacity: 1; }
-      .campus-content p { color: #475569; margin: 8px 0; font-size: 13px; }
-      .campus-phones {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding-left: 0;
-        border-left: none;
+    }
+
+    .sea-footer-desc {
+      color: #475569;
+      margin: 0;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .sea-footer-socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-socials {
+        justify-content: flex-start;
       }
-      @media (min-width: 768px) {
-        .campus-phones { padding-left: 8px; border-left: 2px solid #155DFC; }
-      }
-      .campus-phones a {
-        color: #155DFC;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-      }
-      .campus-phones a:hover { text-decoration: underline; }
-      .sea-footer-email {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        color: #000;
-        text-decoration: none;
-        transition: color 0.2s;
+    }
+
+    .sea-social-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F8FAFC;
+      border: 1px solid #f2f2f2;
+      border-radius: 50%;
+      color: #000;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .sea-social-icon:hover {
+      background: #155DFC;
+      color: #fff;
+      transform: translateY(-4px);
+    }
+
+    .sea-footer-col h6 {
+      color: #000;
+      text-transform: uppercase;
+      margin: 8px 0 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-col h6 {
         margin-top: 20px;
-        font-size: 14px;
       }
-      @media (min-width: 768px) { .sea-footer-email { justify-content: flex-start; } }
-      .sea-footer-email:hover { color: #155DFC; }
-      .sea-footer-email-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        background: #F8FAFC;
-        border: 1px solid #f1f5f9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
+    }
+
+    .sea-footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sea-footer-col ul a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .sea-footer-col ul a:hover {
+      color: #155DFC;
+    }
+
+    .sea-footer-contact {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-contact {
+        grid-column: span 1;
+        align-items: flex-start;
+        text-align: left;
       }
+    }
+
+    .sea-footer-contact-inner {
+      width: 100%;
+    }
+
+    .sea-campus-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .campus-item {
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 8px;
+      margin-bottom: 4px;
+    }
+
+    .campus-item:last-child {
+      border-bottom: none;
+    }
+
+    .campus-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 0;
+      color: inherit;
+      font-family: inherit;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .campus-btn:hover {
+      color: #155DFC;
+    }
+
+    .campus-btn p {
+      color: #000;
+      text-transform: uppercase;
+      margin: 0;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .campus-btn span {
+      color: #475569;
+      text-transform: uppercase;
+      font-size: 11px;
+      display: block;
+      margin-top: -1px;
+    }
+
+    .campus-btn i {
+      color: #000;
+      transition: transform 0.3s ease;
+      font-size: 12px;
+    }
+
+    .campus-item.active .campus-btn i {
+      transform: rotate(180deg);
+      color: #2563eb;
+    }
+
+    .campus-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .campus-item.active .campus-content {
+      max-height: 300px;
+      opacity: 1;
+    }
+
+    .campus-content p {
+      color: #475569;
+      margin: 8px 0;
+      font-size: 13px;
+    }
+
+    .campus-phones {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-left: 0;
+      border-left: none;
+    }
+
+    @media (min-width: 768px) {
+      .campus-phones {
+        padding-left: 8px;
+        border-left: 2px solid #155DFC;
+      }
+    }
+
+    .campus-phones a {
+      color: #155DFC;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .campus-phones a:hover {
+      text-decoration: underline;
+    }
+
+    .sea-footer-email {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #000;
+      text-decoration: none;
+      transition: color 0.2s;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-email {
+        justify-content: flex-start;
+      }
+    }
+
+    .sea-footer-email:hover {
+      color: #155DFC;
+    }
+
+    .sea-footer-email-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #F8FAFC;
+      border: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sea-footer-bottom {
+      border-top: 1px solid #f1f5f9;
+      margin-top: 16px;
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-bottom {
-        border-top: 1px solid #f1f5f9;
-        margin-top: 16px;
-        padding-top: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
       }
-      @media (min-width: 768px) {
-        .sea-footer-bottom {
-          flex-direction: row;
-          justify-content: space-between;
-          gap: 20px;
-        }
-      }
-      .sea-footer-copy {
-        color: #000;
-        text-transform: uppercase;
-        font-size: 12px;
-      }
-      .sea-footer-links {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-      }
-      .sea-footer-links a {
-        text-transform: uppercase;
-        color: #000;
-        text-decoration: none;
-        font-size: 12px;
-        transition: color 0.2s;
-      }
-      .sea-footer-links a:hover { color: #155DFC; }
-    </style>
+    }
 
-    <!-- FOOTER -->
-    <footer class="sea-footer">
-      <div class="sea-footer-inner">
-        <!-- Main Grid -->
-        <div class="sea-footer-grid">
-          <!-- Branding -->
-          <div class="sea-footer-brand">
-            <div style="margin-top:8px">
-              <img src="/images/blackLogo.svg" alt="Logo" class="sea-footer-logo" />
-            </div>
-            <p class="sea-footer-desc">
-              Established in 2008, Seamedu is a leading media school offering
-              industry-integrated education in Sound Engineering, Film Making,
-              VFX, and Game Design.
-            </p>
-            <div class="sea-footer-socials">
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
+    .sea-footer-copy {
+      color: #000;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .sea-footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .sea-footer-links a {
+      text-transform: uppercase;
+      color: #000;
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+
+    .sea-footer-links a:hover {
+      color: #155DFC;
+    }
+  </style>
+
+  <!-- FOOTER -->
+  <footer class="sea-footer">
+    <div class="sea-footer-inner">
+      <!-- Main Grid -->
+      <div class="sea-footer-grid">
+        <!-- Branding -->
+        <div class="sea-footer-brand">
+          <div style="margin-top:8px">
+            <img src="/images/blackLogo.svg" alt="Logo" class="sea-footer-logo" />
           </div>
-
-          <!-- Information -->
-          <div class="sea-footer-col">
-            <h6>Information</h6>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Campuses</a></li>
-              <li><a href="#">Student Placements</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">FAQ's</a></li>
-            </ul>
-          </div>
-
-          <!-- Schools -->
-          <div class="sea-footer-col">
-            <h6>Schools</h6>
-            <ul>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Media</a></li>
-              <li><a href="#">Technology</a></li>
-              <li><a href="#">Management</a></li>
-              <li><a href="#">Hospitality</a></li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div class="sea-footer-contact">
-            <div class="sea-footer-contact-inner">
-              <h6 style="color:#000;text-transform:uppercase;margin-top:8px;margin-bottom:24px;font-size:13px;font-weight:700">Contact With Us</h6>
-              <div class="sea-campus-list" id="campusList"></div>
-              <a href="mailto:info@seamedu.com" class="sea-footer-email">
-                <div class="sea-footer-email-icon">
-                  <i class="fa-regular fa-envelope"></i>
-                </div>
-                <span>info@seamedu.com</span>
-              </a>
-            </div>
+          <p class="sea-footer-desc">
+            Established in 2008, Seamedu is a leading media school offering
+            industry-integrated education in Sound Engineering, Film Making,
+            VFX, and Game Design.
+          </p>
+          <div class="sea-footer-socials">
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
         </div>
 
-        <!-- Bottom -->
-        <div class="sea-footer-bottom">
-          <span class="sea-footer-copy">© 2025 Seamedu All Right Reserved</span>
-          <div class="sea-footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Disclaimer</a>
-            <a href="#">Terms of Service</a>
+        <!-- Information -->
+        <div class="sea-footer-col">
+          <h6>Information</h6>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Campuses</a></li>
+            <li><a href="#">Student Placements</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ's</a></li>
+          </ul>
+        </div>
+
+        <!-- Schools -->
+        <div class="sea-footer-col">
+          <h6>Schools</h6>
+          <ul>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Management</a></li>
+            <li><a href="#">Hospitality</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="sea-footer-contact">
+          <div class="sea-footer-contact-inner">
+            <h6
+              style="color:#000;text-transform:uppercase;margin-top:8px;margin-bottom:24px;font-size:13px;font-weight:700">
+              Contact With Us</h6>
+            <div class="sea-campus-list" id="campusList"></div>
+            <a href="mailto:info@seamedu.com" class="sea-footer-email">
+              <div class="sea-footer-email-icon">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <span>info@seamedu.com</span>
+            </a>
           </div>
         </div>
       </div>
-    </footer>
 
-    <script>
-      (function() {
-        var campuses = [
-          { detail: "BALEWADI, Pune", name: "Head Office", address: "6th Floor, Solitaire Business Hub, Balewadi High St, Pune", tels: ["+91 8530203440", "+91 8999761319"] },
-          { detail: "Lohegaon, Pune", name: "ADPYU Campus", tels: ["+91 8530203440"] },
-          { detail: "Ambi, Pune", name: "DY Patil Campus", tels: ["+91 8999711619"] },
-          { detail: "Gurugram", name: "NCU Campus", tels: ["+91 7338299301"] },
-          { detail: "Kolkata", name: "TIU Campus", tels: ["+91 7338299301"] }
-        ];
-        var campusList = document.getElementById("campusList");
-        if (!campusList) return;
-        campuses.forEach(function(campus) {
-          var item = document.createElement("div");
-          item.className = "campus-item";
-          item.innerHTML =
-            '<button class="campus-btn">' +
-              '<div style="display:flex;flex-direction:column">' +
-                '<p>' + campus.name + '</p>' +
-                '<span>' + campus.detail + '</span>' +
-              '</div>' +
-              '<i class="fa-solid fa-chevron-down"></i>' +
-            '</button>' +
-            '<div class="campus-content">' +
-              (campus.address ? '<p>' + campus.address + '</p>' : '') +
-              '<div class="campus-phones">' +
-                campus.tels.map(function(tel) {
-                  return '<a href="tel:' + tel + '"><i class="fa-solid fa-phone"></i>' + tel + '</a>';
-                }).join("") +
-              '</div>' +
-            '</div>';
-          var btn = item.querySelector(".campus-btn");
-          btn.addEventListener("click", function() {
-            var active = campusList.querySelector(".campus-item.active");
-            if (active && active !== item) active.classList.remove("active");
-            item.classList.toggle("active");
-          });
-          campusList.appendChild(item);
+      <!-- Bottom -->
+      <div class="sea-footer-bottom">
+        <span class="sea-footer-copy">© 2025 Seamedu All Right Reserved</span>
+        <div class="sea-footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Disclaimer</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var campuses = [
+        { detail: "BALEWADI, Pune", name: "Head Office", address: "6th Floor, Solitaire Business Hub, Balewadi High St, Pune", tels: ["+91 8530203440", "+91 8999761319"] },
+        { detail: "Lohegaon, Pune", name: "ADPYU Campus", tels: ["+91 8530203440"] },
+        { detail: "Ambi, Pune", name: "DY Patil Campus", tels: ["+91 8999711619"] },
+        { detail: "Gurugram", name: "NCU Campus", tels: ["+91 7338299301"] },
+        { detail: "Kolkata", name: "TIU Campus", tels: ["+91 7338299301"] }
+      ];
+      var campusList = document.getElementById("campusList");
+      if (!campusList) return;
+      campuses.forEach(function (campus) {
+        var item = document.createElement("div");
+        item.className = "campus-item";
+        item.innerHTML =
+          '<button class="campus-btn">' +
+          '<div style="display:flex;flex-direction:column">' +
+          '<p>' + campus.name + '</p>' +
+          '<span>' + campus.detail + '</span>' +
+          '</div>' +
+          '<i class="fa-solid fa-chevron-down"></i>' +
+          '</button>' +
+          '<div class="campus-content">' +
+          (campus.address ? '<p>' + campus.address + '</p>' : '') +
+          '<div class="campus-phones">' +
+          campus.tels.map(function (tel) {
+            return '<a href="tel:' + tel + '"><i class="fa-solid fa-phone"></i>' + tel + '</a>';
+          }).join("") +
+          '</div>' +
+          '</div>';
+        var btn = item.querySelector(".campus-btn");
+        btn.addEventListener("click", function () {
+          var active = campusList.querySelector(".campus-item.active");
+          if (active && active !== item) active.classList.remove("active");
+          item.classList.toggle("active");
         });
-        var first = campusList.querySelector(".campus-item");
-        if (first) first.classList.add("active");
-      })();
-    </script>
+        campusList.appendChild(item);
+      });
+      var first = campusList.querySelector(".campus-item");
+      if (first) first.classList.add("active");
+    })();
+  </script>
 
 
 
   <!-- ── SCRIPTS ─────────────────────────────────────────────── -->
   <script>
+    /* ── Admission Process Tabs & Accordions ── */
+    document.querySelectorAll('.admission-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.dataset.admissionTab;
+        const parentSection = btn.closest('.admission-accordion');
+        if (!parentSection) return;
+
+        parentSection.querySelectorAll('.admission-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        parentSection.querySelectorAll('.admission-tab-content').forEach(pane => {
+          if (pane.id === `${tabId}-admission`) {
+            pane.classList.add('active');
+          } else {
+            pane.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    document.querySelectorAll('.admission-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.admission-item');
+        if (!item) return;
+        const isOpen = item.classList.contains('open');
+
+        const accordion = btn.closest('.accordion');
+        if (accordion) {
+          accordion.querySelectorAll('.admission-item').forEach(i => i.classList.remove('open'));
+        }
+
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+
     /* ── Year accordions ── */
     document.querySelectorAll('[data-year]').forEach(tag => {
       tag.addEventListener('click', () => {
@@ -8947,8 +9655,204 @@
       }
     }
 
+    /* ── Team Carousel logic ── */
+    (function () {
+      const frame = document.getElementById("teamCarouselFrame");
+      const track = document.getElementById("teamCarouselTrack");
+      const dotsContainer = document.getElementById("teamDotsContainer");
+      const btnPrev = document.getElementById("teamPrevBtn");
+      const btnNext = document.getElementById("teamNextBtn");
+      if (!frame || !track || !dotsContainer || !btnPrev || !btnNext) return;
+
+      const totalItems = track.children.length;
+      let currentIndex = 0;
+      let isTransitioning = false;
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+
+      function getVisibleCardsCount() {
+        const width = window.innerWidth;
+        if (width <= 480) {
+          return 2; // Below 480: 2 cards
+        } else if (width <= 768) {
+          return 3; // For 768: 3 cards
+        } else {
+          return 4; // Else: 4 cards
+        }
+      }
+
+      function getMaxIndex() {
+        return Math.max(0, totalItems - getVisibleCardsCount());
+      }
+
+      function updateCarousel(smooth = true) {
+        const maxIdx = getMaxIndex();
+        if (currentIndex > maxIdx) {
+          currentIndex = maxIdx;
+        }
+        if (currentIndex < 0) {
+          currentIndex = 0;
+        }
+
+        track.style.transition = smooth ? "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)" : "none";
+
+        // Calculate shift based on card width + gap
+        const visibleCount = getVisibleCardsCount();
+        const frameWidth = frame.clientWidth;
+        const gap = window.innerWidth <= 480 ? 16 : 24;
+
+        // Width of one card:
+        const cardWidth = (frameWidth - (visibleCount - 1) * gap) / visibleCount;
+        const shift = currentIndex * (cardWidth + gap);
+
+        track.style.transform = `translateX(-${shift}px)`;
+
+        updateDots();
+      }
+
+      function updateDots() {
+        const maxIdx = getMaxIndex();
+        const dotsCount = maxIdx + 1;
+
+        let dotsHTML = "";
+        for (let i = 0; i < dotsCount; i++) {
+          const activeClass = i === currentIndex ? "dot-active" : "dot-inactive";
+          dotsHTML += `<span class="${activeClass}" data-index="${i}"></span>`;
+        }
+        dotsContainer.innerHTML = dotsHTML;
+
+        // Add event listeners to new dots
+        dotsContainer.querySelectorAll("span").forEach(dot => {
+          dot.addEventListener("click", () => {
+            currentIndex = parseInt(dot.dataset.index);
+            updateCarousel();
+          });
+        });
+      }
+
+      // Prev & Next buttons
+      btnPrev.addEventListener("click", () => {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = getMaxIndex();
+        }
+        updateCarousel();
+        setTimeout(() => { isTransitioning = false; }, 400);
+      });
+
+      btnNext.addEventListener("click", () => {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex++;
+        if (currentIndex > getMaxIndex()) {
+          currentIndex = 0;
+        }
+        updateCarousel();
+        setTimeout(() => { isTransitioning = false; }, 400);
+      });
+
+      // Swipe / Drag Support
+      frame.addEventListener("mousedown", (e) => {
+        startX = e.clientX;
+        isDragging = true;
+        track.style.transition = "none";
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        currentX = e.clientX;
+        const diff = currentX - startX;
+
+        const visibleCount = getVisibleCardsCount();
+        const frameWidth = frame.clientWidth;
+        const gap = window.innerWidth <= 425 ? 16 : 24;
+        const cardWidth = (frameWidth - (visibleCount - 1) * gap) / visibleCount;
+        const currentShift = currentIndex * (cardWidth + gap);
+
+        track.style.transform = `translateX(${-currentShift + diff}px)`;
+      });
+
+      window.addEventListener("mouseup", (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = currentX - startX;
+        const threshold = 50; // swipe threshold in px
+
+        if (diff < -threshold) {
+          // Swiped left -> next
+          if (currentIndex < getMaxIndex()) {
+            currentIndex++;
+          }
+        } else if (diff > threshold) {
+          // Swiped right -> prev
+          if (currentIndex > 0) {
+            currentIndex--;
+          }
+        }
+        updateCarousel();
+      });
+
+      // Touch events for mobile
+      frame.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        track.style.transition = "none";
+      }, { passive: true });
+
+      frame.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
+        currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+
+        const visibleCount = getVisibleCardsCount();
+        const frameWidth = frame.clientWidth;
+        const gap = window.innerWidth <= 425 ? 16 : 24;
+        const cardWidth = (frameWidth - (visibleCount - 1) * gap) / visibleCount;
+        const currentShift = currentIndex * (cardWidth + gap);
+
+        track.style.transform = `translateX(${-currentShift + diff}px)`;
+      }, { passive: true });
+
+      frame.addEventListener("touchend", () => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = currentX - startX;
+        const threshold = 40;
+
+        if (diff < -threshold) {
+          if (currentIndex < getMaxIndex()) {
+            currentIndex++;
+          }
+        } else if (diff > threshold) {
+          if (currentIndex > 0) {
+            currentIndex--;
+          }
+        }
+        updateCarousel();
+      });
+
+      // Handle Resize & Init
+      window.addEventListener("resize", () => updateCarousel(false));
+
+      // Initial render
+      updateCarousel(false);
+    })();
+
   </script>
 
+
+    <!-- ENQUIRE NOW BUTTON -->
+    <button
+      style="position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 9999; background-color: #155DFC; width: 40px; height: 160px; border-top-left-radius: 16px; border-bottom-left-radius: 16px; border: none; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; padding: 0;"
+      onmouseover="this.style.backgroundColor='#1D4ED8'"
+      onmouseout="this.style.backgroundColor='#155DFC'">
+      <span style="transform: rotate(-90deg); display: block; white-space: nowrap; color: #ffffff; text-transform: uppercase; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px;">
+        Enquire Now
+      </span>
+    </button>
 </body>
 
 </html>

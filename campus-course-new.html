@@ -1258,11 +1258,17 @@
 
     @media (max-width: 1024px) {
       .placement-page-grid .placement-card {
-        width: calc((100% - 24px) / 2) !important;
+        width: calc((100% - 48px) / 3) !important;
       }
 
       .placement-page-grid {
         gap: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .placement-page-grid .placement-card {
+        width: calc((100% - 24px) / 2) !important;
       }
     }
 
@@ -1404,7 +1410,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 0;
-      background-color: #ffffff;
+      background-color: var(--primary-bg);
       width: 100%;
       box-sizing: border-box;
     }
@@ -1494,7 +1500,7 @@
       }
 
       .placement-carousel-controls {
-        padding: 16px 24px;
+        /* padding: 16px 24px; */
       }
     }
 
@@ -4883,9 +4889,10 @@
       }
 
       .inquiry-section .container {
-        margin-left: 105px;
-        margin-right: 105px;
-        max-width: calc(100% - 210px);
+        /* margin-left: 105px;
+        margin-right: 105px; */
+        /* max-width: calc(100% - 210px); */
+        max-width: 900px;
       }
     }
 
@@ -4998,11 +5005,9 @@
 <body>
 
   <!-- ── 1. STICKY NAV ─────────────────────────────────────── -->
-  
+
   <!-- NEW STICKY NAVBAR -->
   <style>
-
-
     .navbar {
       position: sticky;
       top: 0;
@@ -5092,7 +5097,7 @@
     .mobile-chevron {
       transition: all 0.3s ease;
     }
-  
+
 
     /* ── Reset ── */
     *,
@@ -5986,10 +5991,203 @@
         padding: 36px 16px;
       }
     }
-  
 
+    /* ── Team Carousel Section ── */
+    .team-carousel-section {
+      padding: 49px 0;
+      background-color: #f8fafc;
+      overflow: hidden;
+    }
+
+    .team-carousel-section .container {
+      max-width: 1230px;
+      margin: 0 auto;
+      /* padding: 0 20px; */
+    }
+
+    .team-carousel-header {
+      text-align: left;
+      margin-bottom: 36px;
+    }
+
+    .team-carousel-header h2 {
+      font-size: var(--h2-size);
+      line-height: var(--h2-line-height);
+      font-weight: var(--font-weight-heading);
+      color: var(--text-1);
+      margin-bottom: 14px;
+    }
+
+    .team-carousel-header p {
+      color: var(--text-2);
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-body);
+      max-width: 780px;
+      margin: 0;
+    }
+
+    .team-carousel-track-wrapper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      cursor: grab;
+    }
+
+    .team-carousel-track-wrapper:active {
+      cursor: grabbing;
+    }
+
+    .team-carousel-track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+    }
+
+    .team-member-card {
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid #f1f5f9;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      width: calc((100% - 3 * 24px) / 4);
+      /* Default 4 cards */
+    }
+
+    .team-member-img-wrapper {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background-color: #f1f5f9;
+    }
+
+    .team-member-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-member-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex-grow: 1;
+      justify-content: flex-start;
+    }
+
+    .team-member-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .team-member-role {
+      font-size: 13px;
+      font-weight: 500;
+      color: #64748b;
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    /* Controls: dots on left, buttons on right */
+    .team-carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 32px;
+    }
+
+    .team-dots-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .team-dots-container span {
+      height: 8px;
+      border-radius: 9999px;
+      background-color: #cbd5e1;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .team-dots-container .team-dot-inactive {
+      width: 8px;
+    }
+
+    .team-dots-container .team-dot-active {
+      width: 24px;
+      background-color: #0f172a;
+    }
+
+    .team-buttons-container {
+      display: flex;
+      gap: 12px;
+    }
+
+    .team-carousel-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid #e2e8f0;
+      background-color: #ffffff;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .team-carousel-btn:hover {
+      background-color: #0f172a;
+      color: #ffffff;
+      border-color: #0f172a;
+    }
+
+    /* Responsive rules matching user's breakpoint requirements:
+       - 768px: 3 cards
+       - 425px: 2 cards
+       - Else: 4 cards
+    */
+    @media (max-width: 768px) {
+      .team-member-card {
+        width: calc((100% - 2 * 24px) / 3);
+        /* 3 cards */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .team-member-card {
+        width: calc((100% - 1 * 16px) / 2);
+        /* 2 cards */
+      }
+
+      .team-carousel-track {
+        gap: 10px;
+      }
+
+      .team-member-info {
+        padding: 12px;
+      }
+
+      .team-member-name {
+        font-size: 14px;
+      }
+
+      .team-member-role {
+        font-size: 12px;
+      }
+    }
   </style>
-  
+
   <nav class="navbar">
     <!-- Logo -->
     <div class="logo-block">
@@ -6591,7 +6789,7 @@
 
     <a href="#" class="mobile-apply">Apply Now</a>
   </nav>
-  
+
   <script>
     /* --- PROGRAMS MEGA-MENU LOGIC --- */
     const progTabs = document.querySelectorAll("#programs-dropdown .cat-tab");
@@ -7405,141 +7603,104 @@
       <div id="placementCarouselFrame" class="placement-carousel-frame">
         <div class="placement-page-grid" id="placementGrid">
 
+          <!-- Row 1 -->
           <!-- Card 1 -->
           <div class="placement-card" data-category="management">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
-              <!-- <div class="package-badge">₹14.50 LPA</div> -->
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Harsh Gaur</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Jaro Education logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 1"
+              loading="lazy">
           </div>
 
           <!-- Card 2 -->
           <div class="placement-card" data-category="technology">
-            <div class="placement-media">
-              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Pavan Kulkarni</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="costco.png" alt="IntervueVet logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 2"
+              loading="lazy">
           </div>
 
           <!-- Card 3 -->
           <div class="placement-card" data-category="design">
-            <div class="placement-media">
-              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Om Giramkar</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Learning Routes logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 3"
+              loading="lazy">
           </div>
 
           <!-- Card 4 -->
           <div class="placement-card" data-category="media">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Sanket Dhawale</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="paytm.png" alt="Edgewise logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 4"
+              loading="lazy">
           </div>
 
-          <!-- Card 5 (Duplicated Harsh Gaur) -->
+          <!-- Row 2 -->
+          <!-- Card 5 -->
+          <div class="placement-card" data-category="hospitality">
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 5"
+              loading="lazy">
+          </div>
+
+          <!-- Card 6 -->
           <div class="placement-card" data-category="management">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Harsh Gaur" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Harsh Gaur (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Jaro Education logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 6"
+              loading="lazy">
           </div>
 
-          <!-- Card 6 (Duplicated Pavan Kulkarni) -->
+          <!-- Card 7 -->
           <div class="placement-card" data-category="technology">
-            <div class="placement-media">
-              <img src="placement-2.png" alt="Pavan Kulkarni" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Pavan Kulkarni (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="costco.png" alt="IntervueVet logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 7"
+              loading="lazy">
           </div>
 
-          <!-- Card 7 (Duplicated Om Giramkar) -->
+          <!-- Card 8 -->
           <div class="placement-card" data-category="design">
-            <div class="placement-media">
-              <img src="placement-3.png" alt="Om Giramkar" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Om Giramkar (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="jcb.png" alt="Learning Routes logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 8"
+              loading="lazy">
           </div>
 
-          <!-- Card 8 (Duplicated Sanket Dhawale) -->
+          <!-- Row 3 -->
+          <!-- Card 9 -->
           <div class="placement-card" data-category="media">
-            <div class="placement-media">
-              <img src="placement-1.png" alt="Sanket Dhawale" loading="lazy">
-            </div>
-            <div class="placement-info">
-              <h4 class="placement-name">Sanket Dhawale (Copy)</h4>
-              <p class="placement-company">Sound Engineering</p>
-            </div>
-            <div class="placement-footer">
-              <span class="placement-footer-lbl">Placed At</span>
-              <div class="placement-logo-wrap">
-                <img src="paytm.png" alt="Edgewise logo">
-              </div>
-            </div>
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 9"
+              loading="lazy">
+          </div>
+
+          <!-- Card 10 -->
+          <div class="placement-card" data-category="hospitality">
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 10"
+              loading="lazy">
+          </div>
+
+          <!-- Card 11 -->
+          <div class="placement-card" data-category="management">
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 11"
+              loading="lazy">
+          </div>
+
+          <!-- Card 12 -->
+          <div class="placement-card" data-category="technology">
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 12"
+              loading="lazy">
+          </div>
+
+          <!-- Row 4 -->
+          <!-- Card 13 -->
+          <div class="placement-card" data-category="design">
+            <img src="https://assets.seamedu.com/uploads/placements/img_ugLFn1777363394.png" alt="Placement 13"
+              loading="lazy">
+          </div>
+
+          <!-- Card 14 -->
+          <div class="placement-card" data-category="media">
+            <img src="https://assets.seamedu.com/uploads/placements/img_XqnOR1777363426.jpg" alt="Placement 14"
+              loading="lazy">
+          </div>
+
+          <!-- Card 15 -->
+          <div class="placement-card" data-category="hospitality">
+            <img src="https://assets.seamedu.com/uploads/placements/img_oQncc1777363445.jpg" alt="Placement 15"
+              loading="lazy">
+          </div>
+
+          <!-- Card 16 -->
+          <div class="placement-card" data-category="management">
+            <img src="https://assets.seamedu.com/uploads/placements/img_u04tH1777363466.jpg" alt="Placement 16"
+              loading="lazy">
           </div>
 
         </div>
@@ -7612,13 +7773,15 @@
       let isCarouselTransitioning = false;
       let isCurrentlyDraggingGesture = false;
       let gestureDragStartXCoordinate = 0;
-      const totalItems = 8;
-      let lastViewMode = window.innerWidth > 1024 ? "desktop" : (window.innerWidth > 576 ? "tablet" : "mobile");
+      const totalItems = 16;
+      let lastViewMode = window.innerWidth > 1024 ? "desktop" : (window.innerWidth > 768 ? "tablet-3col" : (window.innerWidth > 576 ? "tablet-2col" : "mobile"));
 
       function getMaxIndex() {
         const width = window.innerWidth;
         if (width > 1024) {
           return totalItems - 4; // 4 cards visible
+        } else if (width > 768) {
+          return totalItems - 3; // 3 cards visible
         } else if (width > 576) {
           return totalItems - 2; // 2 cards visible
         } else {
@@ -7628,18 +7791,30 @@
 
       function initializePlacementCarouselDOM() {
         const maxIndex = getMaxIndex();
-        const numDots = maxIndex + 1;
 
         if (currentTrackIndex > maxIndex) {
           currentTrackIndex = maxIndex;
         }
 
-        dotsContainer.innerHTML = Array.from({ length: numDots })
+        dotsContainer.innerHTML = Array.from({ length: 4 })
           .map(
             (_, idx) =>
-              `<span id="placement-dot-${idx}" class="dot-inactive"></span>`,
+              `<span id="placement-dot-${idx}" class="dot-inactive" style="cursor:pointer;"></span>`,
           )
           .join("");
+
+        // Click handler for dots
+        for (let idx = 0; idx < 4; idx++) {
+          const dotEl = document.getElementById(`placement-dot-${idx}`);
+          if (dotEl) {
+            dotEl.addEventListener("click", () => {
+              if (isCarouselTransitioning) return;
+              currentTrackIndex = Math.round((idx / 3) * maxIndex);
+              applyTrackPositionTransform(true);
+              refreshActiveDotHighlightIndicators();
+            });
+          }
+        }
 
         applyTrackPositionTransform(false);
         refreshActiveDotHighlightIndicators();
@@ -7658,6 +7833,9 @@
         if (width > 1024) {
           const shiftPx = currentTrackIndex * (frameWidth + 24) / 4;
           carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
+        } else if (width > 768) {
+          const shiftPx = currentTrackIndex * (frameWidth + 24) / 3;
+          carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
         } else if (width > 576) {
           const shiftPx = currentTrackIndex * (frameWidth + 24) / 2;
           carouselTrack.style.transform = `translateX(-${shiftPx}px)`;
@@ -7668,11 +7846,11 @@
 
       function refreshActiveDotHighlightIndicators() {
         const maxIndex = getMaxIndex();
-        const numDots = maxIndex + 1;
-        for (let idx = 0; idx < numDots; idx++) {
+        const activeDotIndex = maxIndex > 0 ? Math.round((currentTrackIndex / maxIndex) * 3) : 0;
+        for (let idx = 0; idx < 4; idx++) {
           const targetedDot = document.getElementById(`placement-dot-${idx}`);
           if (targetedDot) {
-            if (idx === currentTrackIndex) {
+            if (idx === activeDotIndex) {
               targetedDot.className = "dot-active";
             } else {
               targetedDot.className = "dot-inactive";
@@ -7761,8 +7939,10 @@
         let currentViewMode = "mobile";
         if (width > 1024) {
           currentViewMode = "desktop";
+        } else if (width > 768) {
+          currentViewMode = "tablet-3col";
         } else if (width > 576) {
-          currentViewMode = "tablet";
+          currentViewMode = "tablet-2col";
         }
 
         if (currentViewMode !== lastViewMode) {
@@ -8855,6 +9035,139 @@
     </div>
   </section>
 
+  <!-- MEET THE TEAM SECTION -->
+  <section class="team-carousel-section" style="background-color: #f8fafc;">
+    <div class="container">
+      <!-- Section Header -->
+      <div class="team-carousel-header">
+        <h2>Meet the team</h2>
+        <p>Our faculty combines academic excellence with real-world industry experience to deliver practical learning.
+        </p>
+      </div>
+
+      <!-- Carousel Frame -->
+      <div class="team-carousel-track-wrapper" id="teamCarouselFrame">
+        <div class="team-carousel-track" id="teamCarouselTrack">
+          <!-- Card 1 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=500&q=80"
+                alt="Johnston DSouza" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Johnston DSouza</h4>
+              <p class="team-member-role">Live Sound Expert</p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80"
+                alt="Dr. Sukhada Khandge" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Dr. Sukhada Khandge</h4>
+              <p class="team-member-role">Associate HOA - Journalism and Media Studies</p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80"
+                alt="Rahul Singh" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Rahul Singh</h4>
+              <p class="team-member-role">Senior Faculty - VFX & Animation</p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80"
+                alt="Tanmay Datta" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Tanmay Datta</h4>
+              <p class="team-member-role">HOD - Game Art and Design</p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80"
+                alt="Abid Shaikh" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Abid Shaikh</h4>
+              <p class="team-member-role">HOA - Game Art, Design & Development</p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80"
+                alt="Mandar Patil" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Mandar Patil</h4>
+              <p class="team-member-role">HOA - Sound Engineering & Filmmaking</p>
+            </div>
+          </div>
+
+          <!-- Card 7 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80"
+                alt="Nikhila Kotwal" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Nikhila Kotwal</h4>
+              <p class="team-member-role">Assistant Professor - Journalism</p>
+            </div>
+          </div>
+
+          <!-- Card 8 -->
+          <div class="team-member-card">
+            <div class="team-member-img-wrapper">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80"
+                alt="Bhuvanesh Pandian" loading="lazy">
+            </div>
+            <div class="team-member-info">
+              <h4 class="team-member-name">Bhuvanesh Pandian</h4>
+              <p class="team-member-role">Assistant Professor - VFX</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls matching Student Placements Section -->
+      <div class="placement-carousel-controls" style="background-color: var(--secondary-bg);">
+        <div id="teamDotsContainer" class="placement-dots-container">
+        </div>
+        <div class="placement-buttons-container">
+          <button id="teamPrevBtn" aria-label="Previous slide" class="placement-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button id="teamNextBtn" aria-label="Next slide" class="placement-carousel-btn">
+            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+              <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── 8. FAQ ──────────────────────────────────────────────── -->
   <section class="sec" id="faq">
     <div class="container" style="text-align:center;">
@@ -9062,370 +9375,720 @@
 
   <!-- ── 9. FOOTER ───────────────────────────────────────────── -->
   <!-- FOOTER -->
-    
-    <!-- Font Awesome for footer icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    
-    <!-- FOOTER CSS -->
-    <style>
-      .sea-footer {
-        position: relative;
-        background: #fff;
-        padding: 49px 20px 16px;
-        width: 100%;
-        border-top: 1px solid #f1f5f9;
-        overflow: hidden;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-      }
-      .sea-footer * { box-sizing: border-box; }
-      .sea-footer-inner {
-        max-width: 1230px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 10;
-      }
+  <!-- Font Awesome for footer icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+
+  <!-- FOOTER CSS -->
+  <style>
+    .sea-footer {
+      position: relative;
+      background: #fff;
+      padding: 49px 20px 16px;
+      width: 100%;
+      border-top: 1px solid #f1f5f9;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .sea-footer * {
+      box-sizing: border-box;
+    }
+
+    .sea-footer-inner {
+      max-width: 1230px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .sea-footer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 16px;
+      margin-bottom: 8px;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px 16px;
-        margin-bottom: 8px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 48px 56px;
       }
-      @media (min-width: 768px) {
-        .sea-footer-grid {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 48px 56px;
-        }
-      }
+    }
+
+    .sea-footer-brand {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-brand {
-        grid-column: span 2;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        .sea-footer-brand {
-          grid-column: span 1;
-          align-items: flex-start;
-          text-align: left;
-        }
-      }
-      .sea-footer-logo {
-        height: 40px;
-        display: block;
-        margin-top: 8px;
-      }
-      @media (min-width: 640px) { .sea-footer-logo { height: 48px; } }
-      .sea-footer-desc {
-        color: #475569;
-        margin: 0;
-        line-height: 1.6;
-        font-size: 14px;
-      }
-      .sea-footer-socials {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        margin-top: 8px;
-      }
-      @media (min-width: 768px) { .sea-footer-socials { justify-content: flex-start; } }
-      .sea-social-icon {
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #F8FAFC;
-        border: 1px solid #f2f2f2;
-        border-radius: 50%;
-        color: #000;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 14px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-      }
-      .sea-social-icon:hover {
-        background: #155DFC;
-        color: #fff;
-        transform: translateY(-4px);
-      }
-      .sea-footer-col h6 {
-        color: #000;
-        text-transform: uppercase;
-        margin: 8px 0 24px;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-      }
-      @media (min-width: 768px) { .sea-footer-col h6 { margin-top: 20px; } }
-      .sea-footer-col ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-      .sea-footer-col ul a {
-        color: #475569;
-        text-decoration: none;
-        font-size: 14px;
-        transition: color 0.3s ease;
-      }
-      .sea-footer-col ul a:hover { color: #155DFC; }
-      .sea-footer-contact {
-        grid-column: span 2;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        align-items: center;
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        .sea-footer-contact {
-          grid-column: span 1;
-          align-items: flex-start;
-          text-align: left;
-        }
-      }
-      .sea-footer-contact-inner { width: 100%; }
-      .sea-campus-list { display: flex; flex-direction: column; gap: 8px; }
-      .campus-item { border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 4px; }
-      .campus-item:last-child { border-bottom: none; }
-      .campus-btn {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        grid-column: span 1;
+        align-items: flex-start;
         text-align: left;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px 0;
-        color: inherit;
-        font-family: inherit;
-        font-size: 14px;
-        transition: color 0.2s;
       }
-      .campus-btn:hover { color: #155DFC; }
-      .campus-btn p { color: #000; text-transform: uppercase; margin: 0; font-weight: 600; font-size: 13px; }
-      .campus-btn span { color: #475569; text-transform: uppercase; font-size: 11px; display: block; margin-top: -1px; }
-      .campus-btn i { color: #000; transition: transform 0.3s ease; font-size: 12px; }
-      .campus-item.active .campus-btn i { transform: rotate(180deg); color: #2563eb; }
-      .campus-content {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .sea-footer-logo {
+      height: 40px;
+      display: block;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .sea-footer-logo {
+        height: 48px;
       }
-      .campus-item.active .campus-content { max-height: 300px; opacity: 1; }
-      .campus-content p { color: #475569; margin: 8px 0; font-size: 13px; }
-      .campus-phones {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding-left: 0;
-        border-left: none;
+    }
+
+    .sea-footer-desc {
+      color: #475569;
+      margin: 0;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .sea-footer-socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-socials {
+        justify-content: flex-start;
       }
-      @media (min-width: 768px) {
-        .campus-phones { padding-left: 8px; border-left: 2px solid #155DFC; }
-      }
-      .campus-phones a {
-        color: #155DFC;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-      }
-      .campus-phones a:hover { text-decoration: underline; }
-      .sea-footer-email {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        color: #000;
-        text-decoration: none;
-        transition: color 0.2s;
+    }
+
+    .sea-social-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F8FAFC;
+      border: 1px solid #f2f2f2;
+      border-radius: 50%;
+      color: #000;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .sea-social-icon:hover {
+      background: #155DFC;
+      color: #fff;
+      transform: translateY(-4px);
+    }
+
+    .sea-footer-col h6 {
+      color: #000;
+      text-transform: uppercase;
+      margin: 8px 0 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-col h6 {
         margin-top: 20px;
-        font-size: 14px;
       }
-      @media (min-width: 768px) { .sea-footer-email { justify-content: flex-start; } }
-      .sea-footer-email:hover { color: #155DFC; }
-      .sea-footer-email-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        background: #F8FAFC;
-        border: 1px solid #f1f5f9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
+    }
+
+    .sea-footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sea-footer-col ul a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .sea-footer-col ul a:hover {
+      color: #155DFC;
+    }
+
+    .sea-footer-contact {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-contact {
+        grid-column: span 1;
+        align-items: flex-start;
+        text-align: left;
       }
+    }
+
+    .sea-footer-contact-inner {
+      width: 100%;
+    }
+
+    .sea-campus-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .campus-item {
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 8px;
+      margin-bottom: 4px;
+    }
+
+    .campus-item:last-child {
+      border-bottom: none;
+    }
+
+    .campus-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 0;
+      color: inherit;
+      font-family: inherit;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .campus-btn:hover {
+      color: #155DFC;
+    }
+
+    .campus-btn p {
+      color: #000;
+      text-transform: uppercase;
+      margin: 0;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .campus-btn span {
+      color: #475569;
+      text-transform: uppercase;
+      font-size: 11px;
+      display: block;
+      margin-top: -1px;
+    }
+
+    .campus-btn i {
+      color: #000;
+      transition: transform 0.3s ease;
+      font-size: 12px;
+    }
+
+    .campus-item.active .campus-btn i {
+      transform: rotate(180deg);
+      color: #2563eb;
+    }
+
+    .campus-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .campus-item.active .campus-content {
+      max-height: 300px;
+      opacity: 1;
+    }
+
+    .campus-content p {
+      color: #475569;
+      margin: 8px 0;
+      font-size: 13px;
+    }
+
+    .campus-phones {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-left: 0;
+      border-left: none;
+    }
+
+    @media (min-width: 768px) {
+      .campus-phones {
+        padding-left: 8px;
+        border-left: 2px solid #155DFC;
+      }
+    }
+
+    .campus-phones a {
+      color: #155DFC;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .campus-phones a:hover {
+      text-decoration: underline;
+    }
+
+    .sea-footer-email {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #000;
+      text-decoration: none;
+      transition: color 0.2s;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-email {
+        justify-content: flex-start;
+      }
+    }
+
+    .sea-footer-email:hover {
+      color: #155DFC;
+    }
+
+    .sea-footer-email-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #F8FAFC;
+      border: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sea-footer-bottom {
+      border-top: 1px solid #f1f5f9;
+      margin-top: 16px;
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-bottom {
-        border-top: 1px solid #f1f5f9;
-        margin-top: 16px;
-        padding-top: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
       }
-      @media (min-width: 768px) {
-        .sea-footer-bottom {
-          flex-direction: row;
-          justify-content: space-between;
-          gap: 20px;
-        }
-      }
-      .sea-footer-copy {
-        color: #000;
-        text-transform: uppercase;
-        font-size: 12px;
-      }
-      .sea-footer-links {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-      }
-      .sea-footer-links a {
-        text-transform: uppercase;
-        color: #000;
-        text-decoration: none;
-        font-size: 12px;
-        transition: color 0.2s;
-      }
-      .sea-footer-links a:hover { color: #155DFC; }
-    </style>
+    }
 
-    <!-- FOOTER -->
-    <footer class="sea-footer">
-      <div class="sea-footer-inner">
-        <!-- Main Grid -->
-        <div class="sea-footer-grid">
-          <!-- Branding -->
-          <div class="sea-footer-brand">
-            <div style="margin-top:8px">
-              <img src="/images/blackLogo.svg" alt="Logo" class="sea-footer-logo" />
-            </div>
-            <p class="sea-footer-desc">
-              Established in 2008, Seamedu is a leading media school offering
-              industry-integrated education in Sound Engineering, Film Making,
-              VFX, and Game Design.
-            </p>
-            <div class="sea-footer-socials">
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
+    .sea-footer-copy {
+      color: #000;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .sea-footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .sea-footer-links a {
+      text-transform: uppercase;
+      color: #000;
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+
+    .sea-footer-links a:hover {
+      color: #155DFC;
+    }
+  </style>
+
+  <!-- FOOTER -->
+  <footer class="sea-footer">
+    <div class="sea-footer-inner">
+      <!-- Main Grid -->
+      <div class="sea-footer-grid">
+        <!-- Branding -->
+        <div class="sea-footer-brand">
+          <div style="margin-top:8px">
+            <img src="/images/blackLogo.svg" alt="Logo" class="sea-footer-logo" />
           </div>
-
-          <!-- Information -->
-          <div class="sea-footer-col">
-            <h6>Information</h6>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Campuses</a></li>
-              <li><a href="#">Student Placements</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">FAQ's</a></li>
-            </ul>
-          </div>
-
-          <!-- Schools -->
-          <div class="sea-footer-col">
-            <h6>Schools</h6>
-            <ul>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Media</a></li>
-              <li><a href="#">Technology</a></li>
-              <li><a href="#">Management</a></li>
-              <li><a href="#">Hospitality</a></li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div class="sea-footer-contact">
-            <div class="sea-footer-contact-inner">
-              <h6 style="color:#000;text-transform:uppercase;margin-top:8px;margin-bottom:24px;font-size:13px;font-weight:700">Contact With Us</h6>
-              <div class="sea-campus-list" id="campusList"></div>
-              <a href="mailto:info@seamedu.com" class="sea-footer-email">
-                <div class="sea-footer-email-icon">
-                  <i class="fa-regular fa-envelope"></i>
-                </div>
-                <span>info@seamedu.com</span>
-              </a>
-            </div>
+          <p class="sea-footer-desc">
+            Established in 2008, Seamedu is a leading media school offering
+            industry-integrated education in Sound Engineering, Film Making,
+            VFX, and Game Design.
+          </p>
+          <div class="sea-footer-socials">
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
         </div>
 
-        <!-- Bottom -->
-        <div class="sea-footer-bottom">
-          <span class="sea-footer-copy">© 2025 Seamedu All Right Reserved</span>
-          <div class="sea-footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Disclaimer</a>
-            <a href="#">Terms of Service</a>
+        <!-- Information -->
+        <div class="sea-footer-col">
+          <h6>Information</h6>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Campuses</a></li>
+            <li><a href="#">Student Placements</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ's</a></li>
+          </ul>
+        </div>
+
+        <!-- Schools -->
+        <div class="sea-footer-col">
+          <h6>Schools</h6>
+          <ul>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Management</a></li>
+            <li><a href="#">Hospitality</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="sea-footer-contact">
+          <div class="sea-footer-contact-inner">
+            <h6
+              style="color:#000;text-transform:uppercase;margin-top:8px;margin-bottom:24px;font-size:13px;font-weight:700">
+              Contact With Us</h6>
+            <div class="sea-campus-list" id="campusList"></div>
+            <a href="mailto:info@seamedu.com" class="sea-footer-email">
+              <div class="sea-footer-email-icon">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <span>info@seamedu.com</span>
+            </a>
           </div>
         </div>
       </div>
-    </footer>
 
-    <script>
-      (function() {
-        var campuses = [
-          { detail: "BALEWADI, Pune", name: "Head Office", address: "6th Floor, Solitaire Business Hub, Balewadi High St, Pune", tels: ["+91 8530203440", "+91 8999761319"] },
-          { detail: "Lohegaon, Pune", name: "ADPYU Campus", tels: ["+91 8530203440"] },
-          { detail: "Ambi, Pune", name: "DY Patil Campus", tels: ["+91 8999711619"] },
-          { detail: "Gurugram", name: "NCU Campus", tels: ["+91 7338299301"] },
-          { detail: "Kolkata", name: "TIU Campus", tels: ["+91 7338299301"] }
-        ];
-        var campusList = document.getElementById("campusList");
-        if (!campusList) return;
-        campuses.forEach(function(campus) {
-          var item = document.createElement("div");
-          item.className = "campus-item";
-          item.innerHTML =
-            '<button class="campus-btn">' +
-              '<div style="display:flex;flex-direction:column">' +
-                '<p>' + campus.name + '</p>' +
-                '<span>' + campus.detail + '</span>' +
-              '</div>' +
-              '<i class="fa-solid fa-chevron-down"></i>' +
-            '</button>' +
-            '<div class="campus-content">' +
-              (campus.address ? '<p>' + campus.address + '</p>' : '') +
-              '<div class="campus-phones">' +
-                campus.tels.map(function(tel) {
-                  return '<a href="tel:' + tel + '"><i class="fa-solid fa-phone"></i>' + tel + '</a>';
-                }).join("") +
-              '</div>' +
-            '</div>';
-          var btn = item.querySelector(".campus-btn");
-          btn.addEventListener("click", function() {
-            var active = campusList.querySelector(".campus-item.active");
-            if (active && active !== item) active.classList.remove("active");
-            item.classList.toggle("active");
-          });
-          campusList.appendChild(item);
+      <!-- Bottom -->
+      <div class="sea-footer-bottom">
+        <span class="sea-footer-copy">© 2025 Seamedu All Right Reserved</span>
+        <div class="sea-footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Disclaimer</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var campuses = [
+        { detail: "BALEWADI, Pune", name: "Head Office", address: "6th Floor, Solitaire Business Hub, Balewadi High St, Pune", tels: ["+91 8530203440", "+91 8999761319"] },
+        { detail: "Lohegaon, Pune", name: "ADPYU Campus", tels: ["+91 8530203440"] },
+        { detail: "Ambi, Pune", name: "DY Patil Campus", tels: ["+91 8999711619"] },
+        { detail: "Gurugram", name: "NCU Campus", tels: ["+91 7338299301"] },
+        { detail: "Kolkata", name: "TIU Campus", tels: ["+91 7338299301"] }
+      ];
+      var campusList = document.getElementById("campusList");
+      if (!campusList) return;
+      campuses.forEach(function (campus) {
+        var item = document.createElement("div");
+        item.className = "campus-item";
+        item.innerHTML =
+          '<button class="campus-btn">' +
+          '<div style="display:flex;flex-direction:column">' +
+          '<p>' + campus.name + '</p>' +
+          '<span>' + campus.detail + '</span>' +
+          '</div>' +
+          '<i class="fa-solid fa-chevron-down"></i>' +
+          '</button>' +
+          '<div class="campus-content">' +
+          (campus.address ? '<p>' + campus.address + '</p>' : '') +
+          '<div class="campus-phones">' +
+          campus.tels.map(function (tel) {
+            return '<a href="tel:' + tel + '"><i class="fa-solid fa-phone"></i>' + tel + '</a>';
+          }).join("") +
+          '</div>' +
+          '</div>';
+        var btn = item.querySelector(".campus-btn");
+        btn.addEventListener("click", function () {
+          var active = campusList.querySelector(".campus-item.active");
+          if (active && active !== item) active.classList.remove("active");
+          item.classList.toggle("active");
         });
-        var first = campusList.querySelector(".campus-item");
-        if (first) first.classList.add("active");
-      })();
-    </script>
-
+        campusList.appendChild(item);
+      });
+      var first = campusList.querySelector(".campus-item");
+      if (first) first.classList.add("active");
+    })();
+  </script>
 
 
   <!-- ── SCRIPTS ─────────────────────────────────────────────── -->
-  
+  <script>
+    /* ── Admission Process Tabs & Accordions ── */
+    document.querySelectorAll('.admission-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tabId = btn.dataset.admissionTab;
+        const parentSection = btn.closest('.admission-accordion');
+        if (!parentSection) return;
 
+        parentSection.querySelectorAll('.admission-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        parentSection.querySelectorAll('.admission-tab-content').forEach(pane => {
+          if (pane.id === `${tabId}-admission`) {
+            pane.classList.add('active');
+          } else {
+            pane.classList.remove('active');
+          }
+        });
+      });
+    });
+
+    document.querySelectorAll('.admission-button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.admission-item');
+        if (!item) return;
+        const isOpen = item.classList.contains('open');
+
+        const accordion = btn.closest('.accordion');
+        if (accordion) {
+          accordion.querySelectorAll('.admission-item').forEach(i => i.classList.remove('open'));
+        }
+
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+
+    /* ── Team Carousel logic ── */
+    (function () {
+      const frame = document.getElementById("teamCarouselFrame");
+      const track = document.getElementById("teamCarouselTrack");
+      const dotsContainer = document.getElementById("teamDotsContainer");
+      const btnPrev = document.getElementById("teamPrevBtn");
+      const btnNext = document.getElementById("teamNextBtn");
+      if (!frame || !track || !dotsContainer || !btnPrev || !btnNext) return;
+
+      const totalItems = track.children.length;
+      let currentIndex = 0;
+      let isTransitioning = false;
+      let startX = 0;
+      let currentX = 0;
+      let isDragging = false;
+
+      function getVisibleCardsCount() {
+        const width = window.innerWidth;
+        if (width <= 480) {
+          return 2; // Below 480: 2 cards
+        } else if (width <= 768) {
+          return 3; // For 768: 3 cards
+        } else {
+          return 4; // Else: 4 cards
+        }
+      }
+
+      function getMaxIndex() {
+        return Math.max(0, totalItems - getVisibleCardsCount());
+      }
+
+      function updateCarousel(smooth = true) {
+        const maxIdx = getMaxIndex();
+        if (currentIndex > maxIdx) {
+          currentIndex = maxIdx;
+        }
+        if (currentIndex < 0) {
+          currentIndex = 0;
+        }
+
+        track.style.transition = smooth ? "transform 0.4s cubic-bezier(0.25, 1, 0.5, 1)" : "none";
+
+        // Calculate shift based on card width + gap
+        const visibleCount = getVisibleCardsCount();
+        const frameWidth = frame.clientWidth;
+        const gap = window.innerWidth <= 480 ? 16 : 24;
+
+        // Width of one card:
+        const cardWidth = (frameWidth - (visibleCount - 1) * gap) / visibleCount;
+        const shift = currentIndex * (cardWidth + gap);
+
+        track.style.transform = `translateX(-${shift}px)`;
+
+        updateDots();
+      }
+
+      function updateDots() {
+        const maxIdx = getMaxIndex();
+        const dotsCount = maxIdx + 1;
+
+        let dotsHTML = "";
+        for (let i = 0; i < dotsCount; i++) {
+          const activeClass = i === currentIndex ? "dot-active" : "dot-inactive";
+          dotsHTML += `<span class="${activeClass}" data-index="${i}"></span>`;
+        }
+        dotsContainer.innerHTML = dotsHTML;
+
+        // Add event listeners to new dots
+        dotsContainer.querySelectorAll("span").forEach(dot => {
+          dot.addEventListener("click", () => {
+            currentIndex = parseInt(dot.dataset.index);
+            updateCarousel();
+          });
+        });
+      }
+
+      // Prev & Next buttons
+      btnPrev.addEventListener("click", () => {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex--;
+        if (currentIndex < 0) {
+          currentIndex = getMaxIndex();
+        }
+        updateCarousel();
+        setTimeout(() => { isTransitioning = false; }, 400);
+      });
+
+      btnNext.addEventListener("click", () => {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        currentIndex++;
+        if (currentIndex > getMaxIndex()) {
+          currentIndex = 0;
+        }
+        updateCarousel();
+        setTimeout(() => { isTransitioning = false; }, 400);
+      });
+
+      // Swipe / Drag Support
+      frame.addEventListener("mousedown", (e) => {
+        startX = e.clientX;
+        isDragging = true;
+        track.style.transition = "none";
+      });
+
+      window.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+        currentX = e.clientX;
+        const diff = currentX - startX;
+
+        const visibleCount = getVisibleCardsCount();
+        const frameWidth = frame.clientWidth;
+        const gap = window.innerWidth <= 425 ? 16 : 24;
+        const cardWidth = (frameWidth - (visibleCount - 1) * gap) / visibleCount;
+        const currentShift = currentIndex * (cardWidth + gap);
+
+        track.style.transform = `translateX(${-currentShift + diff}px)`;
+      });
+
+      window.addEventListener("mouseup", (e) => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = currentX - startX;
+        const threshold = 50; // swipe threshold in px
+
+        if (diff < -threshold) {
+          // Swiped left -> next
+          if (currentIndex < getMaxIndex()) {
+            currentIndex++;
+          }
+        } else if (diff > threshold) {
+          // Swiped right -> prev
+          if (currentIndex > 0) {
+            currentIndex--;
+          }
+        }
+        updateCarousel();
+      });
+
+      // Touch events for mobile
+      frame.addEventListener("touchstart", (e) => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+        track.style.transition = "none";
+      }, { passive: true });
+
+      frame.addEventListener("touchmove", (e) => {
+        if (!isDragging) return;
+        currentX = e.touches[0].clientX;
+        const diff = currentX - startX;
+
+        const visibleCount = getVisibleCardsCount();
+        const frameWidth = frame.clientWidth;
+        const gap = window.innerWidth <= 425 ? 16 : 24;
+        const cardWidth = (frameWidth - (visibleCount - 1) * gap) / visibleCount;
+        const currentShift = currentIndex * (cardWidth + gap);
+
+        track.style.transform = `translateX(${-currentShift + diff}px)`;
+      }, { passive: true });
+
+      frame.addEventListener("touchend", () => {
+        if (!isDragging) return;
+        isDragging = false;
+        const diff = currentX - startX;
+        const threshold = 40;
+
+        if (diff < -threshold) {
+          if (currentIndex < getMaxIndex()) {
+            currentIndex++;
+          }
+        } else if (diff > threshold) {
+          if (currentIndex > 0) {
+            currentIndex--;
+          }
+        }
+        updateCarousel();
+      });
+
+      // Handle Resize & Init
+      window.addEventListener("resize", () => updateCarousel(false));
+
+      // Initial render
+      updateCarousel(false);
+    })();
+  </script>
+
+
+    <!-- ENQUIRE NOW BUTTON -->
+    <button
+      style="position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 9999; background-color: #155DFC; width: 40px; height: 160px; border-top-left-radius: 16px; border-bottom-left-radius: 16px; border: none; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; padding: 0;"
+      onmouseover="this.style.backgroundColor='#1D4ED8'"
+      onmouseout="this.style.backgroundColor='#155DFC'">
+      <span style="transform: rotate(-90deg); display: block; white-space: nowrap; color: #ffffff; text-transform: uppercase; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px;">
+        Enquire Now
+      </span>
+    </button>
 </body>
 
 </html>

@@ -244,7 +244,7 @@
     .container {
       max-width: 1230px;
       margin: 0 auto;
-      padding: 0 24px;
+      /* padding: 0 24px; */
       box-sizing: border-box;
     }
 
@@ -794,6 +794,13 @@
       text-align: center;
     }
 
+    @media (max-width: 1025px) {
+      .univ-programs {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+    }
+
     @media (min-width: 640px) {
       .univ-programs-header {
         margin-bottom: 36px;
@@ -814,8 +821,8 @@
       max-width: 1230px;
       margin-left: auto;
       margin-right: auto;
-      padding-left: 24px;
-      padding-right: 24px;
+      /* padding-left: 24px;
+      padding-right: 24px; */
       box-sizing: border-box;
     }
 
@@ -1017,7 +1024,7 @@
     @media (min-width: 768px) {
       .univ-courses-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 32px;
+        gap: 16px;
       }
     }
 
@@ -1246,7 +1253,7 @@
    ========================================================================== */
     .inquiry-section {
       background: #ffffff;
-      padding: 0px 0px 49px 0px;
+      padding: 49px 0px 49px 0px;
     }
 
     .inquiry-section h2 {
@@ -1733,98 +1740,103 @@
     .tour-swiper-container {
       position: relative;
       width: 100%;
-      max-width: 1230px;
+      max-width: 900px;
       margin-left: auto;
       margin-right: auto;
       box-sizing: border-box;
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 1024px) {
       .tour-swiper-container {
-        padding-left: 80px;
-        padding-right: 80px;
+        max-width: 100%;
       }
     }
 
     .swiper-button-prev-custom,
     .swiper-button-next-custom {
       position: absolute;
-      bottom: 4px;
+      top: 210px;
+      /* Vertically centered to the 420px swiper card */
+      transform: translateY(-50%);
       z-index: 30;
-      width: 40px;
-      height: 40px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
-      border: 1px solid #e2e8f0;
-      background-color: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(4px);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      background-color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--text-1);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       padding: 0;
-    }
-
-    @media (min-width: 768px) {
-
-      .swiper-button-prev-custom,
-      .swiper-button-next-custom {
-        bottom: auto;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 48px;
-        height: 48px;
-      }
     }
 
     .swiper-button-prev-custom {
       left: 24px;
     }
 
-    @media (min-width: 768px) {
-      .swiper-button-prev-custom {
-        left: 16px;
-      }
-    }
-
     .swiper-button-next-custom {
       right: 24px;
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 1024px) {
+      .swiper-button-prev-custom {
+        left: 20px;
+      }
+
       .swiper-button-next-custom {
-        right: 16px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+
+      .swiper-button-prev-custom,
+      .swiper-button-next-custom {
+        top: 190px;
+        /* Centered to the 380px tablet swiper card */
+      }
+
+      .swiper-button-prev-custom {
+        left: 10px;
+        width: 40px;
+        height: 40px;
+      }
+
+      .swiper-button-next-custom {
+        right: 10px;
+        width: 40px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 426px) {
+
+      .swiper-button-prev-custom,
+      .swiper-button-next-custom {
+        top: 100px;
+        /* Centered to the 200px mobile swiper card */
       }
     }
 
     .swiper-button-prev-custom:hover,
     .swiper-button-next-custom:hover {
-      background-color: var(--primary-hover);
-      color: var(--primary-bg);
+      background-color: #ffffff;
+      color: var(--primary);
     }
 
     @media (min-width: 768px) {
 
       .swiper-button-prev-custom:hover,
       .swiper-button-next-custom:hover {
-        transform: translateY(-50%) scale(1.1);
+        transform: translateY(-50%) scale(1.05);
       }
     }
 
-    .swiper-button-prev-custom:active,
-    .swiper-button-next-custom:active {
-      transform: scale(0.95);
-    }
-
-    @media (min-width: 768px) {
-
-      .swiper-button-prev-custom:active,
-      .swiper-button-next-custom:active {
-        transform: translateY(-50%) scale(0.95);
-      }
-    }
+    /* Removed active transform scales on click */
 
     .swiper-button-prev-custom svg,
     .swiper-button-next-custom svg {
@@ -1834,14 +1846,36 @@
 
     .campus-swiper {
       padding-bottom: 48px;
+      width: 100%;
+      overflow: visible !important;
+    }
+
+    .campus-swiper .swiper-slide {
+      width: 80vw;
+      transition: opacity 0.5s ease;
+      opacity: 0.5;
+    }
+
+    @media (min-width: 768px) {
+      .campus-swiper .swiper-slide {
+        width: 70vw;
+      }
+    }
+
+    @media (min-width: 1025px) {
+      .campus-swiper .swiper-slide {
+        width: 900px;
+      }
+    }
+
+    .campus-swiper .swiper-slide-active {
+      opacity: 1;
     }
 
     .campus-swiper .swiper-slide-inner {
       position: relative;
-      height: 480px;
-      width: 90%;
-      margin-left: auto;
-      margin-right: auto;
+      height: 380px;
+      width: 100%;
       overflow: hidden;
       background-color: var(--text-1);
       border-radius: var(--r-lg-btn);
@@ -1849,18 +1883,31 @@
       box-sizing: border-box;
     }
 
-    @media (min-width: 640px) {
+    @media (min-width: 768px) {
       .campus-swiper .swiper-slide-inner {
-        width: 480px;
+        height: 420px;
+        max-height: 440px;
       }
     }
 
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
+      .campus-swiper .swiper-slide {
+        width: 80vw;
+      }
+
       .campus-swiper .swiper-slide-inner {
-        height: 500px;
-        max-height: 520px;
-        width: 100%;
-        max-width: 1000px;
+        height: 380px;
+      }
+    }
+
+    @media (max-width: 426px) {
+      .campus-swiper .swiper-slide {
+        width: 80vw;
+      }
+
+      .campus-swiper .swiper-slide-inner {
+        height: 200px;
+        /* Rectangle card on mobile */
       }
     }
 
@@ -1961,27 +2008,24 @@
 
     .campus-swiper .swiper-slide-title {
       position: absolute;
-      bottom: 48px;
+      bottom: 24px;
       left: 0;
       right: 0;
       z-index: 20;
     }
 
     .swiper-title-inner {
-      max-width: 1230px;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 24px;
-      padding-right: 24px;
       width: 100%;
       color: var(--primary-bg);
       box-sizing: border-box;
+      padding-left: 24px;
+      padding-right: 24px;
     }
 
     @media (min-width: 768px) {
       .swiper-title-inner {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 36px;
+        padding-right: 36px;
       }
     }
 
@@ -1995,10 +2039,22 @@
     }
 
     /* Custom Swiper Bullet Styling */
-    .swiper-pagination-bullet-active {
-      background: var(--primary) !important;
-      width: 16px !important;
-      border-radius: 4px !important;
+    .campus-swiper .swiper-pagination-bullet {
+      height: 8px !important;
+      width: 8px !important;
+      border-radius: var(--r-lg-btn) !important;
+      background-color: #e2e8f0 !important;
+      opacity: 1 !important;
+      transition: all 0.3s ease !important;
+      display: inline-block;
+    }
+
+    .campus-swiper .swiper-pagination-bullet-active {
+      height: 8px !important;
+      width: 24px !important;
+      border-radius: var(--r-lg-btn) !important;
+      background-color: #1e293b !important;
+      opacity: 1 !important;
     }
 
     /* ==========================================================================
@@ -2242,8 +2298,8 @@
       max-width: 1230px;
       margin-left: auto;
       margin-right: auto;
-      padding-left: 24px;
-      padding-right: 24px;
+      padding-left: 20px;
+      padding-right: 20px;
       position: relative;
       z-index: 10;
       box-sizing: border-box;
@@ -3168,7 +3224,7 @@
    ========================================================================== */
     .faq-section {
       background-color: var(--primary-bg);
-      padding: 80px 0;
+      padding: 49px 0;
     }
 
     .faq-section h2 {
@@ -3449,11 +3505,9 @@
 
 <body>
   <!-- ── 1. STICKY NAV ─────────────────────────────────────── -->
-  
+
   <!-- NEW STICKY NAVBAR -->
   <style>
-
-
     .navbar {
       position: sticky;
       top: 0;
@@ -3543,7 +3597,7 @@
     .mobile-chevron {
       transition: all 0.3s ease;
     }
-  
+
 
     /* ── Reset ── */
     *,
@@ -4437,10 +4491,8 @@
         padding: 36px 16px;
       }
     }
-  
-
   </style>
-  
+
   <nav class="navbar">
     <!-- Logo -->
     <div class="logo-block">
@@ -5042,7 +5094,7 @@
 
     <a href="#" class="mobile-apply">Apply Now</a>
   </nav>
-  
+
   <script>
     /* --- PROGRAMS MEGA-MENU LOGIC --- */
     const progTabs = document.querySelectorAll("#programs-dropdown .cat-tab");
@@ -5586,7 +5638,7 @@
             </div>
           </div>
 
-          <button type="submit" class="inquiry-submit-btn">Submit Inquiry</button>
+          <button type="submit" class="inquiry-submit-btn">Submit</button>
         </form>
       </div>
     </section>
@@ -5750,7 +5802,12 @@
     <!-- FAQ SECTION -->
     <section class="faq-section">
       <div class="container">
-        <h2>Got Questions?</h2>
+        <div style="text-align:center; margin-bottom:36px;">
+          <h2 style="margin-bottom: 14px;">Frequently Asked <span style="color: var(--primary);">Questions</span></h2>
+          <p
+            style="color:var(--text-2);font-size:var(--body-size);line-height:var(--body-line-height);max-width:480px;margin:0 auto;font-weight: var(--font-weight-body);">
+            Everything you need to know before applying. Can't find the answer? Reach us anytime.</p>
+        </div>
         <div class="faq-list">
           <div class="faq-item">
             <div class="faq-q">
@@ -5871,364 +5928,482 @@
 
   <!-- ── 9. FOOTER ────────────────────────────────────────── -->
   <!-- FOOTER -->
-    
-    <!-- Font Awesome for footer icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    
-    <!-- FOOTER CSS -->
-    <style>
-      .sea-footer {
-        position: relative;
-        background: #fff;
-        padding: 49px 20px 16px;
-        width: 100%;
-        border-top: 1px solid #f1f5f9;
-        overflow: hidden;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-      }
-      .sea-footer * { box-sizing: border-box; }
-      .sea-footer-inner {
-        max-width: 1230px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 10;
-      }
+  <!-- Font Awesome for footer icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+
+  <!-- FOOTER CSS -->
+  <style>
+    .sea-footer {
+      position: relative;
+      background: #fff;
+      padding: 49px 20px 16px;
+      width: 100%;
+      border-top: 1px solid #f1f5f9;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .sea-footer * {
+      box-sizing: border-box;
+    }
+
+    .sea-footer-inner {
+      max-width: 1230px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .sea-footer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 16px;
+      margin-bottom: 8px;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px 16px;
-        margin-bottom: 8px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 48px 56px;
       }
-      @media (min-width: 768px) {
-        .sea-footer-grid {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 48px 56px;
-        }
-      }
+    }
+
+    .sea-footer-brand {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-brand {
-        grid-column: span 2;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        .sea-footer-brand {
-          grid-column: span 1;
-          align-items: flex-start;
-          text-align: left;
-        }
-      }
-      .sea-footer-logo {
-        height: 40px;
-        display: block;
-        margin-top: 8px;
-      }
-      @media (min-width: 640px) { .sea-footer-logo { height: 48px; } }
-      .sea-footer-desc {
-        color: #475569;
-        margin: 0;
-        line-height: 1.6;
-        font-size: 14px;
-      }
-      .sea-footer-socials {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        margin-top: 8px;
-      }
-      @media (min-width: 768px) { .sea-footer-socials { justify-content: flex-start; } }
-      .sea-social-icon {
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #F8FAFC;
-        border: 1px solid #f2f2f2;
-        border-radius: 50%;
-        color: #000;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 14px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-      }
-      .sea-social-icon:hover {
-        background: #155DFC;
-        color: #fff;
-        transform: translateY(-4px);
-      }
-      .sea-footer-col h6 {
-        color: #000;
-        text-transform: uppercase;
-        margin: 8px 0 24px;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-      }
-      @media (min-width: 768px) { .sea-footer-col h6 { margin-top: 20px; } }
-      .sea-footer-col ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-      .sea-footer-col ul a {
-        color: #475569;
-        text-decoration: none;
-        font-size: 14px;
-        transition: color 0.3s ease;
-      }
-      .sea-footer-col ul a:hover { color: #155DFC; }
-      .sea-footer-contact {
-        grid-column: span 2;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        align-items: center;
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        .sea-footer-contact {
-          grid-column: span 1;
-          align-items: flex-start;
-          text-align: left;
-        }
-      }
-      .sea-footer-contact-inner { width: 100%; }
-      .sea-campus-list { display: flex; flex-direction: column; gap: 8px; }
-      .campus-item { border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 4px; }
-      .campus-item:last-child { border-bottom: none; }
-      .campus-btn {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        grid-column: span 1;
+        align-items: flex-start;
         text-align: left;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px 0;
-        color: inherit;
-        font-family: inherit;
-        font-size: 14px;
-        transition: color 0.2s;
       }
-      .campus-btn:hover { color: #155DFC; }
-      .campus-btn p { color: #000; text-transform: uppercase; margin: 0; font-weight: 600; font-size: 13px; }
-      .campus-btn span { color: #475569; text-transform: uppercase; font-size: 11px; display: block; margin-top: -1px; }
-      .campus-btn i { color: #000; transition: transform 0.3s ease; font-size: 12px; }
-      .campus-item.active .campus-btn i { transform: rotate(180deg); color: #2563eb; }
-      .campus-content {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .sea-footer-logo {
+      height: 40px;
+      display: block;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .sea-footer-logo {
+        height: 48px;
       }
-      .campus-item.active .campus-content { max-height: 300px; opacity: 1; }
-      .campus-content p { color: #475569; margin: 8px 0; font-size: 13px; }
-      .campus-phones {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding-left: 0;
-        border-left: none;
+    }
+
+    .sea-footer-desc {
+      color: #475569;
+      margin: 0;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .sea-footer-socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-socials {
+        justify-content: flex-start;
       }
-      @media (min-width: 768px) {
-        .campus-phones { padding-left: 8px; border-left: 2px solid #155DFC; }
-      }
-      .campus-phones a {
-        color: #155DFC;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-      }
-      .campus-phones a:hover { text-decoration: underline; }
-      .sea-footer-email {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        color: #000;
-        text-decoration: none;
-        transition: color 0.2s;
+    }
+
+    .sea-social-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F8FAFC;
+      border: 1px solid #f2f2f2;
+      border-radius: 50%;
+      color: #000;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .sea-social-icon:hover {
+      background: #155DFC;
+      color: #fff;
+      transform: translateY(-4px);
+    }
+
+    .sea-footer-col h6 {
+      color: #000;
+      text-transform: uppercase;
+      margin: 8px 0 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-col h6 {
         margin-top: 20px;
-        font-size: 14px;
       }
-      @media (min-width: 768px) { .sea-footer-email { justify-content: flex-start; } }
-      .sea-footer-email:hover { color: #155DFC; }
-      .sea-footer-email-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        background: #F8FAFC;
-        border: 1px solid #f1f5f9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
+    }
+
+    .sea-footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sea-footer-col ul a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .sea-footer-col ul a:hover {
+      color: #155DFC;
+    }
+
+    .sea-footer-contact {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-contact {
+        grid-column: span 1;
+        align-items: flex-start;
+        text-align: left;
       }
+    }
+
+    .sea-footer-contact-inner {
+      width: 100%;
+    }
+
+    .sea-campus-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .campus-item {
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 8px;
+      margin-bottom: 4px;
+    }
+
+    .campus-item:last-child {
+      border-bottom: none;
+    }
+
+    .campus-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 0;
+      color: inherit;
+      font-family: inherit;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .campus-btn:hover {
+      color: #155DFC;
+    }
+
+    .campus-btn p {
+      color: #000;
+      text-transform: uppercase;
+      margin: 0;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .campus-btn span {
+      color: #475569;
+      text-transform: uppercase;
+      font-size: 11px;
+      display: block;
+      margin-top: -1px;
+    }
+
+    .campus-btn i {
+      color: #000;
+      transition: transform 0.3s ease;
+      font-size: 12px;
+    }
+
+    .campus-item.active .campus-btn i {
+      transform: rotate(180deg);
+      color: #2563eb;
+    }
+
+    .campus-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .campus-item.active .campus-content {
+      max-height: 300px;
+      opacity: 1;
+    }
+
+    .campus-content p {
+      color: #475569;
+      margin: 8px 0;
+      font-size: 13px;
+    }
+
+    .campus-phones {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-left: 0;
+      border-left: none;
+    }
+
+    @media (min-width: 768px) {
+      .campus-phones {
+        padding-left: 8px;
+        border-left: 2px solid #155DFC;
+      }
+    }
+
+    .campus-phones a {
+      color: #155DFC;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .campus-phones a:hover {
+      text-decoration: underline;
+    }
+
+    .sea-footer-email {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #000;
+      text-decoration: none;
+      transition: color 0.2s;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-email {
+        justify-content: flex-start;
+      }
+    }
+
+    .sea-footer-email:hover {
+      color: #155DFC;
+    }
+
+    .sea-footer-email-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #F8FAFC;
+      border: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sea-footer-bottom {
+      border-top: 1px solid #f1f5f9;
+      margin-top: 16px;
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-bottom {
-        border-top: 1px solid #f1f5f9;
-        margin-top: 16px;
-        padding-top: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
       }
-      @media (min-width: 768px) {
-        .sea-footer-bottom {
-          flex-direction: row;
-          justify-content: space-between;
-          gap: 20px;
-        }
-      }
-      .sea-footer-copy {
-        color: #000;
-        text-transform: uppercase;
-        font-size: 12px;
-      }
-      .sea-footer-links {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-      }
-      .sea-footer-links a {
-        text-transform: uppercase;
-        color: #000;
-        text-decoration: none;
-        font-size: 12px;
-        transition: color 0.2s;
-      }
-      .sea-footer-links a:hover { color: #155DFC; }
-    </style>
+    }
 
-    <!-- FOOTER -->
-    <footer class="sea-footer">
-      <div class="sea-footer-inner">
-        <!-- Main Grid -->
-        <div class="sea-footer-grid">
-          <!-- Branding -->
-          <div class="sea-footer-brand">
-            <div style="margin-top:8px">
-              <img src="/images/blackLogo.svg" alt="Logo" class="sea-footer-logo" />
-            </div>
-            <p class="sea-footer-desc">
-              Established in 2008, Seamedu is a leading media school offering
-              industry-integrated education in Sound Engineering, Film Making,
-              VFX, and Game Design.
-            </p>
-            <div class="sea-footer-socials">
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
+    .sea-footer-copy {
+      color: #000;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .sea-footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .sea-footer-links a {
+      text-transform: uppercase;
+      color: #000;
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+
+    .sea-footer-links a:hover {
+      color: #155DFC;
+    }
+  </style>
+
+  <!-- FOOTER -->
+  <footer class="sea-footer">
+    <div class="sea-footer-inner">
+      <!-- Main Grid -->
+      <div class="sea-footer-grid">
+        <!-- Branding -->
+        <div class="sea-footer-brand">
+          <div style="margin-top:8px">
+            <img src="/images/blackLogo.svg" alt="Logo" class="sea-footer-logo" />
           </div>
-
-          <!-- Information -->
-          <div class="sea-footer-col">
-            <h6>Information</h6>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Campuses</a></li>
-              <li><a href="#">Student Placements</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">FAQ's</a></li>
-            </ul>
-          </div>
-
-          <!-- Schools -->
-          <div class="sea-footer-col">
-            <h6>Schools</h6>
-            <ul>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Media</a></li>
-              <li><a href="#">Technology</a></li>
-              <li><a href="#">Management</a></li>
-              <li><a href="#">Hospitality</a></li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div class="sea-footer-contact">
-            <div class="sea-footer-contact-inner">
-              <h6 style="color:#000;text-transform:uppercase;margin-top:8px;margin-bottom:24px;font-size:13px;font-weight:700">Contact With Us</h6>
-              <div class="sea-campus-list" id="campusList"></div>
-              <a href="mailto:info@seamedu.com" class="sea-footer-email">
-                <div class="sea-footer-email-icon">
-                  <i class="fa-regular fa-envelope"></i>
-                </div>
-                <span>info@seamedu.com</span>
-              </a>
-            </div>
+          <p class="sea-footer-desc">
+            Established in 2008, Seamedu is a leading media school offering
+            industry-integrated education in Sound Engineering, Film Making,
+            VFX, and Game Design.
+          </p>
+          <div class="sea-footer-socials">
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
         </div>
 
-        <!-- Bottom -->
-        <div class="sea-footer-bottom">
-          <span class="sea-footer-copy">© 2025 Seamedu All Right Reserved</span>
-          <div class="sea-footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Disclaimer</a>
-            <a href="#">Terms of Service</a>
+        <!-- Information -->
+        <div class="sea-footer-col">
+          <h6>Information</h6>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Campuses</a></li>
+            <li><a href="#">Student Placements</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ's</a></li>
+          </ul>
+        </div>
+
+        <!-- Schools -->
+        <div class="sea-footer-col">
+          <h6>Schools</h6>
+          <ul>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Management</a></li>
+            <li><a href="#">Hospitality</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="sea-footer-contact">
+          <div class="sea-footer-contact-inner">
+            <h6
+              style="color:#000;text-transform:uppercase;margin-top:8px;margin-bottom:24px;font-size:13px;font-weight:700">
+              Contact With Us</h6>
+            <div class="sea-campus-list" id="campusList"></div>
+            <a href="mailto:info@seamedu.com" class="sea-footer-email">
+              <div class="sea-footer-email-icon">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <span>info@seamedu.com</span>
+            </a>
           </div>
         </div>
       </div>
-    </footer>
 
-    <script>
-      (function() {
-        var campuses = [
-          { detail: "BALEWADI, Pune", name: "Head Office", address: "6th Floor, Solitaire Business Hub, Balewadi High St, Pune", tels: ["+91 8530203440", "+91 8999761319"] },
-          { detail: "Lohegaon, Pune", name: "ADPYU Campus", tels: ["+91 8530203440"] },
-          { detail: "Ambi, Pune", name: "DY Patil Campus", tels: ["+91 8999711619"] },
-          { detail: "Gurugram", name: "NCU Campus", tels: ["+91 7338299301"] },
-          { detail: "Kolkata", name: "TIU Campus", tels: ["+91 7338299301"] }
-        ];
-        var campusList = document.getElementById("campusList");
-        if (!campusList) return;
-        campuses.forEach(function(campus) {
-          var item = document.createElement("div");
-          item.className = "campus-item";
-          item.innerHTML =
-            '<button class="campus-btn">' +
-              '<div style="display:flex;flex-direction:column">' +
-                '<p>' + campus.name + '</p>' +
-                '<span>' + campus.detail + '</span>' +
-              '</div>' +
-              '<i class="fa-solid fa-chevron-down"></i>' +
-            '</button>' +
-            '<div class="campus-content">' +
-              (campus.address ? '<p>' + campus.address + '</p>' : '') +
-              '<div class="campus-phones">' +
-                campus.tels.map(function(tel) {
-                  return '<a href="tel:' + tel + '"><i class="fa-solid fa-phone"></i>' + tel + '</a>';
-                }).join("") +
-              '</div>' +
-            '</div>';
-          var btn = item.querySelector(".campus-btn");
-          btn.addEventListener("click", function() {
-            var active = campusList.querySelector(".campus-item.active");
-            if (active && active !== item) active.classList.remove("active");
-            item.classList.toggle("active");
-          });
-          campusList.appendChild(item);
+      <!-- Bottom -->
+      <div class="sea-footer-bottom">
+        <span class="sea-footer-copy">© 2025 Seamedu All Right Reserved</span>
+        <div class="sea-footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Disclaimer</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var campuses = [
+        { detail: "BALEWADI, Pune", name: "Head Office", address: "6th Floor, Solitaire Business Hub, Balewadi High St, Pune", tels: ["+91 8530203440", "+91 8999761319"] },
+        { detail: "Lohegaon, Pune", name: "ADPYU Campus", tels: ["+91 8530203440"] },
+        { detail: "Ambi, Pune", name: "DY Patil Campus", tels: ["+91 8999711619"] },
+        { detail: "Gurugram", name: "NCU Campus", tels: ["+91 7338299301"] },
+        { detail: "Kolkata", name: "TIU Campus", tels: ["+91 7338299301"] }
+      ];
+      var campusList = document.getElementById("campusList");
+      if (!campusList) return;
+      campuses.forEach(function (campus) {
+        var item = document.createElement("div");
+        item.className = "campus-item";
+        item.innerHTML =
+          '<button class="campus-btn">' +
+          '<div style="display:flex;flex-direction:column">' +
+          '<p>' + campus.name + '</p>' +
+          '<span>' + campus.detail + '</span>' +
+          '</div>' +
+          '<i class="fa-solid fa-chevron-down"></i>' +
+          '</button>' +
+          '<div class="campus-content">' +
+          (campus.address ? '<p>' + campus.address + '</p>' : '') +
+          '<div class="campus-phones">' +
+          campus.tels.map(function (tel) {
+            return '<a href="tel:' + tel + '"><i class="fa-solid fa-phone"></i>' + tel + '</a>';
+          }).join("") +
+          '</div>' +
+          '</div>';
+        var btn = item.querySelector(".campus-btn");
+        btn.addEventListener("click", function () {
+          var active = campusList.querySelector(".campus-item.active");
+          if (active && active !== item) active.classList.remove("active");
+          item.classList.toggle("active");
         });
-        var first = campusList.querySelector(".campus-item");
-        if (first) first.classList.add("active");
-      })();
-    </script>
+        campusList.appendChild(item);
+      });
+      var first = campusList.querySelector(".campus-item");
+      if (first) first.classList.add("active");
+    })();
+  </script>
 
 
 
@@ -6481,12 +6656,6 @@
                         <div class="course-card-overlay"></div>
                     </div>
 
-                    <!-- Category Badge -->
-                    <div class="course-card-badge">
-                        <small class="course-card-badge-span">
-                            ${course.category}
-                        </small>
-                    </div>
 
                     <!-- Content -->
                     <div class="course-card-content">
@@ -6737,22 +6906,12 @@
         .map(
           (slide) => `
                 <div class="swiper-slide">
-                    <div onclick="openVideoModal('${slide.videoId}')" class="swiper-slide-inner">
+                    <div class="swiper-slide-inner">
                         <img src="${slide.image}" alt="${slide.title}" class="swiper-slide-img">
                         <div class="swiper-slide-overlay"></div>
-                        <div class="swiper-slide-duration-badge">
-                            <div class="swiper-duration-badge-inner">
-                                <small class="swiper-duration-span">${slide.duration}</small>
-                            </div>
-                        </div>
-                        <div class="swiper-slide-play-btn">
-                            <div class="swiper-play-icon-wrap">
-                                <svg fill="currentColor" viewBox="0 0 20 20"><path d="M4.5 3a.5.5 0 00-.5.5v13a.5.5 0 00.758.433l10-6.5a.5.5 0 000-.866l-10-6.5A.5.5 0 004.5 3z"/></svg>
-                            </div>
-                        </div>
                         <div class="swiper-slide-title">
                             <div class="swiper-title-inner">
-                                <h5 class="swiper-slide-title-text">${slide.title}</h5>
+                                <h5 class="swiper-slide-title-text" style="font-size: var(--h3-size); line-height: var(--h3-line-height); font-weight: 700;">${slide.title}</h5>
                             </div>
                         </div>
                     </div>
@@ -6764,6 +6923,9 @@
       // Initialize Swiper after injecting slides
       new Swiper(".campus-swiper", {
         loop: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        spaceBetween: 36,
         autoplay: {
           delay: 5000,
           disableOnInteraction: false,
@@ -6776,8 +6938,14 @@
           nextEl: ".swiper-button-next-custom",
           prevEl: ".swiper-button-prev-custom",
         },
-        spaceBetween: 0,
-        slidesPerView: 1,
+        breakpoints: {
+          320: {
+            spaceBetween: 16
+          },
+          1025: {
+            spaceBetween: 36
+          }
+        }
       });
     }
 
@@ -6946,6 +7114,16 @@
       renderCampusSwiperSlides();
     });
   </script>
+
+    <!-- ENQUIRE NOW BUTTON -->
+    <button
+      style="position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 9999; background-color: #155DFC; width: 40px; height: 160px; border-top-left-radius: 16px; border-bottom-left-radius: 16px; border: none; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; padding: 0;"
+      onmouseover="this.style.backgroundColor='#1D4ED8'"
+      onmouseout="this.style.backgroundColor='#155DFC'">
+      <span style="transform: rotate(-90deg); display: block; white-space: nowrap; color: #ffffff; text-transform: uppercase; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px;">
+        Enquire Now
+      </span>
+    </button>
 </body>
 
 </html>

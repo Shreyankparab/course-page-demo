@@ -2517,7 +2517,7 @@
   </section>
 
   <!-- OUR SCHOOLS -->
-  <section class="py-[49px] relative px-5 overflow-hidden">
+  <section class="py-[49px] relative overflow-hidden">
     <div class="container mx-auto max-w-[1230px] sm:px-0 relative z-10">
       <!-- Heading -->
       <div class="flex flex-col items-center text-center mb-[36px]">
@@ -2606,39 +2606,303 @@
     });
   </script>
 
-  <!-- CAMPUSES SECTION -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.tailwindcss.com"></script>
-
   <style>
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
+    /* Campuses Section */
+    .campuses-section {
+      padding: 49px 0px;
+      background-color: #F8FAFC;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+    .campuses-container {
+      max-width: 1230px;
+      margin: 0 auto;
+    }
+
+    .campuses-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .campuses-title {
+      color: #000000;
+      margin-bottom: 14px;
+    }
+
+    .campuses-subtitle-blue {
+      color: #155DFC;
+    }
+
+    .campuses-desc {
+      color: #475569;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .campuses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 0;
+      width: 100%;
+    }
+
+
+    /* Centering the 4th item */
+    @media (min-width: 1024px) {
+      .campuses-grid> :nth-child(4) {
+        grid-column-start: 2;
+      }
+    }
+
+    .campus-carousel-frame {
+      width: 100%;
+      overflow: visible;
+      position: relative;
+    }
+
+    @media (max-width: 1200px) {
+      .campuses-section {
+        padding: 49px 20px;
+      }
+    }
+
+    /* Tablet and Mobile views - turn grid to slider */
+    @media (max-width: 1023px) {
+      .campus-carousel-frame {
+        overflow: hidden;
+      }
+
+      .campuses-grid {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+        transition: transform 0.5s ease-in-out;
+      }
+
+      .campuses-grid .campus-v2-card {
+        width: calc((100% - 24px) / 2) !important;
+        flex-shrink: 0 !important;
+      }
+
+      .campuses-mobile-nav {
+        display: flex !important;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .campuses-grid .campus-v2-card {
+        width: 100% !important;
+      }
+
+      .campuses-grid {
+        gap: 0;
+      }
+    }
+
+    /* Mobile Navigation & Dots Styling */
+    .campuses-mobile-nav {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1100px;
+      margin: 16px auto 0 auto;
+    }
+
+
+
+    .campuses-dots {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .campuses-dot {
+      height: 8px;
+      border-radius: 9999px;
+      display: block;
+      transition: all 0.3s;
+      background-color: #e2e8f0;
+      width: 8px;
+    }
+
+    .campuses-dot.active {
+      width: 24px;
+      background-color: #1e293b;
+    }
+
+    .campuses-btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .campuses-btn-nav {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #f2f2f2;
+      border-radius: var(--r-btn);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      transition: background-color 0.2s ease;
+      cursor: pointer;
+      color: #000000;
+      outline: none;
+    }
+
+    .campuses-btn-nav:hover {
+      background-color: #F8FAFC;
+    }
+
+    .campuses-btn-nav:active {
+      background-color: #f1f5f9;
+    }
+
+    .campus-v2-card {
+      background: #ffffff;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+      padding: 16px;
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .campus-v2-card:hover {
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+      transform: translateY(-4px);
+    }
+
+    .campus-v2-img-wrapper {
+      position: relative;
+      height: 220px;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 16px;
+      background: #f1f5f9;
+    }
+
+    .campus-v2-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      display: block;
+    }
+
+    .campus-v2-card:hover .campus-v2-img-wrapper img {
+      transform: scale(1.03);
+    }
+
+    .campus-badge-loc {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #ffffff;
+      padding: 4px 12px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      z-index: 2;
+    }
+
+    .campus-badge-loc svg {
+      width: 12px;
+      height: 12px;
+      fill: #155dfc;
+    }
+
+    .campus-badge-loc span {
+      font-size: 12px;
+      font-weight: 600;
+      color: #0f172a;
+    }
+
+    .campus-v2-body {
+      padding: 20px 4px 4px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .campus-v2-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .campus-v2-desc {
+      font-size: 14px;
+      font-weight: var(--font-weight-body);
+      color: var(--text-2);
+      line-height: 1.6;
+      margin-bottom: 24px;
+      opacity: 0.85;
+    }
+
+    .campus-v2-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      transition: all 0.2s;
+      cursor: pointer;
+      width: fit-content;
+      font-family: inherit;
+    }
+
+    .campus-v2-btn:hover {
+      background: var(--primary-hover);
+    }
+
+    .campus-v2-btn:active {
+      transform: scale(0.95);
     }
   </style>
 
-  <section class="py-[49px] bg-[#F8FAFC] px-5 overflow-hidden font-sans">
-    <div class="max-w-[1230px] sm:px-0 mx-auto">
-      <div class="text-center mb-[36px]">
-        <!-- h2 controlled by :root -->
-        <h2 class="text-[#000000] mb-[14px]">
-          Our <span class="text-[#155DFC]">Campuses</span>
+  <section class="campuses-section">
+    <div class="campuses-container">
+      <div class="campuses-header">
+        <h2 class="campuses-title">
+          Our <span class="campuses-subtitle-blue">Campuses</span>
         </h2>
-        <!-- p controlled by :root -->
-        <p class="text-[#475569] max-w-2xl mx-auto">
+        <p class="campuses-desc">
           Join our world-class learning centers in collaboration with leading
           universities across India.
         </p>
       </div>
 
-      <div id="campusScrollContainer"
-        class="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none md:grid-cols-2 gap-8 sm:px-4 lg:px-20 pb-6 md:pb-0 scrollbar-hide">
-        <!-- Campus Card 1 -->
+
+
+
+      <div id="campusCarouselFrame" class="campus-carousel-frame">
+        <div class="campuses-grid" id="campusGrid">
+
+          <!-- Original Campus Cards Commented Out
         <div
           class="group bg-white radius-lg-btn overflow-hidden border border-[#f2f2f2] shadow-sm flex flex-col w-full md:w-auto shrink-0 snap-center">
           <div class="relative h-52 w-full overflow-hidden bg-[#f8fafc]">
@@ -2646,7 +2910,6 @@
               class="w-full h-full object-cover" />
           </div>
           <div class="p-5 flex-1 flex flex-col">
-            <!-- h4 controlled by :root -->
             <h5 class="text-[#000000] mb-2 group-hover:text-[#155DFC] transition-colors">
               The NorthCap University
             </h5>
@@ -2657,7 +2920,6 @@
               </svg>
               <small class="small1">Gurugram</small>
             </div>
-            <!-- p controlled by :root -->
             <p class="text-[#475569] mb-6 opacity-85">
               A leading private university known for strong programs in
               engineering, management, and law. Focuses on innovation,
@@ -2667,16 +2929,11 @@
               <button
                 class="btn-sm radius-btn inline-flex items-center gap-2 px-5 py-2.5 bg-[#155DFC] text-white uppercase hover:bg-[#1D4ED8] transition-all active:scale-95 cursor-pointer shadow-md shadow-blue-200/50">
                 Explore
-                <svg viewBox="0 0 448 512" width="10" height="10" class="fill-current">
-                  <path
-                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 0.3-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.8 101.2c-9.6-9.3-9.8-24.8-.3-34.3z" />
-                </svg>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Campus Card 2 -->
         <div
           class="group bg-white radius-lg-btn overflow-hidden border border-slate-100/80 shadow-sm flex flex-col w-full md:w-auto shrink-0 snap-center">
           <div class="relative h-52 w-full overflow-hidden bg-[#f8fafc]">
@@ -2703,16 +2960,11 @@
               <button
                 class="btn-sm radius-btn inline-flex items-center gap-2 px-5 py-2.5 bg-[#155DFC] text-white uppercase hover:bg-[#1D4ED8] transition-all active:scale-95 cursor-pointer shadow-md shadow-blue-200/50">
                 Explore
-                <svg viewBox="0 0 448 512" width="10" height="10" class="fill-current">
-                  <path
-                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 0.3-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.8 101.2c-9.6-9.3-9.8-24.8-.3-34.3z" />
-                </svg>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Campus Card 3 -->
         <div
           class="group bg-white radius-lg-btn overflow-hidden border border-slate-100/80 shadow-sm flex flex-col w-full md:w-auto shrink-0 snap-center">
           <div class="relative h-52 w-full overflow-hidden bg-[#f8fafc]">
@@ -2739,18 +2991,13 @@
               <button
                 class="btn-sm radius-btn inline-flex items-center gap-2 px-5 py-2.5 bg-[#155DFC] text-white uppercase hover:bg-[#1D4ED8] transition-all active:scale-95 cursor-pointer shadow-md shadow-blue-200/50">
                 Explore
-                <svg viewBox="0 0 448 512" width="10" height="10" class="fill-current">
-                  <path
-                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 0.3-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.8 101.2c-9.6-9.3-9.8-24.8-.3-34.3z" />
-                </svg>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Campus Card 4 -->
         <div
-          class="group bg-white radius-lg-btn overflow-hidden border border-slate-100/80 shadow-sm flex flex-col w-full md:w-auto shrink-0 snap-center md:col-start-2">
+          class="group bg-white radius-lg-btn overflow-hidden border border-slate-100/80 shadow-sm flex flex-col w-full md:w-auto shrink-0 snap-center">
           <div class="relative h-52 w-full overflow-hidden bg-[#f8fafc]">
             <img src="/images/campuses-main/Ambi.png" alt="DY Patil University, Ambi"
               class="w-full h-full object-cover" />
@@ -2775,109 +3022,337 @@
               <button
                 class="btn-sm radius-btn inline-flex items-center gap-2 px-5 py-2.5 bg-[#155DFC] text-white uppercase hover:bg-[#1D4ED8] transition-all active:scale-95 cursor-pointer shadow-md shadow-blue-200/50">
                 Explore
-                <svg viewBox="0 0 448 512" width="10" height="10" class="fill-current">
-                  <path
-                    d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 0.3-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.8 101.2c-9.6-9.3-9.8-24.8-.3-34.3z" />
-                </svg>
               </button>
             </div>
           </div>
         </div>
-      </div>
+        -->
 
-      <!-- Mobile Dots + Controls -->
-      <div
-        class="flex items-center md:hidden justify-between md:px-12 md:py-4 mx-auto w-full max-w-[1100px] mt-4 md:mt-0">
-        <div id="dotsContainer" class="flex items-center gap-2">
-          <span class="dot-indicator h-2 radius-lg block transition-all duration-300 w-6 bg-slate-800"></span>
-          <span class="dot-indicator h-2 radius-lg block transition-all duration-300 w-2 bg-[#f8fafc]"></span>
-          <span class="dot-indicator h-2 radius-lg block transition-all duration-300 w-2 bg-[#f8fafc]"></span>
-          <span class="dot-indicator h-2 radius-lg block transition-all duration-300 w-2 bg-[#f8fafc]"></span>
+          <!-- New Campus Card 1: ADYPU -->
+          <div class="campus-v2-card">
+            <div class="campus-v2-img-wrapper">
+              <img src="/images/campuses-main/ajinkya.png" alt="Ajeenkya DY Patil University" loading="lazy">
+              <div class="campus-badge-loc">
+                <svg viewBox="0 0 384 512">
+                  <path
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+                </svg>
+                <span>Pune</span>
+              </div>
+            </div>
+            <div class="campus-v2-body">
+              <h5 class="campus-v2-title">Ajeenkya DY Patil University</h5>
+              <p class="campus-v2-desc">
+                ADYPU, established in Pune, is a leader in technology, media, design, and management education with a
+                strong emphasis on research and innovation.
+              </p>
+              <div style="margin-top: auto;">
+                <button class="campus-v2-btn">
+                  Explore →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- New Campus Card 2: DYPU Ambi -->
+          <div class="campus-v2-card">
+            <div class="campus-v2-img-wrapper">
+              <img src="/images/campuses-main/Ambi.png" alt="DY Patil University, Ambi" loading="lazy">
+              <div class="campus-badge-loc">
+                <svg viewBox="0 0 384 512">
+                  <path
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+                </svg>
+                <span>Ambi, Pune</span>
+              </div>
+            </div>
+            <div class="campus-v2-body">
+              <h5 class="campus-v2-title">DY Patil University, Ambi</h5>
+              <p class="campus-v2-desc">
+                A modern campus with advanced facilities and a vibrant learning environment. Known for industry-focused
+                programs and holistic development.
+              </p>
+              <div style="margin-top: auto;">
+                <button class="campus-v2-btn">
+                  Explore →
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- New Campus Card 3: TIU -->
+          <div class="campus-v2-card">
+            <div class="campus-v2-img-wrapper">
+              <img src="/images/campuses-main/Techno.png" alt="Techno India University" loading="lazy">
+              <div class="campus-badge-loc">
+                <svg viewBox="0 0 384 512">
+                  <path
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+                </svg>
+                <span>Kolkata</span>
+              </div>
+            </div>
+            <div class="campus-v2-body">
+              <h5 class="campus-v2-title">Techno India University</h5>
+              <p class="campus-v2-desc">
+                TIU, established in 2012, is West Bengal's first private university and a leader in education, research,
+                and innovation.
+              </p>
+              <div style="margin-top: auto;">
+                <button class="campus-v2-btn">
+                  Explore →
+                </button>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="campus-v2-card">
+            <div class="campus-v2-img-wrapper">
+              <img src="/images/campuses-main/NorthCap.png" alt="The NorthCap University" loading="lazy">
+              <div class="campus-badge-loc">
+                <svg viewBox="0 0 384 512">
+                  <path
+                    d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+                </svg>
+                <span>Gurugram</span>
+              </div>
+            </div>
+            <div class="campus-v2-body">
+              <h5 class="campus-v2-title">The NorthCap University</h5>
+              <p class="campus-v2-desc">
+                NCU, located in Gurugram, is a premier multidisciplinary university known for excellence in teaching,
+                learning, and industry integration.
+              </p>
+              <div style="margin-top: auto;">
+                <button class="campus-v2-btn">
+                  Explore →
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex gap-2">
-          <button id="prevSlideBtn" aria-label="Previous slide"
-            class="w-10 h-10 border border-[#f2f2f2] radius-btn flex items-center justify-center hover:bg-[#F8FAFC] active:bg-slate-100 transition-colors cursor-pointer">
-            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
-              <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" class="text-[#000000]" />
-            </svg>
-          </button>
-          <button id="nextSlideBtn" aria-label="Next slide"
-            class="w-10 h-10 border border-[#f2f2f2] radius-btn flex items-center justify-center hover:bg-[#F8FAFC] active:bg-slate-100 transition-colors cursor-pointer">
-            <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
-              <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
-                stroke-linejoin="round" class="text-[#000000]" />
-            </svg>
-          </button>
+        <div class="campuses-mobile-nav">
+          <div id="dotsContainer" class="campuses-dots">
+            <span class="campuses-dot active"></span>
+            <span class="campuses-dot"></span>
+            <span class="campuses-dot"></span>
+            <span class="campuses-dot"></span>
+          </div>
+          <div class="campuses-btns">
+            <button id="prevSlideBtn" aria-label="Previous slide" class="campuses-btn-nav">
+              <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+                <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button id="nextSlideBtn" aria-label="Next slide" class="campuses-btn-nav">
+              <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+                <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
   </section>
-
   <script>
-    const scrollContainer = document.getElementById("campusScrollContainer");
-    const dots = document.querySelectorAll(".dot-indicator");
-    const prevBtn = document.getElementById("prevSlideBtn");
-    const nextBtn2 = document.getElementById("nextSlideBtn");
-    let activeDotIndex = 0;
+    const campusFrame = document.getElementById("campusCarouselFrame");
+    const campusTrack = document.getElementById("campusGrid");
+    const campusDotsContainer = document.getElementById("dotsContainer");
+    const campusBtnPrev = document.getElementById("prevSlideBtn");
+    const campusBtnNext = document.getElementById("nextSlideBtn");
 
-    function updateActiveDots() {
-      if (!scrollContainer) return;
-      const scrollPosition = scrollContainer.scrollLeft;
-      const clientWidth = scrollContainer.clientWidth;
-      const newActiveDot = Math.round(scrollPosition / clientWidth);
-      if (newActiveDot !== activeDotIndex && newActiveDot < dots.length) {
-        dots[activeDotIndex].classList.remove("w-6", "bg-slate-800");
-        dots[activeDotIndex].classList.add("w-2", "bg-[#f8fafc]");
-        dots[newActiveDot].classList.remove("w-2", "bg-[#f8fafc]");
-        dots[newActiveDot].classList.add("w-6", "bg-slate-800");
-        activeDotIndex = newActiveDot;
+    let campusCurrentIndex = 0;
+    let isCampusTransitioning = false;
+    let isCampusDragging = false;
+    let campusDragStartX = 0;
+    const campusTotalItems = 4;
+    let campusLastViewMode = window.innerWidth > 1023 ? "desktop" : (window.innerWidth > 576 ? "tablet" : "mobile");
+
+    function getCampusMaxIndex() {
+      const width = window.innerWidth;
+      if (width > 1023) {
+        return 0; // all visible
+      } else if (width > 576) {
+        return campusTotalItems - 2; // 2 visible
+      } else {
+        return campusTotalItems - 1; // 1 visible
       }
     }
 
-    function handlePrev() {
-      if (scrollContainer) {
-        scrollContainer.scrollBy({
-          left: -scrollContainer.clientWidth,
-          behavior: "smooth",
-        });
-      }
-    }
-    function handleNext() {
-      if (scrollContainer) {
-        const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-        if (scrollLeft + clientWidth >= scrollWidth - 10) {
-          scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
-        } else {
-          scrollContainer.scrollBy({ left: clientWidth, behavior: "smooth" });
-        }
-      }
-    }
+    function initCampusSlider() {
+      const maxIndex = getCampusMaxIndex();
+      const numDots = maxIndex + 1;
 
-    (function useEffectMobileAutoSlide() {
-      const interval = setInterval(() => {
-        if (scrollContainer && window.innerWidth < 768) {
-          const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
-          if (scrollLeft + clientWidth >= scrollWidth - 10) {
-            scrollContainer.scrollTo({ left: 0, behavior: "smooth" });
-          } else {
-            scrollContainer.scrollBy({
-              left: clientWidth,
-              behavior: "smooth",
+      if (campusCurrentIndex > maxIndex) {
+        campusCurrentIndex = maxIndex;
+      }
+
+      if (numDots <= 1) {
+        campusDotsContainer.innerHTML = "";
+      } else {
+        campusDotsContainer.innerHTML = Array.from({ length: numDots })
+          .map(
+            (_, idx) =>
+              `<span id="campus-dot-${idx}" class="campuses-dot" style="cursor:pointer;"></span>`,
+          )
+          .join("");
+
+        // Click handler for dots
+        for (let idx = 0; idx < numDots; idx++) {
+          const dotEl = document.getElementById(`campus-dot-${idx}`);
+          if (dotEl) {
+            dotEl.addEventListener("click", () => {
+              if (isCampusTransitioning) return;
+              campusCurrentIndex = idx;
+              applyCampusTransform(true);
+              highlightCampusDots();
             });
           }
         }
-      }, 3000);
-      window.addEventListener("unload", () => clearInterval(interval));
-    })();
+      }
 
-    scrollContainer.addEventListener("scroll", updateActiveDots);
-    prevBtn.addEventListener("click", handlePrev);
-    nextBtn2.addEventListener("click", handleNext);
+      applyCampusTransform(false);
+      highlightCampusDots();
+    }
+
+    function applyCampusTransform(smooth) {
+      if (smooth) {
+        campusTrack.style.transition = "transform 0.5s ease-in-out";
+      } else {
+        campusTrack.style.transition = "none";
+      }
+
+      const width = window.innerWidth;
+      if (width > 1023) {
+        campusTrack.style.transform = "none";
+      } else if (width > 576) {
+        const frameWidth = campusFrame.clientWidth;
+        const shiftPx = campusCurrentIndex * (frameWidth + 24) / 2;
+        campusTrack.style.transform = `translateX(-${shiftPx}px)`;
+      } else {
+        campusTrack.style.transform = `translateX(-${campusCurrentIndex * 100}%)`;
+      }
+    }
+
+    function highlightCampusDots() {
+      const maxIndex = getCampusMaxIndex();
+      const numDots = maxIndex + 1;
+      for (let idx = 0; idx < numDots; idx++) {
+        const dot = document.getElementById(`campus-dot-${idx}`);
+        if (dot) {
+          if (idx === campusCurrentIndex) {
+            dot.classList.add("active");
+          } else {
+            dot.classList.remove("active");
+          }
+        }
+      }
+    }
+
+    function advanceCampusNext() {
+      if (isCampusTransitioning) return;
+      isCampusTransitioning = true;
+      const maxIndex = getCampusMaxIndex();
+      if (campusCurrentIndex >= maxIndex) {
+        campusCurrentIndex = 0;
+      } else {
+        campusCurrentIndex++;
+      }
+      applyCampusTransform(true);
+      highlightCampusDots();
+      setTimeout(() => {
+        isCampusTransitioning = false;
+      }, 500);
+    }
+
+    function regressCampusPrev() {
+      if (isCampusTransitioning) return;
+      isCampusTransitioning = true;
+      const maxIndex = getCampusMaxIndex();
+      if (campusCurrentIndex <= 0) {
+        campusCurrentIndex = maxIndex;
+      } else {
+        campusCurrentIndex--;
+      }
+      applyCampusTransform(true);
+      highlightCampusDots();
+      setTimeout(() => {
+        isCampusTransitioning = false;
+      }, 500);
+    }
+
+    // Drag Gestures for Campus
+    function handleCampusDragStart(clientX) {
+      if (getCampusMaxIndex() === 0) return;
+      isCampusDragging = true;
+      campusDragStartX = clientX;
+    }
+    function handleCampusDragMove(clientX) {
+      if (!isCampusDragging) return;
+      const deltaX = clientX - campusDragStartX;
+      if (deltaX > 50) {
+        regressCampusPrev();
+        isCampusDragging = false;
+      } else if (deltaX < -50) {
+        advanceCampusNext();
+        isCampusDragging = false;
+      }
+    }
+    function handleCampusDragEnd() {
+      isCampusDragging = false;
+    }
+
+    if (campusBtnPrev) campusBtnPrev.addEventListener("click", regressCampusPrev);
+    if (campusBtnNext) campusBtnNext.addEventListener("click", advanceCampusNext);
+
+    if (campusFrame) {
+      campusFrame.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        handleCampusDragStart(e.pageX);
+      });
+      campusFrame.addEventListener("mousemove", (e) => {
+        e.preventDefault();
+        handleCampusDragMove(e.pageX);
+      });
+      window.addEventListener("mouseup", handleCampusDragEnd);
+
+      campusFrame.addEventListener(
+        "touchstart",
+        (e) => handleCampusDragStart(e.touches[0].clientX),
+        { passive: true },
+      );
+      campusFrame.addEventListener(
+        "touchmove",
+        (e) => handleCampusDragMove(e.touches[0].clientX),
+        { passive: true },
+      );
+      campusFrame.addEventListener("touchend", handleCampusDragEnd);
+    }
+
+    window.addEventListener("resize", () => {
+      const width = window.innerWidth;
+      let currentMode = "mobile";
+      if (width > 1023) {
+        currentMode = "desktop";
+      } else if (width > 576) {
+        currentMode = "tablet";
+      }
+
+      if (currentMode !== campusLastViewMode) {
+        campusLastViewMode = currentMode;
+        initCampusSlider();
+      } else {
+        applyCampusTransform(false);
+      }
+    });
+
+    initCampusSlider();
   </script>
 
   <!-- PLACEMENT HIGHLIGHTS -->
-  <section class="bg-white py-[49px] overflow-hidden">
+  <section class="placement-carousel-section bg-white py-[49px] overflow-hidden">
     <div class="text-center mb-[36px]">
       <h2 class="text-[#000000] mb-[14px]">
         Placement <span class="text-[#155DFC]">Highlights</span>
@@ -2889,7 +3364,7 @@
     </div>
 
     <!-- Stats -->
-    <div class="max-w-6xl mx-auto px-4 sm:mb-16 mb-[36px] relative z-10">
+    <div class="max-w-6xl mx-auto sm:mb-16 mb-[36px] relative z-10">
       <div
         class="bg-white radius-lg-btn flex flex-wrap md:flex-nowrap justify-between overflow-hidden text-center border border-gray-50">
         <div class="py-8 px-4 flex flex-col justify-center w-1/2 md:w-full border-b border-r border-gray-100">
@@ -2922,12 +3397,14 @@
     </div>
 
     <!-- Sliders -->
-    <div class="flex flex-col gap-3">
-      <div class="relative flex overflow-hidden mx-auto w-full huge:max-w-[1270px]">
-        <div id="row1" class="flex marquee-scroll-left w-max whitespace-nowrap items-center"></div>
+    <div class="flex flex-col" style="gap: 0;">
+      <div class="relative flex overflow-hidden mx-auto w-full" style="max-width: 100%;">
+        <div id="row1" class="flex marquee-scroll-left whitespace-nowrap items-center" style="width: max-content;">
+        </div>
       </div>
-      <div class="relative flex overflow-hidden mx-auto w-full huge:max-w-[1270px]">
-        <div id="row2" class="flex marquee-scroll-right w-max whitespace-nowrap items-center"></div>
+      <div class="relative flex overflow-hidden mx-auto w-full" style="max-width: 100%;">
+        <div id="row2" class="flex marquee-scroll-right whitespace-nowrap items-center" style="width: max-content;">
+        </div>
       </div>
     </div>
 
@@ -3085,9 +3562,42 @@
     .carousel-track.no-transition {
       transition: none;
     }
+
+    /* ─── Infinite Marquee Scroll ─────────────────── */
+    @keyframes marquee-left {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes marquee-right {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    .marquee-scroll-left {
+      animation: marquee-left 10s linear infinite;
+    }
+
+    .marquee-scroll-right {
+      animation: marquee-right 10s linear infinite;
+    }
+
+    .marquee-scroll-left:hover,
+    .marquee-scroll-right:hover {
+      animation-play-state: paused;
+    }
   </style>
 
-  <!-- PLACEMENT CAROUSEL -->
   <style>
     /* ─── 5c. PLACEMENT HIGHLIGHTS CAROUSEL ─────────────────── */
     .placement-carousel-section {
@@ -3095,6 +3605,14 @@
       width: 100%;
       overflow: hidden;
       user-select: none;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 1200px) {
+      .placement-carousel-section {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
     }
 
     .placement-carousel-frame {
@@ -3271,7 +3789,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 10px 0;
-      background-color: #ffffff;
+      background-color: var(--secoundary-bg);
       width: 100%;
       box-sizing: border-box;
     }
@@ -3361,7 +3879,14 @@
       }
 
       .placement-carousel-controls {
-        padding: 16px 24px;
+        padding: 16px 0px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      #placements {
+        padding-left: 20px !important;
+        padding-right: 20px !important;
       }
     }
   </style>
@@ -3849,43 +4374,85 @@
         transform: scale(1.1);
       }
     </style>
+    <style>
+      /* Events cards: full-height image, no name section */
+      #eventsCarouselGrid .placement-card {
+        height: 500px;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      @media (max-width: 1024px) {
+        #eventsCarouselGrid .placement-card {
+          height: 480px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        #eventsCarouselGrid .placement-card {
+          height: 400px;
+        }
+      }
+
+      @media (max-width: 426px) {
+        #eventsCarouselGrid .placement-card {
+          height: 550px;
+        }
+      }
+
+      #eventsCarouselGrid .placement-card .placement-media {
+        height: 100% !important;
+        aspect-ratio: unset !important;
+        border-radius: 0 !important;
+      }
+
+      /* Target width for 3 cards visible at 1024px down to 769px screen size */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        #eventsCarouselGrid .placement-card {
+          width: calc((100% - 48px) / 3) !important;
+        }
+      }
+
+      /* Target width for 2 cards visible at 768px down to 577px screen size */
+      @media (min-width: 577px) and (max-width: 768px) {
+        #eventsCarouselGrid .placement-card {
+          width: calc((100% - 24px) / 2) !important;
+        }
+      }
+    </style>
 
     <!-- EVENTS & UPDATES -->
-    <section class="bg-white py-[49px] px-5 relative overflow-hidden">
-      <div class="max-w-[1230px] mx-auto text-center relative z-10">
-        <div class="flex flex-col items-center text-center mb-[36px]">
+    <section class="bg-white py-[49px] relative overflow-hidden" id="events-section">
+      <div class="max-w-[1230px] mx-auto relative z-10">
+        <div class="flex flex-col items-start mb-[36px]">
           <h2 class="mb-[14px]">
             <span class="text-[#000000]">Events &</span>
             <span class="text-[#155DFC] pl-1">Updates</span>
           </h2>
-          <p class="text-[#475569] max-w-2xl text-center">
-            Meet the talented individuals who have shaped their careers with
-            Seamedu.
+          <p class="text-[#475569] max-w-2xl">
+            Meet the talented individuals who have shaped their careers with Seamedu.
           </p>
         </div>
 
-        <div id="sliderWindowFrame" class="w-full overflow-hidden select-none" onmouseenter="toggleSliderPause(true)"
-          onmouseleave="toggleSliderPause(false)">
-          <div id="storiesSliderTrack" class="slider-container-track flex gap-6 sm:px-4 w-max"></div>
+        <div id="eventsCarouselFrame" class="placement-carousel-frame">
+          <div class="placement-page-grid" id="eventsCarouselGrid">
+            <!-- Cards injected by JS -->
+          </div>
         </div>
 
-        <!-- Mobile-only controls for Events & Updates -->
-        <div class="flex sm:hidden justify-end items-center mt-6">
-          <div class="flex items-center gap-2">
-            <button id="eventsPrevBtn" aria-label="Previous event"
-              class="w-10 h-10 radius-btn bg-white shadow-sm flex items-center justify-center border border-[#f2f2f2] active:scale-95 transition-all hover:bg-[#F8FAFC] cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="text-[#000000]">
-                <path d="m15 18-6-6 6-6" />
+        <div class="placement-carousel-controls">
+          <div id="eventsDotsContainer" class="placement-dots-container"></div>
+          <div class="placement-buttons-container">
+            <button id="eventsPrevBtn" aria-label="Previous event" class="placement-carousel-btn">
+              <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+                <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </button>
-            <button id="eventsNextBtn" aria-label="Next event"
-              class="w-10 h-10 radius-btn bg-white shadow-sm flex items-center justify-center border border-[#f2f2f2] active:scale-95 transition-all hover:bg-[#F8FAFC] cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="text-[#000000]">
-                <path d="m9 18 6-6-6-6" />
+            <button id="eventsNextBtn" aria-label="Next event" class="placement-carousel-btn">
+              <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+                <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </button>
           </div>
@@ -3894,493 +4461,489 @@
     </section>
 
     <script>
-      const storiesDataset = [
-        {
-          name: "Prince Dewani",
-          role: "MBA Student",
-          image: "https://img.youtube.com/vi/LlFImFcWONA/maxresdefault.jpg",
-          videoUrl: "https://www.youtube.com/embed/LlFImFcWONA?autoplay=1",
-          title: "Media, Design & Technology courses at Seamedu",
-          views: "12K",
-        },
-        {
-          name: "Arya Mishra",
-          role: "BBA Student",
-          image: "https://img.youtube.com/vi/nRpRo5DSNUM/maxresdefault.jpg",
-          videoUrl: "https://www.youtube.com/embed/nRpRo5DSNUM?autoplay=1",
-          title:
-            "Don't Just Study… Build Your Future 🚀 | Real Skills. Real Careers.",
-          views: "34K",
-        },
-        {
-          name: "Mayank Pandey",
-          role: "B.Tech(CSE) Student",
-          image: "https://img.youtube.com/vi/AA4n4zc7Ayk/maxresdefault.jpg",
-          videoUrl: "https://www.youtube.com/embed/AA4n4zc7Ayk?autoplay=1",
-          title:
-            "An evening of reconnection, shared memories, and renewed bonds",
-          views: "8.5K",
-        },
-        {
-          name: "Himanshi Tiruwa",
-          role: "BCA Student",
-          image: "https://img.youtube.com/vi/n5J72h1j1B8/maxresdefault.jpg",
-          videoUrl: "https://www.youtube.com/embed/n5J72h1j1B8?autoplay=1",
-          title: "Hands-on learning in action at DYPU Ambi!",
-          views: "15K",
-        },
-        {
-          name: "Kabir Khan",
-          role: "Game Development",
-          image: "https://img.youtube.com/vi/FshqGG3a4JM/maxresdefault.jpg",
-          videoUrl: "https://www.youtube.com/embed/FshqGG3a4JM?autoplay=1",
-          title: "SEAS- Toolbox Inauguration Ceremony!",
-          views: "21K",
-        },
-        {
-          name: "Ananya Iyer",
-          role: "Photography",
-          image: "https://img.youtube.com/vi/OBgeKM8UjcY/maxresdefault.jpg",
-          videoUrl: "https://www.youtube.com/embed/OBgeKM8UjcY?autoplay=1",
-          title: "Seamedu was honoured to welcome Commonwealth medalist.",
-          views: "42K",
-        },
-      ];
+      (function () {
+        const eventsData = [
+          {
+            name: "Prince Dewani", role: "MBA Student",
+            image: "https://img.youtube.com/vi/LlFImFcWONA/maxresdefault.jpg",
+            videoUrl: "https://www.youtube.com/embed/LlFImFcWONA?autoplay=1",
+            title: "Media, Design & Technology courses at Seamedu", views: "12K",
+          },
+          {
+            name: "Arya Mishra", role: "BBA Student",
+            image: "https://img.youtube.com/vi/nRpRo5DSNUM/maxresdefault.jpg",
+            videoUrl: "https://www.youtube.com/embed/nRpRo5DSNUM?autoplay=1",
+            title: "Don't Just Study… Build Your Future 🚀", views: "34K",
+          },
+          {
+            name: "Mayank Pandey", role: "B.Tech(CSE) Student",
+            image: "https://img.youtube.com/vi/AA4n4zc7Ayk/maxresdefault.jpg",
+            videoUrl: "https://www.youtube.com/embed/AA4n4zc7Ayk?autoplay=1",
+            title: "An evening of reconnection, shared memories", views: "8.5K",
+          },
+          {
+            name: "Himanshi Tiruwa", role: "BCA Student",
+            image: "https://img.youtube.com/vi/n5J72h1j1B8/maxresdefault.jpg",
+            videoUrl: "https://www.youtube.com/embed/n5J72h1j1B8?autoplay=1",
+            title: "Hands-on learning in action at DYPU Ambi!", views: "15K",
+          },
+          {
+            name: "Kabir Khan", role: "Game Development",
+            image: "https://img.youtube.com/vi/FshqGG3a4JM/maxresdefault.jpg",
+            videoUrl: "https://www.youtube.com/embed/FshqGG3a4JM?autoplay=1",
+            title: "SEAS- Toolbox Inauguration Ceremony!", views: "21K",
+          },
+          {
+            name: "Ananya Iyer", role: "Photography",
+            image: "https://img.youtube.com/vi/OBgeKM8UjcY/maxresdefault.jpg",
+            videoUrl: "https://www.youtube.com/embed/OBgeKM8UjcY?autoplay=1",
+            title: "Seamedu honoured to welcome Commonwealth medalist.", views: "42K",
+          },
+        ];
 
-      const combinedSliderPool = [
-        ...storiesDataset,
-        ...storiesDataset,
-        ...storiesDataset,
-      ];
-      const sliderTrack = document.getElementById("storiesSliderTrack");
-      let activeVideoUrlGlobal = null;
-      let isSliderPausedGlobal = false;
-      let currentTransformPositionX = 0;
-      let sliderAutoCycleInterval = null;
+        const eFrame = document.getElementById("eventsCarouselFrame");
+        const eGrid = document.getElementById("eventsCarouselGrid");
+        const eDots = document.getElementById("eventsDotsContainer");
+        const ePrev = document.getElementById("eventsPrevBtn");
+        const eNext = document.getElementById("eventsNextBtn");
 
-      function calculateCardMetrics() {
-        const firstCard = sliderTrack.firstElementChild;
-        let cardWidth = 260;
-        let gap = 24;
-        if (firstCard) {
-          cardWidth =
-            firstCard.getBoundingClientRect().width ||
-            firstCard.offsetWidth ||
-            260;
-          const style = window.getComputedStyle(sliderTrack);
-          const computedGap = parseInt(style.columnGap || style.gap);
-          if (!isNaN(computedGap)) {
-            gap = computedGap;
-          }
-        } else {
-          const portWindowWidth = window.innerWidth;
-          if (portWindowWidth >= 640) {
-            const baseContainerBoundingWidth = Math.min(portWindowWidth, 1400);
-            cardWidth = baseContainerBoundingWidth / 4 - 16;
-            gap = 16;
+        // Inject cards
+        eventsData.forEach((story, i) => {
+          const card = document.createElement("div");
+          card.className = "placement-card";
+          card.style.cursor = "pointer";
+          card.innerHTML = `
+            <div class="placement-media" style="position:relative;overflow:hidden;border-radius:12px;height:100%;background:#000;">
+              <img src="${story.image}" alt="${story.title}" style="width:100%;height:100%;object-fit:cover;opacity:.88;" loading="lazy">
+              <div style="position:absolute;top:12px;left:12px;right:12px;display:flex;gap:8px;align-items:flex-start;">
+                <div style="width:28px;height:28px;flex-shrink:0;background:#fff;border-radius:6px;overflow:hidden;">
+                  <img src="https://assets.seamedu.com/assets/img/seamedu-logo.png" style="width:100%;height:100%;object-fit:cover;" onerror="this.style.display='none'">
+                </div>
+                <div style="color:#fff;text-align:left;">
+                  <p style="font-size:11px;line-height:1.3;font-weight:600;">${story.title}</p>
+                  <p style="font-size:10px;opacity:.8;">Seamedu • ${story.views} views</p>
+                </div>
+              </div>
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;">
+                <svg viewBox="0 0 24 24" style="width:56px;height:56px;" xmlns="http://www.w3.org/2000/svg"><path fill="#FF0000" d="M19.463 8.358c-.991-.453-1.636-.757-1.636-.757.545-.303 1.056-.632 1.54-.925 1.572-.924 2.115-2.894 1.252-4.5-.83-1.544-2.809-2.146-4.425-1.32-2.114 1.06-8.91 4.542-10.993 5.619C3.12 7.55 2.5 9.53 3.332 11.077c.56.924 1.556 1.487 2.458 1.623.14 0 .546.106.546.106-.56.32-1.071.65-1.54.94-1.572.923-2.115 2.893-1.252 4.499.83 1.544 2.81 2.146 4.426 1.32 2.113-1.06 8.909-4.543 10.992-5.62 2.083-1.076 2.704-3.056 1.872-4.603-.56-.924-1.556-1.488-2.458-1.624v.64h.087z"/><path fill="#FFFFFF" d="M9.544 14.502v-5.2l5.105 2.6z"/></svg>
+              </div>
+            </div>`;
+          eGrid.appendChild(card);
+        });
+
+        let eCurrentIdx = 0;
+        let eTransitioning = false;
+        let eDragging = false, eDragStartX = 0;
+        const eTotalItems = eventsData.length;
+        let eLastViewMode = getViewMode();
+
+        function getViewMode() {
+          const w = window.innerWidth;
+          if (w > 1024) return "desktop";
+          if (w > 768) return "tablet-3col";
+          if (w > 576) return "tablet-2col";
+          return "mobile";
+        }
+
+        function eGetMaxIndex() {
+          const mode = getViewMode();
+          if (mode === "desktop") {
+            return eTotalItems - 4; // 4 cards on desktop
+          } else if (mode === "tablet-3col") {
+            return eTotalItems - 3; // 3 cards on tablet-large
+          } else if (mode === "tablet-2col") {
+            return eTotalItems - 2; // 2 cards on 768px and below
           } else {
-            const frame = document.getElementById("sliderWindowFrame");
-            cardWidth = frame ? frame.clientWidth : portWindowWidth - 48;
-            gap = 24;
+            return eTotalItems - 1; // 1 card on mobile
           }
         }
-        return { cardWidth, gap };
-      }
 
-      function buildSliderStructure() {
-        sliderTrack.innerHTML = combinedSliderPool
-          .map(
-            (story, trackingIdx) => `    
-   <div id="card-instance-${trackingIdx}"
-    onclick="launchInlineVideoPlayer('${story.videoUrl}', ${trackingIdx})"
-    class="relative group overflow-hidden radius-lg-btn bg-black aspect-[2/3] cursor-pointer flex-none w-full sm:w-[calc(288px)] transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl">
-    <div id="media-viewport-shell-${trackingIdx}" class="w-full h-full relative">
-     <img src="${story.image}" alt="${story.name}" class="w-full h-full object-cover opacity-90 transition-transform duration-300 group-hover:scale-105" draggable="false" />
-     <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-black/60 to-transparent pointer-events-none"></div>
-     <div class="absolute top-4 left-4 right-4 flex items-start space-x-2 z-20 pointer-events-none">
-      <div class="w-8 h-8 flex-shrink-0 bg-white radius-lg shadow-lg overflow-hidden border border-white/30">
-       <img src="https://assets.seamedu.com/assets/img/seamedu-logo.png" alt="Seamedu" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1546410531-bb4caa6b424d?w=100'" />
-      </div>
-      <div class="text-white text-left  overflow-hidden">
-       <p class="s-title ">${story.title}</p>
-       <p class="opacity-90 mt-0.5">Seamedu • ${story.views} views</p>
-      </div>
-     </div>
-     <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-10 scale-95 group-hover:scale-110 transition-transform duration-300">
-      <div class="drop-shadow-2xl">
-       <svg viewBox="0 0 24 24" class="w-16 h-16 sm:w-20 sm:h-20" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#FF0000" d="M19.463 8.358c-.991-.453-1.636-.757-1.636-.757.545-.303 1.056-.632 1.54-.925 1.572-.924 2.115-2.894 1.252-4.5-.83-1.544-2.809-2.146-4.425-1.32-2.114 1.06-8.91 4.542-10.993 5.619C3.12 7.55 2.5 9.53 3.332 11.077c.56.924 1.556 1.487 2.458 1.623.14 0 .546.106.546.106-.56.32-1.071.65-1.54.94-1.572.923-2.115 2.893-1.252 4.499.83 1.544 2.81 2.146 4.426 1.32 2.113-1.06 8.909-4.543 10.992-5.62 2.083-1.076 2.704-3.056 1.872-4.603-.56-.924-1.556-1.488-2.458-1.624v.64h.087z"/>
-        <path fill="#FFFFFF" d="M9.544 14.502v-5.2l5.105 2.6z"/>
-       </svg>
-      </div>
-     </div>
-    </div>
-   </div>
-  `,
-          )
-          .join("");
-        resetTrackToCenterAnchor();
-      }
-
-      function resetTrackToCenterAnchor() {
-        const { cardWidth, gap } = calculateCardMetrics();
-        const structuralSetWidth = storiesDataset.length * (cardWidth + gap);
-        currentTransformPositionX = -structuralSetWidth;
-        sliderTrack.classList.remove("transition-all", "duration-500");
-        sliderTrack.style.transform = `translateX(${currentTransformPositionX}px)`;
-      }
-
-      function launchInlineVideoPlayer(targetEmbedUrl, trackingElementIdx) {
-        if (!targetEmbedUrl || activeVideoUrlGlobal === targetEmbedUrl) return;
-        closeActiveVideoPlayer(null);
-        activeVideoUrlGlobal = targetEmbedUrl;
-        toggleSliderPause(true);
-        const activeTargetContainer = document.getElementById(
-          `media-viewport-shell-${trackingElementIdx}`,
-        );
-        if (activeTargetContainer) {
-          activeTargetContainer.innerHTML = `
-     <iframe src="${targetEmbedUrl}" class="absolute inset-0 w-full h-full mountaineer-video-layer z-[40] border-none bg-black" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-     <button onclick="event.stopPropagation(); closeActiveVideoPlayer(${trackingElementIdx})" class="absolute top-3 right-3 w-8 h-8 radius-lg bg-black/60 flex items-center justify-center text-white z-[50] hover:bg-white hover:text-[#000000] transition-colors border border-white/10">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
-     </button>
-    `;
+        function eInit() {
+          const maxIdx = eGetMaxIndex();
+          const numDots = maxIdx + 1;
+          if (eCurrentIdx > maxIdx) eCurrentIdx = maxIdx;
+          eDots.innerHTML = Array.from({ length: numDots })
+            .map((_, i) => `<span id="edot-${i}" class="dot-inactive"></span>`).join("");
+          eApply(false);
+          eRefreshDots();
         }
-      }
 
-      function closeActiveVideoPlayer(trackingElementIdx) {
-        activeVideoUrlGlobal = null;
-        toggleSliderPause(false);
-        if (trackingElementIdx !== null) {
-          buildSliderStructure();
-        }
-      }
+        function eApply(animate) {
+          eGrid.style.transition = animate ? "transform 0.5s ease-in-out" : "none";
+          const fw = eFrame.clientWidth;
+          const mode = getViewMode();
 
-      function transitionEventsSlideDirection(directionIntent) {
-        if (activeVideoUrlGlobal) return;
-        const { cardWidth, gap } = calculateCardMetrics();
-        const stepAmount = cardWidth + gap;
-        const completeSetWidth = storiesDataset.length * stepAmount;
-        sliderTrack.classList.add("transition-all", "duration-500");
-        if (directionIntent === "right") {
-          currentTransformPositionX -= stepAmount;
-          sliderTrack.style.transform = `translateX(${currentTransformPositionX}px)`;
-          if (Math.abs(currentTransformPositionX) >= completeSetWidth * 2) {
-            setTimeout(() => {
-              sliderTrack.classList.remove("transition-all", "duration-500");
-              currentTransformPositionX = -completeSetWidth;
-              sliderTrack.style.transform = `translateX(${currentTransformPositionX}px)`;
-            }, 500);
-          }
-        } else {
-          currentTransformPositionX += stepAmount;
-          sliderTrack.style.transform = `translateX(${currentTransformPositionX}px)`;
-          if (currentTransformPositionX >= 0) {
-            setTimeout(() => {
-              sliderTrack.classList.remove("transition-all", "duration-500");
-              currentTransformPositionX = -completeSetWidth;
-              sliderTrack.style.transform = `translateX(${currentTransformPositionX}px)`;
-            }, 500);
+          if (mode === "desktop") {
+            eGrid.style.transform = `translateX(-${eCurrentIdx * (fw + 24) / 4}px)`;
+          } else if (mode === "tablet-3col") {
+            eGrid.style.transform = `translateX(-${eCurrentIdx * (fw + 24) / 3}px)`;
+          } else if (mode === "tablet-2col") {
+            eGrid.style.transform = `translateX(-${eCurrentIdx * (fw + 24) / 2}px)`;
+          } else {
+            eGrid.style.transform = `translateX(-${eCurrentIdx * 100}%)`;
           }
         }
-      }
 
-      function shiftCarouselStepNext() {
-        if (isSliderPausedGlobal || activeVideoUrlGlobal) return;
-        transitionEventsSlideDirection("right");
-      }
+        function eRefreshDots() {
+          const maxIdx = eGetMaxIndex();
+          for (let i = 0; i <= maxIdx; i++) {
+            const d = document.getElementById(`edot-${i}`);
+            if (d) d.className = i === eCurrentIdx ? "dot-active" : "dot-inactive";
+          }
+        }
 
-      function toggleSliderPause(pauseStateIntent) {
-        isSliderPausedGlobal = pauseStateIntent;
-      }
+        function eNext2() {
+          if (eTransitioning) return;
+          eTransitioning = true;
+          const maxIdx = eGetMaxIndex();
+          eCurrentIdx = eCurrentIdx >= maxIdx ? 0 : eCurrentIdx + 1;
+          eApply(true); eRefreshDots();
+          setTimeout(() => { eTransitioning = false; }, 500);
+        }
 
-      function initComponentSliderEngine() {
-        buildSliderStructure();
-        if (sliderAutoCycleInterval) clearInterval(sliderAutoCycleInterval);
-        sliderAutoCycleInterval = setInterval(shiftCarouselStepNext, 3000);
-      }
+        function ePrev2() {
+          if (eTransitioning) return;
+          eTransitioning = true;
+          const maxIdx = eGetMaxIndex();
+          eCurrentIdx = eCurrentIdx <= 0 ? maxIdx : eCurrentIdx - 1;
+          eApply(true); eRefreshDots();
+          setTimeout(() => { eTransitioning = false; }, 500);
+        }
 
-      let windowResizeTimerSlider;
-      window.addEventListener("resize", () => {
-        clearTimeout(windowResizeTimerSlider);
-        windowResizeTimerSlider = setTimeout(() => {
-          buildSliderStructure();
-        }, 150);
-      });
+        ePrev.addEventListener("click", ePrev2);
+        eNext.addEventListener("click", eNext2);
 
-      initComponentSliderEngine();
+        eFrame.addEventListener("mousedown", e => { e.preventDefault(); eDragging = true; eDragStartX = e.pageX; });
+        eFrame.addEventListener("mousemove", e => { if (!eDragging) return; const d = e.pageX - eDragStartX; if (d > 50) { ePrev2(); eDragging = false; } else if (d < -50) { eNext2(); eDragging = false; } });
+        window.addEventListener("mouseup", () => { eDragging = false; });
+        eFrame.addEventListener("touchstart", e => { eDragging = true; eDragStartX = e.touches[0].clientX; }, { passive: true });
+        eFrame.addEventListener("touchmove", e => { if (!eDragging) return; const d = e.touches[0].clientX - eDragStartX; if (d > 50) { ePrev2(); eDragging = false; } else if (d < -50) { eNext2(); eDragging = false; } }, { passive: true });
+        eFrame.addEventListener("touchend", () => { eDragging = false; });
 
-      const eventsPrevBtn = document.getElementById("eventsPrevBtn");
-      const eventsNextBtn = document.getElementById("eventsNextBtn");
-      if (eventsPrevBtn) {
-        eventsPrevBtn.addEventListener("click", () =>
-          transitionEventsSlideDirection("left"),
-        );
-      }
-      if (eventsNextBtn) {
-        eventsNextBtn.addEventListener("click", () =>
-          transitionEventsSlideDirection("right"),
-        );
-      }
+        window.addEventListener("resize", () => {
+          const vm = getViewMode();
+          if (vm !== eLastViewMode) {
+            eLastViewMode = vm;
+            eCurrentIdx = 0;
+            eInit();
+          } else {
+            eApply(false);
+          }
+        });
+
+        eInit();
+      })();
     </script>
+
+    <style>
+      /* ── Success Stories Card Design (from Testimonials.html) ── */
+      #success-section .ss-carousel-frame {
+        overflow: hidden;
+        cursor: grab;
+      }
+
+      #success-section .ss-carousel-frame:active {
+        cursor: grabbing;
+      }
+
+      #success-section .ss-track {
+        display: flex;
+        gap: 24px;
+        width: max-content;
+      }
+
+      #success-section .ss-card {
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px -1px rgba(0, 0, 0, .1);
+        border: 1px solid #f2f2f2;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        flex-shrink: 0;
+        height: 380px;
+        /* width set by JS based on viewport */
+      }
+
+      #success-section .ss-card:hover {
+        border-color: #dbeafe;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -2px rgba(0, 0, 0, .1);
+      }
+
+      #success-section .ss-image-wrap {
+        height: 72%;
+        position: relative;
+        overflow: hidden;
+        background-color: #f1f5f9;
+      }
+
+      #success-section .ss-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.7s ease;
+      }
+
+      #success-section .ss-card:hover .ss-image {
+        transform: scale(1.1);
+      }
+
+      #success-section .ss-video-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #success-section .ss-play-btn {
+        width: 64px;
+        height: 64px;
+        border-radius: 50px;
+        background-color: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff;
+        transform: scale(0.9);
+        transition: all 0.5s ease;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, .25);
+      }
+
+      #success-section .ss-play-btn svg {
+        fill: #ffffff;
+        margin-left: 4px;
+      }
+
+      #success-section .ss-card:hover .ss-play-btn {
+        transform: scale(1);
+      }
+
+      #success-section .ss-body {
+        height: 28%;
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background-color: #ffffff;
+        border-top: 1px solid #f8fafc;
+        gap: 6px;
+      }
+
+      #success-section .ss-title {
+        color: #000000;
+        font-weight: 700;
+        font-size: var(--h5-size, 18px);
+        line-height: var(--h5-line-height, 26px);
+        transition: color 0.3s ease;
+      }
+
+      #success-section .ss-card:hover .ss-title {
+        color: #1d4ed8;
+      }
+
+      #success-section .ss-tag-wrap {
+        display: inline-flex;
+        margin-top: 2px;
+      }
+
+      #success-section .ss-tag {
+        font-size: var(--small-size, 14px);
+        font-weight: 700;
+        background-color: #eff6ff;
+        color: #155dfc;
+        padding: 4px 12px;
+        border-radius: 12px;
+        display: inline-block;
+      }
+    </style>
 
     <!-- SUCCESS STORIES -->
-    <section class="w-full bg-[#f8fafc] px-5 py-[49px] overflow-hidden relative">
-      <div class="max-w-[1230px] mx-auto transition-all duration-300">
-        <div class="flex flex-col sm:flex-row justify-between items-start md:items-end">
-          <div class="mb-[36px]">
-            <h2 class="text-[#000000] mb-[14px]">
-              Our<span class="text-[#155DFC] pl-2">Success Stories</span>
-            </h2>
-            <p class="text-[#475569] max-w-4xl">
-              Stay updated with the latest news and events at Seamedu School of
-              Pro Expression.
-            </p>
-          </div>
-          <div class="hidden mb-10 sm:block">
-            <button
-              class="btn-md hidden sm:flex items-center text-[#155DFC] hover:text-[#1D4ED8] transition-all active:scale-95 cursor-pointer">
-              View More
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="ml-0.5">
-                <path d="m9 18 6-6-6-6" />
-              </svg>
-            </button>
+    <section class="w-full bg-[#f8fafc] py-[49px] relative" id="success-section">
+      <div class="max-w-[1230px] mx-auto">
+        <div style="margin-bottom:36px;">
+          <h2 class="text-[#000000] mb-[14px]">
+            Our<span class="text-[#155DFC] pl-2">Success Stories</span>
+          </h2>
+          <p class="text-[#475569] max-w-4xl">
+            Stay updated with the latest news and events at Seamedu School of Pro Expression.
+          </p>
+        </div>
+
+        <div id="ssCarouselFrame" class="ss-carousel-frame">
+          <div id="ssCarouselTrack" class="ss-track">
+            <!-- Cards injected by JS -->
           </div>
         </div>
 
-        <div class="relative overflow-hidden sm:mx-0 sm:px-0 select-none" onmouseenter="toggleSliderPauseState(true)"
-          onmouseleave="toggleSliderPauseState(false)">
-          <div id="newsMotionSliderTrack" class="motion-track-layer flex gap-3 pb-8 w-max"></div>
-        </div>
-
-        <div
-          class="flex justify-between sm:justify-end items-center px-0 mt-2 sm:-mt-4 relative z-10 translate-y-[-10px] sm:translate-y-0">
-          <div class="flex items-center gap-2">
-            <button id="newsPrevBtn" aria-label="Previous story"
-              class="w-10 h-10 sm:w-12 sm:h-12 radius-btn bg-white shadow-sm flex items-center justify-center border border-[#f2f2f2] active:scale-95 transition-all hover:bg-[#F8FAFC] cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="text-[#000000]">
-                <path d="m15 18-6-6 6-6" />
+        <div class="placement-carousel-controls">
+          <div id="ssDotsContainer" class="placement-dots-container"></div>
+          <div class="placement-buttons-container">
+            <button id="ssPrevBtn" aria-label="Previous story" class="placement-carousel-btn">
+              <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+                <path d="M8 2L4 6l4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </button>
-            <button id="newsNextBtn" aria-label="Next story"
-              class="w-10 h-10 sm:w-12 sm:h-12 radius-btn bg-white shadow-sm flex items-center justify-center border border-[#f2f2f2] active:scale-95 transition-all hover:bg-[#F8FAFC] cursor-pointer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="text-[#000000]">
-                <path d="m9 18 6-6-6-6" />
+            <button id="ssNextBtn" aria-label="Next story" class="placement-carousel-btn">
+              <svg width="16" height="16" viewBox="0 0 12 12" fill="none">
+                <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"
+                  stroke-linejoin="round" />
               </svg>
             </button>
           </div>
-          <button
-            class="btn-sm flex sm:hidden items-center gap-1 -mr-1.5 text-[#155DFC] active:scale-95 transition-all cursor-pointer">
-            View More
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="m9 18 6-6-6-6" />
-            </svg>
-          </button>
         </div>
       </div>
     </section>
 
     <script>
-      const originalNewsData = [
-        {
-          id: 1,
-          title: "Hozaifa Sayed",
-          program: "Alumni - Sound Engineering",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_Pu28B1778137142.jpg?tr=w-552",
-          date: "21/11/2024",
-        },
-        {
-          id: 2,
-          title: "Anjali Khare",
-          program: "Alumni - B.Sc Photography",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_WVneW1777982804.jpg?tr=w-552",
-          date: "15/08/2024",
-        },
-        {
-          id: 3,
-          title: "Raghu Veera Reddy",
-          program: "Alumni - BCA  Development",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_gZjG71777981996.jpg?tr=w-552",
-          date: "05/10/2024",
-        },
-        {
-          id: 4,
-          title: "Hozaifa Sayed",
-          program: "Alumni - B.Sc Engineering",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_ZbJy11777982707.jpg?tr=w-552",
-          date: "10/12/2024",
-        },
-        {
-          id: 5,
-          title: "Animesh Majumdar",
-          program: "Alumni - B.Sc. Animation",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_WVneW1777982804.jpg?tr=w-552",
-          date: "12/12/2024",
-        },
-        {
-          id: 6,
-          title: "Hozaifa Sayed",
-          program: "Alumni - Sound Engineering",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_Pu28B1778137142.jpg?tr=w-552",
-          date: "18/12/2024",
-        },
-        {
-          id: 7,
-          title: "Anjali Khare",
-          program: "Alumni - B.Sc Photography",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_ZbJy11777982707.jpg?tr=w-552",
-          date: "20/12/2024",
-        },
-      ];
+      (function () {
+        const storiesData = [
+          { title: "Hozaifa Sayed", program: "Alumni - B.Sc Sound Engineering", thumbnail: "https://assets.seamedu.com/uploads/student-testimonials/img_Pu28B1778137142.jpg?tr=w-552" },
+          { title: "Anjali Khare", program: "Alumni - B.Sc Photography", thumbnail: "https://assets.seamedu.com/uploads/student-testimonials/img_WVneW1777982804.jpg?tr=w-552" },
+          { title: "Raghu Veera Reddy", program: "Alumni - BCA Development", thumbnail: "https://assets.seamedu.com/uploads/student-testimonials/img_gZjG71777981996.jpg?tr=w-552" },
+          { title: "Hozaifa Sayed", program: "Alumni - B.Sc Sound Engineering", thumbnail: "https://assets.seamedu.com/uploads/student-testimonials/img_ZbJy11777982707.jpg?tr=w-552" },
+          { title: "Animesh Majumdar", program: "Alumni - B.Sc. Vfx & Animation", thumbnail: "https://assets.seamedu.com/uploads/student-testimonials/img_WVneW1777982804.jpg?tr=w-552" },
+          { title: "Hozaifa Sayed", program: "Alumni - International Business", thumbnail: "https://assets.seamedu.com/uploads/student-testimonials/img_Pu28B1778137142.jpg?tr=w-552" },
+          { title: "Anjali Khare", program: "Alumni - Hospitality Operations", thumbnail: "https://assets.seamedu.com/uploads/student-testimonials/img_ZbJy11777982707.jpg?tr=w-552" },
+          { title: "Raghu Veera Reddy", program: "Alumni - Game Design", thumbnail: "https://assets.seamedu.com/uploads/student-testimonials/img_gZjG71777981996.jpg?tr=w-552" },
+        ];
 
-      const triplicatedNewsDisplayPool = [
-        ...originalNewsData,
-        ...originalNewsData,
-        ...originalNewsData,
-      ];
-      const newsSliderTrackNode = document.getElementById(
-        "newsMotionSliderTrack",
-      );
-      const btnLeft = document.getElementById("newsPrevBtn");
-      const btnRight = document.getElementById("newsNextBtn");
+        const ssFrame = document.getElementById("ssCarouselFrame");
+        const ssTrack = document.getElementById("ssCarouselTrack");
+        const ssDots = document.getElementById("ssDotsContainer");
+        const ssPrev = document.getElementById("ssPrevBtn");
+        const ssNext = document.getElementById("ssNextBtn");
 
-      let isNewsSliderPaused = false;
-      let trackTranslateXCoordinate = 0;
-      let newsAutoCycleTimerInterval = null;
+        const TOTAL = storiesData.length;
+        const GAP = 24;
 
-      const FIXED_CARD_WIDTH = 300;
-      const COMPONENT_GAP_SIZE = 12;
+        // Inject cards
+        storiesData.forEach(item => {
+          const card = document.createElement("div");
+          card.className = "ss-card";
+          card.innerHTML = `
+            <div class="ss-image-wrap">
+              <img src="${item.thumbnail}" alt="${item.title}" class="ss-image" loading="lazy" draggable="false">
+              <div class="ss-video-overlay">
+                <div class="ss-play-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+                </div>
+              </div>
+            </div>
+            <div class="ss-body">
+              <h5 class="ss-title">${item.title}</h5>
+              <div class="ss-tag-wrap">
+                <span class="ss-tag">${item.program}</span>
+              </div>
+            </div>`;
+          ssTrack.appendChild(card);
+        });
 
-      function getNewsCardMetrics() {
-        const firstCard = newsSliderTrackNode.firstElementChild;
-        let cardWidth = FIXED_CARD_WIDTH;
-        let gap = COMPONENT_GAP_SIZE;
-        if (firstCard) {
-          cardWidth =
-            firstCard.getBoundingClientRect().width ||
-            firstCard.offsetWidth ||
-            FIXED_CARD_WIDTH;
-          const style = window.getComputedStyle(newsSliderTrackNode);
-          const computedGap = parseInt(style.columnGap || style.gap);
-          if (!isNaN(computedGap)) {
-            gap = computedGap;
+        let ssIdx = 0;
+        let ssBusy = false;
+        let ssDrag = false, ssDragX = 0;
+        let ssLastMode = getMode();
+
+        function getMode() {
+          const w = window.innerWidth;
+          if (w > 1024) return "desktop";
+          if (w > 576) return "tablet";
+          return "mobile";
+        }
+
+        function getVisible() {
+          const w = window.innerWidth;
+          if (w > 1024) return 4;
+          if (w > 576) return 2;
+          return 1;
+        }
+
+        function getMaxIdx() { return TOTAL - getVisible(); }
+
+        function setCardWidths() {
+          const visible = getVisible();
+          const fw = ssFrame.clientWidth;
+          const cardW = (fw - GAP * (visible - 1)) / visible;
+          ssTrack.querySelectorAll(".ss-card").forEach(c => {
+            c.style.width = cardW + "px";
+          });
+        }
+
+        function applyTransform(animate) {
+          ssTrack.style.transition = animate ? "transform 0.5s ease-in-out" : "none";
+          const fw = ssFrame.clientWidth;
+          const visible = getVisible();
+          const cardW = (fw - GAP * (visible - 1)) / visible;
+          ssTrack.style.transform = `translateX(-${ssIdx * (cardW + GAP)}px)`;
+        }
+
+        function refreshDots() {
+          const maxIdx = getMaxIdx();
+          const numDots = maxIdx + 1;
+          if (ssIdx > maxIdx) ssIdx = maxIdx;
+          ssDots.innerHTML = Array.from({ length: numDots })
+            .map((_, i) => `<span id="ssdot-${i}" class="dot-inactive"></span>`).join("");
+          for (let i = 0; i <= maxIdx; i++) {
+            const d = document.getElementById(`ssdot-${i}`);
+            if (d) d.className = i === ssIdx ? "dot-active" : "dot-inactive";
           }
         }
-        return { cardWidth, gap };
-      }
 
-      function constructNewsSliderDOMMarkup() {
-        newsSliderTrackNode.innerHTML = triplicatedNewsDisplayPool
-          .map(
-            (event) => `
-   <div class="group flex flex-col bg-white rounded-xl overflow-hidden shadow-sm border  hover:shadow-md transition-all duration-500 shrink-0 w-full sm:w-[300px] h-[420px] sm:h-[350px]">
-    <div class="h-[72%] relative overflow-hidden bg-slate-100">
-     <img src="${event.thumbnail}" alt="${event.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" draggable="false" />
-     <div class="absolute inset-0 flex items-center justify-center">
-      <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white scale-90 group-hover:scale-100 transition-all duration-500 shadow-2xl">
-       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-      </div>
-     </div>
-    </div>
-    <div class="h-[30%] px-5 py-4 flex flex-col justify-center bg-white border-t border-slate-50 gap-1.5">
-     <h5 class="text-[#000000]  line-clamp-2 group-hover:text-[#155DFC] transition-colors" >${event.title}</h5>
-     <div class="inline-flex mt-0.5">
-      <span class="bg-[#f8fafc] text-[#155DFC]  px-3 py-1 rounded-md " >${event.program}</span>
-     </div>
-    </div>
-   </div> 
-  `,
-          )
-          .join("");
-        alignTrackToCenteredIndexAnchor();
-      }
-
-      function alignTrackToCenteredIndexAnchor() {
-        const { cardWidth, gap } = getNewsCardMetrics();
-        const structuralBaseWidth = originalNewsData.length * (cardWidth + gap);
-        trackTranslateXCoordinate = -structuralBaseWidth;
-        newsSliderTrackNode.classList.remove("motion-track-layer");
-        newsSliderTrackNode.style.transform = `translateX(${trackTranslateXCoordinate}px)`;
-      }
-
-      function transitionSlideDirection(directionIntent) {
-        const { cardWidth, gap } = getNewsCardMetrics();
-        const segmentOffsetUnitWidth = cardWidth + gap;
-        const baselineBoundsLimitWidth =
-          originalNewsData.length * segmentOffsetUnitWidth;
-        newsSliderTrackNode.classList.add("motion-track-layer");
-        if (directionIntent === "right") {
-          trackTranslateXCoordinate -= segmentOffsetUnitWidth;
-          newsSliderTrackNode.style.transform = `translateX(${trackTranslateXCoordinate}px)`;
-          if (
-            Math.abs(trackTranslateXCoordinate) >=
-            baselineBoundsLimitWidth * 2
-          ) {
-            setTimeout(() => {
-              newsSliderTrackNode.classList.remove("motion-track-layer");
-              trackTranslateXCoordinate = -baselineBoundsLimitWidth;
-              newsSliderTrackNode.style.transform = `translateX(${trackTranslateXCoordinate}px)`;
-            }, 600);
-          }
-        } else {
-          trackTranslateXCoordinate += segmentOffsetUnitWidth;
-          newsSliderTrackNode.style.transform = `translateX(${trackTranslateXCoordinate}px)`;
-          if (trackTranslateXCoordinate >= 0) {
-            setTimeout(() => {
-              newsSliderTrackNode.classList.remove("motion-track-layer");
-              trackTranslateXCoordinate = -baselineBoundsLimitWidth;
-              newsSliderTrackNode.style.transform = `translateX(${trackTranslateXCoordinate}px)`;
-            }, 600);
-          }
+        function ssInit() {
+          setCardWidths();
+          applyTransform(false);
+          refreshDots();
         }
-      }
 
-      function toggleSliderPauseState(pauseActiveState) {
-        isNewsSliderPaused = pauseActiveState;
-      }
+        function advance() {
+          if (ssBusy) return;
+          ssBusy = true;
+          const maxIdx = getMaxIdx();
+          ssIdx = ssIdx >= maxIdx ? 0 : ssIdx + 1;
+          applyTransform(true);
+          refreshDots();
+          setTimeout(() => { ssBusy = false; }, 500);
+        }
 
-      function startNewsSliderLoopEngine() {
-        constructNewsSliderDOMMarkup();
-        if (newsAutoCycleTimerInterval)
-          clearInterval(newsAutoCycleTimerInterval);
-        newsAutoCycleTimerInterval = setInterval(() => {
-          if (!isNewsSliderPaused) {
-            transitionSlideDirection("right");
-          }
-        }, 3000);
-      }
+        function regress() {
+          if (ssBusy) return;
+          ssBusy = true;
+          const maxIdx = getMaxIdx();
+          ssIdx = ssIdx <= 0 ? maxIdx : ssIdx - 1;
+          applyTransform(true);
+          refreshDots();
+          setTimeout(() => { ssBusy = false; }, 500);
+        }
 
-      btnLeft.addEventListener("click", () => transitionSlideDirection("left"));
-      btnRight.addEventListener("click", () =>
-        transitionSlideDirection("right"),
-      );
+        ssPrev.addEventListener("click", regress);
+        ssNext.addEventListener("click", advance);
 
-      let configurationRecalibrationDebounceHook;
-      window.addEventListener("resize", () => {
-        clearTimeout(configurationRecalibrationDebounceHook);
-        configurationRecalibrationDebounceHook = setTimeout(() => {
-          constructNewsSliderDOMMarkup();
-        }, 150);
-      });
+        ssFrame.addEventListener("mousedown", e => { e.preventDefault(); ssDrag = true; ssDragX = e.pageX; });
+        ssFrame.addEventListener("mousemove", e => { if (!ssDrag) return; const d = e.pageX - ssDragX; if (d > 50) { regress(); ssDrag = false; } else if (d < -50) { advance(); ssDrag = false; } });
+        window.addEventListener("mouseup", () => { ssDrag = false; });
+        ssFrame.addEventListener("touchstart", e => { ssDrag = true; ssDragX = e.touches[0].clientX; }, { passive: true });
+        ssFrame.addEventListener("touchmove", e => { if (!ssDrag) return; const d = e.touches[0].clientX - ssDragX; if (d > 50) { regress(); ssDrag = false; } else if (d < -50) { advance(); ssDrag = false; } }, { passive: true });
+        ssFrame.addEventListener("touchend", () => { ssDrag = false; });
 
-      startNewsSliderLoopEngine();
+        window.addEventListener("resize", () => {
+          const mode = getMode();
+          if (mode !== ssLastMode) { ssLastMode = mode; ssIdx = 0; }
+          ssInit();
+        });
+
+        ssInit();
+      })();
     </script>
 
+
+
     <!-- FAQ SECTION -->
-    <section class="sec" id="faq" style="padding: 49px 20px;">
+    <section class="sec" id="faq" style="padding: 49px 0;">
       <div class="container" style="text-align:center; max-width: 1230px; margin: 0 auto;">
         <div style="margin-bottom:36px;">
           <h2 style="margin-bottom: 14px;">Frequently Asked <span style="color: var(--primary); ">Questions</span></h2>
@@ -4819,7 +5382,7 @@
 
     <!-- ENQUIRE NOW BUTTON -->
     <button
-      class="btn-md fixed right-0 top-1/2 -translate-y-1/2 z-[999] bg-[#155DFC] hover:bg-[#1D4ED8] w-[54px] h-[170px] rounded-l-[22px] flex items-center justify-center transition-all duration-300">
+      class="btn-md fixed right-0 top-1/2 -translate-y-1/2 z-[999] bg-[#155DFC] hover:bg-[#1D4ED8] w-[40px] h-[160px] rounded-l-[16px] flex items-center justify-center transition-all duration-300">
       <span class="-rotate-90 whitespace-nowrap text-white uppercase">
         Enquire Now
       </span>

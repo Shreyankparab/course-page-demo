@@ -1,692 +1,754 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alumni Testimonials</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      /* --- Root Variables & Typography System --- */
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alumni Testimonials</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
+    /* --- Root Variables & Typography System --- */
+    :root {
+      --primary: #155dfc;
+      --primary-hover: #1d4ed8;
+      --primary-bg: #ffffff;
+      --secondary-bg: #f8fafc;
+      --text-1: #000000;
+      --text-2: #475569;
+      --card-border: #f2f2f2;
+
+      --r-btn: 12px;
+      --r-lg-btn: 20px;
+      --r-lg: 50px;
+
+      /* Headings */
+      --font-weight-heading: 700;
+      /* Bold */
+      --font-weight-body: 500;
+      /* Medium */
+
+      --h1-size: 48px;
+      --h1-line-height: 58px;
+
+      --h2-size: 38px;
+      --h2-line-height: 48px;
+
+      --h3-size: 24px;
+      --h3-line-height: 32px;
+
+      --h4-size: 24px;
+      --h4-line-height: 32px;
+
+      --h5-size: 18px;
+      --h5-line-height: 26px;
+
+      --h6-size: 18px;
+      --h6-line-height: 26px;
+
+      /* Body */
+      --body-size: 16px;
+      --body-line-height: 26px;
+
+      --small-size: 14px;
+      --small-line-height: 20px;
+
+      /* Links */
+      --link-size: 14px;
+      --link-line-height: 21px;
+
+      /* Buttons — 3 named sizes */
+      --btn-sm-size: 12px;
+      --btn-md-size: 14px;
+      --btn-lg-size: 18px;
+
+      /* List items */
+      --li-size: 16px;
+      --li-line-height: 26px;
+    }
+
+    /* TABLET — 768px to 1023px */
+
+    @media (max-width: 1023px) {
       :root {
-        --primary: #155dfc;
-        --primary-hover: #1d4ed8;
-        --primary-bg: #ffffff;
-        --secondary-bg: #f8fafc;
-        --text-1: #000000;
-        --text-2: #475569;
-        --card-border: #f2f2f2;
+        --h1-size: 38px;
+        --h1-line-height: 48px;
 
-        --r-btn: 12px;
-        --r-lg-btn: 20px;
-        --r-lg: 50px;
+        --h2-size: 30px;
+        --h2-line-height: 38px;
 
-        /* Headings */
-        --font-weight-heading: 700;
-        /* Bold */
-        --font-weight-body: 500;
-        /* Medium */
+        --h3-size: 20px;
+        --h3-line-height: 28px;
 
-        --h1-size: 48px;
-        --h1-line-height: 58px;
+        --h4-size: 20px;
+        --h4-line-height: 28px;
 
-        --h2-size: 38px;
-        --h2-line-height: 48px;
+        --h5-size: 16px;
+        --h5-line-height: 24px;
 
-        --h3-size: 24px;
-        --h3-line-height: 32px;
+        --h6-size: 16px;
+        --h6-line-height: 24px;
+      }
+    }
 
-        --h4-size: 24px;
-        --h4-line-height: 32px;
+    /* MOBILE — up to 767px */
 
-        --h5-size: 18px;
-        --h5-line-height: 26px;
+    @media (max-width: 767px) {
+      :root {
+        --h1-size: 28px;
+        --h1-line-height: 36px;
 
-        --h6-size: 18px;
-        --h6-line-height: 26px;
+        --h2-size: 24px;
+        --h2-line-height: 30px;
 
-        /* Body */
-        --body-size: 16px;
-        --body-line-height: 26px;
+        --h3-size: 18px;
+        --h3-line-height: 24px;
 
-        --small-size: 14px;
-        --small-line-height: 20px;
+        --h4-size: 18px;
+        --h4-line-height: 24px;
 
-        /* Links */
-        --link-size: 14px;
-        --link-line-height: 21px;
+        --h5-size: 14px;
+        --h5-line-height: 20px;
 
-        /* Buttons — 3 named sizes */
-        --btn-sm-size: 12px;
-        --btn-md-size: 14px;
-        --btn-lg-size: 18px;
+        --h6-size: 14px;
+        --h6-line-height: 20px;
 
-        /* List items */
-        --li-size: 16px;
-        --li-line-height: 26px;
+        --body-size: 14px;
+        --body-line-height: 22px;
+
+        --small-size: 12px;
+        --small-line-height: 18px;
+
+        --link-size: 13px;
+        --link-line-height: 20px;
+
+        --btn-sm-size: 11px;
+        --btn-md-size: 13px;
+        --btn-lg-size: 16px;
+
+        --li-size: 14px;
+        --li-line-height: 22px;
+      }
+    }
+
+    .radius-lg {
+      border-radius: var(--r-lg);
+    }
+
+    .radius-btn {
+      border-radius: var(--r-btn);
+    }
+
+    .radius-lg-btn {
+      border-radius: var(--r-lg-btn);
+    }
+
+    /* Button sizes via utility classes */
+    .btn-sm {
+      font-size: var(--btn-sm-size);
+      font-weight: var(--font-weight-body);
+    }
+
+    .btn-md {
+      font-size: var(--btn-md-size);
+      font-weight: var(--font-weight-body);
+    }
+
+    .btn-lg {
+      font-size: var(--btn-lg-size);
+      font-weight: var(--font-weight-body);
+    }
+
+    small {
+      font-size: var(--small-size);
+      line-height: var(--small-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    /* --- Base Global Elements --- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    h1 {
+      font-size: var(--h1-size);
+      line-height: var(--h1-line-height);
+      font-weight: var(--font-weight-heading);
+    }
+
+    h2 {
+      font-size: var(--h2-size);
+      line-height: var(--h2-line-height);
+      font-weight: var(--font-weight-heading);
+    }
+
+    h3 {
+      font-size: var(--h3-size);
+      line-height: var(--h3-line-height);
+      font-weight: var(--font-weight-heading);
+    }
+
+    h4 {
+      font-size: var(--h4-size);
+      line-height: var(--h4-line-height);
+      font-weight: var(--font-weight-heading);
+    }
+
+    h5 {
+      font-size: var(--h5-size);
+      line-height: var(--h5-line-height);
+      font-weight: var(--font-weight-heading);
+    }
+
+    h6 {
+      font-size: var(--h6-size);
+      line-height: var(--h6-line-height);
+      font-weight: var(--font-weight-heading);
+    }
+
+    p {
+      font-size: var(--body-size);
+      line-height: var(--body-line-height);
+      font-weight: var(--font-weight-body);
+    }
+
+    /* --- Structural Layout Styles --- */
+    .banner-section {
+      width: 100%;
+      padding-bottom: 49px;
+      background-color: #ffffff;
+    }
+
+    .banner-container {
+      width: 100%;
+
+      height: auto;
+      max-height: 450px;
+      overflow: hidden;
+    }
+
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .header-content {
+      margin-bottom: 36px;
+
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-title {
+      color: #000000;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .header-desc {
+      color: #475569;
+      max-width: 768px;
+      /* max-w-3xl */
+      /* margin: 0 auto 36px auto; */
+      text-align: center;
+    }
+
+    /* --- Filter Navigation Module --- */
+    .filter-section {
+      width: 100%;
+      background-color: #ffffff;
+      padding: 49px 0px;
+    }
+
+    .filter-wrapper {
+      max-width: 1500px;
+      margin-top: 0;
+
+      margin-bottom: 36px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .tab-container {
+      width: 100%;
+      background-color: #f3f6f9;
+      padding: 6px;
+      border-radius: 20px;
+      border: 1px solid rgba(226, 232, 240, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Hide standard scrollbars for tabs styling */
+    .tab-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Dropdown Container */
+    .dropdown-container {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      display: none;
+    }
+
+    /* Dropdown Button Style */
+    .dropdown-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f3f6f9;
+      border: 1px solid rgba(226, 232, 240, 0.8);
+      border-radius: 16px;
+      padding: 12px 22px;
+      font-family: "Poppins", sans-serif;
+      font-size: var(--body-size);
+      font-weight: 600;
+      color: #000000;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .dropdown-btn:hover {
+      background-color: #eff2f6;
+      border-color: rgba(21, 93, 252, 0.3);
+    }
+
+    .dropdown-btn:focus {
+      outline: none;
+      border-color: #155dfc;
+    }
+
+    .chevron-icon {
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      color: #475569;
+      flex-shrink: 0;
+    }
+
+    .dropdown-container.open .chevron-icon {
+      transform: rotate(180deg);
+      color: #155dfc;
+    }
+
+    /* Dropdown Menu Style */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background-color: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      box-shadow:
+        0 10px 25px -5px rgba(0, 0, 0, 0.1),
+        0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      z-index: 100;
+      padding: 6px;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .dropdown-container.open .dropdown-menu {
+      display: flex;
+      animation: slideDownDropdown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes slideDownDropdown {
+      from {
+        opacity: 0;
+        transform: translateY(-8px);
       }
 
-      /* TABLET — 768px to 1023px */
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-      @media (max-width: 1023px) {
-        :root {
-          --h1-size: 38px;
-          --h1-line-height: 48px;
+    /* Dropdown Item Style */
+    .dropdown-item {
+      width: 100%;
+      text-align: left;
+      padding: 10px 18px;
+      background: transparent;
+      border: none;
+      border-radius: 10px;
+      font-family: "Poppins", sans-serif;
+      font-size: var(--body-size);
+      font-weight: 500;
+      color: #475569;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
 
-          --h2-size: 30px;
-          --h2-line-height: 38px;
+    .dropdown-item:hover {
+      background-color: #f1f5f9;
+      color: #000000;
+    }
 
-          --h3-size: 20px;
-          --h3-line-height: 28px;
+    .dropdown-item.active {
+      background-color: #eff6ff;
+      color: #155dfc;
+      font-weight: 600;
+    }
 
-          --h4-size: 20px;
-          --h4-line-height: 28px;
-
-          --h5-size: 16px;
-          --h5-line-height: 24px;
-
-          --h6-size: 16px;
-          --h6-line-height: 24px;
-        }
+    /* Responsive rules to switch dropdown vs tabs */
+    @media (max-width: 1023px) {
+      .tab-container {
+        display: none !important;
       }
 
-      /* MOBILE — up to 767px */
-
-      @media (max-width: 767px) {
-        :root {
-          --h1-size: 28px;
-          --h1-line-height: 36px;
-
-          --h2-size: 24px;
-          --h2-line-height: 30px;
-
-          --h3-size: 18px;
-          --h3-line-height: 24px;
-
-          --h4-size: 18px;
-          --h4-line-height: 24px;
-
-          --h5-size: 14px;
-          --h5-line-height: 20px;
-
-          --h6-size: 14px;
-          --h6-line-height: 20px;
-
-          --body-size: 14px;
-          --body-line-height: 22px;
-
-          --small-size: 12px;
-          --small-line-height: 18px;
-
-          --link-size: 13px;
-          --link-line-height: 20px;
-
-          --btn-sm-size: 11px;
-          --btn-md-size: 13px;
-          --btn-lg-size: 16px;
-
-          --li-size: 14px;
-          --li-line-height: 22px;
-        }
-      }
-
-      .radius-lg {
-        border-radius: var(--r-lg);
-      }
-
-      .radius-btn {
-        border-radius: var(--r-btn);
-      }
-      .radius-lg-btn {
-        border-radius: var(--r-lg-btn);
-      }
-
-      /* Button sizes via utility classes */
-      .btn-sm {
-        font-size: var(--btn-sm-size);
-        font-weight: var(--font-weight-body);
-      }
-
-      .btn-md {
-        font-size: var(--btn-md-size);
-        font-weight: var(--font-weight-body);
-      }
-
-      .btn-lg {
-        font-size: var(--btn-lg-size);
-        font-weight: var(--font-weight-body);
-      }
-
-      small {
-        font-size: var(--small-size);
-        line-height: var(--small-line-height);
-        font-weight: var(--font-weight-body);
-      }
-      /* --- Base Global Elements --- */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: "Poppins", sans-serif;
-        background-color: #ffffff;
-        color: #000000;
-      }
-      h1 {
-        font-size: var(--h1-size);
-        line-height: var(--h1-line-height);
-        font-weight: var(--font-weight-heading);
-      }
-      h2 {
-        font-size: var(--h2-size);
-        line-height: var(--h2-line-height);
-        font-weight: var(--font-weight-heading);
-      }
-      h3 {
-        font-size: var(--h3-size);
-        line-height: var(--h3-line-height);
-        font-weight: var(--font-weight-heading);
-      }
-      h4 {
-        font-size: var(--h4-size);
-        line-height: var(--h4-line-height);
-        font-weight: var(--font-weight-heading);
-      }
-
-      h5 {
-        font-size: var(--h5-size);
-        line-height: var(--h5-line-height);
-        font-weight: var(--font-weight-heading);
-      }
-
-      h6 {
-        font-size: var(--h6-size);
-        line-height: var(--h6-line-height);
-        font-weight: var(--font-weight-heading);
-      }
-      p {
-        font-size: var(--body-size);
-        line-height: var(--body-line-height);
-        font-weight: var(--font-weight-body);
-      }
-
-      /* --- Structural Layout Styles --- */
-      .banner-section {
-        width: 100%;
-        padding-bottom: 49px;
-        background-color: #ffffff;
-      }
-      .banner-container {
-        width: 100%;
-
-        height: auto;
-        max-height: 450px;
-        overflow: hidden;
-      }
-      .banner-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+      .dropdown-container {
         display: block;
       }
-      .header-content {
-        margin-bottom: 36px;
+    }
 
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-      .header-title {
-        color: #000000;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-      }
-      .header-desc {
-        color: #475569;
-        max-width: 768px; /* max-w-3xl */
-        /* margin: 0 auto 36px auto; */
-        text-align: center;
-      }
-
-      /* --- Filter Navigation Module --- */
-      .filter-section {
-        width: 100%;
-        background-color: #ffffff;
-        padding: 49px 20px;
-      }
-      .filter-wrapper {
-        max-width: 1500px;
-        margin-top: 0;
-
-        margin-bottom: 36px;
-        display: flex;
-        justify-content: center;
-      }
+    @media (min-width: 1024px) {
       .tab-container {
-        width: 100%;
-        background-color: #f3f6f9;
-        padding: 6px;
-        border-radius: 20px;
-        border: 1px solid rgba(226, 232, 240, 0.6);
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        overflow-x: auto;
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-      }
-      /* Hide standard scrollbars for tabs styling */
-      .tab-container::-webkit-scrollbar {
-        display: none;
+        display: flex !important;
+        width: auto;
+        overflow-visible: visible;
       }
 
-      /* Dropdown Container */
       .dropdown-container {
-        position: relative;
-        width: 100%;
-        max-width: 380px;
-        margin: 0 auto;
-        display: none;
+        display: none !important;
       }
+    }
 
-      /* Dropdown Button Style */
-      .dropdown-btn {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #f3f6f9;
-        border: 1px solid rgba(226, 232, 240, 0.8);
-        border-radius: 16px;
-        padding: 12px 22px;
-        font-family: "Poppins", sans-serif;
-        font-size: var(--body-size);
-        font-weight: 600;
-        color: #000000;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: all 0.3s ease;
-      }
+    /* Tab Buttons UI Component */
+    .tab-btn {
+      font-size: var(--body-size);
+      font-weight: var(--font-weight-body);
+      line-height: var(--body-line-height);
+      padding: 10px 22px;
+      border-radius: 12px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      background: transparent;
+      border: none;
+      color: #000000;
+      /* text-slate-600 */
+      cursor: pointer;
+    }
 
-      .dropdown-btn:hover {
-        background-color: #eff2f6;
-        border-color: rgba(21, 93, 252, 0.3);
-      }
+    .tab-btn:hover {
+      color: #000000;
+      /* text-slate-900 */
+    }
 
-      .dropdown-btn:focus {
-        outline: none;
-        border-color: #155dfc;
-      }
+    .tab-btn.active {
+      background-color: #ffffff;
+      color: #155dfc;
+      /* text-blue-600 */
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    }
 
-      .chevron-icon {
-        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        color: #475569;
-        flex-shrink: 0;
-      }
+    /* --- Dynamic Slider/Grid Framework Engine --- */
+    .content-section {
+      width: 100%;
+      background-color: #ffffff;
+      overflow: hidden;
+      position: relative;
+    }
 
-      .dropdown-container.open .chevron-icon {
-        transform: rotate(180deg);
-        color: #155dfc;
-      }
+    .content-container {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 0 20px;
+      transition: all 0.3s ease;
+    }
 
-      /* Dropdown Menu Style */
-      .dropdown-menu {
-        display: none;
-        position: absolute;
-        top: calc(100% + 8px);
-        left: 0;
-        right: 0;
-        background-color: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        box-shadow:
-          0 10px 25px -5px rgba(0, 0, 0, 0.1),
-          0 8px 10px -6px rgba(0, 0, 0, 0.1);
-        z-index: 100;
-        padding: 6px;
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .dropdown-container.open .dropdown-menu {
-        display: flex;
-        animation: slideDownDropdown 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      }
-
-      @keyframes slideDownDropdown {
-        from {
-          opacity: 0;
-          transform: translateY(-8px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      /* Dropdown Item Style */
-      .dropdown-item {
-        width: 100%;
-        text-align: left;
-        padding: 10px 18px;
-        background: transparent;
-        border: none;
-        border-radius: 10px;
-        font-family: "Poppins", sans-serif;
-        font-size: var(--body-size);
-        font-weight: 500;
-        color: #475569;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
-
-      .dropdown-item:hover {
-        background-color: #f1f5f9;
-        color: #000000;
-      }
-
-      .dropdown-item.active {
-        background-color: #eff6ff;
-        color: #155dfc;
-        font-weight: 600;
-      }
-
-      /* Responsive rules to switch dropdown vs tabs */
-      @media (max-width: 1023px) {
-        .tab-container {
-          display: none !important;
-        }
-        .dropdown-container {
-          display: block;
-        }
-      }
-
-      @media (min-width: 1024px) {
-        .tab-container {
-          display: flex !important;
-          width: auto;
-          overflow-visible: visible;
-        }
-        .dropdown-container {
-          display: none !important;
-        }
-      }
-
-      /* Tab Buttons UI Component */
-      .tab-btn {
-        font-size: var(--body-size);
-        font-weight: var(--font-weight-body);
-        line-height: var(--body-line-height);
-        padding: 10px 22px;
-        border-radius: 12px;
-        text-transform: uppercase;
-        transition: all 0.3s ease;
-        white-space: nowrap;
-        background: transparent;
-        border: none;
-        color: #000000; /* text-slate-600 */
-        cursor: pointer;
-      }
-      .tab-btn:hover {
-        color: #000000; /* text-slate-900 */
-      }
-      .tab-btn.active {
-        background-color: #ffffff;
-        color: #155dfc; /* text-blue-600 */
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-      }
-
-      /* --- Dynamic Slider/Grid Framework Engine --- */
-      .content-section {
-        width: 100%;
-        background-color: #ffffff;
-        overflow: hidden;
-        position: relative;
-      }
+    @media (min-width: 640px) {
       .content-container {
-        max-width: 1500px;
-        margin: 0 auto;
-        padding: 0 10px;
-        transition: all 0.3s ease;
+        padding: 0 20px;
       }
-      @media (min-width: 640px) {
-        .content-container {
-          padding: 0 20px;
-        }
-      }
-      @media (min-width: 1024px) {
-        .content-container {
-          padding: 0 10px;
-        }
-      }
+    }
 
+    @media (min-width: 1024px) {
+      .content-container {
+        padding: 0 20px;
+      }
+    }
+
+    .slider-window {
+      overflow: visible;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    @media (min-width: 768px) {
       .slider-window {
-        overflow: visible;
-        user-select: none;
-        -webkit-user-select: none;
+        overflow: hidden;
       }
-      @media (min-width: 768px) {
-        .slider-window {
-          overflow: hidden;
-        }
-      }
-      .slider-window.cursor-grab {
-        cursor: grab;
-      }
+    }
 
-      /* Generated Classes Managed dynamically by layout engine classes */
-      .engine-flex-col {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        width: 100%;
-        padding-bottom: 16px;
-      }
+    .slider-window.cursor-grab {
+      cursor: grab;
+    }
+
+    /* Generated Classes Managed dynamically by layout engine classes */
+    .engine-flex-col {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      width: 100%;
+      padding-bottom: 16px;
+    }
+
+    .engine-grid {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      gap: 16px;
+      width: 100%;
+      padding-bottom: 16px;
+    }
+
+    @media (min-width: 426px) {
       .engine-grid {
-        display: grid;
-        grid-template-columns: repeat(1, minmax(0, 1fr));
-        gap: 24px;
-        width: 100%;
-        padding-bottom: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
-      @media (min-width: 768px) {
-        .engine-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-      }
-      @media (min-width: 1024px) {
-        .engine-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-      }
-      .engine-slider {
-        display: flex;
-        gap: 12px;
-        padding-bottom: 32px;
-        width: max-content;
-      }
+    }
 
-      /* Slider animation engine configurations */
-      .slider-track.is-animating {
-        transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    @media (min-width: 769px) {
+      .engine-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
-      .slider-track.is-dragging {
-        transition: none;
-        cursor: grabbing;
-      }
+    }
 
-      /* --- Cards UI Component System --- */
+    @media (min-width: 1025px) {
+      .engine-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .engine-slider {
+      display: flex;
+      gap: 12px;
+      padding-bottom: 32px;
+      width: max-content;
+    }
+
+    /* Slider animation engine configurations */
+    .slider-track.is-animating {
+      transition: transform 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .slider-track.is-dragging {
+      transition: none;
+      cursor: grabbing;
+    }
+
+    /* --- Cards UI Component System --- */
+    .card-item {
+      display: flex;
+      flex-direction: column;
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 1px 3px 0 rgba(0, 0, 0, 0.1),
+        0 1px 2px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid #f2f2f2;
+      transition: all 0.5s ease;
+      flex-shrink: 0;
+      height: 420px;
+    }
+
+    @media (min-width: 640px) {
       .card-item {
-        display: flex;
-        flex-direction: column;
-        background-color: #ffffff;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow:
-          0 1px 3px 0 rgba(0, 0, 0, 0.1),
-          0 1px 2px -1px rgba(0, 0, 0, 0.1);
-        border: 1px solid #f2f2f2;
-        transition: all 0.5s ease;
-        flex-shrink: 0;
-        height: 420px;
+        height: 350px;
       }
-      @media (min-width: 640px) {
-        .card-item {
-          height: 350px;
-        }
-      }
-      /* Individual engine responsive structural widths overrides styling matches */
-      .card-w-full {
-        width: 100%;
-      }
-      .card-w-fixed {
-        width: 300px;
-      }
+    }
 
-      .card-item:hover {
-        border-color: #dbeafe;
-        box-shadow:
-          0 4px 6px -1px rgba(0, 0, 0, 0.1),
-          0 2px 4px -2px rgba(0, 0, 0, 0.1);
-      }
-      .card-image-wrapper {
-        height: 72%;
-        position: relative;
-        overflow: hidden;
-        background-color: #f1f5f9;
-      }
-      .card-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.7s ease;
-      }
-      .card-item:hover .card-image {
-        transform: scale(1.1);
-      }
-      .card-video-overlay {
-        position: absolute;
-        inset: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .card-play-btn {
-        width: 64px;
-        height: 64px;
-        border-radius: 50px;
-        background-color: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #ffffff;
-        transform: scale(0.9);
-        transition: all 0.5s ease;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-      }
-      .card-play-btn svg {
-        fill: #ffffff;
-        margin-left: 4px;
-      }
-      .card-item:hover .card-play-btn {
-        transform: scale(1);
-      }
-      .card-body {
-        height: 30%;
-        padding: 16px 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        background-color: #ffffff;
-        border-top: 1px solid #f8fafc;
-        gap: 6px;
-      }
-      .card-title {
-        color: #000000;
-        font-weight: var(--font-weight-heading);
-        transition: color 0.3s ease;
-      }
+    /* Individual engine responsive structural widths overrides styling matches */
+    .card-w-full {
+      width: 100%;
+    }
 
-      .card-item:hover .card-title {
-        color: #1d4ed8;
-      }
-      .card-tag-wrapper {
-        display: inline-flex;
-        margin-top: 2px;
-      }
-      .btn-custom-sm {
-        font-size: var(--small-size);
-        font-weight: var(--font-weight-heading);
-        line-height: var(--small-line-height);
-        background-color: #eff6ff;
-        color: #155dfc;
-        padding: 4px 12px;
-        border-radius: 12px;
-        display: inline-block;
-      }
-      .main-header {
-        max-width: 1230px;
-        margin: 0 auto;
-      }
-      /* --- Controller Nav Buttons Module --- */
-      .controls-container {
-        display: none;
-        justify-content: flex-end;
-        align-items: center;
-        padding: 0;
-        margin-top: 16px;
-        position: relative;
-        z-index: 10;
-      }
-      @media (min-width: 768px) {
-        .controls-container.show-flex {
-          display: flex;
-        }
-      }
-      .controls-wrapper {
+    .card-w-fixed {
+      width: 300px;
+    }
+
+    .card-item:hover {
+      border-color: #dbeafe;
+      box-shadow:
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-image-wrapper {
+      height: 72%;
+      position: relative;
+      overflow: hidden;
+      background-color: #f1f5f9;
+    }
+
+    .card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .card-item:hover .card-image {
+      transform: scale(1.1);
+    }
+
+    .card-video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card-play-btn {
+      width: 64px;
+      height: 64px;
+      border-radius: 50px;
+      background-color: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      transform: scale(0.9);
+      transition: all 0.5s ease;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .card-play-btn svg {
+      fill: #ffffff;
+      margin-left: 4px;
+    }
+
+    .card-item:hover .card-play-btn {
+      transform: scale(1);
+    }
+
+    .card-body {
+      height: 30%;
+      padding: 16px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background-color: #ffffff;
+      border-top: 1px solid #f8fafc;
+      gap: 6px;
+    }
+
+    .card-title {
+      color: #000000;
+      font-weight: var(--font-weight-heading);
+      transition: color 0.3s ease;
+    }
+
+    .card-item:hover .card-title {
+      color: #1d4ed8;
+    }
+
+    .card-tag-wrapper {
+      display: inline-flex;
+      margin-top: 2px;
+    }
+
+    .btn-custom-sm {
+      font-size: var(--small-size);
+      font-weight: var(--font-weight-heading);
+      line-height: var(--small-line-height);
+      background-color: #eff6ff;
+      color: #155dfc;
+      padding: 4px 12px;
+      border-radius: 12px;
+      display: inline-block;
+    }
+
+    .main-header {
+      max-width: 1230px;
+      margin: 0 auto;
+    }
+
+    /* --- Controller Nav Buttons Module --- */
+    .controls-container {
+      display: none;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 0;
+      margin-top: 16px;
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (min-width: 768px) {
+      .controls-container.show-flex {
         display: flex;
-        align-items: center;
-        gap: 8px;
       }
+    }
+
+    .controls-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background-color: #ffffff;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      color: #000000;
+    }
+
+    @media (min-width: 640px) {
       .nav-btn {
-        width: 40px;
-        height: 40px;
+        width: 48px;
+        height: 48px;
         border-radius: 12px;
-        background-color: #ffffff;
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid #e2e8f0;
-        transition: all 0.2s ease;
-        cursor: pointer;
-        color: #000000;
       }
-      @media (min-width: 640px) {
-        .nav-btn {
-          width: 48px;
-          height: 48px;
-          border-radius: 12px;
-        }
-      }
-      .nav-btn:hover {
-        background-color: #f8fafc;
-      }
-      .nav-btn:active {
-        transform: scale(0.95);
-      }
+    }
+
+    .nav-btn:hover {
+      background-color: #f8fafc;
+    }
+
+    .nav-btn:active {
+      transform: scale(0.95);
+    }
 
     /* ── NAVBAR ── */
     .nav {
@@ -701,6 +763,7 @@
       justify-content: space-between;
       padding: 0 40px;
     }
+
     .nav-logo {
       font-size: var(--h4-size);
       font-weight: var(--font-weight-heading);
@@ -710,9 +773,11 @@
       align-items: center;
       gap: 6px;
     }
+
     .nav-logo span {
       color: var(--primary);
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -728,17 +793,22 @@
       font-family: 'Poppins', sans-serif;
       white-space: nowrap;
     }
+
     .btn-primary {
       background: var(--primary);
       color: #fff;
     }
+
     .btn-primary:hover {
       background: var(--primary-hover);
       transform: translateY(-1px);
       box-shadow: 0 6px 16px rgba(59, 130, 246, .3);
     }
+
     @media (max-width: 960px) {
-      .nav { padding: 0 20px; }
+      .nav {
+        padding: 0 20px;
+      }
     }
 
     /* ── FOOTER ── */
@@ -746,6 +816,7 @@
       background: var(--text-1);
       padding: 80px 40px;
     }
+
     .footer-inner {
       max-width: 1230px;
       margin: 0 auto;
@@ -754,25 +825,36 @@
       gap: 60px;
       align-items: start;
     }
+
     .f-brand {
       font-size: var(--h4-size);
       font-weight: var(--font-weight-heading);
       color: #fff;
       margin-bottom: 8px;
     }
-    .f-brand span { color: var(--primary); }
+
+    .f-brand span {
+      color: var(--primary);
+    }
+
     .f-tagline {
       font-size: var(--body-size);
       line-height: var(--body-line-height);
       color: #94A3B8;
       margin-bottom: 22px;
     }
+
     .f-copy {
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       color: #475569;
     }
-    .f-links { display: flex; gap: 48px; }
+
+    .f-links {
+      display: flex;
+      gap: 48px;
+    }
+
     .f-col h5 {
       font-size: var(--small-size);
       line-height: var(--small-line-height);
@@ -781,6 +863,7 @@
       color: #94A3B8;
       margin-bottom: 16px;
     }
+
     .f-col a {
       display: block;
       font-size: var(--small-size);
@@ -790,7 +873,11 @@
       margin-bottom: 11px;
       transition: color .2s;
     }
-    .f-col a:hover { color: #fff; }
+
+    .f-col a:hover {
+      color: #fff;
+    }
+
     .f-contact-head {
       font-size: var(--small-size);
       line-height: var(--small-line-height);
@@ -799,7 +886,11 @@
       color: #94A3B8;
       margin-bottom: 14px;
     }
-    .contact-item { border-bottom: 1px solid #1E293B; }
+
+    .contact-item {
+      border-bottom: 1px solid #1E293B;
+    }
+
     .contact-toggle {
       width: 100%;
       display: flex;
@@ -813,7 +904,11 @@
       text-align: left;
       font-family: 'Poppins', sans-serif;
     }
-    .contact-toggle:hover .contact-name { color: var(--primary); }
+
+    .contact-toggle:hover .contact-name {
+      color: var(--primary);
+    }
+
     .contact-name {
       display: block;
       font-size: var(--small-size);
@@ -823,6 +918,7 @@
       text-transform: uppercase;
       transition: color .2s;
     }
+
     .contact-sub {
       display: block;
       font-size: var(--small-size);
@@ -832,28 +928,39 @@
       text-transform: uppercase;
       margin-top: 1px;
     }
+
     .contact-chevron {
       color: #475569;
       transition: transform .3s, color .2s;
       flex-shrink: 0;
     }
+
     .contact-item.open .contact-chevron {
       transform: rotate(180deg);
       color: var(--primary);
     }
+
     .contact-body {
       max-height: 0;
       overflow: hidden;
       transition: max-height .38s cubic-bezier(.4, 0, .2, 1);
     }
-    .contact-body.open { max-height: 220px; }
-    .contact-body-inner { padding: 4px 0 14px; }
+
+    .contact-body.open {
+      max-height: 220px;
+    }
+
+    .contact-body-inner {
+      padding: 4px 0 14px;
+    }
+
     .contact-address {
       font-size: var(--small-size);
       line-height: var(--small-line-height);
       color: #94A3B8;
       margin-bottom: 10px;
     }
+
     .contact-phone {
       display: flex;
       align-items: center;
@@ -865,7 +972,11 @@
       margin-bottom: 6px;
       transition: color .2s;
     }
-    .contact-phone:hover { color: #6FAAFF; }
+
+    .contact-phone:hover {
+      color: #6FAAFF;
+    }
+
     .contact-email-row {
       display: flex;
       align-items: center;
@@ -879,7 +990,11 @@
       border-top: 1px solid #1E293B;
       transition: color .2s;
     }
-    .contact-email-row:hover { color: #fff; }
+
+    .contact-email-row:hover {
+      color: #fff;
+    }
+
     .contact-email-icon {
       width: 32px;
       height: 32px;
@@ -893,32 +1008,43 @@
       color: #94A3B8;
       transition: background .2s, color .2s, border-color .2s;
     }
+
     .contact-email-row:hover .contact-email-icon {
       background: var(--primary);
       border-color: var(--primary);
       color: #fff;
     }
+
     @media (max-width: 960px) {
       .footer-inner {
         grid-template-columns: 1fr;
         gap: 36px;
       }
-      .f-links { gap: 32px; }
-      footer { padding: 48px 20px; }
-    }
-    @media (max-width: 560px) {
-      .f-links { flex-direction: column; gap: 28px; }
-    }
-    </style>
-  </head>
-  <body>
 
-    <!-- NAVBAR -->
-    
+      .f-links {
+        gap: 32px;
+      }
+
+      footer {
+        padding: 48px 20px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .f-links {
+        flex-direction: column;
+        gap: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
   <!-- NEW STICKY NAVBAR -->
   <style>
-
-
     .navbar {
       position: sticky;
       top: 0;
@@ -1008,7 +1134,7 @@
     .mobile-chevron {
       transition: all 0.3s ease;
     }
-  
+
 
     /* ── Reset ── */
     *,
@@ -1902,10 +2028,8 @@
         padding: 36px 16px;
       }
     }
-  
-
   </style>
-  
+
   <nav class="navbar">
     <!-- Logo -->
     <div class="logo-block">
@@ -2507,7 +2631,7 @@
 
     <a href="#" class="mobile-apply">Apply Now</a>
   </nav>
-  
+
   <script>
     /* --- PROGRAMS MEGA-MENU LOGIC --- */
     const progTabs = document.querySelectorAll("#programs-dropdown .cat-tab");
@@ -2850,244 +2974,191 @@
   </script>
 
 
-    <!-- Banner Component -->
-    <section class="banner-section">
-      <div class="banner-container">
-        <img
-          src="https://assets.seamedu.com/assets/img/Testimonials-Banner-Image.jpg"
-          alt="Student on video call laptop"
-          class="banner-image"
-        />
-      </div>
-    </section>
+  <!-- Banner Component -->
+  <section class="banner-section">
+    <div class="banner-container">
+      <img src="https://assets.seamedu.com/assets/img/Testimonials-Banner-Image.jpg" alt="Student on video call laptop"
+        class="banner-image" />
+    </div>
+  </section>
 
-    <!-- Filters Tabs Component -->
-    <section class="filter-section">
-      <div class="main-header">
-        <div class="header-content">
-          <h2 class="header-title">Alumni Testimonials</h2>
-          <p class="header-desc">
-            Our students love us and we love them too! Want to know what
-            actually goes on campus? Or perhaps you're curious about the quality
-            of our courses. Well, you can hear it straight from the horse's
-            mouth. Here's what our students are saying about us.
-          </p>
+  <!-- Filters Tabs Component -->
+  <section class="filter-section">
+    <div class="main-header">
+      <div class="header-content">
+        <h2 class="header-title">Alumni Testimonials</h2>
+        <p class="header-desc">
+          Our students love us and we love them too! Want to know what
+          actually goes on campus? Or perhaps you're curious about the quality
+          of our courses. Well, you can hear it straight from the horse's
+          mouth. Here's what our students are saying about us.
+        </p>
+      </div>
+      <div class="filter-wrapper">
+        <div class="tab-container">
+          <button onclick="filterCategory('all')" class="tab-btn active">
+            All
+          </button>
+          <button onclick="filterCategory('management')" class="tab-btn">
+            Media
+          </button>
+          <button onclick="filterCategory('design')" class="tab-btn">
+            Design
+          </button>
+          <button onclick="filterCategory('hospitality')" class="tab-btn">
+            Technology
+          </button>
+          <button onclick="filterCategory('technology')" class="tab-btn">
+            Management
+          </button>
+          <button onclick="filterCategory('media')" class="tab-btn">
+            Hospitality
+          </button>
         </div>
-        <div class="filter-wrapper">
-          <div class="tab-container">
-            <button onclick="filterCategory('all')" class="tab-btn active">
+
+        <!-- Responsive Dropdown (Visible on Mobile & Tablet < 1024px) -->
+        <div class="dropdown-container">
+          <button class="dropdown-btn" id="dropdownBtn" onclick="toggleDropdown(event)">
+            <span id="selectedCategoryText">All</span>
+            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
+          </button>
+          <div class="dropdown-menu" id="dropdownMenu">
+            <button onclick="selectDropdownCategory('all')" class="dropdown-item active">
               All
             </button>
-            <button onclick="filterCategory('management')" class="tab-btn">
+            <button onclick="selectDropdownCategory('management')" class="dropdown-item">
               Media
             </button>
-            <button onclick="filterCategory('design')" class="tab-btn">
+            <button onclick="selectDropdownCategory('design')" class="dropdown-item">
               Design
             </button>
-            <button onclick="filterCategory('hospitality')" class="tab-btn">
+            <button onclick="selectDropdownCategory('hospitality')" class="dropdown-item">
               Technology
             </button>
-            <button onclick="filterCategory('technology')" class="tab-btn">
+            <button onclick="selectDropdownCategory('technology')" class="dropdown-item">
               Management
             </button>
-            <button onclick="filterCategory('media')" class="tab-btn">
+            <button onclick="selectDropdownCategory('media')" class="dropdown-item">
               Hospitality
             </button>
           </div>
+        </div>
+      </div>
 
-          <!-- Responsive Dropdown (Visible on Mobile & Tablet < 1024px) -->
-          <div class="dropdown-container">
-            <button
-              class="dropdown-btn"
-              id="dropdownBtn"
-              onclick="toggleDropdown(event)"
-            >
-              <span id="selectedCategoryText">All</span>
-              <svg
-                class="chevron-icon"
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              >
-                <path d="m6 9 6 6 6-6" />
-              </svg>
-            </button>
-            <div class="dropdown-menu" id="dropdownMenu">
-              <button
-                onclick="selectDropdownCategory('all')"
-                class="dropdown-item active"
-              >
-                All
-              </button>
-              <button
-                onclick="selectDropdownCategory('management')"
-                class="dropdown-item"
-              >
-                Media
-              </button>
-              <button
-                onclick="selectDropdownCategory('design')"
-                class="dropdown-item"
-              >
-                Design
-              </button>
-              <button
-                onclick="selectDropdownCategory('hospitality')"
-                class="dropdown-item"
-              >
-                Technology
-              </button>
-              <button
-                onclick="selectDropdownCategory('technology')"
-                class="dropdown-item"
-              >
-                Management
-              </button>
-              <button
-                onclick="selectDropdownCategory('media')"
-                class="dropdown-item"
-              >
-                Hospitality
-              </button>
-            </div>
+      <div class="content-container">
+        <div class="relative">
+          <div id="sliderWindow" class="slider-window">
+            <div id="sliderTrack"></div>
           </div>
         </div>
-
-        <div class="content-container">
-          <div class="relative">
-            <div id="sliderWindow" class="slider-window">
-              <div id="sliderTrack"></div>
-            </div>
-          </div>
-          <div id="controlsContainer" class="controls-container">
-            <div class="controls-wrapper">
-              <button id="prevBtn" class="nav-btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="m15 18-6-6 6-6" />
-                </svg>
-              </button>
-              <button id="nextBtn" class="nav-btn">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="m9 18 6-6-6-6" />
-                </svg>
-              </button>
-            </div>
+        <div id="controlsContainer" class="controls-container">
+          <div class="controls-wrapper">
+            <button id="prevBtn" class="nav-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m15 18-6-6 6-6" />
+              </svg>
+            </button>
+            <button id="nextBtn" class="nav-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m9 18 6-6-6-6" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <script>
-      const newsData = [
-        {
-          id: 1,
-          category: "technology",
-          title: "Hozaifa Sayed",
-          program: "Alumni - B.Sc Sound Engineering",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_Pu28B1778137142.jpg?tr=w-552",
-        },
-        {
-          id: 2,
-          category: "media",
-          title: "Anjali Khare",
-          program: "Alumni - B.Sc Photography",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_WVneW1777982804.jpg?tr=w-552",
-        },
-        {
-          id: 3,
-          category: "design",
-          title: "Raghu Veera Reddy",
-          program: "Alumni - BCA  Development",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_gZjG71777981996.jpg?tr=w-552",
-        },
-        {
-          id: 4,
-          category: "technology",
-          title: "Hozaifa Sayed",
-          program: "Alumni - B.Sc Sound Engineering",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_ZbJy11777982707.jpg?tr=w-552",
-        },
-        {
-          id: 5,
-          category: "design",
-          title: "Animesh Majumdar",
-          program: "Alumni - B.Sc. Vfx & Animation",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_WVneW1777982804.jpg?tr=w-552",
-        },
-        {
-          id: 6,
-          category: "management",
-          title: "Hozaifa Sayed",
-          program: "Alumni - International Business",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_Pu28B1778137142.jpg?tr=w-552",
-        },
-        {
-          id: 7,
-          category: "hospitality",
-          title: "Anjali Khare",
-          program: "Alumni - Hospitality Operations",
-          thumbnail:
-            "https://assets.seamedu.com/uploads/student-testimonials/img_ZbJy11777982707.jpg?tr=w-552",
-        },
-      ];
+  <script>
+    const newsData = [
+      {
+        id: 1,
+        category: "technology",
+        title: "Hozaifa Sayed",
+        program: "Alumni - B.Sc Sound Engineering",
+        thumbnail:
+          "https://assets.seamedu.com/uploads/student-testimonials/img_Pu28B1778137142.jpg?tr=w-552",
+      },
+      {
+        id: 2,
+        category: "media",
+        title: "Anjali Khare",
+        program: "Alumni - B.Sc Photography",
+        thumbnail:
+          "https://assets.seamedu.com/uploads/student-testimonials/img_WVneW1777982804.jpg?tr=w-552",
+      },
+      {
+        id: 3,
+        category: "design",
+        title: "Raghu Veera Reddy",
+        program: "Alumni - BCA  Development",
+        thumbnail:
+          "https://assets.seamedu.com/uploads/student-testimonials/img_gZjG71777981996.jpg?tr=w-552",
+      },
+      {
+        id: 4,
+        category: "technology",
+        title: "Hozaifa Sayed",
+        program: "Alumni - B.Sc Sound Engineering",
+        thumbnail:
+          "https://assets.seamedu.com/uploads/student-testimonials/img_ZbJy11777982707.jpg?tr=w-552",
+      },
+      {
+        id: 5,
+        category: "design",
+        title: "Animesh Majumdar",
+        program: "Alumni - B.Sc. Vfx & Animation",
+        thumbnail:
+          "https://assets.seamedu.com/uploads/student-testimonials/img_WVneW1777982804.jpg?tr=w-552",
+      },
+      {
+        id: 6,
+        category: "management",
+        title: "Hozaifa Sayed",
+        program: "Alumni - International Business",
+        thumbnail:
+          "https://assets.seamedu.com/uploads/student-testimonials/img_Pu28B1778137142.jpg?tr=w-552",
+      },
+      {
+        id: 7,
+        category: "hospitality",
+        title: "Anjali Khare",
+        program: "Alumni - Hospitality Operations",
+        thumbnail:
+          "https://assets.seamedu.com/uploads/student-testimonials/img_ZbJy11777982707.jpg?tr=w-552",
+      },
+    ];
 
-      let currentCategory = "all";
-      let filteredData = [...newsData];
-      let displayDataCloned = [
-        ...filteredData,
-        ...filteredData,
-        ...filteredData,
-      ];
+    let currentCategory = "all";
+    let filteredData = [...newsData];
+    let displayDataCloned = [
+      ...filteredData,
+      ...filteredData,
+      ...filteredData,
+    ];
 
-      const sliderTrack = document.getElementById("sliderTrack");
-      const sliderWindow = document.getElementById("sliderWindow");
-      const prevBtn = document.getElementById("prevBtn");
-      const nextBtn = document.getElementById("nextBtn");
-      const controlsContainer = document.getElementById("controlsContainer");
+    const sliderTrack = document.getElementById("sliderTrack");
+    const sliderWindow = document.getElementById("sliderWindow");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const controlsContainer = document.getElementById("controlsContainer");
 
-      let cardWidth = 300;
-      let gap = 12;
-      let currentX = 0;
-      let isPaused = false;
-      let autoScrollInterval;
-      let layoutState = "desktop-grid"; // mobile-stack, tablet-slider, desktop-grid
+    let cardWidth = 300;
+    let gap = 12;
+    let currentX = 0;
+    let isPaused = false;
+    let autoScrollInterval;
+    let layoutState = "desktop-grid"; // mobile-stack, tablet-slider, desktop-grid
 
-      function createCardMarkup(event) {
-        const cardWidthClass =
-          layoutState === "tablet-slider" ? "card-w-fixed" : "card-w-full";
-        return `
+    function createCardMarkup(event) {
+      const cardWidthClass =
+        layoutState === "tablet-slider" ? "card-w-fixed" : "card-w-full";
+      return `
         <div class="card-item ${cardWidthClass}">
           <div class="card-image-wrapper">
             <img src="${event.thumbnail}" alt="${event.title}" class="card-image" draggable="false" />
@@ -3105,594 +3176,712 @@
           </div>
         </div>
       `;
-      }
+    }
 
-      function filterCategory(category) {
-        currentCategory = category;
+    function filterCategory(category) {
+      currentCategory = category;
 
-        const categoryMap = {
-          all: { index: 0, label: "All" },
-          management: { index: 1, label: "Media" },
-          design: { index: 2, label: "Design" },
-          hospitality: { index: 3, label: "Technology" },
-          technology: { index: 4, label: "Management" },
-          media: { index: 5, label: "Hospitality" },
-        };
+      const categoryMap = {
+        all: { index: 0, label: "All" },
+        management: { index: 1, label: "Media" },
+        design: { index: 2, label: "Design" },
+        hospitality: { index: 3, label: "Technology" },
+        technology: { index: 4, label: "Management" },
+        media: { index: 5, label: "Hospitality" },
+      };
 
-        const currentMap = categoryMap[category];
-        if (currentMap) {
-          // Update desktop tabs active state
-          const tabBtns = document.querySelectorAll(".tab-btn");
-          tabBtns.forEach((btn, idx) => {
-            if (idx === currentMap.index) {
-              btn.classList.add("active");
-            } else {
-              btn.classList.remove("active");
-            }
-          });
-
-          // Update dropdown list items active state
-          const dropdownItems = document.querySelectorAll(".dropdown-item");
-          dropdownItems.forEach((item, idx) => {
-            if (idx === currentMap.index) {
-              item.classList.add("active");
-            } else {
-              item.classList.remove("active");
-            }
-          });
-
-          // Update dropdown button text
-          const selectedTextSpan = document.getElementById(
-            "selectedCategoryText",
-          );
-          if (selectedTextSpan) {
-            selectedTextSpan.innerText = currentMap.label;
+      const currentMap = categoryMap[category];
+      if (currentMap) {
+        // Update desktop tabs active state
+        const tabBtns = document.querySelectorAll(".tab-btn");
+        tabBtns.forEach((btn, idx) => {
+          if (idx === currentMap.index) {
+            btn.classList.add("active");
+          } else {
+            btn.classList.remove("active");
           }
-        }
+        });
 
-        if (category === "all") {
-          filteredData = [...newsData];
-        } else {
-          filteredData = newsData.filter((item) => item.category === category);
-        }
-        displayDataCloned = [...filteredData, ...filteredData, ...filteredData];
-        renderLayoutEngine();
-      }
-
-      function toggleDropdown(e) {
-        e.stopPropagation();
-        const dropdown = document.querySelector(".dropdown-container");
-        if (dropdown) {
-          dropdown.classList.toggle("open");
-        }
-      }
-
-      function selectDropdownCategory(category) {
-        filterCategory(category);
-        const dropdown = document.querySelector(".dropdown-container");
-        if (dropdown) {
-          dropdown.classList.remove("open");
-        }
-      }
-
-      window.addEventListener("click", function (e) {
-        const dropdown = document.querySelector(".dropdown-container");
-        if (dropdown && !dropdown.contains(e.target)) {
-          dropdown.classList.remove("open");
-        }
-      });
-
-      function renderLayoutEngine() {
-        const width = window.innerWidth;
-        stopAutoScroll();
-
-        // 1. Mobile Vertical Stack Engine
-        if (width < 768) {
-          layoutState = "mobile-stack";
-          sliderWindow.classList.remove("cursor-grab");
-          sliderTrack.style.transform = "none";
-          sliderTrack.className = "engine-flex-col";
-          sliderTrack.innerHTML = filteredData
-            .map((item) => createCardMarkup(item))
-            .join("");
-          controlsContainer.classList.remove("show-flex");
-        }
-        // 2. Desktop/Tablet Grid Engine
-        else {
-          layoutState = "desktop-grid";
-          sliderWindow.classList.remove("cursor-grab");
-          sliderTrack.style.transform = "none";
-          sliderTrack.className = "engine-grid";
-          sliderTrack.innerHTML = filteredData
-            .map((item) => createCardMarkup(item))
-            .join("");
-          controlsContainer.classList.remove("show-flex");
-        }
-      }
-
-      function getTotalSetWidth() {
-        return filteredData.length * (cardWidth + gap);
-      }
-
-      function setTransformX(val) {
-        if (layoutState !== "tablet-slider") return;
-        currentX = val;
-        sliderTrack.style.transform = `translateX(${val}px)`;
-      }
-
-      function initPosition() {
-        const oneSetWidth = getTotalSetWidth();
-        setTransformX(-oneSetWidth);
-      }
-
-      function handleLoopBoundaries() {
-        const oneSetWidth = getTotalSetWidth();
-        if (currentX <= -oneSetWidth * 2) {
-          sliderTrack.classList.remove("is-animating");
-          setTransformX(currentX + oneSetWidth);
-        } else if (currentX >= -oneSetWidth * 0.5 && currentX > -oneSetWidth) {
-          sliderTrack.classList.remove("is-animating");
-          setTransformX(currentX - oneSetWidth);
-        } else if (currentX > 0) {
-          sliderTrack.classList.remove("is-animating");
-          setTransformX(currentX - oneSetWidth);
-        }
-      }
-
-      function scrollSlider(direction) {
-        if (layoutState !== "tablet-slider") return;
-        sliderTrack.classList.add("is-animating");
-        const step = cardWidth + gap;
-        let targetX = direction === "right" ? currentX - step : currentX + step;
-        setTransformX(targetX);
-        setTimeout(() => {
-          handleLoopBoundaries();
-        }, 800);
-      }
-
-      function startAutoScroll() {
-        if (layoutState !== "tablet-slider") return;
-        stopAutoScroll();
-        autoScrollInterval = setInterval(() => {
-          if (!isPaused) {
-            scrollSlider("right");
+        // Update dropdown list items active state
+        const dropdownItems = document.querySelectorAll(".dropdown-item");
+        dropdownItems.forEach((item, idx) => {
+          if (idx === currentMap.index) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
           }
-        }, 3000);
+        });
+
+        // Update dropdown button text
+        const selectedTextSpan = document.getElementById(
+          "selectedCategoryText",
+        );
+        if (selectedTextSpan) {
+          selectedTextSpan.innerText = currentMap.label;
+        }
       }
 
-      function stopAutoScroll() {
-        clearInterval(autoScrollInterval);
+      if (category === "all") {
+        filteredData = [...newsData];
+      } else {
+        filteredData = newsData.filter((item) => item.category === category);
       }
-
-      let isDragging = false;
-      let startPos = 0;
-      let prevTranslate = 0;
-
-      function handleDragStart(e) {
-        if (layoutState !== "tablet-slider") return;
-        isPaused = true;
-        isDragging = true;
-        sliderTrack.classList.remove("is-animating");
-        sliderTrack.classList.add("is-dragging");
-        startPos = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
-        prevTranslate = currentX;
-      }
-
-      function handleDragMove(e) {
-        if (!isDragging || layoutState !== "tablet-slider") return;
-        const currentPosition = e.type.includes("mouse")
-          ? e.pageX
-          : e.touches[0].clientX;
-        const diff = currentPosition - startPos;
-        setTransformX(prevTranslate + diff);
-      }
-
-      function handleDragEnd() {
-        if (!isDragging || layoutState !== "tablet-slider") return;
-        isDragging = false;
-        sliderTrack.classList.remove("is-dragging");
-        sliderTrack.classList.add("is-animating");
-        const step = cardWidth + gap;
-        const nearestSnap = Math.round(currentX / step) * step;
-        setTransformX(nearestSnap);
-        setTimeout(() => {
-          handleLoopBoundaries();
-          isPaused = false;
-        }, 800);
-      }
-
-      prevBtn.addEventListener("click", () => {
-        isPaused = true;
-        scrollSlider("left");
-      });
-      nextBtn.addEventListener("click", () => {
-        isPaused = true;
-        scrollSlider("right");
-      });
-      sliderWindow.addEventListener("mouseenter", () => {
-        if (layoutState === "tablet-slider") isPaused = true;
-      });
-      sliderWindow.addEventListener("mouseleave", () => {
-        if (!isDragging && layoutState === "tablet-slider") isPaused = false;
-      });
-      sliderWindow.addEventListener("mousedown", handleDragStart);
-      window.addEventListener("mousemove", handleDragMove);
-      window.addEventListener("mouseup", handleDragEnd);
-      sliderWindow.addEventListener("touchstart", handleDragStart, {
-        passive: true,
-      });
-      window.addEventListener("touchmove", handleDragMove, { passive: true });
-      window.addEventListener("touchend", handleDragEnd);
-
-      let resizeDebounce;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeDebounce);
-        resizeDebounce = setTimeout(renderLayoutEngine, 100);
-      });
-
+      displayDataCloned = [...filteredData, ...filteredData, ...filteredData];
       renderLayoutEngine();
-    </script>
+    }
+
+    function toggleDropdown(e) {
+      e.stopPropagation();
+      const dropdown = document.querySelector(".dropdown-container");
+      if (dropdown) {
+        dropdown.classList.toggle("open");
+      }
+    }
+
+    function selectDropdownCategory(category) {
+      filterCategory(category);
+      const dropdown = document.querySelector(".dropdown-container");
+      if (dropdown) {
+        dropdown.classList.remove("open");
+      }
+    }
+
+    window.addEventListener("click", function (e) {
+      const dropdown = document.querySelector(".dropdown-container");
+      if (dropdown && !dropdown.contains(e.target)) {
+        dropdown.classList.remove("open");
+      }
+    });
+
+    function renderLayoutEngine() {
+      const width = window.innerWidth;
+      stopAutoScroll();
+
+      // 1. Mobile Vertical Stack Engine
+      if (width < 768) {
+        layoutState = "mobile-stack";
+        sliderWindow.classList.remove("cursor-grab");
+        sliderTrack.style.transform = "none";
+        sliderTrack.className = "engine-flex-col";
+        sliderTrack.innerHTML = filteredData
+          .map((item) => createCardMarkup(item))
+          .join("");
+        controlsContainer.classList.remove("show-flex");
+      }
+      // 2. Desktop/Tablet Grid Engine
+      else {
+        layoutState = "desktop-grid";
+        sliderWindow.classList.remove("cursor-grab");
+        sliderTrack.style.transform = "none";
+        sliderTrack.className = "engine-grid";
+        sliderTrack.innerHTML = filteredData
+          .map((item) => createCardMarkup(item))
+          .join("");
+        controlsContainer.classList.remove("show-flex");
+      }
+    }
+
+    function getTotalSetWidth() {
+      return filteredData.length * (cardWidth + gap);
+    }
+
+    function setTransformX(val) {
+      if (layoutState !== "tablet-slider") return;
+      currentX = val;
+      sliderTrack.style.transform = `translateX(${val}px)`;
+    }
+
+    function initPosition() {
+      const oneSetWidth = getTotalSetWidth();
+      setTransformX(-oneSetWidth);
+    }
+
+    function handleLoopBoundaries() {
+      const oneSetWidth = getTotalSetWidth();
+      if (currentX <= -oneSetWidth * 2) {
+        sliderTrack.classList.remove("is-animating");
+        setTransformX(currentX + oneSetWidth);
+      } else if (currentX >= -oneSetWidth * 0.5 && currentX > -oneSetWidth) {
+        sliderTrack.classList.remove("is-animating");
+        setTransformX(currentX - oneSetWidth);
+      } else if (currentX > 0) {
+        sliderTrack.classList.remove("is-animating");
+        setTransformX(currentX - oneSetWidth);
+      }
+    }
+
+    function scrollSlider(direction) {
+      if (layoutState !== "tablet-slider") return;
+      sliderTrack.classList.add("is-animating");
+      const step = cardWidth + gap;
+      let targetX = direction === "right" ? currentX - step : currentX + step;
+      setTransformX(targetX);
+      setTimeout(() => {
+        handleLoopBoundaries();
+      }, 800);
+    }
+
+    function startAutoScroll() {
+      if (layoutState !== "tablet-slider") return;
+      stopAutoScroll();
+      autoScrollInterval = setInterval(() => {
+        if (!isPaused) {
+          scrollSlider("right");
+        }
+      }, 3000);
+    }
+
+    function stopAutoScroll() {
+      clearInterval(autoScrollInterval);
+    }
+
+    let isDragging = false;
+    let startPos = 0;
+    let prevTranslate = 0;
+
+    function handleDragStart(e) {
+      if (layoutState !== "tablet-slider") return;
+      isPaused = true;
+      isDragging = true;
+      sliderTrack.classList.remove("is-animating");
+      sliderTrack.classList.add("is-dragging");
+      startPos = e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+      prevTranslate = currentX;
+    }
+
+    function handleDragMove(e) {
+      if (!isDragging || layoutState !== "tablet-slider") return;
+      const currentPosition = e.type.includes("mouse")
+        ? e.pageX
+        : e.touches[0].clientX;
+      const diff = currentPosition - startPos;
+      setTransformX(prevTranslate + diff);
+    }
+
+    function handleDragEnd() {
+      if (!isDragging || layoutState !== "tablet-slider") return;
+      isDragging = false;
+      sliderTrack.classList.remove("is-dragging");
+      sliderTrack.classList.add("is-animating");
+      const step = cardWidth + gap;
+      const nearestSnap = Math.round(currentX / step) * step;
+      setTransformX(nearestSnap);
+      setTimeout(() => {
+        handleLoopBoundaries();
+        isPaused = false;
+      }, 800);
+    }
+
+    prevBtn.addEventListener("click", () => {
+      isPaused = true;
+      scrollSlider("left");
+    });
+    nextBtn.addEventListener("click", () => {
+      isPaused = true;
+      scrollSlider("right");
+    });
+    sliderWindow.addEventListener("mouseenter", () => {
+      if (layoutState === "tablet-slider") isPaused = true;
+    });
+    sliderWindow.addEventListener("mouseleave", () => {
+      if (!isDragging && layoutState === "tablet-slider") isPaused = false;
+    });
+    sliderWindow.addEventListener("mousedown", handleDragStart);
+    window.addEventListener("mousemove", handleDragMove);
+    window.addEventListener("mouseup", handleDragEnd);
+    sliderWindow.addEventListener("touchstart", handleDragStart, {
+      passive: true,
+    });
+    window.addEventListener("touchmove", handleDragMove, { passive: true });
+    window.addEventListener("touchend", handleDragEnd);
+
+    let resizeDebounce;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeDebounce);
+      resizeDebounce = setTimeout(renderLayoutEngine, 100);
+    });
+
+    renderLayoutEngine();
+  </script>
 
   <!-- FOOTER -->
   <!-- FOOTER -->
-    
-    <!-- Font Awesome for footer icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    
-    <!-- FOOTER CSS -->
-    <style>
-      .sea-footer {
-        position: relative;
-        background: #fff;
-        padding: 49px 20px 16px;
-        width: 100%;
-        border-top: 1px solid #f1f5f9;
-        overflow: hidden;
-        box-sizing: border-box;
-        font-family: 'Poppins', sans-serif;
-      }
-      .sea-footer * { box-sizing: border-box; }
-      .sea-footer-inner {
-        max-width: 1230px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 10;
-      }
+  <!-- Font Awesome for footer icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+
+  <!-- FOOTER CSS -->
+  <style>
+    .sea-footer {
+      position: relative;
+      background: #fff;
+      padding: 49px 20px 16px;
+      width: 100%;
+      border-top: 1px solid #f1f5f9;
+      overflow: hidden;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .sea-footer * {
+      box-sizing: border-box;
+    }
+
+    .sea-footer-inner {
+      max-width: 1230px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .sea-footer-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px 16px;
+      margin-bottom: 8px;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 32px 16px;
-        margin-bottom: 8px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 48px 56px;
       }
-      @media (min-width: 768px) {
-        .sea-footer-grid {
-          grid-template-columns: repeat(4, 1fr);
-          gap: 48px 56px;
-        }
-      }
+    }
+
+    .sea-footer-brand {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-brand {
-        grid-column: span 2;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        .sea-footer-brand {
-          grid-column: span 1;
-          align-items: flex-start;
-          text-align: left;
-        }
-      }
-      .sea-footer-logo {
-        height: 40px;
-        display: block;
-        margin-top: 8px;
-      }
-      @media (min-width: 640px) { .sea-footer-logo { height: 48px; } }
-      .sea-footer-desc {
-        color: #475569;
-        margin: 0;
-        line-height: 1.6;
-        font-size: 14px;
-      }
-      .sea-footer-socials {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        margin-top: 8px;
-      }
-      @media (min-width: 768px) { .sea-footer-socials { justify-content: flex-start; } }
-      .sea-social-icon {
-        width: 36px;
-        height: 36px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #F8FAFC;
-        border: 1px solid #f2f2f2;
-        border-radius: 50%;
-        color: #000;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        font-size: 14px;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-      }
-      .sea-social-icon:hover {
-        background: #155DFC;
-        color: #fff;
-        transform: translateY(-4px);
-      }
-      .sea-footer-col h6 {
-        color: #000;
-        text-transform: uppercase;
-        margin: 8px 0 24px;
-        font-size: 13px;
-        font-weight: 700;
-        letter-spacing: 0.05em;
-      }
-      @media (min-width: 768px) { .sea-footer-col h6 { margin-top: 20px; } }
-      .sea-footer-col ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 14px;
-      }
-      .sea-footer-col ul a {
-        color: #475569;
-        text-decoration: none;
-        font-size: 14px;
-        transition: color 0.3s ease;
-      }
-      .sea-footer-col ul a:hover { color: #155DFC; }
-      .sea-footer-contact {
-        grid-column: span 2;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        align-items: center;
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        .sea-footer-contact {
-          grid-column: span 1;
-          align-items: flex-start;
-          text-align: left;
-        }
-      }
-      .sea-footer-contact-inner { width: 100%; }
-      .sea-campus-list { display: flex; flex-direction: column; gap: 8px; }
-      .campus-item { border-bottom: 1px solid #f1f5f9; padding-bottom: 8px; margin-bottom: 4px; }
-      .campus-item:last-child { border-bottom: none; }
-      .campus-btn {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        grid-column: span 1;
+        align-items: flex-start;
         text-align: left;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px 0;
-        color: inherit;
-        font-family: inherit;
-        font-size: 14px;
-        transition: color 0.2s;
       }
-      .campus-btn:hover { color: #155DFC; }
-      .campus-btn p { color: #000; text-transform: uppercase; margin: 0; font-weight: 600; font-size: 13px; }
-      .campus-btn span { color: #475569; text-transform: uppercase; font-size: 11px; display: block; margin-top: -1px; }
-      .campus-btn i { color: #000; transition: transform 0.3s ease; font-size: 12px; }
-      .campus-item.active .campus-btn i { transform: rotate(180deg); color: #2563eb; }
-      .campus-content {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .sea-footer-logo {
+      height: 40px;
+      display: block;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 640px) {
+      .sea-footer-logo {
+        height: 48px;
       }
-      .campus-item.active .campus-content { max-height: 300px; opacity: 1; }
-      .campus-content p { color: #475569; margin: 8px 0; font-size: 13px; }
-      .campus-phones {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        padding-left: 0;
-        border-left: none;
+    }
+
+    .sea-footer-desc {
+      color: #475569;
+      margin: 0;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .sea-footer-socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-socials {
+        justify-content: flex-start;
       }
-      @media (min-width: 768px) {
-        .campus-phones { padding-left: 8px; border-left: 2px solid #155DFC; }
-      }
-      .campus-phones a {
-        color: #155DFC;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 13px;
-      }
-      .campus-phones a:hover { text-decoration: underline; }
-      .sea-footer-email {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        color: #000;
-        text-decoration: none;
-        transition: color 0.2s;
+    }
+
+    .sea-social-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F8FAFC;
+      border: 1px solid #f2f2f2;
+      border-radius: 50%;
+      color: #000;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 14px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+    }
+
+    .sea-social-icon:hover {
+      background: #155DFC;
+      color: #fff;
+      transform: translateY(-4px);
+    }
+
+    .sea-footer-col h6 {
+      color: #000;
+      text-transform: uppercase;
+      margin: 8px 0 24px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-col h6 {
         margin-top: 20px;
-        font-size: 14px;
       }
-      @media (min-width: 768px) { .sea-footer-email { justify-content: flex-start; } }
-      .sea-footer-email:hover { color: #155DFC; }
-      .sea-footer-email-icon {
-        width: 32px;
-        height: 32px;
-        border-radius: 8px;
-        background: #F8FAFC;
-        border: 1px solid #f1f5f9;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-shrink: 0;
+    }
+
+    .sea-footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sea-footer-col ul a {
+      color: #475569;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s ease;
+    }
+
+    .sea-footer-col ul a:hover {
+      color: #155DFC;
+    }
+
+    .sea-footer-contact {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-contact {
+        grid-column: span 1;
+        align-items: flex-start;
+        text-align: left;
       }
+    }
+
+    .sea-footer-contact-inner {
+      width: 100%;
+    }
+
+    .sea-campus-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .campus-item {
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 8px;
+      margin-bottom: 4px;
+    }
+
+    .campus-item:last-child {
+      border-bottom: none;
+    }
+
+    .campus-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 0;
+      color: inherit;
+      font-family: inherit;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .campus-btn:hover {
+      color: #155DFC;
+    }
+
+    .campus-btn p {
+      color: #000;
+      text-transform: uppercase;
+      margin: 0;
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    .campus-btn span {
+      color: #475569;
+      text-transform: uppercase;
+      font-size: 11px;
+      display: block;
+      margin-top: -1px;
+    }
+
+    .campus-btn i {
+      color: #000;
+      transition: transform 0.3s ease;
+      font-size: 12px;
+    }
+
+    .campus-item.active .campus-btn i {
+      transform: rotate(180deg);
+      color: #2563eb;
+    }
+
+    .campus-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease;
+    }
+
+    .campus-item.active .campus-content {
+      max-height: 300px;
+      opacity: 1;
+    }
+
+    .campus-content p {
+      color: #475569;
+      margin: 8px 0;
+      font-size: 13px;
+    }
+
+    .campus-phones {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-left: 0;
+      border-left: none;
+    }
+
+    @media (min-width: 768px) {
+      .campus-phones {
+        padding-left: 8px;
+        border-left: 2px solid #155DFC;
+      }
+    }
+
+    .campus-phones a {
+      color: #155DFC;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .campus-phones a:hover {
+      text-decoration: underline;
+    }
+
+    .sea-footer-email {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: #000;
+      text-decoration: none;
+      transition: color 0.2s;
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    @media (min-width: 768px) {
+      .sea-footer-email {
+        justify-content: flex-start;
+      }
+    }
+
+    .sea-footer-email:hover {
+      color: #155DFC;
+    }
+
+    .sea-footer-email-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: #F8FAFC;
+      border: 1px solid #f1f5f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sea-footer-bottom {
+      border-top: 1px solid #f1f5f9;
+      margin-top: 16px;
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (min-width: 768px) {
       .sea-footer-bottom {
-        border-top: 1px solid #f1f5f9;
-        margin-top: 16px;
-        padding-top: 24px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
       }
-      @media (min-width: 768px) {
-        .sea-footer-bottom {
-          flex-direction: row;
-          justify-content: space-between;
-          gap: 20px;
-        }
-      }
-      .sea-footer-copy {
-        color: #000;
-        text-transform: uppercase;
-        font-size: 12px;
-      }
-      .sea-footer-links {
-        display: flex;
-        align-items: center;
-        gap: 24px;
-      }
-      .sea-footer-links a {
-        text-transform: uppercase;
-        color: #000;
-        text-decoration: none;
-        font-size: 12px;
-        transition: color 0.2s;
-      }
-      .sea-footer-links a:hover { color: #155DFC; }
-    </style>
+    }
 
-    <!-- FOOTER -->
-    <footer class="sea-footer">
-      <div class="sea-footer-inner">
-        <!-- Main Grid -->
-        <div class="sea-footer-grid">
-          <!-- Branding -->
-          <div class="sea-footer-brand">
-            <div style="margin-top:8px">
-              <img src="/images/blackLogo.svg" alt="Logo" class="sea-footer-logo" />
-            </div>
-            <p class="sea-footer-desc">
-              Established in 2008, Seamedu is a leading media school offering
-              industry-integrated education in Sound Engineering, Film Making,
-              VFX, and Game Design.
-            </p>
-            <div class="sea-footer-socials">
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-instagram"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-              <a href="#" class="sea-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-            </div>
+    .sea-footer-copy {
+      color: #000;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    .sea-footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .sea-footer-links a {
+      text-transform: uppercase;
+      color: #000;
+      text-decoration: none;
+      font-size: 12px;
+      transition: color 0.2s;
+    }
+
+    .sea-footer-links a:hover {
+      color: #155DFC;
+    }
+  </style>
+
+  <!-- FOOTER -->
+  <footer class="sea-footer">
+    <div class="sea-footer-inner">
+      <!-- Main Grid -->
+      <div class="sea-footer-grid">
+        <!-- Branding -->
+        <div class="sea-footer-brand">
+          <div style="margin-top:8px">
+            <img src="/images/blackLogo.svg" alt="Logo" class="sea-footer-logo" />
           </div>
-
-          <!-- Information -->
-          <div class="sea-footer-col">
-            <h6>Information</h6>
-            <ul>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Our Campuses</a></li>
-              <li><a href="#">Student Placements</a></li>
-              <li><a href="#">Contact Us</a></li>
-              <li><a href="#">FAQ's</a></li>
-            </ul>
-          </div>
-
-          <!-- Schools -->
-          <div class="sea-footer-col">
-            <h6>Schools</h6>
-            <ul>
-              <li><a href="#">Design</a></li>
-              <li><a href="#">Media</a></li>
-              <li><a href="#">Technology</a></li>
-              <li><a href="#">Management</a></li>
-              <li><a href="#">Hospitality</a></li>
-            </ul>
-          </div>
-
-          <!-- Contact -->
-          <div class="sea-footer-contact">
-            <div class="sea-footer-contact-inner">
-              <h6 style="color:#000;text-transform:uppercase;margin-top:8px;margin-bottom:24px;font-size:13px;font-weight:700">Contact With Us</h6>
-              <div class="sea-campus-list" id="campusList"></div>
-              <a href="mailto:info@seamedu.com" class="sea-footer-email">
-                <div class="sea-footer-email-icon">
-                  <i class="fa-regular fa-envelope"></i>
-                </div>
-                <span>info@seamedu.com</span>
-              </a>
-            </div>
+          <p class="sea-footer-desc">
+            Established in 2008, Seamedu is a leading media school offering
+            industry-integrated education in Sound Engineering, Film Making,
+            VFX, and Game Design.
+          </p>
+          <div class="sea-footer-socials">
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="sea-social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
           </div>
         </div>
 
-        <!-- Bottom -->
-        <div class="sea-footer-bottom">
-          <span class="sea-footer-copy">© 2025 Seamedu All Right Reserved</span>
-          <div class="sea-footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Disclaimer</a>
-            <a href="#">Terms of Service</a>
+        <!-- Information -->
+        <div class="sea-footer-col">
+          <h6>Information</h6>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Campuses</a></li>
+            <li><a href="#">Student Placements</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ's</a></li>
+          </ul>
+        </div>
+
+        <!-- Schools -->
+        <div class="sea-footer-col">
+          <h6>Schools</h6>
+          <ul>
+            <li><a href="#">Design</a></li>
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Management</a></li>
+            <li><a href="#">Hospitality</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div class="sea-footer-contact">
+          <div class="sea-footer-contact-inner">
+            <h6
+              style="color:#000;text-transform:uppercase;margin-top:8px;margin-bottom:24px;font-size:13px;font-weight:700">
+              Contact With Us</h6>
+            <div class="sea-campus-list" id="campusList"></div>
+            <a href="mailto:info@seamedu.com" class="sea-footer-email">
+              <div class="sea-footer-email-icon">
+                <i class="fa-regular fa-envelope"></i>
+              </div>
+              <span>info@seamedu.com</span>
+            </a>
           </div>
         </div>
       </div>
-    </footer>
 
-    <script>
-      (function() {
-        var campuses = [
-          { detail: "BALEWADI, Pune", name: "Head Office", address: "6th Floor, Solitaire Business Hub, Balewadi High St, Pune", tels: ["+91 8530203440", "+91 8999761319"] },
-          { detail: "Lohegaon, Pune", name: "ADPYU Campus", tels: ["+91 8530203440"] },
-          { detail: "Ambi, Pune", name: "DY Patil Campus", tels: ["+91 8999711619"] },
-          { detail: "Gurugram", name: "NCU Campus", tels: ["+91 7338299301"] },
-          { detail: "Kolkata", name: "TIU Campus", tels: ["+91 7338299301"] }
-        ];
-        var campusList = document.getElementById("campusList");
-        if (!campusList) return;
-        campuses.forEach(function(campus) {
-          var item = document.createElement("div");
-          item.className = "campus-item";
-          item.innerHTML =
-            '<button class="campus-btn">' +
-              '<div style="display:flex;flex-direction:column">' +
-                '<p>' + campus.name + '</p>' +
-                '<span>' + campus.detail + '</span>' +
-              '</div>' +
-              '<i class="fa-solid fa-chevron-down"></i>' +
-            '</button>' +
-            '<div class="campus-content">' +
-              (campus.address ? '<p>' + campus.address + '</p>' : '') +
-              '<div class="campus-phones">' +
-                campus.tels.map(function(tel) {
-                  return '<a href="tel:' + tel + '"><i class="fa-solid fa-phone"></i>' + tel + '</a>';
-                }).join("") +
-              '</div>' +
-            '</div>';
-          var btn = item.querySelector(".campus-btn");
-          btn.addEventListener("click", function() {
-            var active = campusList.querySelector(".campus-item.active");
-            if (active && active !== item) active.classList.remove("active");
-            item.classList.toggle("active");
-          });
-          campusList.appendChild(item);
+      <!-- Bottom -->
+      <div class="sea-footer-bottom">
+        <span class="sea-footer-copy">© 2025 Seamedu All Right Reserved</span>
+        <div class="sea-footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Disclaimer</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var campuses = [
+        { detail: "BALEWADI, Pune", name: "Head Office", address: "6th Floor, Solitaire Business Hub, Balewadi High St, Pune", tels: ["+91 8530203440", "+91 8999761319"] },
+        { detail: "Lohegaon, Pune", name: "ADPYU Campus", tels: ["+91 8530203440"] },
+        { detail: "Ambi, Pune", name: "DY Patil Campus", tels: ["+91 8999711619"] },
+        { detail: "Gurugram", name: "NCU Campus", tels: ["+91 7338299301"] },
+        { detail: "Kolkata", name: "TIU Campus", tels: ["+91 7338299301"] }
+      ];
+      var campusList = document.getElementById("campusList");
+      if (!campusList) return;
+      campuses.forEach(function (campus) {
+        var item = document.createElement("div");
+        item.className = "campus-item";
+        item.innerHTML =
+          '<button class="campus-btn">' +
+          '<div style="display:flex;flex-direction:column">' +
+          '<p>' + campus.name + '</p>' +
+          '<span>' + campus.detail + '</span>' +
+          '</div>' +
+          '<i class="fa-solid fa-chevron-down"></i>' +
+          '</button>' +
+          '<div class="campus-content">' +
+          (campus.address ? '<p>' + campus.address + '</p>' : '') +
+          '<div class="campus-phones">' +
+          campus.tels.map(function (tel) {
+            return '<a href="tel:' + tel + '"><i class="fa-solid fa-phone"></i>' + tel + '</a>';
+          }).join("") +
+          '</div>' +
+          '</div>';
+        var btn = item.querySelector(".campus-btn");
+        btn.addEventListener("click", function () {
+          var active = campusList.querySelector(".campus-item.active");
+          if (active && active !== item) active.classList.remove("active");
+          item.classList.toggle("active");
         });
-        var first = campusList.querySelector(".campus-item");
-        if (first) first.classList.add("active");
-      })();
-    </script>
+        campusList.appendChild(item);
+      });
+      var first = campusList.querySelector(".campus-item");
+      if (first) first.classList.add("active");
+    })();
+  </script>
 
 
 
@@ -3709,5 +3898,16 @@
     });
   </script>
 
-  </body>
+
+    <!-- ENQUIRE NOW BUTTON -->
+    <button
+      style="position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 9999; background-color: #155DFC; width: 40px; height: 160px; border-top-left-radius: 16px; border-bottom-left-radius: 16px; border: none; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; cursor: pointer; padding: 0;"
+      onmouseover="this.style.backgroundColor='#1D4ED8'"
+      onmouseout="this.style.backgroundColor='#155DFC'">
+      <span style="transform: rotate(-90deg); display: block; white-space: nowrap; color: #ffffff; text-transform: uppercase; font-family: 'Poppins', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1px;">
+        Enquire Now
+      </span>
+    </button>
+</body>
+
 </html>
